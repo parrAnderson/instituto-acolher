@@ -20,5 +20,5 @@
             console.log('Component mounted.')
         } 
     }  
-</script>  
+</script>
  
