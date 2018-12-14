@@ -1,20 +1,19 @@
 <template>
-    <div>
-        <div class="row text-center">
-            <div class="col-12">
-                Rua Antônio Cristóvam, 134 - Jardim Bom Clima - Guarulhos / SP - CEP 07122-120
-            </div>
-            <div class="col-12">
-                www.acolher.org | acolher.instituto@hotmail.com
-            </div>                      
-        
-        </div>
+  <div>
+   <div class="container">
+        <div class="row justify-content-center">
+      <div class="col-12 bg-light">        
+            <p class="text-center">Rua Antônio Cristóvam, 134 - Jardim Bom Clima - Guarulhos / SP - CEP 07122-120<br>
+            www.acolher.org | acolher.instituto@hotmail.com</p>         
+      </div>
     </div>
+   </div>
+  </div>
 </template>
 
-<script> 
+<script>
 export default {
-    name:"Footer"
-}
+  name: "Footer"
+};
 </script>
 

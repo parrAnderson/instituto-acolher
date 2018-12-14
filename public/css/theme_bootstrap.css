@@ -1,0 +1,20 @@
+.btn-primary {
+  color: #fff;
+  background-color: #325D88;
+  border-color: #325D88;
+}
+.text-primary {
+  color:#325D88! important;
+}
+
+.row-login{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #1e7e34;
+  border-color: #469408;
+}
+
