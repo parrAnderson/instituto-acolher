@@ -3,7 +3,7 @@
         <nav-header></nav-header>
 
         <div class="container">
-            <div class="row">
+            <div class="row row-space">
                 <div class="col-12">
                     <h2 class="text-center">Intitucional</h2>
                     <div class="container">
@@ -164,8 +164,7 @@
                                         <strong>Nilton e Salette de Almeida</strong>, no ano de
                                         1985 (há 33 anos portanto), na
                                         <strong>companhia de amigos e vizinhos</strong>.
-                                        </span>
-                                        </span>
+                                       
                                     </p>
                                     <p>
                                         Sob a égide da
@@ -179,12 +178,11 @@
                                         participantes, como forma de
                                         <strong>expandir</strong> a distribuição dos
                                         <strong>bálsamos</strong>produzidos
-                                        </span>
+                                        
                                         durante os encontros a
                                         <strong>mais lares</strong>e para um maior número de
                                         <strong>irmãos encarnados e desencarnados</strong>.
-                                        </span>
-                                        </span>
+                                        
                                     </p>                                 
                                     <p>
                                         Atualmente o grupo conta com
@@ -192,8 +190,7 @@
                                         reuniões semanais, os quais procuram aplicar os
                                         ensinamentos e métodos adotados pelo irmão Nilton de
                                         Almeida, mesmo após a sua partida para a Pátria Espiritual,
-                                        em Julho de 2017.</span>
-                                        </span>
+                                        em Julho de 2017.
                                     </p>
 
                                 </div>

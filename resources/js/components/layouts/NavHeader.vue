@@ -1,12 +1,10 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row nav-top">
       <div class="col-md-2">
-        <img class="img-fluid align-center" src="/img/logo.png" alt>
+        <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
       </div>
-      <div class="col-md-10">
-  
-          
+      <div class="col-md-10">           
           <div class="row row-login">
             <div class="col-12 text-right">              
              <button class="btn btn-success btn-sm">Login</button>                                     
@@ -14,7 +12,7 @@
          
             </div>
           </div>
-          <div class="row text-right">
+          <div class="row text-right"> 
             <div class="col-12">
               
             </div>
@@ -49,16 +47,26 @@
                 </router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sede e Recursos</a>
+                 <router-link to="/sederecursos">
+                  <a class="nav-link" href="#">Sede e Recursos</a>
+                </router-link>                
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Direção</a>
+                                 <router-link to="/direcao">
+                  <a class="nav-link" href="#">Direção</a>
+                </router-link>   
+    
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Publicação</a>
+                <li class="nav-item">
+                  <router-link to="/publicacoes">
+                  <a class="nav-link" href="#">Publicação</a>
+                </router-link>   
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contato</a>
+                 <router-link to="/contato">
+                  <a class="nav-link" href="#">Contato</a>
+                </router-link>   
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Horario de Atendimento</a>

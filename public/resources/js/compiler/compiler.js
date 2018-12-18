@@ -471,12 +471,121 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SedeRecursos.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SedeRecursos.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
+/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "SedeRecursos",
   components: {
     NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -601,6 +710,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
   mounted: function mounted() {
@@ -622,7 +739,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -1353,7 +1470,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("h2", { staticClass: "text-center" }, [_vm._v("QUEM SOMOS")]),
           _vm._v(" "),
@@ -1571,7 +1688,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("h2", { staticClass: "text-center" }, [_vm._v("Intitucional")]),
           _vm._v(" "),
@@ -1804,7 +1921,9 @@ var staticRenderFns = [
                   ", no ano de\n                                    1985 (há 33 anos portanto), na\n                                    "
                 ),
                 _c("strong", [_vm._v("companhia de amigos e vizinhos")]),
-                _vm._v(".\n                                    ")
+                _vm._v(
+                  ".\n                                   \n                                "
+                )
               ]),
               _vm._v(" "),
               _c("p", [
@@ -1832,23 +1951,272 @@ var staticRenderFns = [
                   " a distribuição dos\n                                    "
                 ),
                 _c("strong", [_vm._v("bálsamos")]),
-                _vm._v("produzidos\n                                    "),
                 _vm._v(
-                  "\n                                    durante os encontros a\n                                    "
+                  "produzidos\n                                    \n                                    durante os encontros a\n                                    "
                 ),
                 _c("strong", [_vm._v("mais lares")]),
                 _vm._v(
                   "e para um maior número de\n                                    "
                 ),
                 _c("strong", [_vm._v("irmãos encarnados e desencarnados")]),
-                _vm._v(".\n                                    ")
+                _vm._v(
+                  ".\n                                    \n                                "
+                )
               ]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n                                    Atualmente o grupo conta com\n                                    aproximadamente 15 irmãos com participação assídua em suas\n                                    reuniões semanais, os quais procuram aplicar os\n                                    ensinamentos e métodos adotados pelo irmão Nilton de\n                                    Almeida, mesmo após a sua partida para a Pátria Espiritual,\n                                    em Julho de 2017."
+                  "\n                                    Atualmente o grupo conta com\n                                    aproximadamente 15 irmãos com participação assídua em suas\n                                    reuniões semanais, os quais procuram aplicar os\n                                    ensinamentos e métodos adotados pelo irmão Nilton de\n                                    Almeida, mesmo após a sua partida para a Pátria Espiritual,\n                                    em Julho de 2017.\n                                "
                 )
               ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SedeRecursos.vue?vue&type=template&id=7cc127b0&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SedeRecursos.vue?vue&type=template&id=7cc127b0& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [_c("nav-header"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("Footer")],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row row-space" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("h2", { staticClass: "text-center" }, [_vm._v("SEDE E RECURSOS")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("  \nO Instituto "),
+            _c("span", { staticClass: "font-weight-bold text-primary" }, [
+              _vm._v("Acolher")
+            ]),
+            _vm._v(" possui \n"),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("Sede Própria")
+            ]),
+            _vm._v(
+              " (disponibilizada através de comodato sem custos) onde\nocorrem as "
+            ),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("atividades")
+            ]),
+            _vm._v(" dos \n"),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("diferentes grupos")
+            ]),
+            _vm._v(
+              " que o constitui, \nbem como as iniciativas decorrentes\ndo próprio instituto."
+            ),
+            _c("br"),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Todas")]),
+            _vm._v(" as atividades de "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("assistência")
+            ]),
+            _vm._v("\n e "),
+            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("apoio")]),
+            _vm._v(" a "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("necessitados")
+            ]),
+            _vm._v("\n oferecidas nas dependências do\nInstituto "),
+            _c("span", { staticClass: "font-weight-bold text-primary" }, [
+              _vm._v("Acolher")
+            ]),
+            _vm._v(" são prestadas de maneira \n"),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("totalmente gratuita.")
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v(
+                "Em hipótese alguma pessoas em atendimento serão chamadas\n     a contribuir financeiramente com o instituto."
+              )
+            ]),
+            _vm._v("\n Da mesma forma, são "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("vetadas")
+            ]),
+            _vm._v(" as práticas de \n "),
+            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("venda")]),
+            _vm._v(" de "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("rifas, ingressos ")
+            ]),
+            _vm._v("\n ou "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("convites, durante ")
+            ]),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("sessões")
+            ]),
+            _vm._v("\n  de "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("atendimento,")
+            ]),
+            _vm._v(" ocorridas nas dependências do \n Instituto "),
+            _c("span", { staticClass: "font-weight-bold text-primary" }, [
+              _vm._v("Acolher.")
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _c("br"),
+            _vm._v("\n\nNo caso de "),
+            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Cursos")]),
+            _vm._v(" e "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("Palestras>,")
+            ]),
+            _vm._v("\n     poderão ser estabelecidas "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("taxas de contribuição")
+            ]),
+            _vm._v("\na serem "),
+            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("pagas")]),
+            _vm._v(" pelos "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("participantes,")
+            ]),
+            _vm._v(" \n    como forma de "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("auxílio")
+            ]),
+            _vm._v(" nas \n    "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("despesas gerais,")
+            ]),
+            _vm._v("\n tais como: elaboração de "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("materiais de estudo,")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("manutenção")
+            ]),
+            _vm._v(", "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("limpeza")
+            ]),
+            _vm._v(" etc. "),
+            _c("br"),
+            _c("br"),
+            _vm._v("\n\nOs "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("interessados")
+            ]),
+            _vm._v(" em \n"),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("contribuir financeiramente")
+            ]),
+            _vm._v(" com o Instituto \n"),
+            _c("span", { staticClass: "font-weight-bold text-primary" }, [
+              _vm._v("Acolher")
+            ]),
+            _vm._v(
+              " poderão fazê-lo\natravés das seguintes modalidades previstas em seu Estatuto: "
+            ),
+            _c("br"),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Colaboradores Efetivos:")
+                ]),
+                _vm._v(
+                  " membros registrados na secretaria do Instituto\ncomprometidos em efetuar contribuição mensal no valor de R$ 60,00.\n    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Colaboradores Eventuais:")
+                ]),
+                _vm._v(
+                  " membros registrados na secretaria do Instituto\ncomprometidos em efetuar contribuições regulares (em valor a ser acordado\nentre o colaborador e o Instituto).\n    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Simpatizantes:")
+                ]),
+                _vm._v(
+                  " pessoas interessadas em contribuir pontualmente ou sem interesse\nem assumir compromisso de contribuição.\n    "
+                )
+              ])
+            ]),
+            _vm._v("\n\nO "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("registro")
+            ]),
+            _vm._v(" de "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("colaboradores")
+            ]),
+            _vm._v("\n na secretaria do Instituto "),
+            _c("span", { staticClass: "font-weight-bold text-primary" }, [
+              _vm._v("Acolher")
+            ]),
+            _vm._v(" é \n "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("confidencial")
+            ]),
+            _vm._v(" e "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("sigiloso,")
+            ]),
+            _vm._v("\n  sendo mantido "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("exclusivamente")
+            ]),
+            _vm._v(" para o devido \n  "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("planejamento financeiro")
+            ]),
+            _vm._v(" da\ninstituição e para "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("prestação de contas")
+            ]),
+            _vm._v(" ao \n"),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("Conselho Fiscal.")
             ])
           ])
         ])
@@ -1886,7 +2254,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "row row-space justify-content-center" }, [
           _c("div", { staticClass: "col-12 bg-light" }, [
             _c("p", { staticClass: "text-center" }, [
               _vm._v(
@@ -1925,7 +2293,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "row nav-top" }, [
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
@@ -1984,19 +2352,72 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/sederecursos" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Sede e Recursos")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/direcao" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Direção")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/publicacoes" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Publicação")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/contato" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Contato")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
                   _vm._m(4),
                   _vm._v(" "),
                   _vm._m(5),
                   _vm._v(" "),
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _vm._m(7),
-                  _vm._v(" "),
-                  _vm._m(8),
-                  _vm._v(" "),
-                  _vm._m(9),
-                  _vm._v(" "),
-                  _vm._m(10)
+                  _vm._m(6)
                 ])
               ]
             )
@@ -2014,7 +2435,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-md-2" }, [
       _c("img", {
         staticClass: "img-fluid align-center",
-        attrs: { src: "/img/logo.png", alt: "" }
+        attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
       })
     ])
   },
@@ -2061,46 +2482,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Sede e Recursos")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Direção")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Publicação")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Contato")
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -2540,6 +2921,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/SedeRecursos.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/SedeRecursos.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SedeRecursos_vue_vue_type_template_id_7cc127b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SedeRecursos.vue?vue&type=template&id=7cc127b0& */ "./resources/js/components/SedeRecursos.vue?vue&type=template&id=7cc127b0&");
+/* harmony import */ var _SedeRecursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SedeRecursos.vue?vue&type=script&lang=js& */ "./resources/js/components/SedeRecursos.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SedeRecursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SedeRecursos_vue_vue_type_template_id_7cc127b0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SedeRecursos_vue_vue_type_template_id_7cc127b0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SedeRecursos.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SedeRecursos.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/SedeRecursos.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SedeRecursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SedeRecursos.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SedeRecursos.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SedeRecursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SedeRecursos.vue?vue&type=template&id=7cc127b0&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/SedeRecursos.vue?vue&type=template&id=7cc127b0& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SedeRecursos_vue_vue_type_template_id_7cc127b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SedeRecursos.vue?vue&type=template&id=7cc127b0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SedeRecursos.vue?vue&type=template&id=7cc127b0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SedeRecursos_vue_vue_type_template_id_7cc127b0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SedeRecursos_vue_vue_type_template_id_7cc127b0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/layouts/Footer.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/layouts/Footer.vue ***!
@@ -2679,9 +3129,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 1:
-/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/components/App.vue ./resources/js/components/ExampleComponent.vue ./resources/js/components/Home.vue ./resources/js/components/Institucional.vue ./resources/js/components/layouts/Footer.vue ./resources/js/components/layouts/NavHeader.vue ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/components/App.vue ./resources/js/components/ExampleComponent.vue ./resources/js/components/Home.vue ./resources/js/components/Institucional.vue ./resources/js/components/SedeRecursos.vue ./resources/js/components/layouts/Footer.vue ./resources/js/components/layouts/NavHeader.vue ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2689,6 +3139,7 @@ __webpack_require__(/*! /opt/lampp/htdocs/acolher/resources/js/components/App.vu
 __webpack_require__(/*! /opt/lampp/htdocs/acolher/resources/js/components/ExampleComponent.vue */"./resources/js/components/ExampleComponent.vue");
 __webpack_require__(/*! /opt/lampp/htdocs/acolher/resources/js/components/Home.vue */"./resources/js/components/Home.vue");
 __webpack_require__(/*! /opt/lampp/htdocs/acolher/resources/js/components/Institucional.vue */"./resources/js/components/Institucional.vue");
+__webpack_require__(/*! /opt/lampp/htdocs/acolher/resources/js/components/SedeRecursos.vue */"./resources/js/components/SedeRecursos.vue");
 __webpack_require__(/*! /opt/lampp/htdocs/acolher/resources/js/components/layouts/Footer.vue */"./resources/js/components/layouts/Footer.vue");
 module.exports = __webpack_require__(/*! /opt/lampp/htdocs/acolher/resources/js/components/layouts/NavHeader.vue */"./resources/js/components/layouts/NavHeader.vue");
 
