@@ -54,7 +54,7 @@
               <li class="nav-item">
                                  <router-link to="/direcao">
                   <a class="nav-link" href="#">Direção</a>
-                </router-link>   
+                </router-link>  
     
               </li>
               <li class="nav-item">
@@ -68,11 +68,14 @@
                   <a class="nav-link" href="#">Contato</a>
                 </router-link>   
               </li>
- <router-link to="/horariodeatendimento">
-                  <a class="nav-link" href="#">Horarios de Atendimento</a>
+                <router-link to="/horariodeatendimento">
+                  <a class="nav-link" href="#">Horarios</a>
                 </router-link>  
               <li class="nav-item">
-                <a class="nav-link" href="#">Semar</a>
+                <router-link to="/semear">
+                 <a class="nav-link" href="#">Semear</a>
+                </router-link>  
+                
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Formulários</a>
