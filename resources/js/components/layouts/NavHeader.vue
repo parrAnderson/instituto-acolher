@@ -68,9 +68,9 @@
                   <a class="nav-link" href="#">Contato</a>
                 </router-link>   
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Horario de Atendimento</a>
-              </li>
+ <router-link to="/horariodeatendimento">
+                  <a class="nav-link" href="#">Horarios de Atendimento</a>
+                </router-link>  
               <li class="nav-item">
                 <a class="nav-link" href="#">Semar</a>
               </li>
