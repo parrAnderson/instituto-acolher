@@ -9,6 +9,8 @@ import Publicacoes from './components/Publicacoes'
 import Contato from './components/Contato'
 import HorarioAtendimento from './components/HorarioAtendimento'
 import Semear from './components/Semear'
+import AtendimentoAdulto from './components/formularios/AtendimentoAdulto'
+
 
 const routes = [
     {path:'/', name:'home', component: Home},
@@ -19,6 +21,7 @@ const routes = [
     {path:'/contato', name:'contato', component: Contato},
     {path:'/horariodeatendimento', name:'horariodeatendimento', component: HorarioAtendimento},
     {path:'/semear', name:'semear', component: Semear},
+    {path:'/formularios/atendimentoadulto', name:'formularios/atendimentoadulto', component: AtendimentoAdulto},
 ]
 
 
