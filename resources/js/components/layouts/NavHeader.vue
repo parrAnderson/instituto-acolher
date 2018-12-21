@@ -77,9 +77,18 @@
                 </router-link>  
                 
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Formulários</a>
-              </li>
+                <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-hover="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Formulários
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <router-link to="/formularios/atendimentoadulto">
+                 <a class="dropdown-item" href="#">Cadastro Prévio para Atendimento a Adulto 1ª Vez</a> 
+                </router-link> 
+                  
+        </div>
+      </li>
+             
             </ul>
           </div>
         </nav>
