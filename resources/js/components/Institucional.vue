@@ -183,7 +183,7 @@
                                         <strong>mais lares</strong>e para um maior número de
                                         <strong>irmãos encarnados e desencarnados</strong>.
                                         
-                                    </p>                                 
+                                    </p>                                
                                     <p>
                                         Atualmente o grupo conta com
                                         aproximadamente 15 irmãos com participação assídua em suas

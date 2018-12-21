@@ -336,7 +336,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -884,6 +883,217 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
 /* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
 /* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3606,35 +3816,173 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "row row-space justify-content-center" }, [
-          _c("div", { staticClass: "col-8" }, [
-            _vm._m(1),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "mask",
+                    rawName: "v-mask",
+                    value: "##/##/####",
+                    expression: "'##/##/####'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Data de Nascimento*" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                placeholder: "Nome Completo da Pessoa a ser Atendida *"
-              }
-            }),
+            _vm._m(3)
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "mask",
+                    rawName: "v-mask",
+                    value: "###.###.###.##",
+                    expression: "'###.###.###.##'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "CPF *" }
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "mask",
-                  rawName: "v-mask",
-                  value: "##/##/####",
-                  expression: "'##/##/####'"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                placeholder: "Data de Nascimento (DD/MM/AAAA)*"
-              }
-            })
-          ])
-        ])
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "mask",
+                    rawName: "v-mask",
+                    value: "##.###.###.#",
+                    expression: "'##.###.###.#'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "RG *" }
+              })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "mask",
+                    rawName: "v-mask",
+                    value: "(##)#####-####",
+                    expression: "'(##)#####-####'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Telefone Celular" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "mask",
+                    rawName: "v-mask",
+                    value: "(##)####-####",
+                    expression: "'(##)####-####'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Telefone Fixo" }
+              })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "mask",
+                    rawName: "v-mask",
+                    value: "#####-###",
+                    expression: "'#####-###'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "CEP *" }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(6)
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(7),
+        _vm._v(" "),
+        _vm._m(8),
+        _vm._v(" "),
+        _vm._m(9),
+        _vm._v(" "),
+        _vm._m(10),
+        _vm._v(" "),
+        _vm._m(11),
+        _vm._v(" "),
+        _vm._m(12),
+        _vm._v(" "),
+        _vm._m(13),
+        _vm._v(" "),
+        _vm._m(14),
+        _vm._v(" "),
+        _vm._m(15),
+        _vm._v(" "),
+        _vm._m(16),
+        _vm._v(" "),
+        _vm._m(17),
+        _vm._v(" "),
+        _vm._m(18),
+        _vm._v(" "),
+        _vm._m(19),
+        _vm._v(" "),
+        _vm._m(20),
+        _vm._v(" "),
+        _vm._m(21),
+        _vm._v(" "),
+        _vm._m(22),
+        _vm._v(" "),
+        _vm._m(23),
+        _vm._v(" "),
+        _vm._m(24),
+        _vm._v(" "),
+        _vm._m(25),
+        _vm._v(" "),
+        _vm._m(26),
+        _vm._v(" "),
+        _vm._m(27)
       ]),
       _vm._v(" "),
       _c("Footer")
@@ -3660,11 +4008,548 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "select",
-      { staticClass: "form-control", attrs: { name: "atividade", id: "" } },
+      "div",
+      { staticClass: "row row-space justify-content-center row-space-form" },
       [
-        _c("option", { attrs: { disable: "" } }, [
-          _vm._v("Indique a atividade de qual pretende receber atendimento *")
+        _c("div", { staticClass: "col-8 " }, [
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { name: "atividade", id: "" }
+            },
+            [
+              _c("option", { attrs: { disable: "" } }, [
+                _vm._v(
+                  "Indique a atividade de qual pretende receber atendimento *"
+                )
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Nome Completo da Pessoa a ser Atendida *"
+            }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c(
+        "select",
+        { staticClass: "form-control", attrs: { name: "genero", id: "" } },
+        [_c("option", { attrs: { disable: "" } }, [_vm._v("Gênero *")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Email *" }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { name: "estadocivil", id: "" }
+            },
+            [
+              _c("option", { attrs: { disable: "" } }, [
+                _vm._v("Estado Civil *")
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { name: "religiao", id: "" }
+            },
+            [_c("option", { attrs: { disable: "" } }, [_vm._v("Religião *")])]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Bairro *" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Logradouro" }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Número *" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Complemento *" }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Município *" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            { staticClass: "form-control", attrs: { name: "estado", id: "" } },
+            [_c("option", { attrs: { disable: "" } }, [_vm._v("Estado *")])]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            { staticClass: "form-control", attrs: { name: "fumante", id: "" } },
+            [_c("option", { attrs: { disable: "" } }, [_vm._v("É Fumante? *")])]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            { staticClass: "form-control", attrs: { name: "bebida", id: "" } },
+            [
+              _c("option", { attrs: { disable: "" } }, [
+                _vm._v("Consome Bebida Alcólica? *")
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            attrs: {
+              rows: "3",
+              placeholder: "Caso possua outro vicio, indique aqui"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            attrs: {
+              rows: "3",
+              placeholder: "Se está sob tratamento médico, indique aqui"
+            }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v(
+                "Já frequentou ou frequenta alguma casa Kardecista / Espírita? *"
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Já frequentou ou frequenta alguma casa Apômetra? *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Já frequentou ou frequenta alguma casa Apômetra? *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Já frequentou ou frequenta alguma casa Umbandista? *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Tem conhecimento da doutrina Kardecista / Espírita? *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v(
+                "Tem conhecimento da técnica de Apometria codificada pelo Dr. Lacerda? *"
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Tem conhecimento dos principios da Umbanda *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Já leu o Livro dos Espíritos *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Já leu o Livro dos Médiuns *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Já leu o Livro o Evangelho Segundo o Espiritismo? *")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v(
+                "Já leu Espirito e Matéria: Um Novo Horizonte para a Medicina? *"
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder:
+                "Caso deseje, indique outros livros espiritualistas que já tenha lido."
+            }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Como soube do Acolher? *" }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("select", { staticClass: "form-control", attrs: { id: "" } }, [
+            _c("option", { attrs: { disable: "" } }, [
+              _vm._v("Caso tenha recebido uma indicação assinale abaixo:")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder:
+                "informe o nome da pessoa que lhe indicou o Acolher *"
+            }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            attrs: {
+              rows: "3",
+              placeholder:
+                "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
+            }
+          })
         ])
       ]
     )
