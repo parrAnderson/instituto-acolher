@@ -1262,14 +1262,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
   mounted: function mounted() {
@@ -4888,8 +4880,8 @@ var staticRenderFns = [
         attrs: {
           type: "button",
           "data-toggle": "collapse",
-          "data-target": "#navbarText",
-          "aria-controls": "navbarText",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
           "aria-expanded": "false",
           "aria-label": "Toggle navigation"
         }
