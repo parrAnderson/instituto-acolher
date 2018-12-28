@@ -106,8 +106,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -19728,6 +19726,10 @@ var routes = [{
   path: '/formularios/atendimentoadulto',
   name: 'formularios/atendimentoadulto',
   component: _components_formularios_AtendimentoAdulto__WEBPACK_IMPORTED_MODULE_8__["default"]
+}, {
+  path: '/admin/',
+  name: 'home',
+  component: _components_Home__WEBPACK_IMPORTED_MODULE_0__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 

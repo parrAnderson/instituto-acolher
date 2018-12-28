@@ -1,5 +1,6 @@
 {
     "/js/main.js": "/js/main.js",
     "/css/theme_bootstrap.scss": "/css/theme_bootstrap.scss",
+    "/js/main-admin.js": "/js/main-admin.js",
     "/resources/js/compiler/compiler.js": "/resources/js/compiler/compiler.js"
 }

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,8 +97,6 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
-//
-//
 //
 //
 //
@@ -4447,7 +4445,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** multi ./resources/js/components/App.vue ./resources/js/components/Contato.vue ./resources/js/components/Direcao.vue ./resources/js/components/ExampleComponent.vue ./resources/js/components/Home.vue ./resources/js/components/HorarioAtendimento.vue ./resources/js/components/Institucional.vue ./resources/js/components/Publicacoes.vue ./resources/js/components/SedeRecursos.vue ./resources/js/components/Semear.vue ./resources/js/components/layouts/Footer.vue ./resources/js/components/layouts/NavHeader.vue ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/

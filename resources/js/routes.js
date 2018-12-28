@@ -22,6 +22,9 @@ const routes = [
     {path:'/horariodeatendimento', name:'horariodeatendimento', component: HorarioAtendimento},
     {path:'/semear', name:'semear', component: Semear},
     {path:'/formularios/atendimentoadulto', name:'formularios/atendimentoadulto', component: AtendimentoAdulto},
+
+    {path:'/admin/', name:'home', component: Home},
+
 ]
 
 
