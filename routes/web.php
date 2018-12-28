@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/inicio', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -43,3 +43,16 @@ Route::group(['as' => 'admin.','prefix' => 'admin'],function(){
     });
 }); 
 /* FIM ROTAS ADMINISTRADOR */
+
+Route::group(['as' => 'usuario.','prefix' => 'usuario'],function(){  
+    Route::group(['middleware' => ['auth:web']], function(){  
+
+       
+        Route::get('/', function () {
+            return('usuario Logado');
+        });
+
+    });
+}); 
+/* FIM ROTAS ADMINISTRADOR */
+
