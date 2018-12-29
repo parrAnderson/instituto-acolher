@@ -6,9 +6,11 @@
       </div>
       <div class="col-md-10">           
           <div class="row row-login">
-            <div class="col-12 text-right">              
-             <button class="btn btn-success btn-sm">Login</button>                                     
-            <button class="btn btn-primary btn-sm">Acesso Restrito</button>                      
+            <div class="col-12 text-right">  
+              <router-link to="/login">            
+             <button class="btn btn-success btn-sm">Login</button>  
+              </router-link>                                   
+            <button class="btn btn-primary btn-sm">Cadastrar</button>                      
          
             </div>
           </div>

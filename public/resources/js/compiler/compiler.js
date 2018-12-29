@@ -1029,6 +1029,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
   mounted: function mounted() {
@@ -3207,15 +3209,32 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
-        _vm._m(1),
+        _c("div", { staticClass: "row row-login" }, [
+          _c(
+            "div",
+            { staticClass: "col-12 text-right" },
+            [
+              _c("router-link", { attrs: { to: "/login" } }, [
+                _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                  _vm._v("Login")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                _vm._v("Cadastrar")
+              ])
+            ],
+            1
+          )
+        ]),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c(
           "nav",
           { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
           [
-            _vm._m(3),
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "div",
@@ -3421,22 +3440,6 @@ var staticRenderFns = [
         staticClass: "img-fluid align-center",
         attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row row-login" }, [
-      _c("div", { staticClass: "col-12 text-right" }, [
-        _c("button", { staticClass: "btn btn-success btn-sm" }, [
-          _vm._v("Login")
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-          _vm._v("Acesso Restrito")
-        ])
-      ])
     ])
   },
   function() {
