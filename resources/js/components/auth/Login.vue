@@ -16,13 +16,13 @@
         <div class="form-group">
 
 
-            <input type="email" v-model="inputs.email" class="form-control" id="inputEmail" placeholder="E-mail">
+            <input type="email" required v-model="inputs.email" class="form-control" id="inputEmail" placeholder="E-mail">
 
         </div>
 
         <div class="form-group">
 
-            <input type="password" v-model="inputs.password" class="form-control" id="inputPassword" placeholder="Senha">
+            <input type="password" required autocomplete="off" v-model="inputs.password" class="form-control" id="inputPassword" placeholder="Senha">
 
         </div>
         <div class="forgot">
@@ -97,7 +97,7 @@ export default {
   border-radius: 2px;
   margin: 10px auto 30px;
   max-width: 38%;
-  padding: 50px 70px 70px 71px;
+  /* padding: 50px 70px 70px 71px; */
 }
 
 .login-form .form-group {

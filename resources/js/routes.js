@@ -10,7 +10,10 @@ import Contato from './components/Contato'
 import HorarioAtendimento from './components/HorarioAtendimento'
 import Semear from './components/Semear'
 import AtendimentoAdulto from './components/formularios/AtendimentoAdulto'
+
+//login
 import Login from './components/auth/Login'
+import Register from './components/auth/Register'
 
 const routes = [
     {path:'/', name:'home', component: Home},
@@ -22,8 +25,10 @@ const routes = [
     {path:'/horariodeatendimento', name:'horariodeatendimento', component: HorarioAtendimento},
     {path:'/semear', name:'semear', component: Semear},
     {path:'/formularios/atendimentoadulto', name:'formularios/atendimentoadulto', component: AtendimentoAdulto},
+    
     {path:'/login', name:'login', component: Login},
-    {path:'/admin/', name:'admin', component: Home},
+    {path:'/register', name:'register', component: Register},
+
 
 ]
 

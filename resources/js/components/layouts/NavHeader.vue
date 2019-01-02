@@ -9,8 +9,12 @@
             <div class="col-12 text-right">  
               <router-link to="/login">            
              <button class="btn btn-success btn-sm">Login</button>  
-              </router-link>                                   
-            <button class="btn btn-primary btn-sm">Cadastrar</button>                      
+              </router-link>     
+
+               <router-link to="/register">            
+                 <button class="btn btn-primary btn-sm">Cadastrar</button>    
+              </router-link>                                
+                          
          
             </div>
           </div>
@@ -71,7 +75,7 @@
                 </router-link>  
                 
               </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" v-if="login.data.user">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-hover="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Formulários
         </a>
@@ -92,10 +96,16 @@
 </template>
 
 <script>
+    import {mapState, mapActions} from 'vuex'
 export default {
   name: "NavHeader",
   mounted() {
     console.log("Component mounted.");
-  }
+  },
+    computed: {
+        ...mapState({
+            login: state => state.Login,
+        }),    
+    }
 };
 </script> 
