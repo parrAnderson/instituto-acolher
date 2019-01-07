@@ -9,6 +9,9 @@ export default {
         LOGON(state, logon) {
             state.data = logon
         },
+        REGISTER(state, register) {
+            state.data.register = register
+        },
     },
     actions: {
         Logon(context, data) {        
@@ -16,6 +19,15 @@ export default {
         axios
             .post(url, data)
               .then(response => context.commit('LOGON', response.data))
+              .catch(function (error) {
+                console.log(error);
+              });
+    },
+    Register(context, data) {        
+        let url = 'http://localhost/acolher/public/api/auth/register';        
+        axios
+            .post(url, data)
+              .then(response => context.commit('REGISTER', response.data))
               .catch(function (error) {
                 console.log(error);
               });

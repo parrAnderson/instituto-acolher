@@ -2707,7 +2707,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['Logon']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['Register']), {
     checkRequired: function checkRequired() {
       if (this.inputs.name && this.inputs.email) {
         this.errors.required = true;
@@ -2731,11 +2731,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.checkRequired();
 
       if (!this.errors.password && this.errors.required) {
-        console.log(this.inputs);
+        this.Register(this.inputs);
         this.inputs = [];
         this.validatepassword = "";
         this.$router.push({
-          name: 'home'
+          name: 'login'
         });
       } else {
         console.log("não registrado, com erros");
@@ -22939,6 +22939,9 @@ __webpack_require__.r(__webpack_exports__);
   mutations: {
     LOGON: function LOGON(state, logon) {
       state.data = logon;
+    },
+    REGISTER: function REGISTER(state, register) {
+      state.data.register = register;
     }
   },
   actions: {
@@ -22946,6 +22949,14 @@ __webpack_require__.r(__webpack_exports__);
       var url = 'http://localhost/acolher/public/api/auth/login';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
         return context.commit('LOGON', response.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    Register: function Register(context, data) {
+      var url = 'http://localhost/acolher/public/api/auth/register';
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
+        return context.commit('REGISTER', response.data);
       }).catch(function (error) {
         console.log(error);
       });

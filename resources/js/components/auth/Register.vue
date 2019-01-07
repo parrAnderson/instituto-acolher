@@ -71,8 +71,9 @@ export default {
     },
     methods: {
         ...mapActions([
-            'Logon',
+            'Register',
         ]),
+       
         checkRequired() {             
             if(this.inputs.name && this.inputs.email){
                 this.errors.required = true
@@ -95,11 +96,11 @@ export default {
             this.checkPass()
             this.checkRequired()
             if(!this.errors.password && this.errors.required){
-                console.log(this.inputs)
+                this.Register(this.inputs)
                 this.inputs = []
                 this.validatepassword = ""
                 
-                this.$router.push({ name: 'home' });
+                this.$router.push({ name: 'login' });
             }else{
                 console.log("não registrado, com erros")
             }                     
