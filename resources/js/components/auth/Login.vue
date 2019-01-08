@@ -65,6 +65,7 @@ export default {
         ]),
         logar(){
           this.Logon(this.inputs)
+          this.$router.push({ name: 'formularios/atendimentoadulto' });
         }
          },
         mounted(){

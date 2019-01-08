@@ -1040,6 +1040,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -1050,7 +1051,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     login: function login(state) {
       return state.Login;
     }
-  }))
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout']), {
+    sair: function sair() {
+      this.Logout("");
+      this.$router.push({
+        name: 'home'
+      });
+      console.log('saiu');
+    }
+  })
 });
 
 /***/ }),
@@ -3230,16 +3240,35 @@ var render = function() {
             { staticClass: "col-12 text-right" },
             [
               _c("router-link", { attrs: { to: "/login" } }, [
-                _c("button", { staticClass: "btn btn-success btn-sm" }, [
-                  _vm._v("Login")
-                ])
+                !_vm.login.data.user
+                  ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                      _vm._v("Login")
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _c("router-link", { attrs: { to: "/register" } }, [
-                _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-                  _vm._v("Cadastrar")
-                ])
-              ])
+                !_vm.login.data.user
+                  ? _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                      _vm._v("Cadastrar")
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _vm.login.data.user
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger btn-sm",
+                      on: {
+                        click: function($event) {
+                          _vm.sair()
+                        }
+                      }
+                    },
+                    [_vm._v("Sair")]
+                  )
+                : _vm._e()
             ],
             1
           )
@@ -3274,7 +3303,7 @@ var render = function() {
                             { staticClass: "nav-link", attrs: { href: "#" } },
                             [
                               _vm._v(
-                                "\n                  Home\n                  "
+                                "\n                    Home\n                    "
                               ),
                               _c("span", { staticClass: "sr-only" }, [
                                 _vm._v("(current)")
@@ -3405,7 +3434,7 @@ var render = function() {
                                 "aria-expanded": "false"
                               }
                             },
-                            [_vm._v("\n        Formulários\n      ")]
+                            [_vm._v("\n          Formulários\n        ")]
                           ),
                           _vm._v(" "),
                           _c(

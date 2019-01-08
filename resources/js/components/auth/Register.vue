@@ -33,7 +33,7 @@
 <span v-if="errors.password" class="text-danger">Senhas Diferentes</span>
                                     <div class="forgot">
                                     </div>
-                                    <button @click.prevent.stop="registrar()" type="submit" class="btn btn-primary">Login</button>
+                                    <button @click.prevent.stop="registrar()" type="submit" class="btn btn-primary">Cadastrar</button>
 
                 </form>
             </div>
