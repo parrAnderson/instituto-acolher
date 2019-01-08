@@ -22981,7 +22981,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   actions: {
     Logon: function Logon(context, data) {
-      var url = 'http://localhost/acolher/public/api/auth/login';
+      var url = '/acolher/public/api/auth/login';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
         return context.commit('LOGON', response.data);
       }).catch(function (error) {
@@ -22992,7 +22992,7 @@ __webpack_require__.r(__webpack_exports__);
       context.commit('LOGOUT', "");
     },
     Register: function Register(context, data) {
-      var url = 'http://localhost/acolher/public/api/auth/register';
+      var url = '/acolher/public/api/auth/register';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
         return context.commit('REGISTER', response.data);
       }).catch(function (error) {

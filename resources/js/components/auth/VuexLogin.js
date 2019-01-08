@@ -18,7 +18,7 @@ export default {
     },
     actions: {
         Logon(context, data) {        
-        let url = 'http://localhost/acolher/public/api/auth/login';        
+        let url = '/acolher/public/api/auth/login';        
         axios
             .post(url, data)
               .then(response => context.commit('LOGON', response.data))
@@ -34,7 +34,7 @@ export default {
     },
     
     Register(context, data) {        
-        let url = 'http://localhost/acolher/public/api/auth/register';        
+        let url = '/acolher/public/api/auth/register';        
         axios
             .post(url, data)
               .then(response => context.commit('REGISTER', response.data))
