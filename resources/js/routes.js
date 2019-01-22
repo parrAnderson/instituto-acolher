@@ -24,10 +24,12 @@ const routes = [
     {path:'/contato', name:'contato', component: Contato},
     {path:'/horariodeatendimento', name:'horariodeatendimento', component: HorarioAtendimento},
     {path:'/semear', name:'semear', component: Semear},
-    {path:'/formularios/atendimentoadulto', name:'formularios/atendimentoadulto', component: AtendimentoAdulto},
+    // {path:'/formularios/atendimentoadulto', name:'formularios/atendimentoadulto', component: AtendimentoAdulto},
     
     {path:'/login', name:'login', component: Login},
-    {path:'/register', name:'register', component: Register},
+    {path:'/register', name:'register',  name:'register', component: AtendimentoAdulto},
+  
+   
 
 
 ]

@@ -3005,6 +3005,66 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6358,7 +6418,11 @@ var render = function() {
         _vm._v(" "),
         _vm._m(26),
         _vm._v(" "),
-        _vm._m(27)
+        _vm._m(27),
+        _vm._v(" "),
+        _vm._m(28),
+        _vm._v(" "),
+        _vm._m(29)
       ]),
       _vm._v(" "),
       _c("Footer")
@@ -6373,9 +6437,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
-        _c("h4", { staticClass: "text-center" }, [
-          _vm._v("Cadastro prévio para Atendimento a adulto - 1ª vez")
-        ])
+        _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro")])
       ])
     ])
   },
@@ -6387,7 +6449,7 @@ var staticRenderFns = [
       "div",
       { staticClass: "row row-space justify-content-center row-space-form" },
       [
-        _c("div", { staticClass: "col-8 " }, [
+        _c("div", { staticClass: "col-8" }, [
           _c(
             "select",
             {
@@ -6925,6 +6987,75 @@ var staticRenderFns = [
               placeholder:
                 "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
             }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            { staticClass: "form-control", attrs: { name: "obreiro", id: "" } },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Você é obreiro?")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Sim *")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Não *")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              placeholder: "Possui algum numero de obreiro?"
+            }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            { staticClass: "form-control", attrs: { name: "droga", id: "" } },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Possui dependencia em drogas?")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Sim *")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Não *")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Se sim, qual droga?" }
           })
         ])
       ]
@@ -23268,6 +23399,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_formularios_AtendimentoAdulto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/formularios/AtendimentoAdulto */ "./resources/js/components/formularios/AtendimentoAdulto.vue");
 /* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.vue");
 /* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.vue");
+var _ref;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -23312,19 +23447,15 @@ var routes = [{
   path: '/semear',
   name: 'semear',
   component: _components_Semear__WEBPACK_IMPORTED_MODULE_7__["default"]
-}, {
-  path: '/formularios/atendimentoadulto',
-  name: 'formularios/atendimentoadulto',
-  component: _components_formularios_AtendimentoAdulto__WEBPACK_IMPORTED_MODULE_8__["default"]
-}, {
+}, // {path:'/formularios/atendimentoadulto', name:'formularios/atendimentoadulto', component: AtendimentoAdulto},
+{
   path: '/login',
   name: 'login',
   component: _components_auth_Login__WEBPACK_IMPORTED_MODULE_9__["default"]
-}, {
+}, (_ref = {
   path: '/register',
-  name: 'register',
-  component: _components_auth_Register__WEBPACK_IMPORTED_MODULE_10__["default"]
-}];
+  name: 'register'
+}, _defineProperty(_ref, "name", 'register'), _defineProperty(_ref, "component", _components_formularios_AtendimentoAdulto__WEBPACK_IMPORTED_MODULE_8__["default"]), _ref)];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 
 /***/ }),
