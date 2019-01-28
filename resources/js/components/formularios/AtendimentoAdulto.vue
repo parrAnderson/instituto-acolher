@@ -8,13 +8,7 @@
         </div>
       </div>
 
-      <div class="row row-space justify-content-center row-space-form">
-        <div class="col-8">
-          <select name="atividade" class="form-control" id>
-            <option disable>Indique a atividade de qual pretende receber atendimento *</option>
-          </select>
-        </div>
-      </div>
+     
       <div class="row justify-content-center row-space-form">
         <div class="col-8">
           <input type="text" class="form-control" placeholder="Nome Completo da Pessoa a ser Atendida *">
@@ -27,6 +21,9 @@
         <div class="col-4">
           <select name="genero" class="form-control" id>
             <option disable>Gênero *</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outros</option>
           </select>
         </div>
       </div>
@@ -56,11 +53,25 @@
         <div class="col-4">
           <select name="estadocivil" class="form-control" id>
             <option disable>Estado Civil *</option>
+             <option>Solteiro(a)</option>                    
+            <option>Casado(a)</option>                      
+            <option>União Estável</option>                      
+            <option >Separado(a) / Divorciado(a)</option>                      
+            <option>Viúvo</option>                      
+            <option>Outros</option>
           </select>
         </div>
         <div class="col-4">
           <select name="religiao" class="form-control" id>
             <option disable>Religião *</option>
+            <option>Kardecista / Espírita</option>          
+            <option>Umbandista</option>
+            <option>Católica</option>            
+            <option>Evangélica</option>            
+            <option>Budista</option>            
+            <option>Judaica</option>            
+            <option>Candomblé</option>
+            <option>Outros</option>
           </select>
         </div>
       </div>
@@ -99,14 +110,34 @@
         <div class="col-4">
           <select name="fumante" class="form-control" id>
             <option disable>É Fumante? *</option>
+            <option>Sim</option>
+            <option>Não</option>
           </select>
         </div>
         <div class="col-4">
           <select name="bebida" class="form-control" id>
             <option disable>Consome Bebida Alcólica? *</option>
+            <option>Não</option>
+            <option>Raramente</option>
+            <option>Socialmente</option>
+            <option>Mais que socialmente</option>
           </select>
         </div>
       </div>
+
+   <div class="row justify-content-center row-space-form">
+        <div class="col-4">
+          <select name="droga" class="form-control" id>
+            <option value>Possui dependencia em drogas?</option>
+            <option>Sim *</option>
+            <option>Não *</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <input type="text" class="form-control" placeholder="Se sim, qual droga?">
+        </div>
+      </div>
+
       <div class="row justify-content-center row-space-form">
         <div class="col-4">
           <textarea rows="3" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
@@ -116,6 +147,7 @@
         </div>
       </div>
 
+     
 
       <div class="row justify-content-center row-space-form">
         <div class="col-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
@@ -242,9 +274,32 @@
         </div>
       </div>
 
+        <div class="row row-space justify-content-center row-space-form">
+        <div class="col-8">
+          <select name="atividade" class="form-control" id>
+            <option disable>Indique a atividade de qual pretende receber atendimento *</option>
+          </select>
+        </div>
+      </div>
+
+
       <div class="row justify-content-center row-space-form">
         <div class="col-8">
-          <input type="text" class="form-control" placeholder="Como soube do Acolher? *">
+            
+<select  class="form-control" >
+          <option disabled>Como soube do Acolher? *</option>        
+            <option>Parente</option>          
+            <option>Amigo</option>      
+            <option>Conhecido</option>            
+            <option>Site</option>            
+            <option>Whatsapp</option>            
+            <option>Instagram</option>            
+            <option>Facebook</option>            
+            <option>Youtube</option>            
+            <option>Outros</option>
+        </select>
+
+
         </div>
       </div>
       <div class="row justify-content-center row-space-form">
@@ -277,18 +332,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-center row-space-form">
-        <div class="col-4">
-          <select name="droga" class="form-control" id>
-            <option value>Possui dependencia em drogas?</option>
-            <option>Sim *</option>
-            <option>Não *</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <input type="text" class="form-control" placeholder="Se sim, qual droga?">
-        </div>
-      </div>
+     
     </div>
     <Footer></Footer>
   </div>

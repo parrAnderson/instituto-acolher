@@ -3066,6 +3066,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6157,8 +6201,6 @@ var render = function() {
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
         _c(
           "div",
           { staticClass: "row justify-content-center row-space-form" },
@@ -6178,7 +6220,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ]
         ),
         _vm._v(" "),
@@ -6254,9 +6296,9 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(4),
+        _vm._m(3),
         _vm._v(" "),
-        _vm._m(5),
+        _vm._m(4),
         _vm._v(" "),
         _c(
           "div",
@@ -6277,9 +6319,11 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _vm._m(6)
+            _vm._m(5)
           ]
         ),
+        _vm._v(" "),
+        _vm._m(6),
         _vm._v(" "),
         _vm._m(7),
         _vm._v(" "),
@@ -6334,33 +6378,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "row row-space justify-content-center row-space-form" },
-      [
-        _c("div", { staticClass: "col-8" }, [
-          _c(
-            "select",
-            {
-              staticClass: "form-control",
-              attrs: { name: "atividade", id: "" }
-            },
-            [
-              _c("option", { attrs: { disable: "" } }, [
-                _vm._v(
-                  "Indique a atividade de qual pretende receber atendimento *"
-                )
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
       { staticClass: "row justify-content-center row-space-form" },
       [
         _c("div", { staticClass: "col-8" }, [
@@ -6383,7 +6400,15 @@ var staticRenderFns = [
       _c(
         "select",
         { staticClass: "form-control", attrs: { name: "genero", id: "" } },
-        [_c("option", { attrs: { disable: "" } }, [_vm._v("Gênero *")])]
+        [
+          _c("option", { attrs: { disable: "" } }, [_vm._v("Gênero *")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("Masculino")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("Feminino")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("Outros")])
+        ]
       )
     ])
   },
@@ -6422,7 +6447,19 @@ var staticRenderFns = [
             [
               _c("option", { attrs: { disable: "" } }, [
                 _vm._v("Estado Civil *")
-              ])
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Solteiro(a)")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Casado(a)")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("União Estável")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Separado(a) / Divorciado(a)")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Viúvo")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outros")])
             ]
           )
         ]),
@@ -6434,7 +6471,25 @@ var staticRenderFns = [
               staticClass: "form-control",
               attrs: { name: "religiao", id: "" }
             },
-            [_c("option", { attrs: { disable: "" } }, [_vm._v("Religião *")])]
+            [
+              _c("option", { attrs: { disable: "" } }, [_vm._v("Religião *")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Kardecista / Espírita")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Umbandista")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Católica")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Evangélica")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Budista")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Judaica")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Candomblé")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outros")])
+            ]
           )
         ])
       ]
@@ -6529,7 +6584,15 @@ var staticRenderFns = [
           _c(
             "select",
             { staticClass: "form-control", attrs: { name: "fumante", id: "" } },
-            [_c("option", { attrs: { disable: "" } }, [_vm._v("É Fumante? *")])]
+            [
+              _c("option", { attrs: { disable: "" } }, [
+                _vm._v("É Fumante? *")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Sim")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Não")])
+            ]
           )
         ]),
         _vm._v(" "),
@@ -6540,9 +6603,50 @@ var staticRenderFns = [
             [
               _c("option", { attrs: { disable: "" } }, [
                 _vm._v("Consome Bebida Alcólica? *")
-              ])
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Não")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Raramente")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Socialmente")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Mais que socialmente")])
             ]
           )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "select",
+            { staticClass: "form-control", attrs: { name: "droga", id: "" } },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Possui dependencia em drogas?")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Sim *")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Não *")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Se sim, qual droga?" }
+          })
         ])
       ]
     )
@@ -6866,7 +6970,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "Espirito e Matéria: Um Novo Horizonte para a\n                    Medicina?"
+                          "Espirito e Matéria: Um Novo Horizonte para a\n                      Medicina?"
                         )
                       ]
                     )
@@ -6906,13 +7010,59 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
+      { staticClass: "row row-space justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { name: "atividade", id: "" }
+            },
+            [
+              _c("option", { attrs: { disable: "" } }, [
+                _vm._v(
+                  "Indique a atividade de qual pretende receber atendimento *"
+                )
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
       { staticClass: "row justify-content-center row-space-form" },
       [
         _c("div", { staticClass: "col-8" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Como soube do Acolher? *" }
-          })
+          _c("select", { staticClass: "form-control" }, [
+            _c("option", { attrs: { disabled: "" } }, [
+              _vm._v("Como soube do Acolher? *")
+            ]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Parente")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Amigo")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Conhecido")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Site")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Whatsapp")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Instagram")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Facebook")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Youtube")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Outros")])
+          ])
         ])
       ]
     )
@@ -7008,39 +7158,6 @@ var staticRenderFns = [
               type: "number",
               placeholder: "Possui algum numero de obreiro?"
             }
-          })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row justify-content-center row-space-form" },
-      [
-        _c("div", { staticClass: "col-4" }, [
-          _c(
-            "select",
-            { staticClass: "form-control", attrs: { name: "droga", id: "" } },
-            [
-              _c("option", { attrs: { value: "" } }, [
-                _vm._v("Possui dependencia em drogas?")
-              ]),
-              _vm._v(" "),
-              _c("option", [_vm._v("Sim *")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("Não *")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Se sim, qual droga?" }
           })
         ])
       ]
