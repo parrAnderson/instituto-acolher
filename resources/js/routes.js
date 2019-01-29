@@ -12,7 +12,7 @@ import Semear from './components/Semear'
 import AtendimentoAdulto from './components/formularios/AtendimentoAdulto'
 
 //login
-import Login from './components/auth/Login'
+import LoginCpf from './components/auth/LoginCpf'
 import Register from './components/auth/Register'
 
 const routes = [
@@ -26,7 +26,7 @@ const routes = [
     {path:'/semear', name:'semear', component: Semear},
     // {path:'/formularios/atendimentoadulto', name:'formularios/atendimentoadulto', component: AtendimentoAdulto},
     
-    {path:'/login', name:'login', component: Login},
+    {path:'/login', name:'login', component: LoginCpf},
     {path:'/register', name:'register',  name:'register', component: AtendimentoAdulto},
   
    
