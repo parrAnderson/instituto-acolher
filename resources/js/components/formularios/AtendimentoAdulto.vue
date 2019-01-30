@@ -18,9 +18,9 @@
         <div class="col-4">
           <input type="text" class="form-control" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
         </div>
-        <div class="col-4">
-          <select name="genero" v-model="inputs.genero" class="form-control" id>
-            <option selected disable>Gênero *</option>
+        <div class="col-4">        
+          <select name="genero" v-if="selected" v-model="genero" class="form-control">
+            <option selected value="" > Gênero *</option>
             <option>Masculino</option>
             <option>Feminino</option>
             <option>Outros</option>
@@ -157,8 +157,8 @@
               <div class="row row-space-form">
                 <div class="col-6">
                   <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="kardecista" id="kardecista">
-                    <label class="form-check-label"  v-model="inputs.kardecista"  for="kardecista">Kardecista / Espírita?</label>
+                    <input type="checkbox" v-model="inputs.kardecista"  class="form-check-input" name="kardecista" id="kardecista">
+                    <label class="form-check-label"   for="kardecista">Kardecista / Espírita?</label>
                   </div>
                 </div>
 
@@ -358,13 +358,29 @@
     },
     data(){
       return{
-        inputs:{}
+        inputs:{},
+         tipo_pagamento: "",
+         genero:'',
+         selected:false,
+        
       }
     },
     methods:{
         registrar(){
           console.log(this.inputs)
+        },
+        selectInputs(){
+          
+          this.selected = true
         }
+    },
+    mounted(){
+      this.selectInputs()
+    },
+    watch:{
+      genero:function(){
+        this.inputs.genero = this.genero
+      },
     },
     directives: { mask }
   };

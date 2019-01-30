@@ -3129,12 +3129,26 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      inputs: {}
+      inputs: {},
+      tipo_pagamento: "",
+      genero: '',
+      selected: false
     };
   },
   methods: {
     registrar: function registrar() {
       console.log(this.inputs);
+    },
+    selectInputs: function selectInputs() {
+      this.selected = true;
+    }
+  },
+  mounted: function mounted() {
+    this.selectInputs();
+  },
+  watch: {
+    genero: function genero() {
+      this.inputs.genero = this.genero;
     }
   },
   directives: {
@@ -6256,51 +6270,49 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-4" }, [
-              _c(
-                "select",
-                {
-                  directives: [
+              _vm.selected
+                ? _c(
+                    "select",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.genero,
-                      expression: "inputs.genero"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "genero", id: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.inputs,
-                        "genero",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { selected: "", disable: "" } }, [
-                    _vm._v("Gênero *")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Masculino")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Feminino")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Outros")])
-                ]
-              )
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.genero,
+                          expression: "genero"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "genero" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.genero = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "", value: "" } }, [
+                        _vm._v(" Gênero *")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Masculino")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Feminino")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Outros")])
+                    ]
+                  )
+                : _vm._e()
             ])
           ]
         ),
@@ -7050,11 +7062,54 @@ var render = function() {
                     _c("div", { staticClass: "col-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.kardecista,
+                              expression: "inputs.kardecista"
+                            }
+                          ],
                           staticClass: "form-check-input",
                           attrs: {
                             type: "checkbox",
                             name: "kardecista",
                             id: "kardecista"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.inputs.kardecista)
+                              ? _vm._i(_vm.inputs.kardecista, null) > -1
+                              : _vm.inputs.kardecista
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.kardecista,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "kardecista",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "kardecista",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "kardecista", $$c)
+                              }
+                            }
                           }
                         }),
                         _vm._v(" "),
@@ -7062,14 +7117,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "form-check-label",
-                            attrs: { for: "kardecista" },
-                            model: {
-                              value: _vm.inputs.kardecista,
-                              callback: function($$v) {
-                                _vm.$set(_vm.inputs, "kardecista", $$v)
-                              },
-                              expression: "inputs.kardecista"
-                            }
+                            attrs: { for: "kardecista" }
                           },
                           [_vm._v("Kardecista / Espírita?")]
                         )
