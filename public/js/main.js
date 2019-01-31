@@ -2770,8 +2770,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
-/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
-/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_3__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3118,6 +3123,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -3132,17 +3138,38 @@ __webpack_require__.r(__webpack_exports__);
       inputs: {},
       tipo_pagamento: "",
       genero: '',
-      selected: false
+      selected: false,
+      errors: []
     };
   },
-  methods: {
+  methods: _objectSpread({
     registrar: function registrar() {
       console.log(this.inputs);
     },
     selectInputs: function selectInputs() {
       this.selected = true;
     }
-  },
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['Register']), {
+    checkRequired: function checkRequired() {
+      if (this.inputs.name && this.inputs.email) {
+        this.errors.required = true;
+        console.log("preenchido");
+      } else {
+        this.errors.required = false;
+        console.log("Vazio");
+      }
+    },
+    registrar: function registrar() {
+      if (!this.errors.required) {
+        this.Register(this.inputs); // this.inputs = []              
+        // this.$router.push({ name: 'login' });
+
+        console.log("Registrado");
+      } else {
+        console.log("não registrado, com erros");
+      }
+    }
+  }),
   mounted: function mounted() {
     this.selectInputs();
   },
@@ -3152,7 +3179,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   directives: {
-    mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_2__["mask"]
+    mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_3__["mask"]
   }
 });
 
@@ -6212,8 +6239,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.inputs.nome,
-                    expression: "inputs.nome"
+                    value: _vm.inputs.name,
+                    expression: "inputs.name"
                   }
                 ],
                 staticClass: "form-control",
@@ -6221,13 +6248,13 @@ var render = function() {
                   type: "text",
                   placeholder: "Nome Completo da Pessoa a ser Atendida *"
                 },
-                domProps: { value: _vm.inputs.nome },
+                domProps: { value: _vm.inputs.name },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.inputs, "nome", $event.target.value)
+                    _vm.$set(_vm.inputs, "name", $event.target.value)
                   }
                 }
               })

@@ -11,7 +11,7 @@
      
       <div class="row justify-content-center row-space-form">
         <div class="col-8">
-          <input type="text" class="form-control" v-model="inputs.nome" placeholder="Nome Completo da Pessoa a ser Atendida *">
+          <input type="text" class="form-control" v-model="inputs.name" placeholder="Nome Completo da Pessoa a ser Atendida *">
         </div>
       </div>
       <div class="row justify-content-center row-space-form">
@@ -347,6 +347,10 @@
 <script>
   import NavHeader from "./../layouts/NavHeader";
   import Footer from "./../layouts/Footer";
+  import {
+    mapState,
+    mapActions
+} from 'vuex'
 
   import { mask } from "vue-the-mask";
 
@@ -362,6 +366,7 @@
          tipo_pagamento: "",
          genero:'',
          selected:false,
+         errors: [],
         
       }
     },
@@ -369,10 +374,32 @@
         registrar(){
           console.log(this.inputs)
         },
-        selectInputs(){
-          
+        selectInputs(){          
           this.selected = true
-        }
+        },
+        ...mapActions([
+            'Register',
+        ]),
+       
+        checkRequired() {             
+            if(this.inputs.name && this.inputs.email){
+                this.errors.required = true
+                console.log("preenchido")
+            }else{                
+                this.errors.required = false
+                console.log("Vazio")
+            }                            
+        },
+          registrar() {                    
+            if(!this.errors.required){
+                this.Register(this.inputs)
+                // this.inputs = []              
+                // this.$router.push({ name: 'login' });
+                console.log("Registrado")
+            }else{
+                console.log("não registrado, com erros")
+            }                     
+        },
     },
     mounted(){
       this.selectInputs()
