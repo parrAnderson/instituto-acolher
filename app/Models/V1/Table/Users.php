@@ -9,5 +9,10 @@ class Users extends Model
    
     protected $table = 'users';
     protected $fillable = ['name','email','cpf'];
+
+    public $rules = [                
+        'email'    => 'required|unique:users',
+        'cpf'      => 'required|unique:users',               
+    ];
     
 }

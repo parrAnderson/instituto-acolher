@@ -37,9 +37,15 @@ export default {
         let url = '/acolher/public/api/auth/register';        
         axios
             .post(url, data)
-              .then(response => context.commit('REGISTER', response.data))
+              .then(response => {
+                context.commit('REGISTER', response)
+                if(response.data.customMessages){
+                    console.log(response.data.customMessages);
+                }
+              })
               .catch(function (error) {
-                console.log(error);
+                response => context.commit('REGISTER', response.customMessages)
+                console.log(response);
               });
     },
     }

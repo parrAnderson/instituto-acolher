@@ -23901,9 +23901,17 @@ __webpack_require__.r(__webpack_exports__);
     Register: function Register(context, data) {
       var url = '/acolher/public/api/auth/register';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
-        return context.commit('REGISTER', response.data);
+        context.commit('REGISTER', response);
+
+        if (response.data.customMessages) {
+          console.log(response.data.customMessages);
+        }
       }).catch(function (error) {
-        console.log(error);
+        (function (response) {
+          return context.commit('REGISTER', response.customMessages);
+        });
+
+        console.log(response);
       });
     }
   }
