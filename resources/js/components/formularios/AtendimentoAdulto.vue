@@ -1,8 +1,10 @@
 <template>
   <div>
     <nav-header></nav-header>
+
+
     <div class="container">
-      <div class="row row-space">
+      <div class="row row-space"> 
         <div class="col-12">
           <h4 class="text-center">Cadastro</h4>
         </div>
@@ -274,13 +276,7 @@
         </div>
       </div>
 
-        <div class="row row-space justify-content-center row-space-form">
-        <div class="col-8">
-          <select name="atividade"  v-model="inputs.atividade"  class="form-control" id>
-            <option disable>Indique a atividade de qual pretende receber atendimento *</option>
-          </select>
-        </div>
-      </div>
+       
 
 
       <div class="row justify-content-center row-space-form">
