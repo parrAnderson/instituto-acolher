@@ -2770,8 +2770,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
-var _this = undefined;
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2810,7 +2819,12 @@ var _this = undefined;
   },
   watch: {
     atividade: function atividade() {
-      _this.inputs.atividade = _this.atividade;
+      this.inputs.atividade = this.atividade;
+    }
+  },
+  methods: {
+    agendar: function agendar() {
+      console.log(this.inputs);
     }
   }
 });
@@ -6324,8 +6338,56 @@ var render = function() {
                     _vm._v(
                       "Indique a atividade de qual pretende receber atendimento *"
                     )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Apometria (2as. feiras)" } },
+                    [_vm._v("Apometria (2as. feiras)")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Prática do Evangelho (5as. feiras)" } },
+                    [_vm._v("Prática do Evangelho (5as. feiras)")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Atendimento Fraterno (5as. feiras)" } },
+                    [_vm._v("Atendimento Fraterno (5as. feiras)")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Obreiros da Luz" } }, [
+                    _vm._v("Obreiros da Luz")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Passes" } }, [
+                    _vm._v("Passes")
                   ])
                 ]
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-8 text-right" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function($event) {
+                      _vm.agendar()
+                    }
+                  }
+                },
+                [_vm._v("Cadastrar")]
               )
             ])
           ]

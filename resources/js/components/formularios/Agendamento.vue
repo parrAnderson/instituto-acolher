@@ -11,7 +11,18 @@
         <div class="col-8">
           <select name="atividade" v-model="atividade"  class="form-control" id>
             <option disable value="" >Indique a atividade de qual pretende receber atendimento *</option>
+            <option value="Apometria (2as. feiras)">Apometria (2as. feiras)</option>        
+            <option value="Prática do Evangelho (5as. feiras)">Prática do Evangelho (5as. feiras)</option>
+            <option value="Atendimento Fraterno (5as. feiras)">Atendimento Fraterno (5as. feiras)</option>
+            <option value="Obreiros da Luz">Obreiros da Luz</option>
+            <option value="Passes">Passes</option>
           </select>
+        </div>
+      </div>
+
+       <div class="row justify-content-center row-space-form">
+        <div class="col-8 text-right">
+          <button @click="agendar()" type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
       </div>
          
@@ -36,10 +47,15 @@ import NavHeader from "./../layouts/NavHeader";
         }
     },
     watch:{
-        atividade:()=>{
+        atividade:function(){
             this.inputs.atividade = this.atividade
         }
     },
+    methods:{
+      agendar(){
+        console.log(this.inputs)
+      }
+    }
 
 
     }
