@@ -21,7 +21,7 @@
           <input type="text" class="form-control" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
         </div>
         <div class="col-4">        
-          <select name="genero" v-if="selected" v-model="genero" class="form-control">
+          <select name="genero" v-if="selected" v-model="inputs.genero" class="form-control">
             <option selected value="" > Gênero *</option>
             <option>Masculino</option>
             <option>Feminino</option>
@@ -54,9 +54,9 @@
       <div class="row justify-content-center row-space-form">
         <div class="col-4">
           <select name="estado_civil" v-model="inputs.estado_civil" class="form-control" id>
-            <option disable>Estado Civil *</option>
-             <option>Solteiro(a)</option>                    
-            <option>Casado(a)</option>                      
+            <option disabled value="">Estado Civil *</option>
+             <option value="Solteiro(a)">Solteiro(a)</option>                    
+            <option value="Casado(a)">Casado(a)</option>                      
             <option>União Estável</option>                      
             <option >Separado(a) / Divorciado(a)</option>                      
             <option>Viúvo</option>                      
@@ -65,8 +65,8 @@
         </div>
         <div class="col-4">
           <select name="religiao" v-model="inputs.religiao" class="form-control" id>
-            <option disable>Religião *</option>
-            <option>Kardecista / Espírita</option>          
+            <option disabled value="">Religião *</option>
+            <option value="Kardecista / Espírita">Kardecista / Espírita</option>          
             <option>Umbandista</option>
             <option>Católica</option>            
             <option>Evangélica</option>            
@@ -104,21 +104,21 @@
         </div>
         <div class="col-4">
           <select name="estado"  v-model="inputs.estado"  class="form-control" id>
-            <option disable>Estado *</option>
+            <option disabled value="">Estado *</option>
           </select>
         </div>
       </div>
       <div class="row justify-content-center row-space-form">
         <div class="col-4">
           <select name="fumante"  v-model="inputs.fumante"  class="form-control" id>
-            <option disable>É Fumante? *</option>
+            <option disabled value="" >É Fumante? *</option>
             <option>Sim</option>
             <option>Não</option>
           </select>
         </div>
         <div class="col-4">
           <select name="bebida"  v-model="inputs.bebida"  class="form-control" id>
-            <option disable>Consome Bebida Alcólica? *</option>
+            <option disabled value="">Consome Bebida Alcólica? *</option>
             <option>Não</option>
             <option>Raramente</option>
             <option>Socialmente</option>
@@ -129,7 +129,7 @@
 
    <div class="row justify-content-center row-space-form">
         <div class="col-4">
-          <select name="droga"  v-model="inputs.droga" class="form-control" id>
+          <select name="droga"  v-model="inputs.drogas" class="form-control" id>
             <option value>Possui dependencia em drogas?</option>
             <option>Sim *</option>
             <option>Não *</option>
@@ -283,7 +283,7 @@
         <div class="col-8">
             
 <select  class="form-control"  v-model="inputs.como_soube" >
-          <option disabled>Como soube do Acolher? *</option>        
+          <option disabled value="">Como soube do Acolher? *</option>        
             <option>Parente</option>          
             <option>Amigo</option>      
             <option>Conhecido</option>            
@@ -301,7 +301,7 @@
       <div class="row justify-content-center row-space-form">
         <div class="col-8">
           <select class="form-control"  v-model="inputs.indicacao" >
-            <option disable>Caso tenha recebido uma indicação assinale abaixo:</option>
+            <option disabled value="">Caso tenha recebido uma indicação assinale abaixo:</option>
           </select>
         </div>
       </div>
@@ -359,24 +359,18 @@
     data(){
       return{
         inputs:{},
-         tipo_pagamento: "",
-         genero:'',
+         tipo_pagamento: "",     
          selected:false,
          errors: [],
-        
       }
     },
-    methods:{
-        registrar(){
-          console.log(this.inputs)
-        },
-        selectInputs(){          
+    methods:{        
+        selectInputs(){           
           this.selected = true
         },
         ...mapActions([
             'Register',
-        ]),
-       
+        ]),       
         checkRequired() {             
             if(this.inputs.name && this.inputs.email){
                 this.errors.required = true
@@ -397,14 +391,20 @@
             }                     
         },
     },
-    mounted(){
+    beforeMount(){
       this.selectInputs()
-    },
-    watch:{
-      genero:function(){
-        this.inputs.genero = this.genero
-      },
-    },
+      this.inputs.estado_civil = ''
+      this.inputs.religiao = ''
+      this.inputs.genero = ''
+      this.inputs.fumante = ''
+      this.inputs.bebida = ''
+      this.inputs.drogas = ''
+      this.inputs.como_soube = ''
+      this.inputs.indicacao = ''
+      this.inputs.obreiro = ''
+      this.inputs.estado = ''
+
+    },    
     directives: { mask }
   };
 </script>

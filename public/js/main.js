@@ -3205,15 +3205,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       inputs: {},
       tipo_pagamento: "",
-      genero: '',
       selected: false,
       errors: []
     };
   },
   methods: _objectSpread({
-    registrar: function registrar() {
-      console.log(this.inputs);
-    },
     selectInputs: function selectInputs() {
       this.selected = true;
     }
@@ -3238,13 +3234,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   }),
-  mounted: function mounted() {
+  beforeMount: function beforeMount() {
     this.selectInputs();
-  },
-  watch: {
-    genero: function genero() {
-      this.inputs.genero = this.genero;
-    }
+    this.inputs.estado_civil = '';
+    this.inputs.religiao = '';
+    this.inputs.genero = '';
+    this.inputs.fumante = '';
+    this.inputs.bebida = '';
+    this.inputs.drogas = '';
+    this.inputs.como_soube = '';
+    this.inputs.indicacao = '';
+    this.inputs.obreiro = '';
+    this.inputs.estado = '';
   },
   directives: {
     mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_3__["mask"]
@@ -6516,8 +6517,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.genero,
-                          expression: "genero"
+                          value: _vm.inputs.genero,
+                          expression: "inputs.genero"
                         }
                       ],
                       staticClass: "form-control",
@@ -6532,9 +6533,13 @@ var render = function() {
                               var val = "_value" in o ? o._value : o.value
                               return val
                             })
-                          _vm.genero = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                          _vm.$set(
+                            _vm.inputs,
+                            "genero",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
                         }
                       }
                     },
@@ -6756,13 +6761,17 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { disable: "" } }, [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("Estado Civil *")
                   ]),
                   _vm._v(" "),
-                  _c("option", [_vm._v("Solteiro(a)")]),
+                  _c("option", { attrs: { value: "Solteiro(a)" } }, [
+                    _vm._v("Solteiro(a)")
+                  ]),
                   _vm._v(" "),
-                  _c("option", [_vm._v("Casado(a)")]),
+                  _c("option", { attrs: { value: "Casado(a)" } }, [
+                    _vm._v("Casado(a)")
+                  ]),
                   _vm._v(" "),
                   _c("option", [_vm._v("União Estável")]),
                   _vm._v(" "),
@@ -6810,11 +6819,13 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { disable: "" } }, [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("Religião *")
                   ]),
                   _vm._v(" "),
-                  _c("option", [_vm._v("Kardecista / Espírita")]),
+                  _c("option", { attrs: { value: "Kardecista / Espírita" } }, [
+                    _vm._v("Kardecista / Espírita")
+                  ]),
                   _vm._v(" "),
                   _c("option", [_vm._v("Umbandista")]),
                   _vm._v(" "),
@@ -7041,7 +7052,11 @@ var render = function() {
                     }
                   }
                 },
-                [_c("option", { attrs: { disable: "" } }, [_vm._v("Estado *")])]
+                [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
+                    _vm._v("Estado *")
+                  ])
+                ]
               )
             ])
           ]
@@ -7086,7 +7101,7 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { disable: "" } }, [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("É Fumante? *")
                   ]),
                   _vm._v(" "),
@@ -7132,7 +7147,7 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { disable: "" } }, [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("Consome Bebida Alcólica? *")
                   ]),
                   _vm._v(" "),
@@ -7161,8 +7176,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.inputs.droga,
-                      expression: "inputs.droga"
+                      value: _vm.inputs.drogas,
+                      expression: "inputs.drogas"
                     }
                   ],
                   staticClass: "form-control",
@@ -7179,7 +7194,7 @@ var render = function() {
                         })
                       _vm.$set(
                         _vm.inputs,
-                        "droga",
+                        "drogas",
                         $event.target.multiple
                           ? $$selectedVal
                           : $$selectedVal[0]
@@ -7448,7 +7463,7 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { disabled: "" } }, [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("Como soube do Acolher? *")
                   ]),
                   _vm._v(" "),
@@ -7513,7 +7528,7 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { disable: "" } }, [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("Caso tenha recebido uma indicação assinale abaixo:")
                   ])
                 ]
