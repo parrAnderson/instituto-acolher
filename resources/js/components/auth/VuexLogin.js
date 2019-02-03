@@ -41,6 +41,8 @@ export default {
                 context.commit('REGISTER', response)
                 if(response.data.customMessages){
                     console.log(response.data.customMessages);
+                   console.log('registrado - vuex')
+                 
                 }
               })
               .catch(function (error) {

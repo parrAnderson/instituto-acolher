@@ -3191,6 +3191,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3206,7 +3241,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       inputs: {},
       tipo_pagamento: "",
       selected: false,
-      errors: []
+      required: {}
     };
   },
   methods: _objectSpread({
@@ -3215,26 +3250,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['Register']), {
     checkRequired: function checkRequired() {
-      if (this.inputs.name && this.inputs.email) {
-        this.errors.required = true;
+      if (this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer) {
+        this.required = false;
         console.log("preenchido");
       } else {
-        this.errors.required = false;
+        this.required = true;
         console.log("Vazio");
       }
     },
     registrar: function registrar() {
-      if (!this.errors.required) {
-        this.Register(this.inputs); // this.inputs = []              
-        // this.$router.push({ name: 'login' });
+      this.checkRequired();
 
-        console.log("Registrado");
+      if (!this.required) {
+        this.Register(this.inputs); // this.inputs = []              
+
+        this.$router.push({
+          name: 'agendamento'
+        });
       } else {
         console.log("não registrado, com erros");
       }
     }
   }),
+  watch: {
+    required: function required(val) {
+      console.log('assistinfo');
+    }
+  },
   beforeMount: function beforeMount() {
+    this.required = "vazio";
     this.selectInputs();
     this.inputs.estado_civil = '';
     this.inputs.religiao = '';
@@ -6647,7 +6691,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text", placeholder: "Telefone Celular" },
+                attrs: { type: "text", placeholder: "Telefone Celular *" },
                 domProps: { value: _vm.inputs.celular },
                 on: {
                   input: function($event) {
@@ -6921,7 +6965,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text", placeholder: "Logradouro" },
+                attrs: { type: "text", placeholder: "Logradouro *" },
                 domProps: { value: _vm.inputs.logradouro },
                 on: {
                   input: function($event) {
@@ -7055,6 +7099,118 @@ var render = function() {
                 [
                   _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("Estado *")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "SP - São Paulo" } }, [
+                    _vm._v("SP - São Paulo")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "AC - Acre" } }, [
+                    _vm._v("AC - Acre")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "AL - Alagoas" } }, [
+                    _vm._v("AL - Alagoas")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "AP - Amapá" } }, [
+                    _vm._v("AP - Amapá")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "AM - Amazonas" } }, [
+                    _vm._v("AM - Amazonas")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "BA - Bahia" } }, [
+                    _vm._v("BA - Bahia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "CE - Ceará" } }, [
+                    _vm._v("CE - Ceará")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "DF - Distrito Federal" } }, [
+                    _vm._v("DF - Distrito Federal")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "ES - Espírito Santo" } }, [
+                    _vm._v("ES - Espírito Santo")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "GO - Goiás" } }, [
+                    _vm._v("GO - Goiás")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "MA - Maranhão" } }, [
+                    _vm._v("MA - Maranhão")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "MT - Mato Grosso" } }, [
+                    _vm._v("MT - Mato Grosso")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "MS - Mato Grosso do Sul" } },
+                    [_vm._v("MS - Mato Grosso do Sul")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "MG - Minas Gerais" } }, [
+                    _vm._v("MG - Minas Gerais")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "PA - Pará" } }, [
+                    _vm._v("PA - Pará")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "PB - Paraíba" } }, [
+                    _vm._v("PB - Paraíba")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "PR - Paraná" } }, [
+                    _vm._v("PR - Paraná")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "PE - Pernambuco" } }, [
+                    _vm._v("PE - Pernambuco")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "PI - Piauí" } }, [
+                    _vm._v("PI - Piauí")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "RJ - Rio de Janeiro" } }, [
+                    _vm._v("RJ - Rio de Janeiro")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "RG - Rio Grande do Norte" } },
+                    [_vm._v("RG - Rio Grande do Norte")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "RS - Rio Grande do Sul" } }, [
+                    _vm._v("RS - Rio Grande do Sul")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "RO - Rondônia" } }, [
+                    _vm._v("RO - Rondônia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "RR - Roraima" } }, [
+                    _vm._v("RR - Roraima")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "SC - Santa Catarina" } }, [
+                    _vm._v("SC - Santa Catarina")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "SE - Sergipe" } }, [
+                    _vm._v("SE - Sergipe")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "TO - Tocantins" } }, [
+                    _vm._v("TO - Tocantins")
                   ])
                 ]
               )
@@ -7704,7 +7860,28 @@ var render = function() {
               )
             ])
           ]
-        )
+        ),
+        _vm._v(" "),
+        _vm.required !== "vazio"
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-danger",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._v(
+                      "\nPor favor! Preencha todos os campos obrigatórios *\n"
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("Footer")
@@ -24079,6 +24256,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response.data.customMessages) {
           console.log(response.data.customMessages);
+          console.log('registrado - vuex');
         }
       }).catch(function (error) {
         (function (response) {

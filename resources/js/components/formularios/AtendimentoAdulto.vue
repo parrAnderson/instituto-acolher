@@ -10,6 +10,8 @@
         </div>
       </div>
 
+      
+
      
       <div class="row justify-content-center row-space-form">
         <div class="col-8">
@@ -39,7 +41,7 @@
       </div>
       <div class="row justify-content-center row-space-form">
         <div class="col-4">
-          <input type="text" class="form-control" v-model="inputs.celular" v-mask="'(##)#####-####'" placeholder="Telefone Celular">
+          <input type="text" class="form-control" v-model="inputs.celular" v-mask="'(##)#####-####'" placeholder="Telefone Celular *">
         </div>
         <div class="col-4">
           <input type="text" class="form-control" v-model="inputs.telefone" v-mask="'(##)####-####'" placeholder="Telefone Fixo">
@@ -87,7 +89,7 @@
       </div>
       <div class="row justify-content-center row-space-form">
         <div class="col-8">
-          <input type="text"  v-model="inputs.logradouro" class="form-control" placeholder="Logradouro">
+          <input type="text"  v-model="inputs.logradouro" class="form-control" placeholder="Logradouro *">
         </div>
       </div>
       <div class="row justify-content-center row-space-form">
@@ -105,6 +107,33 @@
         <div class="col-4">
           <select name="estado"  v-model="inputs.estado"  class="form-control" id>
             <option disabled value="">Estado *</option>
+            <option value="SP - São Paulo">SP - São Paulo</option>          
+            <option value="AC - Acre">AC - Acre</option>          
+            <option value="AL - Alagoas">AL - Alagoas</option>          
+            <option value="AP - Amapá">AP - Amapá</option>          
+            <option value="AM - Amazonas">AM - Amazonas</option>          
+            <option value="BA - Bahia">BA - Bahia</option>          
+            <option value="CE - Ceará">CE - Ceará</option>          
+            <option value="DF - Distrito Federal">DF - Distrito Federal</option>          
+            <option value="ES - Espírito Santo">ES - Espírito Santo</option>                     
+            <option value="GO - Goiás">GO - Goiás</option>          
+            <option value="MA - Maranhão">MA - Maranhão</option>          
+            <option value="MT - Mato Grosso">MT - Mato Grosso</option>          
+            <option value="MS - Mato Grosso do Sul">MS - Mato Grosso do Sul</option>          
+            <option value="MG - Minas Gerais">MG - Minas Gerais</option>          
+            <option value="PA - Pará">PA - Pará</option>          
+            <option value="PB - Paraíba">PB - Paraíba</option>          
+            <option value="PR - Paraná">PR - Paraná</option>          
+            <option value="PE - Pernambuco">PE - Pernambuco</option>          
+            <option value="PI - Piauí">PI - Piauí</option>                      
+            <option value="RJ - Rio de Janeiro">RJ - Rio de Janeiro</option>          
+            <option value="RG - Rio Grande do Norte">RG - Rio Grande do Norte</option>          
+            <option value="RS - Rio Grande do Sul">RS - Rio Grande do Sul</option>          
+            <option value="RO - Rondônia">RO - Rondônia</option>          
+            <option value="RR - Roraima">RR - Roraima</option>          
+            <option value="SC - Santa Catarina">SC - Santa Catarina</option>       
+            <option value="SE - Sergipe">SE - Sergipe</option>         
+            <option value="TO - Tocantins">TO - Tocantins</option>
           </select>
         </div>
       </div>
@@ -334,6 +363,12 @@
         </div>
       </div>
 
+      <div v-if="required !== 'vazio'" class="row justify-content-center row-space-form">
+        <div class="alert alert-danger" role="alert">
+Por favor! Preencha todos os campos obrigatórios *
+</div>
+      </div>
+
      
     </div>
     <Footer></Footer>
@@ -361,7 +396,8 @@
         inputs:{},
          tipo_pagamento: "",     
          selected:false,
-         errors: [],
+         required: {},
+         
       }
     },
     methods:{        
@@ -372,26 +408,54 @@
             'Register',
         ]),       
         checkRequired() {             
-            if(this.inputs.name && this.inputs.email){
-                this.errors.required = true
+              if(this.inputs.name 
+                && this.inputs.email
+                && this.inputs.cpf
+                && this.inputs.data_nascimento
+                && this.inputs.rg
+                && this.inputs.celular
+                && this.inputs.estado_civil
+                && this.inputs.religiao
+                && this.inputs.cpf
+                && this.inputs.cep
+                && this.inputs.bairro
+                && this.inputs.numero
+                && this.inputs.complemento
+                && this.inputs.municipio
+                && this.inputs.estado
+                && this.inputs.fumante
+                && this.inputs.bebida
+                && this.inputs.drogas
+                && this.inputs.como_soube
+                && this.inputs.recorrer
+            ){
+                this.required = false
                 console.log("preenchido")
             }else{                
-                this.errors.required = false
+                this.required = true
                 console.log("Vazio")
             }                            
         },
-          registrar() {                    
-            if(!this.errors.required){
+          registrar() {  
+            this.checkRequired()                 
+            if(!this.required){
                 this.Register(this.inputs)
                 // this.inputs = []              
-                // this.$router.push({ name: 'login' });
-                console.log("Registrado")
+                  this.$router.push({ name: 'agendamento' });
+               
             }else{
                 console.log("não registrado, com erros")
+            }           
             }                     
-        },
-    },
+        },      
+             watch:{
+              required: function(val){
+                console.log('assistinfo')
+              }
+             },
     beforeMount(){
+      this.required = "vazio"
+
       this.selectInputs()
       this.inputs.estado_civil = ''
       this.inputs.religiao = ''
