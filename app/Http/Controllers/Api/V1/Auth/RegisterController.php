@@ -18,16 +18,18 @@ class RegisterController extends Controller
     {            
        
         $messages = [
-            'email.required'    => 'O campo email é de preenchimento obrigatório',
-            'cpf.required'      => 'O campo cpf é de preenchimento obrigatório ', 
+            'email.required' => 'Email está vazio',
+            'cpf.required' => 'CPF está vazio',
+            'cpf.unique' => 'Já existe esse CPF cadastrado',
+            'email.unique' => 'Já existe esse EMAIL cadastrado',
         ];
          
        
 
           
-            $validate = validator($data->all(), $this->Users->rules, $messages);
-            if($validate->fails()){
-                return response()->json($validate);
+            $validate = Validator::make($data->all(), $this->Users->rules, $messages);
+            if($validate->fails()){               
+                return response()->json($validate->errors());
             }else{
                 $this->Users = $this->Users->create($data->all());
                 $this->Users->save();

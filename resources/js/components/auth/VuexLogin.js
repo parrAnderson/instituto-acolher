@@ -3,6 +3,7 @@ import axios from "axios"
 export default {
     state: {
         data: [],
+        register:{},
         
     },
     mutations: {
@@ -10,7 +11,7 @@ export default {
             state.data = logon
         },
         REGISTER(state, register) {
-            state.data.register = register
+            state.register = register
         },
         LOGOUT(state, exit) {
             state.data = exit
@@ -40,9 +41,7 @@ export default {
               .then(response => {
                 context.commit('REGISTER', response)
                 if(response.data.customMessages){
-                    console.log(response.data.customMessages);
-                   console.log('registrado - vuex')
-                 
+                                
                 }
               })
               .catch(function (error) {
