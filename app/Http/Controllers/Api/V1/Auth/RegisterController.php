@@ -15,18 +15,13 @@ class RegisterController extends Controller
     }
     
     public function register(Request $data)
-    {            
-       
+    {          
         $messages = [
             'email.required' => 'Email está vazio',
             'cpf.required' => 'CPF está vazio',
             'cpf.unique' => 'Já existe esse CPF cadastrado',
             'email.unique' => 'Já existe esse EMAIL cadastrado',
-        ];
-         
-       
-
-          
+        ];                         
             $validate = Validator::make($data->all(), $this->Users->rules, $messages);
             if($validate->fails()){               
                 return response()->json($validate->errors());
@@ -38,9 +33,6 @@ class RegisterController extends Controller
                     'message' => 'Cadastrado',  
                     'data' => ''              
                 ]);
-            }
-               
-         
-     
+            }                  
     }
 }

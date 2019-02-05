@@ -1,18 +1,12 @@
 <template>
     <div>
         <nav-header></nav-header>
-    
-    
         <div class="container">
             <div class="row row-space">
                 <div class="col-12">
                     <h4 class="text-center">Cadastro</h4>
                 </div>
             </div>
-    
-    
-    
-    
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <input type="text" class="form-control" v-model="inputs.name" placeholder="Nome Completo da Pessoa a ser Atendida *">
@@ -154,8 +148,7 @@
                     <option>Mais que socialmente</option>
                   </select>
                 </div>
-            </div>
-    
+            </div>    
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="droga" v-model="inputs.drogas" class="form-control" id>
@@ -167,8 +160,7 @@
                 <div class="col-4">
                     <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
                 </div>
-            </div>
-    
+            </div>    
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
@@ -176,10 +168,7 @@
                 <div class="col-4">
                     <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui"></textarea>
                 </div>
-            </div>
-    
-    
-    
+            </div>           
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
                 <div class="col-8">
@@ -191,11 +180,10 @@
                                         <input type="checkbox" v-model="inputs.kardecista" class="form-check-input" name="kardecista" id="kardecista">
                                         <label class="form-check-label" for="kardecista">Kardecista / Espírita?</label>
                                     </div>
-                                </div>
-    
+                                </div>    
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="casa_apometria" name="casa_apometria">
+                                        <input type="checkbox" v-model="inputs.casa_apometria" class="form-check-input" id="casa_apometria" name="casa_apometria">
                                         <label class="form-check-label" for="casa_apometria">Casa de Apômetra?</label>
                                     </div>
                                 </div>
@@ -205,18 +193,15 @@
                             <div class="row row-space-form">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="casa_umbandista" name="casa_umbandista">
+                                        <input type="checkbox" v-model="inputs.casa_umbandista" class="form-check-input" id="casa_umbandista" name="casa_umbandista">
                                         <label class="form-check-label" for="casa_umbandista">Casa Umbandista?</label>
                                     </div>
-                                </div>
-    
+                                </div>    
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    
-    
+            </div>       
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
                 <div class="col-8">
@@ -225,14 +210,13 @@
                             <div class="row row-space-form">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="doutrina_kardecista" name="doutrina_kardecista">
+                                        <input type="checkbox" v-model="inputs.doutrina_kardecista" class="form-check-input" id="doutrina_kardecista" name="doutrina_kardecista">
                                         <label class="form-check-label" for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
                                     </div>
-                                </div>
-    
+                                </div>    
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="principios_umbanda" name="principios_umbanda">
+                                        <input type="checkbox" v-model="inputs.principios_umbanda"  class="form-check-input" id="principios_umbanda" name="principios_umbanda">
                                         <label class="form-check-label" for="principios_umbanda">Principios da Umbanda?</label>
                                     </div>
                                 </div>
@@ -242,7 +226,7 @@
                             <div class="row row-space-form">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="apometria_codificada" name="apometria_codificada">
+                                        <input type="checkbox" v-model="inputs.apometria_codificada" class="form-check-input" id="apometria_codificada" name="apometria_codificada">
                                         <label class="form-check-label" for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
                                     </div>
                                 </div>
@@ -250,10 +234,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-    
-    
-    
+            </div>           
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Selecione os livros que já leu:</div>
                 <div class="col-8">
@@ -262,32 +243,30 @@
                             <div class="row row-space-form">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="livro_espiritos" name="livro_espiritos">
+                                        <input type="checkbox" v-model="inputs.livro_espiritos" class="form-check-input" id="livro_espiritos" name="livro_espiritos">
                                         <label class="form-check-label" for="livro_espiritos">Livro dos Espíritos</label>
                                     </div>
                                 </div>
     
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="apometria" name="apometria">
-                                        <label class="form-check-label" for="apometria">Livro dos Médiuns</label>
+                                        <input type="checkbox" v-model="inputs.livro_medius" class="form-check-input" id="livro_medius" name="livro_medius">
+                                        <label class="form-check-label" for="livro_medius">Livro dos Médiuns</label>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-    
+                        </div>    
                         <div class="container">
                             <div class="row row-space-form">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="livro_evangelho" name="livro_evangelho">
+                                        <input type="checkbox"  v-model="inputs.livro_evangelho"  class="form-check-input" id="livro_evangelho" name="livro_evangelho">
                                         <label class="form-check-label" for="livro_evangelho">Livro o Evangelho Segundo o Espiritismo?</label>
                                     </div>
-                                </div>
-    
+                                </div>    
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="livro_medicina" name="livro_medicina">
+                                        <input type="checkbox"  v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
                                         <label class="form-check-label" for="livro_medicina">Espirito e Matéria: Um Novo Horizonte para a
                               Medicina?</label>
                                     </div>
@@ -296,21 +275,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
-    
-    
+            </div>       
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <input type="text" v-model="inputs.outros_livros" class="form-control" placeholder="Caso deseje, indique outros livros espiritualistas que já tenha lido.">
                 </div>
-            </div>
-    
-    
-    
-    
+            </div>              
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-    
+                <div class="col-8">    
                     <select class="form-control" v-model="inputs.como_soube">
                   <option disabled value="">Como soube do Acolher? *</option>        
                     <option>Parente</option>          
@@ -322,9 +294,7 @@
                     <option>Facebook</option>            
                     <option>Youtube</option>            
                     <option>Outros</option>
-                </select>
-    
-    
+                </select>        
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -355,32 +325,25 @@
                 </div>
                 <div class="col-4">
                     <input type="number" v-model="inputs.numero_obreiro" class="form-control" placeholder="Possui algum numero de obreiro?">
-                </div>
-    
+                </div>    
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <button @click="registrar()" type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
-            </div>
-    
+            </div>    
             <div v-if="required !== 'vazio'" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
                     Por favor! Preencha todos os campos obrigatórios *
                 </div>
-            </div>
-    
-    
+            </div>       
             <div v-if="register.data" class="row justify-content-center row-space-form">
                 <div v-if="register.data"  class="alert alert-danger" role="alert">
                     <span v-if="register.data.cpf">{{register.data.cpf[0]}}</span> | 
-                    <span v-if="register.data.email">{{register.data.email[0]}}</span>
-
-                  
+                    <span v-if="register.data.email">{{register.data.email[0]}}</span>                  
                 </div>
-            </div>           
-    
-        </div>
+            </div>        
+            </div>
         <Footer></Footer>
     </div>
 </template>
@@ -408,7 +371,6 @@ export default {
             tipo_pagamento: "",
             selected: false,
             required: {},
-
         }
     },
     methods: {
@@ -449,10 +411,10 @@ export default {
         },
         registrar() {
             this.checkRequired()
-            // colocar no negativo
-            if (this.required) {
-                // this.Register(this.inputs)
-                console.log(this.inputs)                          
+            
+            if (!this.required) {
+                this.Register(this.inputs)
+                // console.log(this.inputs)                          
                 
             } else {
                 console.log("não registrado, com erros")

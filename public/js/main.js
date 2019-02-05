@@ -3201,43 +3201,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3272,11 +3235,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     registrar: function registrar() {
-      this.checkRequired(); // colocar no negativo
+      this.checkRequired();
 
-      if (this.required) {
-        // this.Register(this.inputs)
-        console.log(this.inputs);
+      if (!this.required) {
+        this.Register(this.inputs); // console.log(this.inputs)                          
       } else {
         console.log("não registrado, com erros");
       }
@@ -9613,19 +9575,660 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(1)
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.casa_apometria,
+                              expression: "inputs.casa_apometria"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "casa_apometria",
+                            name: "casa_apometria"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.inputs.casa_apometria)
+                              ? _vm._i(_vm.inputs.casa_apometria, null) > -1
+                              : _vm.inputs.casa_apometria
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.casa_apometria,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "casa_apometria",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "casa_apometria",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "casa_apometria", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "casa_apometria" }
+                          },
+                          [_vm._v("Casa de Apômetra?")]
+                        )
+                      ])
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row row-space-form" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.casa_umbandista,
+                              expression: "inputs.casa_umbandista"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "casa_umbandista",
+                            name: "casa_umbandista"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.inputs.casa_umbandista)
+                              ? _vm._i(_vm.inputs.casa_umbandista, null) > -1
+                              : _vm.inputs.casa_umbandista
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.casa_umbandista,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "casa_umbandista",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "casa_umbandista",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "casa_umbandista", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "casa_umbandista" }
+                          },
+                          [_vm._v("Casa Umbandista?")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
               ])
             ])
           ]
         ),
         _vm._v(" "),
-        _vm._m(3),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-8 text-center text-primary" }, [
+              _vm._v("Possui conhecimentos sobre:")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-8" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row row-space-form" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.doutrina_kardecista,
+                              expression: "inputs.doutrina_kardecista"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "doutrina_kardecista",
+                            name: "doutrina_kardecista"
+                          },
+                          domProps: {
+                            checked: Array.isArray(
+                              _vm.inputs.doutrina_kardecista
+                            )
+                              ? _vm._i(_vm.inputs.doutrina_kardecista, null) >
+                                -1
+                              : _vm.inputs.doutrina_kardecista
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.doutrina_kardecista,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "doutrina_kardecista",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "doutrina_kardecista",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "doutrina_kardecista", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "doutrina_kardecista" }
+                          },
+                          [_vm._v("Doutrina Kardecista / Espírita?")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.principios_umbanda,
+                              expression: "inputs.principios_umbanda"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "principios_umbanda",
+                            name: "principios_umbanda"
+                          },
+                          domProps: {
+                            checked: Array.isArray(
+                              _vm.inputs.principios_umbanda
+                            )
+                              ? _vm._i(_vm.inputs.principios_umbanda, null) > -1
+                              : _vm.inputs.principios_umbanda
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.principios_umbanda,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "principios_umbanda",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "principios_umbanda",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "principios_umbanda", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "principios_umbanda" }
+                          },
+                          [_vm._v("Principios da Umbanda?")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row row-space-form" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.apometria_codificada,
+                              expression: "inputs.apometria_codificada"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "apometria_codificada",
+                            name: "apometria_codificada"
+                          },
+                          domProps: {
+                            checked: Array.isArray(
+                              _vm.inputs.apometria_codificada
+                            )
+                              ? _vm._i(_vm.inputs.apometria_codificada, null) >
+                                -1
+                              : _vm.inputs.apometria_codificada
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.apometria_codificada,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "apometria_codificada",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "apometria_codificada",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(
+                                  _vm.inputs,
+                                  "apometria_codificada",
+                                  $$c
+                                )
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "apometria_codificada" }
+                          },
+                          [_vm._v("Apometria codificada pelo Dr. Lacerda?")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]
+        ),
         _vm._v(" "),
-        _vm._m(4),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-8 text-center text-primary" }, [
+              _vm._v("Selecione os livros que já leu:")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-8" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row row-space-form" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.livro_espiritos,
+                              expression: "inputs.livro_espiritos"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "livro_espiritos",
+                            name: "livro_espiritos"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.inputs.livro_espiritos)
+                              ? _vm._i(_vm.inputs.livro_espiritos, null) > -1
+                              : _vm.inputs.livro_espiritos
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.livro_espiritos,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_espiritos",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_espiritos",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "livro_espiritos", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "livro_espiritos" }
+                          },
+                          [_vm._v("Livro dos Espíritos")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.livro_medius,
+                              expression: "inputs.livro_medius"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "livro_medius",
+                            name: "livro_medius"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.inputs.livro_medius)
+                              ? _vm._i(_vm.inputs.livro_medius, null) > -1
+                              : _vm.inputs.livro_medius
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.livro_medius,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_medius",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_medius",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "livro_medius", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "livro_medius" }
+                          },
+                          [_vm._v("Livro dos Médiuns")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row row-space-form" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.livro_evangelho,
+                              expression: "inputs.livro_evangelho"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "livro_evangelho",
+                            name: "livro_evangelho"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.inputs.livro_evangelho)
+                              ? _vm._i(_vm.inputs.livro_evangelho, null) > -1
+                              : _vm.inputs.livro_evangelho
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.livro_evangelho,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_evangelho",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_evangelho",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "livro_evangelho", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "livro_evangelho" }
+                          },
+                          [_vm._v("Livro o Evangelho Segundo o Espiritismo?")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.livro_medicina,
+                              expression: "inputs.livro_medicina"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "livro_medicina",
+                            name: "livro_medicina"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.inputs.livro_medicina)
+                              ? _vm._i(_vm.inputs.livro_medicina, null) > -1
+                              : _vm.inputs.livro_medicina
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.inputs.livro_medicina,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_medicina",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.inputs,
+                                      "livro_medicina",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.inputs, "livro_medicina", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "livro_medicina" }
+                          },
+                          [
+                            _vm._v(
+                              "Espirito e Matéria: Um Novo Horizonte para a\n                          Medicina?"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -10010,269 +10613,6 @@ var staticRenderFns = [
         _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6" }, [
-      _c("div", { staticClass: "form-check" }, [
-        _c("input", {
-          staticClass: "form-check-input",
-          attrs: {
-            type: "checkbox",
-            id: "casa_apometria",
-            name: "casa_apometria"
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "form-check-label", attrs: { for: "casa_apometria" } },
-          [_vm._v("Casa de Apômetra?")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row row-space-form" }, [
-        _c("div", { staticClass: "col-6" }, [
-          _c("div", { staticClass: "form-check" }, [
-            _c("input", {
-              staticClass: "form-check-input",
-              attrs: {
-                type: "checkbox",
-                id: "casa_umbandista",
-                name: "casa_umbandista"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "form-check-label",
-                attrs: { for: "casa_umbandista" }
-              },
-              [_vm._v("Casa Umbandista?")]
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row justify-content-center row-space-form" },
-      [
-        _c("div", { staticClass: "col-8 text-center text-primary" }, [
-          _vm._v("Possui conhecimentos sobre:")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "row row-space-form" }, [
-                _c("div", { staticClass: "col-6" }, [
-                  _c("div", { staticClass: "form-check" }, [
-                    _c("input", {
-                      staticClass: "form-check-input",
-                      attrs: {
-                        type: "checkbox",
-                        id: "doutrina_kardecista",
-                        name: "doutrina_kardecista"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-check-label",
-                        attrs: { for: "doutrina_kardecista" }
-                      },
-                      [_vm._v("Doutrina Kardecista / Espírita?")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
-                  _c("div", { staticClass: "form-check" }, [
-                    _c("input", {
-                      staticClass: "form-check-input",
-                      attrs: {
-                        type: "checkbox",
-                        id: "principios_umbanda",
-                        name: "principios_umbanda"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-check-label",
-                        attrs: { for: "principios_umbanda" }
-                      },
-                      [_vm._v("Principios da Umbanda?")]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "row row-space-form" }, [
-                _c("div", { staticClass: "col-6" }, [
-                  _c("div", { staticClass: "form-check" }, [
-                    _c("input", {
-                      staticClass: "form-check-input",
-                      attrs: {
-                        type: "checkbox",
-                        id: "apometria_codificada",
-                        name: "apometria_codificada"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-check-label",
-                        attrs: { for: "apometria_codificada" }
-                      },
-                      [_vm._v("Apometria codificada pelo Dr. Lacerda?")]
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row justify-content-center row-space-form" },
-      [
-        _c("div", { staticClass: "col-8 text-center text-primary" }, [
-          _vm._v("Selecione os livros que já leu:")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "row row-space-form" }, [
-                _c("div", { staticClass: "col-6" }, [
-                  _c("div", { staticClass: "form-check" }, [
-                    _c("input", {
-                      staticClass: "form-check-input",
-                      attrs: {
-                        type: "checkbox",
-                        id: "livro_espiritos",
-                        name: "livro_espiritos"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-check-label",
-                        attrs: { for: "livro_espiritos" }
-                      },
-                      [_vm._v("Livro dos Espíritos")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
-                  _c("div", { staticClass: "form-check" }, [
-                    _c("input", {
-                      staticClass: "form-check-input",
-                      attrs: {
-                        type: "checkbox",
-                        id: "apometria",
-                        name: "apometria"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-check-label",
-                        attrs: { for: "apometria" }
-                      },
-                      [_vm._v("Livro dos Médiuns")]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "row row-space-form" }, [
-                _c("div", { staticClass: "col-6" }, [
-                  _c("div", { staticClass: "form-check" }, [
-                    _c("input", {
-                      staticClass: "form-check-input",
-                      attrs: {
-                        type: "checkbox",
-                        id: "livro_evangelho",
-                        name: "livro_evangelho"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-check-label",
-                        attrs: { for: "livro_evangelho" }
-                      },
-                      [_vm._v("Livro o Evangelho Segundo o Espiritismo?")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
-                  _c("div", { staticClass: "form-check" }, [
-                    _c("input", {
-                      staticClass: "form-check-input",
-                      attrs: {
-                        type: "checkbox",
-                        id: "livro_medicina",
-                        name: "livro_medicina"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-check-label",
-                        attrs: { for: "livro_medicina" }
-                      },
-                      [
-                        _vm._v(
-                          "Espirito e Matéria: Um Novo Horizonte para a\n                          Medicina?"
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
