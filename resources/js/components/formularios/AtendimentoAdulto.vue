@@ -371,6 +371,15 @@
             </div>
     
     
+            <div v-if="register.data" class="row justify-content-center row-space-form">
+                <div v-if="register.data"  class="alert alert-danger" role="alert">
+                    <span v-if="register.data.cpf">{{register.data.cpf[0]}}</span> | 
+                    <span v-if="register.data.email">{{register.data.email[0]}}</span>
+
+                  
+                </div>
+            </div>           
+    
         </div>
         <Footer></Footer>
     </div>
@@ -440,10 +449,11 @@ export default {
         },
         registrar() {
             this.checkRequired()
+            // colocar no negativo
             if (this.required) {
-                this.Register(this.inputs)
-                // this.inputs = []              
-                // this.$router.push({ name: 'agendamento' });
+                // this.Register(this.inputs)
+                console.log(this.inputs)                          
+                
             } else {
                 console.log("não registrado, com erros")
             }
@@ -459,7 +469,11 @@ export default {
             },
             register: function(val){
 
-                console.log(this.register)
+                console.log(this.register.data.cpf)
+                if(!this.register.data.cpf && !this.register.data.email){
+                    console.log('roteando')
+                    this.$router.push({ name: 'agendamento' });
+                }
               
             }
 

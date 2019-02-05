@@ -3229,6 +3229,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3263,11 +3272,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     registrar: function registrar() {
-      this.checkRequired();
+      this.checkRequired(); // colocar no negativo
 
       if (this.required) {
-        this.Register(this.inputs); // this.inputs = []              
-        // this.$router.push({ name: 'agendamento' });
+        // this.Register(this.inputs)
+        console.log(this.inputs);
       } else {
         console.log("não registrado, com erros");
       }
@@ -3281,7 +3290,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   watch: {
     required: function required(val) {},
     register: function register(val) {
-      console.log(this.register);
+      console.log(this.register.data.cpf);
+
+      if (!this.register.data.cpf && !this.register.data.email) {
+        console.log('roteando');
+        this.$router.push({
+          name: 'agendamento'
+        });
+      }
     }
   },
   beforeMount: function beforeMount() {
@@ -9943,6 +9959,37 @@ var render = function() {
                     )
                   ]
                 )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.register.data
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _vm.register.data
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "alert alert-danger",
+                        attrs: { role: "alert" }
+                      },
+                      [
+                        _vm.register.data.cpf
+                          ? _c("span", [
+                              _vm._v(_vm._s(_vm.register.data.cpf[0]))
+                            ])
+                          : _vm._e(),
+                        _vm._v(" | \n                "),
+                        _vm.register.data.email
+                          ? _c("span", [
+                              _vm._v(_vm._s(_vm.register.data.email[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  : _vm._e()
               ]
             )
           : _vm._e()
