@@ -3195,12 +3195,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3273,7 +3267,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.inputs.drogas = '';
     this.inputs.como_soube = '';
     this.inputs.indicacao = '';
-    this.inputs.obreiro = '';
     this.inputs.estado = '';
   },
   directives: {
@@ -10369,6 +10362,35 @@ var render = function() {
                 [
                   _c("option", { attrs: { disabled: "", value: "" } }, [
                     _vm._v("Caso tenha recebido uma indicação assinale abaixo:")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: {
+                        value:
+                          "Tratou-se de indicação de frequentador do Acolher"
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "Tratou-se de indicação de frequentador do Acolher"
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: {
+                        value: "Tratou-se de indicação de Obreiro do Acolher"
+                      }
+                    },
+                    [_vm._v("Tratou-se de indicação de Obreiro do Acolher")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Outros" } }, [
+                    _vm._v("Outros")
                   ])
                 ]
               )
@@ -10437,85 +10459,6 @@ var render = function() {
                       return
                     }
                     _vm.$set(_vm.inputs, "recorrer", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
-            _c("div", { staticClass: "col-4" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.obreiro,
-                      expression: "inputs.obreiro"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "obreiro", id: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.inputs,
-                        "obreiro",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "" } }, [
-                    _vm._v("Você é obreiro?")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Sim *")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Não *")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.numero_obreiro,
-                    expression: "inputs.numero_obreiro"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "number",
-                  placeholder: "Possui algum numero de obreiro?"
-                },
-                domProps: { value: _vm.inputs.numero_obreiro },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "numero_obreiro", $event.target.value)
                   }
                 }
               })

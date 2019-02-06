@@ -11,7 +11,6 @@ class Users extends Model
     protected $fillable = [
     'name',
     'email',
-    'cpf',
     'data_nascimento',
     'genero',
     'cpf',
@@ -48,15 +47,6 @@ class Users extends Model
     'indicacao',
     'nome_indicacao',
     'recorrer',
-    'obreiro',
-    'numero_obreiro',
-
-
-
-
-
-
-
 ];
 
     public $rules = [                

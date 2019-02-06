@@ -301,6 +301,11 @@
                 <div class="col-8">
                     <select class="form-control" v-model="inputs.indicacao">
                     <option disabled value="">Caso tenha recebido uma indicação assinale abaixo:</option>
+                    <option value="Tratou-se de indicação de frequentador do Acolher">Tratou-se de indicação de frequentador do Acolher</option>
+                    <option value="Tratou-se de indicação de Obreiro do Acolher">Tratou-se de indicação de Obreiro do Acolher</option>
+          
+            
+            <option value="Outros">Outros</option>
                   </select>
                 </div>
             </div>
@@ -315,18 +320,7 @@
                   Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                 </div>
             </div>
-            <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <select name="obreiro" v-model="inputs.obreiro" class="form-control" id>
-                    <option value>Você é obreiro?</option>
-                    <option>Sim *</option>
-                    <option>Não *</option>
-                  </select>
-                </div>
-                <div class="col-4">
-                    <input type="number" v-model="inputs.numero_obreiro" class="form-control" placeholder="Possui algum numero de obreiro?">
-                </div>    
-            </div>
+           
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <button @click="registrar()" type="submit" class="btn btn-primary">Cadastrar</button>
@@ -451,8 +445,7 @@ export default {
             this.inputs.bebida = ''
             this.inputs.drogas = ''
             this.inputs.como_soube = ''
-            this.inputs.indicacao = ''
-            this.inputs.obreiro = ''
+            this.inputs.indicacao = ''            
             this.inputs.estado = ''
 
         },
