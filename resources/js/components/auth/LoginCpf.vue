@@ -65,8 +65,8 @@ export default {
             'Logon',          
         ]),
         logar(){
-            console.log(this.inputs.cpf)
-        //   this.Logon(this.inputs)
+            // console.log(this.inputs.cpf)
+          this.Logon(this.inputs)
         //   this.$router.push({ name: 'formularios/atendimentoadulto' });
         }
          },

@@ -2613,8 +2613,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['Logon']), {
     logar: function logar() {
-      console.log(this.inputs.cpf); //   this.Logon(this.inputs)
-      //   this.$router.push({ name: 'formularios/atendimentoadulto' });
+      // console.log(this.inputs.cpf)
+      this.Logon(this.inputs); //   this.$router.push({ name: 'formularios/atendimentoadulto' });
     }
   }),
   mounted: function mounted() {},
@@ -26636,7 +26636,8 @@ __webpack_require__.r(__webpack_exports__);
     Logon: function Logon(context, data) {
       var url = '/acolher/public/api/auth/login';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
-        return context.commit('LOGON', response.data);
+        context.commit('LOGON', response.data);
+        console.log('efetuando login');
       }).catch(function (error) {
         console.log(error);
       });

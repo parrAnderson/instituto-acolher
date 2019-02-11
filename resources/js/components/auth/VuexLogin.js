@@ -22,32 +22,34 @@ export default {
         let url = '/acolher/public/api/auth/login';        
         axios
             .post(url, data)
-              .then(response => context.commit('LOGON', response.data))
+              .then(response => {
+                context.commit('LOGON', response.data)
+                console.log('efetuando login')
+              }                
+                )
               .catch(function (error) {
                 console.log(error);
               });
-    },
+        },
 
-    Logout(context, data) {        
-       
-         context.commit('LOGOUT', "")
-         
-    },
-    
-    Register(context, data) {        
-        let url = '/acolher/public/api/auth/register';        
-        axios
-            .post(url, data)
-              .then(response => {
-                context.commit('REGISTER', response)
-                if(response.data.customMessages){
-                                
-                }
-              })
-              .catch(function (error) {
-                response => context.commit('REGISTER', response.customMessages)
-                console.log(response);
-              });
-    },
+        Logout(context, data) {       
+            context.commit('LOGOUT', "")            
+        },
+        
+        Register(context, data) {        
+            let url = '/acolher/public/api/auth/register';        
+            axios
+                .post(url, data)
+                .then(response => {
+                    context.commit('REGISTER', response)
+                    if(response.data.customMessages){
+                                    
+                    }
+                })
+                .catch(function (error) {
+                    response => context.commit('REGISTER', response.customMessages)
+                    console.log(response);
+                });
+        },
     }
 }
