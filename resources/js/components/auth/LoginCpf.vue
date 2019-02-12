@@ -8,9 +8,12 @@
 <div class="main-div">
     <div class="panel">
    <h2>Login Acolher</h2>
+
+
+
    <p>Por favor digite sua conta de email e senha</p>
    </div>
-   <h5 v-if="login.data.user">Bem vindo {{login.data.user.name}}</h5>
+  
     <form id="Login">
 
         <div class="form-group">
@@ -65,18 +68,17 @@ export default {
             'Logon',          
         ]),
         logar(){
-            // console.log(this.inputs.cpf)
-          this.Logon(this.inputs)
-        //   this.$router.push({ name: 'formularios/atendimentoadulto' });
+          this.Logon(this.inputs)         
         }
          },
-        mounted(){
-           
-        },
         computed: {
         ...mapState({
             login: state => state.Login,
         }),    
+    },watch:{
+      login: function(){
+        console.log(this.login.data)
+      }
     },
     directives: { mask }
 

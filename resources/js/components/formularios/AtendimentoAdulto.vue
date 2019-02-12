@@ -152,9 +152,9 @@
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="droga" v-model="inputs.drogas" class="form-control" id>
-                    <option value>Possui dependencia em drogas?</option>
-                    <option>Sim *</option>
-                    <option>Não *</option>
+                    <option value>Possui dependencia em drogas? *</option>
+                    <option>Sim</option>
+                    <option>Não</option>
                   </select>
                 </div>
                 <div class="col-4">
@@ -311,13 +311,12 @@
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
-                    <input type="text" v-model="inputs.nome_indicacao" class="form-control" placeholder="informe o nome da pessoa que lhe indicou o Acolher *">
+                    <input type="text" v-model="inputs.nome_indicacao" class="form-control" placeholder="informe o nome da pessoa que lhe indicou o Acolher">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
-                    <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? 
-                  Aponte resumidamente os seus 3 principais problemas: *"></textarea>
+                    <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                 </div>
             </div>
            
@@ -338,7 +337,9 @@
                 </div>
             </div>        
             </div>
-        <Footer></Footer>
+        <Footer>
+                    
+        </Footer>
     </div>
 </template>
 

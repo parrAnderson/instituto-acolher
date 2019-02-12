@@ -2,7 +2,7 @@ import axios from "axios"
 
 export default {
     state: {
-        data: [],
+        data: {},
         register:{},
         
     },
@@ -23,13 +23,13 @@ export default {
         axios
             .post(url, data)
               .then(response => {
-                context.commit('LOGON', response.data)
+                context.commit('LOGON', response.data[0])
                 console.log('efetuando login')
               }                
-                )
-              .catch(function (error) {
-                console.log(error);
-              });
+            )
+            .catch(function (error) {
+            console.log(error);
+            });
         },
 
         Logout(context, data) {       
@@ -41,15 +41,13 @@ export default {
             axios
                 .post(url, data)
                 .then(response => {
-                    context.commit('REGISTER', response)
-                    if(response.data.customMessages){
-                                    
-                    }
+                    context.commit('REGISTER', response)      
+                    this.dispatch('Logon',data);              
                 })
                 .catch(function (error) {
                     response => context.commit('REGISTER', response.customMessages)
                     console.log(response);
                 });
-        },
+        }
     }
 }

@@ -7,15 +7,16 @@
             <div class="col-md-10">
                 <div class="row row-login">
                     <div class="col-12 text-right">
+                        <p v-if="login.data.id">Bem vindo {{login.data.name}}</p>
                         <router-link to="/login">
-                            <button v-if="!login.data.user" class="btn btn-success btn-sm">Login</button>
+                            <button v-if="!login.data.id" class="btn btn-success btn-sm">Login</button>
                         </router-link>
 
                         <router-link to="/register">
-                            <button v-if="!login.data.user" class="btn btn-primary btn-sm">Cadastrar</button>
+                            <button v-if="!login.data.id" class="btn btn-primary btn-sm">Cadastrar</button>
                         </router-link>
 
-                        <button v-if="login.data.user" @click="sair()" class="btn btn-danger btn-sm">Sair</button>
+                        <button v-if="login.data.id" @click="sair()" class="btn btn-danger btn-sm">Sair</button>
 
                     </div>
                 </div>
@@ -119,8 +120,7 @@ export default {
             this.Logout("")
             this.$router.push({ name: 'home' });
             console.log('saiu')
-        }  
-   
-}
+        }    
+    } 
 }
 </script>

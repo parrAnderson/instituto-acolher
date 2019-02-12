@@ -1041,6 +1041,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -2545,8 +2546,12 @@ var render = function() {
             "div",
             { staticClass: "col-12 text-right" },
             [
+              _vm.login.data.id
+                ? _c("p", [_vm._v("Bem vindo " + _vm._s(_vm.login.data.name))])
+                : _vm._e(),
+              _vm._v(" "),
               _c("router-link", { attrs: { to: "/login" } }, [
-                !_vm.login.data.user
+                !_vm.login.data.id
                   ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
                       _vm._v("Login")
                     ])
@@ -2554,14 +2559,14 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("router-link", { attrs: { to: "/register" } }, [
-                !_vm.login.data.user
+                !_vm.login.data.id
                   ? _c("button", { staticClass: "btn btn-primary btn-sm" }, [
                       _vm._v("Cadastrar")
                     ])
                   : _vm._e()
               ]),
               _vm._v(" "),
-              _vm.login.data.user
+              _vm.login.data.id
                 ? _c(
                     "button",
                     {

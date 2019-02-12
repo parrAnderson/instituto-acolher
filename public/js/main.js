@@ -2596,6 +2596,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2613,16 +2616,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['Logon']), {
     logar: function logar() {
-      // console.log(this.inputs.cpf)
-      this.Logon(this.inputs); //   this.$router.push({ name: 'formularios/atendimentoadulto' });
+      this.Logon(this.inputs);
     }
   }),
-  mounted: function mounted() {},
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     login: function login(state) {
       return state.Login;
     }
   })),
+  watch: {
+    login: function login() {
+      console.log(this.login.data);
+    }
+  },
   directives: {
     mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_3__["mask"]
   }
@@ -3195,6 +3201,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -3318,6 +3325,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -8079,12 +8087,6 @@ var render = function() {
           _c("div", { staticClass: "main-div" }, [
             _vm._m(0),
             _vm._v(" "),
-            _vm.login.data.user
-              ? _c("h5", [
-                  _vm._v("Bem vindo " + _vm._s(_vm.login.data.user.name))
-                ])
-              : _vm._e(),
-            _vm._v(" "),
             _c("form", { attrs: { id: "Login" } }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("input", {
@@ -9395,12 +9397,12 @@ var render = function() {
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [
-                    _vm._v("Possui dependencia em drogas?")
+                    _vm._v("Possui dependencia em drogas? *")
                   ]),
                   _vm._v(" "),
-                  _c("option", [_vm._v("Sim *")]),
+                  _c("option", [_vm._v("Sim")]),
                   _vm._v(" "),
-                  _c("option", [_vm._v("Não *")])
+                  _c("option", [_vm._v("Não")])
                 ]
               )
             ]),
@@ -10416,7 +10418,7 @@ var render = function() {
                 attrs: {
                   type: "text",
                   placeholder:
-                    "informe o nome da pessoa que lhe indicou o Acolher *"
+                    "informe o nome da pessoa que lhe indicou o Acolher"
                 },
                 domProps: { value: _vm.inputs.nome_indicacao },
                 on: {
@@ -10450,7 +10452,7 @@ var render = function() {
                 attrs: {
                   rows: "3",
                   placeholder:
-                    "O que levou a recorrer ao Acolher? \n              Aponte resumidamente os seus 3 principais problemas: *"
+                    "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
                 },
                 domProps: { value: _vm.inputs.recorrer },
                 on: {
@@ -10636,8 +10638,12 @@ var render = function() {
             "div",
             { staticClass: "col-12 text-right" },
             [
+              _vm.login.data.id
+                ? _c("p", [_vm._v("Bem vindo " + _vm._s(_vm.login.data.name))])
+                : _vm._e(),
+              _vm._v(" "),
               _c("router-link", { attrs: { to: "/login" } }, [
-                !_vm.login.data.user
+                !_vm.login.data.id
                   ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
                       _vm._v("Login")
                     ])
@@ -10645,14 +10651,14 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("router-link", { attrs: { to: "/register" } }, [
-                !_vm.login.data.user
+                !_vm.login.data.id
                   ? _c("button", { staticClass: "btn btn-primary btn-sm" }, [
                       _vm._v("Cadastrar")
                     ])
                   : _vm._e()
               ]),
               _vm._v(" "),
-              _vm.login.data.user
+              _vm.login.data.id
                 ? _c(
                     "button",
                     {
@@ -26618,7 +26624,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    data: [],
+    data: {},
     register: {}
   },
   mutations: {
@@ -26636,7 +26642,7 @@ __webpack_require__.r(__webpack_exports__);
     Logon: function Logon(context, data) {
       var url = '/acolher/public/api/auth/login';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
-        context.commit('LOGON', response.data);
+        context.commit('LOGON', response.data[0]);
         console.log('efetuando login');
       }).catch(function (error) {
         console.log(error);
@@ -26646,11 +26652,13 @@ __webpack_require__.r(__webpack_exports__);
       context.commit('LOGOUT', "");
     },
     Register: function Register(context, data) {
+      var _this = this;
+
       var url = '/acolher/public/api/auth/register';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
         context.commit('REGISTER', response);
 
-        if (response.data.customMessages) {}
+        _this.dispatch('Logon', data);
       }).catch(function (error) {
         (function (response) {
           return context.commit('REGISTER', response.customMessages);

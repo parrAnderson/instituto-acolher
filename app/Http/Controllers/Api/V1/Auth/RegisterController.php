@@ -17,12 +17,9 @@ class RegisterController extends Controller
     public function login(Request $data){
         $this->Users = $this->Users->where('cpf',$data->cpf )->get();
 
-        
+        // $this->Users = collect($this->Users);
 
-        return response()->json([
-            'message' =>  $this->Users,  
-            'data' => $data->cpf              
-        ]);
+        return response()->json($this->Users->all());
 
     }
     
