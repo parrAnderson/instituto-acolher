@@ -1042,6 +1042,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -2745,7 +2748,11 @@ var render = function() {
                                 "aria-expanded": "false"
                               }
                             },
-                            [_vm._v("\n          Formulários\n        ")]
+                            [
+                              _vm._v(
+                                "\n                                    Formulários\n                                    "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -2781,6 +2788,26 @@ var render = function() {
                             1
                           )
                         ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.login.data.id
+                      ? _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _c("router-link", { attrs: { to: "/obreiro" } }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Obreiro")]
+                              )
+                            ])
+                          ],
+                          1
+                        )
                       : _vm._e()
                   ],
                   1

@@ -75,12 +75,11 @@
                                 <router-link to="/semear">
                                     <a class="nav-link" href="#">Semear</a>
                                 </router-link>
-
                             </li>
                             <li class="nav-item dropdown" v-if="login.data.user">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-hover="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Formulários
-        </a>
+                                    Formulários
+                                    </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <router-link to="/formularios/atendimentoadulto">
                                         <a class="dropdown-item" href="#">Cadastro Prévio para Atendimento a Adulto 1ª Vez</a>
@@ -88,7 +87,11 @@
 
                                 </div>
                             </li>
-
+                            <li v-if="login.data.id" class="nav-item">
+                                <router-link to="/obreiro">
+                                    <a class="nav-link" href="#">Obreiro</a>
+                                </router-link>
+                            </li>
                         </ul>
                     </div>
                 </nav>

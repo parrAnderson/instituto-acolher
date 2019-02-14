@@ -24,7 +24,7 @@ export default {
             .post(url, data)
               .then(response => {
                 context.commit('LOGON', response.data[0])
-                console.log('efetuando login')
+                this.$router.push({ name: 'home' });
               }                
             )
             .catch(function (error) {
