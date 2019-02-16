@@ -445,6 +445,7 @@ class ComposerStaticInit86c0a07477181cbb81abfe6e2c8b9544
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Api\\V1\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/Auth/RegisterController.php',
+        'App\\Http\\Controllers\\Api\\V1\\Users\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/Users/UsersController.php',
         'App\\Http\\Controllers\\Auth\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AdminController.php',
         'App\\Http\\Controllers\\Auth\\AdminLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AdminLoginController.php',
         'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',

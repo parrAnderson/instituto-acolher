@@ -33,3 +33,10 @@ Route::group([
     Route::post('/atualizar', 'Api\V1\Users\UsersController@atualizar');
 });
 
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'atendimento'
+], function ($router) {
+    Route::post('/cadastrar', 'Api\V1\Atendimentos\AtendimentosController@store');
+});
