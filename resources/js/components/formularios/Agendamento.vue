@@ -20,6 +20,8 @@
         </div>
       </div>
 
+      <input type="hidden" v-model="inputs.user_id">
+
        <div class="row justify-content-center row-space-form">
         <div class="col-8 text-right">
           <button @click="agendar()" type="submit" class="btn btn-primary">Cadastrar</button>
@@ -32,6 +34,7 @@
 </template>
 
 <script>
+import {mapState} from "vuex"
 import NavHeader from "./../layouts/NavHeader";
   import Footer from "./../layouts/Footer";
     export default {
@@ -46,6 +49,11 @@ import NavHeader from "./../layouts/NavHeader";
             atividade:'',
         }
     },
+    computed: {
+        ...mapState({
+            login: state => state.Login.data,
+        })
+    },
     watch:{
         atividade:function(){
             this.inputs.atividade = this.atividade
@@ -55,6 +63,9 @@ import NavHeader from "./../layouts/NavHeader";
       agendar(){
         console.log(this.inputs)
       }
+    },
+    beforeMount(){
+      this.inputs.user_id = this.login.id;
     }
 
 

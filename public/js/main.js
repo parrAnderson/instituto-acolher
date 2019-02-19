@@ -2774,8 +2774,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
-/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
+/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2809,13 +2814,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Agendamento",
   components: {
-    NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
+    NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2823,6 +2831,11 @@ __webpack_require__.r(__webpack_exports__);
       atividade: ''
     };
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+    login: function login(state) {
+      return state.Login.data;
+    }
+  })),
   watch: {
     atividade: function atividade() {
       this.inputs.atividade = this.atividade;
@@ -2832,6 +2845,9 @@ __webpack_require__.r(__webpack_exports__);
     agendar: function agendar() {
       console.log(this.inputs);
     }
+  },
+  beforeMount: function beforeMount() {
+    this.inputs.user_id = this.login.id;
   }
 });
 
@@ -8560,6 +8576,27 @@ var render = function() {
             ])
           ]
         ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.inputs.user_id,
+              expression: "inputs.user_id"
+            }
+          ],
+          attrs: { type: "hidden" },
+          domProps: { value: _vm.inputs.user_id },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.inputs, "user_id", $event.target.value)
+            }
+          }
+        }),
         _vm._v(" "),
         _c(
           "div",
