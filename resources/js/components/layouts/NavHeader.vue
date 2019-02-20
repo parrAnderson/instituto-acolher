@@ -3,11 +3,16 @@
     <div class="row nav-top">
         <div class="col-md-2">
             <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
-      </div>
+        </div>
             <div class="col-md-10">
-                <div class="row row-login">
-                    <div class="col-12 text-right">
-                        <p v-if="login.data.id">Bem vindo {{login.data.name}}</p>
+                
+                
+                <div class="row row-login justify-content-end">
+                    <div class="col-6">
+                        <p class="text-left" v-if="login.data.id">Bem vindo {{login.data.name}}</p>
+                    </div>
+                    <div class="col-6 text-right">
+                        
                         <router-link to="/login">
                             <button v-if="!login.data.id" class="btn btn-success btn-sm">Login</button>
                         </router-link>
@@ -16,7 +21,7 @@
                             <button v-if="!login.data.id" class="btn btn-primary btn-sm">Cadastrar</button>
                         </router-link>
 
-                        <button v-if="login.data.id" @click="sair()" class="btn btn-danger btn-sm">Sair</button>
+                        <button v-if="login.data.id" @click="sair()" class=" btn btn-danger btn-sm">Sair</button>
 
                     </div>
                 </div>
@@ -90,6 +95,12 @@
                             <li v-if="login.data.id" class="nav-item">
                                 <router-link to="/obreiro">
                                     <a class="nav-link" href="#">Obreiro</a>
+                                </router-link>
+                            </li>
+
+                             <li v-if="login.data.id" class="nav-item">
+                                <router-link to="/atendimento">
+                                    <a class="nav-link" href="#">Atendimento</a>
                                 </router-link>
                             </li>
                         </ul>

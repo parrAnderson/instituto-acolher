@@ -9,8 +9,8 @@ import Publicacoes from './components/Publicacoes'
 import Contato from './components/Contato'
 import HorarioAtendimento from './components/HorarioAtendimento'
 import Semear from './components/Semear'
-import AtendimentoAdulto from './components/formularios/AtendimentoAdulto'
-import Agendamento from './components/formularios/Agendamento'
+// import AtendimentoAdulto from './components/formularios/AtendimentoAdulto'
+import Atendimento from './components/formularios/Atendimento'
 import Obreiro from './components/obreiro/Obreiro'
 
 
@@ -28,8 +28,8 @@ const routes = [
     {path:'/horariodeatendimento', name:'horariodeatendimento', component: HorarioAtendimento},
     {path:'/semear', name:'semear', component: Semear},
     {path:'/login', name:'login', component: LoginCpf},
-    {path:'/register', name:'register',  name:'register', component: AtendimentoAdulto},
-    {path:'/agendamento', name:'agendamento',  component: Agendamento},
+    {path:'/register', name:'register',  name:'register', component: Register},
+    {path:'/atendimento', name:'atendimento',  component: Atendimento},
     {path:'/obreiro', name:'obreiro',  component: Obreiro},
   
    

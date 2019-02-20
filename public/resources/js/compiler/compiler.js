@@ -1045,6 +1045,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -2544,15 +2555,19 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
-        _c("div", { staticClass: "row row-login" }, [
+        _c("div", { staticClass: "row row-login justify-content-end" }, [
+          _c("div", { staticClass: "col-6" }, [
+            _vm.login.data.id
+              ? _c("p", { staticClass: "text-left" }, [
+                  _vm._v("Bem vindo " + _vm._s(_vm.login.data.name))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-12 text-right" },
+            { staticClass: "col-6 text-right" },
             [
-              _vm.login.data.id
-                ? _c("p", [_vm._v("Bem vindo " + _vm._s(_vm.login.data.name))])
-                : _vm._e(),
-              _vm._v(" "),
               _c("router-link", { attrs: { to: "/login" } }, [
                 !_vm.login.data.id
                   ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
@@ -2573,7 +2588,7 @@ var render = function() {
                 ? _c(
                     "button",
                     {
-                      staticClass: "btn btn-danger btn-sm",
+                      staticClass: " btn btn-danger btn-sm",
                       on: {
                         click: function($event) {
                           _vm.sair()
@@ -2805,6 +2820,30 @@ var render = function() {
                                 [_vm._v("Obreiro")]
                               )
                             ])
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.login.data.id
+                      ? _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: "/atendimento" } },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { href: "#" }
+                                  },
+                                  [_vm._v("Atendimento")]
+                                )
+                              ]
+                            )
                           ],
                           1
                         )

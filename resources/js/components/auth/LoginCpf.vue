@@ -73,11 +73,15 @@ export default {
          },
         computed: {
         ...mapState({
-            login: state => state.Login,
+            login: state => state.Login.data,
+            
         }),    
     },watch:{
-      login: function(){
-        console.log(this.login.data)
+      login: function(val){   
+        console.log('nao funcionando')     
+        if(this.login.id){
+           this.$router.push({ name: 'home' });
+        }
       }
     },
     directives: { mask }

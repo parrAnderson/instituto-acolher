@@ -2,14 +2,24 @@
     <div>
             <nav-header></nav-header>
          <div class="container">
+
+           <div v-if="atendimento.data.data" class="row justify-content-center">
+             <div class="col-8">
+               <div class="alert alert-success text-center" role="alert">
+                <h5>Atendimento registrado, aguarde nosso contato!</h5>
+                </div>
+               
+             </div>
+           </div>
+
       <div class="row row-space"> 
         <div class="col-12">
-          <h4 class="text-center">Agendamento</h4>          
+          <h4 class="text-center">Atendimento</h4>          
         </div>
       </div>
        <div class="row row-space justify-content-center row-space-form">
         <div class="col-8">
-          <select name="atividade" v-model="atividade"  class="form-control" id>
+          <select name="atividade" v-model="inputs.tipo_atendimento"  class="form-control" id>
             <option disable value="" >Indique a atividade de qual pretende receber atendimento *</option>
             <option value="Apometria (2as. feiras)">Apometria (2as. feiras)</option>        
             <option value="Prática do Evangelho (5as. feiras)">Prática do Evangelho (5as. feiras)</option>
@@ -34,11 +44,11 @@
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {mapState, mapActions} from "vuex"
 import NavHeader from "./../layouts/NavHeader";
   import Footer from "./../layouts/Footer";
     export default {
-        name:"Agendamento",
+        name:"Atendimento",
         components: {
       NavHeader,
       Footer
@@ -46,26 +56,30 @@ import NavHeader from "./../layouts/NavHeader";
     data(){
         return{
             inputs:{},
-            atividade:'',
+            
         }
     },
     computed: {
         ...mapState({
             login: state => state.Login.data,
+            atendimento: state => state.Atendimento,
         })
     },
     watch:{
-        atividade:function(){
-            this.inputs.atividade = this.atividade
-        }
+       
     },
     methods:{
+      ...mapActions([
+        'CadastrarAtendimento'
+      ]),
       agendar(){
-        console.log(this.inputs)
+        this.CadastrarAtendimento(this.inputs)
       }
     },
     beforeMount(){
       this.inputs.user_id = this.login.id;
+
+      this.inputs.tipo_atendimento = ""
     }
 
 
