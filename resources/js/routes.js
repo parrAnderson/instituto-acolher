@@ -13,6 +13,8 @@ import Semear from './components/Semear'
 import Atendimento from './components/formularios/Atendimento'
 import Obreiro from './components/obreiro/Obreiro'
 
+import Carteirinha from './components/carteirinhas/Carteirinha'
+
 
 //login
 import LoginCpf from './components/auth/LoginCpf'
@@ -31,6 +33,8 @@ const routes = [
     {path:'/register', name:'register',  name:'register', component: Register},
     {path:'/atendimento', name:'atendimento',  component: Atendimento},
     {path:'/obreiro', name:'obreiro',  component: Obreiro},
+
+    {path:'/cartao/:id', name:'cartao',  component: Carteirinha},
   
    
 
