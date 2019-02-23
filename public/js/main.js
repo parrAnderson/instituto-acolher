@@ -10409,7 +10409,10 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-2 text-right" }, [
-              _vm._v("\n                        Foto\n                    ")
+              _c("img", {
+                staticClass: "img-fluid float-right",
+                attrs: { src: "/../../acolher/public/img/avatar.png", alt: "" }
+              })
             ])
           ]),
           _vm._v(" "),

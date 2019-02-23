@@ -8,12 +8,12 @@
                     <div class="row">
                         <div class="col-2">
                             <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
-                        </div>
+                        </div> 
                         <div class="col-5 text-center">
                             Acolher - Instituto Kardecista<br> Frequentador Cadastrado
                         </div>
                         <div class="col-2 text-right">
-                            Foto
+                            <img class="img-fluid float-right" src="/../../acolher/public/img/avatar.png" alt>
                         </div>
                     </div>
                     <div class="row">    
