@@ -3173,12 +3173,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3608,7 +3602,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.border-div[data-v-877785e2] {\n    border-style: dotted;\n}\n", ""]);
+exports.push([module.i, "\n.border-div[data-v-877785e2] {\n    border-style: dotted;\n}\n.img-quinze[data-v-877785e2] {\n    width: 100px;\n}\n", ""]);
 
 // exports
 
@@ -10391,106 +10385,117 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-8 border-div" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-2" }, [
-              _c("img", {
-                staticClass: "img-fluid align-center",
-                attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-5 text-center" }, [
-              _vm._v(
-                "\n                        Acolher - Instituto Kardecista"
+        _c("div", { staticClass: "col-6 border-div" }, [
+          _c("table", { staticClass: "table" }, [
+            _c("tr", [
+              _c("td", [
+                _c("img", {
+                  staticClass: " align-center img-quinze",
+                  attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                { staticClass: "text-center", attrs: { colspan: "2" } },
+                [
+                  _vm._v(
+                    "\n                                Acolher - Instituto Kardecista"
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    " \n                                Frequentador Cadastrado "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n                                Validade\n                            "
+                  )
+                ]
               ),
-              _c("br"),
-              _vm._v(" Frequentador Cadastrado\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-2 text-right" }, [
-              _c("img", {
-                staticClass: "img-fluid float-right",
-                attrs: { src: "/../../acolher/public/img/avatar.png", alt: "" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "" } }, [_vm._v("N° de registro")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "number", value: "13" }
+              _vm._v(" "),
+              _c("td", { staticClass: "text-left float-right " }, [
+                _c("img", {
+                  staticClass: " float-right img-quinze",
+                  attrs: {
+                    src: "/../../acolher/public/img/avatar.png",
+                    alt: ""
+                  }
                 })
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "" } }, [_vm._v("CPF")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "text", value: "421.496.718.67" }
-                })
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                                Nome\n                            "
+                )
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "" } }, [_vm._v("RG")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "text", value: "49.181.250-4" }
-                })
+            _c("tr", [
+              _c("td", { attrs: { colspan: "4" } }, [
+                _vm._v(
+                  "\n                                Jorge Serrano Junior\n                            "
+                )
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "" } }, [_vm._v("DATA")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "date", value: "2019-02-02" }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _vm._v(
-                "\n                        Declaração\n                    "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _vm._v(
-                "\n                        Declaro ser de minha livre e espontanea\n                    "
+            _c("tr", { staticClass: "text-left" }, [
+              _c("td", [
+                _c("label", { attrs: { for: "" } }, [_vm._v("N° de reg.")])
+              ]),
+              _vm._v(" "),
+              _c("td", [_c("label", { attrs: { for: "" } }, [_vm._v("CPF")])]),
+              _vm._v(" "),
+              _c("td", [_c("label", { attrs: { for: "" } }, [_vm._v("RG")])]),
+              _vm._v(" "),
+              _c("td", [_c("label", { attrs: { for: "" } }, [_vm._v("DATA")])])
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "text-left" }, [
+              _c("td", [_vm._v("15")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("421.496.718-67")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("49.181.250-4")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("10/02/2019")])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c(
+                "td",
+                { staticClass: "text-center", attrs: { colspan: "4" } },
+                [
+                  _vm._v("\n                                Declaração"),
+                  _c("br"),
+                  _vm._v(
+                    "\nDeclaro ser de minha livre e espontanea\n                            "
+                  )
+                ]
               )
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-6 text-left" }, [
-              _vm._v("\n                        __________________________ "),
+              _vm._v(
+                "\n                            __________________________ "
+              ),
               _c("br"),
               _vm._v(
-                "\n                        Assinatura do atendido\n                    "
+                "\n                            Assinatura do atendido\n                        "
               )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 text-right" }, [
-              _vm._v("\n                        __________________________ "),
+              _vm._v(
+                "\n                            __________________________ "
+              ),
               _c("br"),
-              _vm._v("\n                        Acolher\n                    ")
+              _vm._v(
+                "\n                            Acolher\n                        "
+              )
             ])
           ])
         ])
