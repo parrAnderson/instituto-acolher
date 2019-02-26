@@ -3173,6 +3173,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -10407,9 +10410,10 @@ var staticRenderFns = [
                     " \n                                Frequentador Cadastrado "
                   ),
                   _c("br"),
-                  _vm._v(
-                    "\n                                Validade\n                            "
-                  )
+                  _vm._v(" "),
+                  _c("div", { staticClass: "btn btn-primary" }, [
+                    _vm._v("Validade 10/06/2020")
+                  ])
                 ]
               ),
               _vm._v(" "),
@@ -10425,41 +10429,22 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("tr", [
-              _c("td", [
-                _vm._v(
-                  "\n                                Nome\n                            "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
               _c("td", { attrs: { colspan: "4" } }, [
-                _vm._v(
-                  "\n                                Jorge Serrano Junior\n                            "
-                )
+                _vm._v("\n                                Nome: "),
+                _c("span", { staticClass: "text-center" }, [
+                  _vm._v("Jorge Serrano Junior")
+                ])
               ])
             ]),
             _vm._v(" "),
             _c("tr", { staticClass: "text-left" }, [
-              _c("td", [
-                _c("label", { attrs: { for: "" } }, [_vm._v("N° de reg.")])
-              ]),
+              _c("td", [_vm._v("N° de reg. "), _c("br"), _vm._v(" 1525")]),
               _vm._v(" "),
-              _c("td", [_c("label", { attrs: { for: "" } }, [_vm._v("CPF")])]),
+              _c("td", [_vm._v(" CPF "), _c("br"), _vm._v(" 421.496.718-67")]),
               _vm._v(" "),
-              _c("td", [_c("label", { attrs: { for: "" } }, [_vm._v("RG")])]),
+              _c("td", [_vm._v(" RG "), _c("br"), _vm._v(" 49.181.250-4")]),
               _vm._v(" "),
-              _c("td", [_c("label", { attrs: { for: "" } }, [_vm._v("DATA")])])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "text-left" }, [
-              _c("td", [_vm._v("15")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("421.496.718-67")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("49.181.250-4")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("10/02/2019")])
+              _c("td", [_vm._v(" DATA "), _c("br"), _vm._v(" 10/06/2019")])
             ]),
             _vm._v(" "),
             _c("tr", [

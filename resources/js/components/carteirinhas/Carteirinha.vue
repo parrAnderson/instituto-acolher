@@ -13,36 +13,39 @@
                             <td colspan="2" class="text-center">
                                 Acolher - Instituto Kardecista<br> 
                                 Frequentador Cadastrado <br>
-                                Validade
+                                <div class="btn btn-primary">Validade 10/06/2020</div>
                             </td>
                             <td class="text-left float-right ">
                                 <img class=" float-right img-quinze" src="/../../acolher/public/img/avatar.png" alt>
                             </td>
                         </tr>
+                        <!-- <tr colspan="2">
+                            <td>
+                                Acolher - Instituto Kardecista<br> 
+                            </td>                            
+                        </tr>   
                         <tr>
                             <td>
-                                Nome
-                            </td>
+                                Frequentador Cadastrado
+                            </td>                            
                         </tr>
+                        <tr>
+                            <td>
+                                 <div class="btn btn-primary">Validade 10/06/2020</div>
+                            </td>
+                        </tr> -->
                         <tr>
                             <td colspan="4">
-                                Jorge Serrano Junior
+                                Nome: <span class="text-center">Jorge Serrano Junior</span>
                             </td>
                         </tr>
+                       
                         <tr class="text-left">
-                            <td>
-                                <label for="">N° de reg.</label>
-                            </td>
-                            <td> <label for="">CPF</label></td>
-                            <td> <label for="">RG</label></td>
-                            <td> <label for="">DATA</label></td>
-                        </tr>
-                        <tr class="text-left">
-                            <td>15</td>
-                            <td>421.496.718-67</td>
-                            <td>49.181.250-4</td>
-                            <td>10/02/2019</td>
-                        </tr>
+                            <td>N° de reg. <br> 1525</td>
+                            <td> CPF <br> 421.496.718-67</td>
+                            <td> RG <br> 49.181.250-4</td>
+                            <td> DATA <br> 10/06/2019</td>
+                        </tr>                        
                         <tr>
                             <td colspan="4" class="text-center">
                                 Declaração<br>
