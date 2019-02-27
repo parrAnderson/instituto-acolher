@@ -3176,6 +3176,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3605,7 +3611,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.border-div[data-v-877785e2] {\n    border-style: dotted;\n}\n.img-quinze[data-v-877785e2] {\n    width: 100px;\n}\n", ""]);
+exports.push([module.i, "\n.border-div[data-v-877785e2] {\n    border-style: dotted;\n}\n.text-declaracao[data-v-877785e2]{\n    font-size:10px\n}\n.img-quinze[data-v-877785e2] {\n    width: 100px;\n}\n", ""]);
 
 // exports
 
@@ -10389,9 +10395,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-6 border-div" }, [
-          _c("table", { staticClass: "table" }, [
+          _c("table", { staticClass: "table " }, [
             _c("tr", [
-              _c("td", [
+              _c("td", { attrs: { rowspan: "" } }, [
                 _c("img", {
                   staticClass: " align-center img-quinze",
                   attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
@@ -10402,35 +10408,37 @@ var staticRenderFns = [
                 "td",
                 { staticClass: "text-center", attrs: { colspan: "2" } },
                 [
+                  _c("p", [_vm._v("Acolher - Instituto Kardecista")]),
                   _vm._v(
-                    "\n                                Acolher - Instituto Kardecista"
+                    "\n                            Frequentador Cadastrado\n                            "
                   ),
-                  _c("br"),
-                  _vm._v(
-                    " \n                                Frequentador Cadastrado "
-                  ),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "btn btn-primary" }, [
+                  _c("div", { staticClass: "btn btn-sm btn-primary" }, [
                     _vm._v("Validade 10/06/2020")
                   ])
                 ]
               ),
               _vm._v(" "),
-              _c("td", { staticClass: "text-left float-right " }, [
-                _c("img", {
-                  staticClass: " float-right img-quinze",
-                  attrs: {
-                    src: "/../../acolher/public/img/avatar.png",
-                    alt: ""
-                  }
-                })
-              ])
+              _c(
+                "td",
+                {
+                  staticClass: "shadow-sm text-left float-right ",
+                  attrs: { rowspan: "2" }
+                },
+                [
+                  _c("img", {
+                    staticClass: " float-right img-quinze",
+                    attrs: {
+                      src: "/../../acolher/public/img/avatar.png",
+                      alt: ""
+                    }
+                  })
+                ]
+              )
             ]),
             _vm._v(" "),
             _c("tr", [
               _c("td", { attrs: { colspan: "4" } }, [
-                _vm._v("\n                                Nome: "),
+                _vm._v("\n                            Nome: "),
                 _c("span", { staticClass: "text-center" }, [
                   _vm._v("Jorge Serrano Junior")
                 ])
@@ -10450,12 +10458,15 @@ var staticRenderFns = [
             _c("tr", [
               _c(
                 "td",
-                { staticClass: "text-center", attrs: { colspan: "4" } },
+                {
+                  staticClass: "text-left text-declaracao",
+                  attrs: { colspan: "4" }
+                },
                 [
-                  _vm._v("\n                                Declaração"),
+                  _vm._v("\n                            Declaração"),
                   _c("br"),
                   _vm._v(
-                    "\nDeclaro ser de minha livre e espontanea\n                            "
+                    '\n                            Declaro ser de minha livre e espontanea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo,\n                            nesta oportunidade e sempre aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper\n                            qualquer tratamento médico ou medicação, o deve occorer únicas exclusivamente sob orientação e prescrição médicas.\n                            Declaro ainda ser de minha única responsabilidade acerca de assuntos particulares e/ou profissionais, de minha saúde fisíca, mental e espiritual,\n                            conforme por mim assinado no "Cadastro para Atendimento a Adulto".\n                        '
                   )
                 ]
               )
@@ -10464,23 +10475,17 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-6 text-left" }, [
-              _vm._v(
-                "\n                            __________________________ "
-              ),
+              _vm._v("\n                        __________________________ "),
               _c("br"),
               _vm._v(
-                "\n                            Assinatura do atendido\n                        "
+                "\n                        Assinatura do atendido\n                    "
               )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-6 text-right" }, [
-              _vm._v(
-                "\n                            __________________________ "
-              ),
+              _vm._v("\n                        __________________________ "),
               _c("br"),
-              _vm._v(
-                "\n                            Acolher\n                        "
-              )
+              _vm._v("\n                        Acolher\n                    ")
             ])
           ])
         ])

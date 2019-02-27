@@ -5,20 +5,22 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6 border-div">
-                    <table class="table">
+                    <table class="table ">
                         <tr>
-                            <td>
+                            <td rowspan="">
                                 <img class=" align-center img-quinze" src="/../../acolher/public/img/logo.png" alt>
                             </td>
+                             
                             <td colspan="2" class="text-center">
-                                Acolher - Instituto Kardecista<br> 
-                                Frequentador Cadastrado <br>
-                                <div class="btn btn-primary">Validade 10/06/2020</div>
+                                <p>Acolher - Instituto Kardecista</p>
+                                Frequentador Cadastrado
+                                <div class="btn btn-sm btn-primary">Validade 10/06/2020</div>
                             </td>
-                            <td class="text-left float-right ">
+                            <td rowspan="2" class="shadow-sm text-left float-right ">
                                 <img class=" float-right img-quinze" src="/../../acolher/public/img/avatar.png" alt>
                             </td>
                         </tr>
+                        
                         <!-- <tr colspan="2">
                             <td>
                                 Acolher - Instituto Kardecista<br> 
@@ -47,9 +49,13 @@
                             <td> DATA <br> 10/06/2019</td>
                         </tr>                        
                         <tr>
-                            <td colspan="4" class="text-center">
+                            <td colspan="4" class="text-left text-declaracao">
                                 Declaração<br>
-Declaro ser de minha livre e espontanea
+                                Declaro ser de minha livre e espontanea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo,
+                                nesta oportunidade e sempre aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper
+                                qualquer tratamento médico ou medicação, o deve occorer únicas exclusivamente sob orientação e prescrição médicas.
+                                Declaro ainda ser de minha única responsabilidade acerca de assuntos particulares e/ou profissionais, de minha saúde fisíca, mental e espiritual,
+                                conforme por mim assinado no "Cadastro para Atendimento a Adulto".
                             </td>
                         </tr>
                     </table>
@@ -97,6 +103,9 @@ export default {
     border-style: dotted;
 }
 
+.text-declaracao{
+    font-size:10px
+}
 .img-quinze {
     width: 100px;
 }
