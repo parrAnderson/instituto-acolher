@@ -43,7 +43,7 @@
                         </tr>
                        
                         <tr class="text-left">
-                            <td>N° de reg. <br> 1525</td>
+                            <td>N° de reg. <br> {{id}}</td>
                             <td> CPF <br> 421.496.718-67</td>
                             <td> RG <br> 49.181.250-4</td>
                             <td> DATA <br> 10/06/2019</td>

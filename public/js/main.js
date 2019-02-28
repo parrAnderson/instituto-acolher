@@ -10383,7 +10383,41 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("nav-header"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("Footer")],
+    [
+      _c("nav-header"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-6 border-div" }, [
+            _c("table", { staticClass: "table " }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c("tr", { staticClass: "text-left" }, [
+                _c("td", [
+                  _vm._v("N° de reg. "),
+                  _c("br"),
+                  _vm._v(" " + _vm._s(_vm.id))
+                ]),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4)
+              ]),
+              _vm._v(" "),
+              _vm._m(5)
+            ]),
+            _vm._v(" "),
+            _vm._m(6)
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("Footer")
+    ],
     1
   )
 }
@@ -10392,103 +10426,105 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-6 border-div" }, [
-          _c("table", { staticClass: "table " }, [
-            _c("tr", [
-              _c("td", { attrs: { rowspan: "" } }, [
-                _c("img", {
-                  staticClass: " align-center img-quinze",
-                  attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "td",
-                { staticClass: "text-center", attrs: { colspan: "2" } },
-                [
-                  _c("p", [_vm._v("Acolher - Instituto Kardecista")]),
-                  _vm._v(
-                    "\n                            Frequentador Cadastrado\n                            "
-                  ),
-                  _c("div", { staticClass: "btn btn-sm btn-primary" }, [
-                    _vm._v("Validade 10/06/2020")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "td",
-                {
-                  staticClass: "shadow-sm text-left float-right ",
-                  attrs: { rowspan: "2" }
-                },
-                [
-                  _c("img", {
-                    staticClass: " float-right img-quinze",
-                    attrs: {
-                      src: "/../../acolher/public/img/avatar.png",
-                      alt: ""
-                    }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", { attrs: { colspan: "4" } }, [
-                _vm._v("\n                            Nome: "),
-                _c("span", { staticClass: "text-center" }, [
-                  _vm._v("Jorge Serrano Junior")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "text-left" }, [
-              _c("td", [_vm._v("N° de reg. "), _c("br"), _vm._v(" 1525")]),
-              _vm._v(" "),
-              _c("td", [_vm._v(" CPF "), _c("br"), _vm._v(" 421.496.718-67")]),
-              _vm._v(" "),
-              _c("td", [_vm._v(" RG "), _c("br"), _vm._v(" 49.181.250-4")]),
-              _vm._v(" "),
-              _c("td", [_vm._v(" DATA "), _c("br"), _vm._v(" 10/06/2019")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c(
-                "td",
-                {
-                  staticClass: "text-left text-declaracao",
-                  attrs: { colspan: "4" }
-                },
-                [
-                  _vm._v("\n                            Declaração"),
-                  _c("br"),
-                  _vm._v(
-                    '\n                            Declaro ser de minha livre e espontanea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo,\n                            nesta oportunidade e sempre aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper\n                            qualquer tratamento médico ou medicação, o deve occorer únicas exclusivamente sob orientação e prescrição médicas.\n                            Declaro ainda ser de minha única responsabilidade acerca de assuntos particulares e/ou profissionais, de minha saúde fisíca, mental e espiritual,\n                            conforme por mim assinado no "Cadastro para Atendimento a Adulto".\n                        '
-                  )
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-6 text-left" }, [
-              _vm._v("\n                        __________________________ "),
-              _c("br"),
-              _vm._v(
-                "\n                        Assinatura do atendido\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 text-right" }, [
-              _vm._v("\n                        __________________________ "),
-              _c("br"),
-              _vm._v("\n                        Acolher\n                    ")
-            ])
-          ])
+    return _c("tr", [
+      _c("td", { attrs: { rowspan: "" } }, [
+        _c("img", {
+          staticClass: " align-center img-quinze",
+          attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("td", { staticClass: "text-center", attrs: { colspan: "2" } }, [
+        _c("p", [_vm._v("Acolher - Instituto Kardecista")]),
+        _vm._v(
+          "\n                            Frequentador Cadastrado\n                            "
+        ),
+        _c("div", { staticClass: "btn btn-sm btn-primary" }, [
+          _vm._v("Validade 10/06/2020")
         ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "td",
+        {
+          staticClass: "shadow-sm text-left float-right ",
+          attrs: { rowspan: "2" }
+        },
+        [
+          _c("img", {
+            staticClass: " float-right img-quinze",
+            attrs: { src: "/../../acolher/public/img/avatar.png", alt: "" }
+          })
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { attrs: { colspan: "4" } }, [
+        _vm._v("\n                            Nome: "),
+        _c("span", { staticClass: "text-center" }, [
+          _vm._v("Jorge Serrano Junior")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_vm._v(" CPF "), _c("br"), _vm._v(" 421.496.718-67")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_vm._v(" RG "), _c("br"), _vm._v(" 49.181.250-4")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_vm._v(" DATA "), _c("br"), _vm._v(" 10/06/2019")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c(
+        "td",
+        { staticClass: "text-left text-declaracao", attrs: { colspan: "4" } },
+        [
+          _vm._v("\n                            Declaração"),
+          _c("br"),
+          _vm._v(
+            '\n                            Declaro ser de minha livre e espontanea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo,\n                            nesta oportunidade e sempre aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper\n                            qualquer tratamento médico ou medicação, o deve occorer únicas exclusivamente sob orientação e prescrição médicas.\n                            Declaro ainda ser de minha única responsabilidade acerca de assuntos particulares e/ou profissionais, de minha saúde fisíca, mental e espiritual,\n                            conforme por mim assinado no "Cadastro para Atendimento a Adulto".\n                        '
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-6 text-left" }, [
+        _vm._v("\n                        __________________________ "),
+        _c("br"),
+        _vm._v(
+          "\n                        Assinatura do atendido\n                    "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6 text-right" }, [
+        _vm._v("\n                        __________________________ "),
+        _c("br"),
+        _vm._v("\n                        Acolher\n                    ")
       ])
     ])
   }
