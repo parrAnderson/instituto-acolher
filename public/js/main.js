@@ -3099,6 +3099,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3182,6 +3187,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3192,8 +3198,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      inputs: {}
     };
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['SelecionarUserCartao'])),
+  mounted: function mounted() {
+    this.SelecionarUserCartao(this.id);
+    console.log('selcionou');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    cartao: function cartao(state) {
+      return state.cartao;
+    } // corrigir
+
+  })),
+  watch: {
+    cartao: function cartao() {
+      console.log('funcionando');
+    }
   }
 });
 
@@ -10389,27 +10412,29 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-6 border-div" }, [
-            _c("table", { staticClass: "table " }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _c("tr", { staticClass: "text-left" }, [
-                _c("td", [
-                  _vm._v("N° de reg. "),
-                  _c("br"),
-                  _vm._v(" " + _vm._s(_vm.id))
-                ]),
-                _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _vm._m(4)
-              ]),
-              _vm._v(" "),
-              _vm._m(5)
-            ]),
+            _vm.cartao
+              ? _c("table", { staticClass: "table " }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("tr", { staticClass: "text-left" }, [
+                    _c("td", [
+                      _vm._v("N° de reg. "),
+                      _c("br"),
+                      _vm._v(" " + _vm._s(_vm.id))
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._m(4)
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5)
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _vm._m(6)
           ])
@@ -10466,9 +10491,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { attrs: { colspan: "4" } }, [
         _vm._v("\n                            Nome: "),
-        _c("span", { staticClass: "text-center" }, [
-          _vm._v("Jorge Serrano Junior")
-        ])
+        _c("span", { staticClass: "text-center" })
       ])
     ])
   },
@@ -27108,6 +27131,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/carteirinhas/VuexCartao.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/carteirinhas/VuexCartao.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: {
+    data: {}
+  },
+  mutations: {
+    CARTAO: function CARTAO(state, data) {
+      state.data = data;
+    }
+  },
+  actions: {
+    SelecionarUserCartao: function SelecionarUserCartao(context, id) {
+      var url = '/acolher/public/api/users/cartao/' + id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
+        context.commit('CARTAO', response.data.data[0]); // this.dispatch('Logon',data);
+        // this.$router.push({ name: 'home' });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/formularios/Atendimento.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/components/formularios/Atendimento.vue ***!
@@ -27617,6 +27676,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_auth_VuexLogin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/auth/VuexLogin */ "./resources/js/components/auth/VuexLogin.js");
 /* harmony import */ var _components_obreiro_VuexObreiro__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/obreiro/VuexObreiro */ "./resources/js/components/obreiro/VuexObreiro.js");
 /* harmony import */ var _components_formularios_VuexAtendimento__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/formularios/VuexAtendimento */ "./resources/js/components/formularios/VuexAtendimento.js");
+/* harmony import */ var _components_carteirinhas_VuexCartao__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/carteirinhas/VuexCartao */ "./resources/js/components/carteirinhas/VuexCartao.js");
+
 
 
 
@@ -27627,7 +27688,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   modules: {
     Login: _components_auth_VuexLogin__WEBPACK_IMPORTED_MODULE_2__["default"],
     Obreiro: _components_obreiro_VuexObreiro__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Atendimento: _components_formularios_VuexAtendimento__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Atendimento: _components_formularios_VuexAtendimento__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Cartao: _components_carteirinhas_VuexCartao__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 }));
 

@@ -29,8 +29,7 @@ class UsersController extends Controller
             ]);
         }
     }
-     public function showCard($id){
-        
+     public function showCard($id){        
         try{
             $this->users = $this->users::where('id', $id)
             ->get();           
@@ -38,7 +37,6 @@ class UsersController extends Controller
         return response()->json([
             'data' => $this->users,  
         ]);
-
         }catch(\Exception $e ){
             return response()->json([
                 'data' => $e,  

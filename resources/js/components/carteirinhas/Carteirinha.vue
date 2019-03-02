@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6 border-div">
-                    <table class="table ">
+                    <table class="table " v-if="cartao">
                         <tr>
                             <td rowspan="">
                                 <img class=" align-center img-quinze" src="/../../acolher/public/img/logo.png" alt>
@@ -38,7 +38,7 @@
                         </tr> -->
                         <tr>
                             <td colspan="4">
-                                Nome: <span class="text-center">Jorge Serrano Junior</span>
+                                Nome: <span class="text-center"></span>
                             </td>
                         </tr>
                        
@@ -84,6 +84,8 @@
 <script>
 import NavHeader from "./../layouts/NavHeader";
 import Footer from "./../layouts/Footer";
+import {mapActions, mapState} from "vuex";
+
 export default {
     name: "Carteirinhas",
     components: {
@@ -92,9 +94,33 @@ export default {
     },
     data() {
         return {
-            id: this.$route.params.id
+            id: this.$route.params.id,
+            inputs:{}
+        }
+    },
+    methods:{
+            ...mapActions([
+            'SelecionarUserCartao',
+        ]),
+
+       
+    },
+    mounted(){
+        this.SelecionarUserCartao(this.id)
+       console.log('selcionou')
+    },
+    computed:{
+        ...mapState({
+            cartao: state => state.cartao
+            // corrigir
+        })
+    },
+    watch:{
+        cartao(){
+            console.log('funcionando')
         }
     }
+   
 }
 </script>
 
