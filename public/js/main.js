@@ -3100,6 +3100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var q__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! q */ "./node_modules/q/q.js");
+/* harmony import */ var q__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(q__WEBPACK_IMPORTED_MODULE_3__);
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -3173,20 +3175,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -3205,17 +3194,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['SelecionarUserCartao'])),
   mounted: function mounted() {
     this.SelecionarUserCartao(this.id);
-    console.log('selcionou');
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     cartao: function cartao(state) {
-      return state.cartao;
+      return state.Cartao.data;
     } // corrigir
 
   })),
   watch: {
     cartao: function cartao() {
-      console.log('funcionando');
+      console.log(this.cartao.name);
     }
   }
 });
@@ -10416,27 +10404,42 @@ var render = function() {
               ? _c("table", { staticClass: "table " }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _c("tr", [
+                    _c("td", { attrs: { colspan: "4" } }, [
+                      _vm._v("\n                            Nome: "),
+                      _c("span", { staticClass: "text-center" }, [
+                        _vm._v(_vm._s(_vm.cartao.name))
+                      ])
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c("tr", { staticClass: "text-left" }, [
                     _c("td", [
                       _vm._v("N° de reg. "),
                       _c("br"),
-                      _vm._v(" " + _vm._s(_vm.id))
+                      _vm._v(" " + _vm._s(_vm.cartao.id))
                     ]),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _c("td", [
+                      _vm._v(" CPF "),
+                      _c("br"),
+                      _vm._v(" " + _vm._s(_vm.cartao.cpf))
+                    ]),
                     _vm._v(" "),
-                    _vm._m(3),
+                    _c("td", [
+                      _vm._v(" RG "),
+                      _c("br"),
+                      _vm._v(" " + _vm._s(_vm.cartao.rg))
+                    ]),
                     _vm._v(" "),
-                    _vm._m(4)
+                    _vm._m(1)
                   ]),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _vm._m(2)
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _vm._m(6)
+            _vm._m(3)
           ])
         ])
       ]),
@@ -10483,29 +10486,6 @@ var staticRenderFns = [
         ]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { attrs: { colspan: "4" } }, [
-        _vm._v("\n                            Nome: "),
-        _c("span", { staticClass: "text-center" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [_vm._v(" CPF "), _c("br"), _vm._v(" 421.496.718-67")])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [_vm._v(" RG "), _c("br"), _vm._v(" 49.181.250-4")])
   },
   function() {
     var _vm = this

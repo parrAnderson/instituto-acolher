@@ -21,31 +21,17 @@
                             </td>
                         </tr>
                         
-                        <!-- <tr colspan="2">
-                            <td>
-                                Acolher - Instituto Kardecista<br> 
-                            </td>                            
-                        </tr>   
-                        <tr>
-                            <td>
-                                Frequentador Cadastrado
-                            </td>                            
-                        </tr>
-                        <tr>
-                            <td>
-                                 <div class="btn btn-primary">Validade 10/06/2020</div>
-                            </td>
-                        </tr> -->
+                       
                         <tr>
                             <td colspan="4">
-                                Nome: <span class="text-center"></span>
+                                Nome: <span class="text-center">{{cartao.name}}</span>
                             </td>
                         </tr>
                        
                         <tr class="text-left">
-                            <td>N° de reg. <br> {{id}}</td>
-                            <td> CPF <br> 421.496.718-67</td>
-                            <td> RG <br> 49.181.250-4</td>
+                            <td>N° de reg. <br> {{cartao.id}}</td>
+                            <td> CPF <br> {{cartao.cpf}}</td>
+                            <td> RG <br> {{cartao.rg}}</td>
                             <td> DATA <br> 10/06/2019</td>
                         </tr>                        
                         <tr>
@@ -85,6 +71,7 @@
 import NavHeader from "./../layouts/NavHeader";
 import Footer from "./../layouts/Footer";
 import {mapActions, mapState} from "vuex";
+import { async } from 'q';
 
 export default {
     name: "Carteirinhas",
@@ -101,26 +88,22 @@ export default {
     methods:{
             ...mapActions([
             'SelecionarUserCartao',
-        ]),
-
-       
+        ]),       
     },
-    mounted(){
-        this.SelecionarUserCartao(this.id)
-       console.log('selcionou')
+    mounted(){       
+        this.SelecionarUserCartao(this.id)      
     },
     computed:{
         ...mapState({
-            cartao: state => state.cartao
+            cartao: state => state.Cartao.data
             // corrigir
         })
-    },
+    },    
     watch:{
         cartao(){
-            console.log('funcionando')
+            console.log(this.cartao.name);
         }
-    }
-   
+    },
 }
 </script>
 
