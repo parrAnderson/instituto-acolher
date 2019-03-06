@@ -103,6 +103,13 @@
                                     <a class="nav-link" href="#">Atendimento</a>
                                 </router-link>
                             </li>
+
+                            <li v-if="login.data.id" class="nav-item">
+                                <router-link :to="{name: 'cartao', params: {id: login.data.id}}">
+                                    <a class="nav-link" href="#">Cartão</a>
+                                </router-link>
+                            </li> 
+
                         </ul>
                     </div>
                 </nav>
