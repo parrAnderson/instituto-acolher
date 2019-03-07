@@ -1063,6 +1063,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -2752,143 +2767,150 @@ var render = function() {
                         ])
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _vm.login.data.user
-                      ? _c("li", { staticClass: "nav-item dropdown" }, [
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "nav",
+          { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+          [
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarSupportedContent" }
+              },
+              [
+                _c("ul", { staticClass: "nav navbar-nav mx-auto" }, [
+                  _vm.login.data.user
+                    ? _c("li", { staticClass: "nav-item dropdown" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link dropdown-toggle",
+                            attrs: {
+                              href: "#",
+                              id: "navbarDropdown",
+                              "data-hover": "dropdown",
+                              role: "button",
+                              "data-toggle": "dropdown",
+                              "aria-haspopup": "true",
+                              "aria-expanded": "false"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Formulários\n                                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "dropdown-menu",
+                            attrs: { "aria-labelledby": "navbarDropdown" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: { to: "/formularios/atendimentoadulto" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "dropdown-item",
+                                    attrs: { href: "#" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Cadastro Prévio para Atendimento a Adulto 1ª Vez"
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.login.data.id
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c("router-link", { attrs: { to: "/obreiro" } }, [
+                            _c(
+                              "a",
+                              { staticClass: "nav-link", attrs: { href: "#" } },
+                              [_vm._v("Obreiro")]
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.login.data.id
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c("router-link", { attrs: { to: "/atendimento" } }, [
+                            _c(
+                              "a",
+                              { staticClass: "nav-link", attrs: { href: "#" } },
+                              [_vm._v("Atendimento")]
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.login.data.id
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
                           _c(
-                            "a",
+                            "router-link",
                             {
-                              staticClass: "nav-link dropdown-toggle",
                               attrs: {
-                                href: "#",
-                                id: "navbarDropdown",
-                                "data-hover": "dropdown",
-                                role: "button",
-                                "data-toggle": "dropdown",
-                                "aria-haspopup": "true",
-                                "aria-expanded": "false"
+                                to: {
+                                  name: "cartao",
+                                  params: { id: _vm.login.data.id }
+                                }
                               }
                             },
                             [
-                              _vm._v(
-                                "\n                                    Formulários\n                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "dropdown-menu",
-                              attrs: { "aria-labelledby": "navbarDropdown" }
-                            },
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: "/formularios/atendimentoadulto"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "dropdown-item",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Cadastro Prévio para Atendimento a Adulto 1ª Vez"
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.login.data.id
-                      ? _c(
-                          "li",
-                          { staticClass: "nav-item" },
-                          [
-                            _c("router-link", { attrs: { to: "/obreiro" } }, [
                               _c(
                                 "a",
                                 {
                                   staticClass: "nav-link",
                                   attrs: { href: "#" }
                                 },
-                                [_vm._v("Obreiro")]
+                                [_vm._v("Cartão")]
                               )
-                            ])
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.login.data.id
-                      ? _c(
-                          "li",
-                          { staticClass: "nav-item" },
-                          [
-                            _c(
-                              "router-link",
-                              { attrs: { to: "/atendimento" } },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { href: "#" }
-                                  },
-                                  [_vm._v("Atendimento")]
-                                )
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.login.data.id
-                      ? _c(
-                          "li",
-                          { staticClass: "nav-item" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: {
-                                    name: "cartao",
-                                    params: { id: _vm.login.data.id }
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { href: "#" }
-                                  },
-                                  [_vm._v("Cartão")]
-                                )
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ])
               ]
             )
           ]
@@ -2916,6 +2938,26 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row text-right" }, [
       _c("div", { staticClass: "col-12" })
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
   },
   function() {
     var _vm = this
