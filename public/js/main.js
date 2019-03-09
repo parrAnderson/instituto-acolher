@@ -27664,6 +27664,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  //login
 
 
+ // admin
+// import Dashboard from './components/admin/Dashboard'
 
 var routes = [{
   path: '/',

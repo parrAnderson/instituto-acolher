@@ -20,6 +20,9 @@ import Carteirinha from './components/carteirinhas/Carteirinha'
 import LoginCpf from './components/auth/LoginCpf'
 import Register from './components/auth/Register'
 
+// admin
+// import Dashboard from './components/admin/Dashboard'
+
 const routes = [
     {path:'/', name:'home', component: Home},
     {path:'/institucional', name:'institucional', component: Institucional},
@@ -33,8 +36,10 @@ const routes = [
     {path:'/register', name:'register',  name:'register', component: Register},
     {path:'/atendimento', name:'atendimento',  component: Atendimento},
     {path:'/obreiro', name:'obreiro',  component: Obreiro},
-
     {path:'/cartao/:id', name:'cartao',  component: Carteirinha},
+    
+    // admin
+    // {path:'/', name:'home', component: Dashboard},
   
    
 
