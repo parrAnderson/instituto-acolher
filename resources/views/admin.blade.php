@@ -61,56 +61,21 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="/../../acolher/public/css/admin/custom.css">
     <!-- Favicon-->
-   
+    <link rel="shortcut icon" href="/../../acolher/public/img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
-    <!-- Side Navbar -->
-    <nav class="side-navbar">
-      <div class="side-navbar-wrapper">
-        <!-- Sidebar Header    -->
-        <div class="sidenav-header d-flex align-items-center justify-content-center">
-          <!-- User Info-->
-          <div class="sidenav-header-inner text-center"><img src="/../../acolher/public/img/admin/avatar-7.jpg" alt="person" class="img-fluid rounded-circle">
-            <h2 class="h5">Administrador</h2><span>Acolher</span>
-          </div>
-          <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
-        </div>
-        <!-- Sidebar Navigation Menus-->
-        <div class="main-menu">
-          <h5 class="sidenav-heading">Menu</h5>
-          <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="index.html"> <i class="fas fa-home"></i>Home</a></li>
-            <li><a href="index.html"> <i class="far fa-calendar-alt"></i>Atendimentos</a></li>
-            <li><a href="index.html"> <i class="far fa-id-card"></i>Cartão</a></li>
-            
-          </ul>
-        </div>
-      </div>
-    </nav>
+
     <div class="page"> 
       <section class="dashboard-header section-padding">
       <div class="appvue" id="appvue">
       <app></app>
       </div>
+      </section>        
+         
 
-      </section>           
-      <footer class="main-footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6">
-              <p>Your company &copy; 2017-2019</p>
-            </div>
-            <div class="col-sm-6 text-right">
-              <p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dashboard" class="external">Bootstrapious</a></p>
-              <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions and it helps me to run Bootstrapious. Thank you for understanding :)-->
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
     <!-- JavaScript files-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
