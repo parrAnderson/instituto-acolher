@@ -32,6 +32,7 @@ Route::group([
 ], function ($router) {
     Route::post('/atualizar', 'Api\V1\Users\UsersController@atualizar');
     Route::get('/cartao/{id}', 'Api\V1\Users\UsersController@showCard');
+    Route::get('/', 'Api\V1\Users\UsersController@allUsers');
 });
 
 

@@ -43,4 +43,19 @@ class UsersController extends Controller
             ]);
         }
      }
+
+     public function allUsers(){
+        //  return("funcionando");
+        try{
+            $this->users = $this->users::all();           
+
+        return response()->json([
+            'data' => $this->users,  
+        ]);
+        }catch(\Exception $e ){
+            return response()->json([
+                'data' => $e,  
+            ]);
+        }
+     }
 }
