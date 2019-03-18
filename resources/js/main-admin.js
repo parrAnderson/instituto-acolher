@@ -4,7 +4,7 @@ import routes from '../js/routes-admin'
 // import axios from 'axios'
 // import VueAxios from 'vue-axios'
 // import store from './vuex/store'
- 
+import store from './components/admin/store'
 
  
 import App from './components/admin/App-admin' 
@@ -16,6 +16,7 @@ const router = new VueRouter({
   
 Vue.use(VueRouter)
 new Vue({
+    store,
     router,
     components:{
         App, 
