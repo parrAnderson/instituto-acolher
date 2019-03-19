@@ -1,20 +1,66 @@
 <template>
     <div>
-        <div class="row">
-            <div class="col">
-                Usuarios AQUI
-            </div>
-            <div @click="mostrarUsers()" class="btn">
-                CLICK
-            </div>
-        </div>
-        <div class="row">
-            <div class="table" v-if="users">
-                <div class="tr" v-for="user in users" :key="users.id">
-                    <div class="td">{{user.name}}</div>
+        
+         
+            <div class="row row-space">
+                <div class="col-12">
+                    <h2 class="text-center">Fichas</h2>
                 </div>
             </div>
-        </div>
+       
+
+
+    
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <table class="table table-striped" v-if="users">
+                    <thead>
+                        <tr>
+                            <td>
+                                NOME
+                            </td>
+                            <td>
+                                CPF
+                            </td>
+                            <td>
+                                TELEFONE
+                            </td>
+                            <td>
+                                EMAIL
+                            </td>
+                            <td>
+                                RELIGIÃO
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="user in users" :key="users.id">
+                            <td>
+                                {{user.name}}        
+                            </td>
+                             <td>
+                                {{user.cpf}}        
+                            </td>
+                            <td>
+                                {{user.telefone}}        
+                            </td>
+                            <td>
+                                {{user.email}}        
+                            </td>
+                            <td>
+                                {{user.data_nascimento}}        
+                            </td>
+                            <td>
+                                {{user.religiao}}        
+                            </td>
+                        </tr>  
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        
+       
+    
     </div>
 </template>
 
@@ -31,7 +77,7 @@ export default {
         ...mapActions([
             'AllUsers',
         ]),
-        mostrarUsers(){
+        mostrarUsers() {
             console.log(this.users)
         }
     },

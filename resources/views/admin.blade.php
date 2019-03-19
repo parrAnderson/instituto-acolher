@@ -48,7 +48,7 @@
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-<!-- Fontastic Custom icon font-->
+    <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="/../../acolher/public/css/admin/fontastic.css">
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -68,15 +68,11 @@
   </head>
   <body>
 
-    <div class="page"> 
-      <section class="dashboard-header section-padding">
-      <div class="appvue" id="appvue">
-      <app></app>
-      </div>
-      </section>        
-         
 
-    </div>
+      <div class="appvue" id="appvue">
+        <app></app>
+      </div>
+      
     <!-- JavaScript files-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script>

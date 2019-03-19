@@ -2,7 +2,14 @@
     <div>       
 
             <nav-header></nav-header>
-            <router-view></router-view>
+                <div class="page"> 
+                    <section class="dashboard-header section-padding">
+                       <div class="container-fluid">
+                            <router-view></router-view>
+                       </div>
+                    </section>             
+                </div>
+           
        
     </div>
 </template>

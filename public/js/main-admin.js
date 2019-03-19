@@ -1773,6 +1773,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
  // import Footer from './layouts/Footer'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1917,6 +1924,52 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2473,7 +2526,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("nav-header"), _vm._v(" "), _c("router-view")], 1)
+  return _c(
+    "div",
+    [
+      _c("nav-header"),
+      _vm._v(" "),
+      _c("div", { staticClass: "page" }, [
+        _c("section", { staticClass: "dashboard-header section-padding" }, [
+          _c("div", { staticClass: "container-fluid" }, [_c("router-view")], 1)
+        ])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2675,42 +2740,121 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _vm._v("\n            Usuarios AQUI\n        ")
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "btn",
-          on: {
-            click: function($event) {
-              _vm.mostrarUsers()
-            }
-          }
-        },
-        [_vm._v("\n            CLICK\n        ")]
-      )
-    ]),
+    _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _vm.users
-        ? _c(
-            "div",
-            { staticClass: "table" },
-            _vm._l(_vm.users, function(user) {
-              return _c("div", { key: _vm.users.id, staticClass: "tr" }, [
-                _c("div", { staticClass: "td" }, [_vm._v(_vm._s(user.name))])
-              ])
-            }),
-            0
-          )
-        : _vm._e()
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _vm.users
+          ? _c("table", { staticClass: "table table-striped" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.users, function(user) {
+                  return _c("tr", { key: _vm.users.id }, [
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(user.name) +
+                          "        \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(user.cpf) +
+                          "        \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(user.telefone) +
+                          "        \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(user.email) +
+                          "        \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(user.data_nascimento) +
+                          "        \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(user.religiao) +
+                          "        \n                        "
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ])
+          : _vm._e()
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row row-space" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Fichas")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("td", [
+          _vm._v("\n                            NOME\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v("\n                            CPF\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            TELEFONE\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            EMAIL\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            RELIGIÃO\n                        "
+          )
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
