@@ -58,4 +58,19 @@ class UsersController extends Controller
             ]);
         }
      }
+
+     public function showUser($id){
+        try{
+            $this->users = $this->users::where('id', $id)
+            ->get();           
+
+        return response()->json([
+            'data' => $this->users,  
+        ]);
+        }catch(\Exception $e ){
+            return response()->json([
+                'data' => $e,  
+            ]);
+        }
+     }
 }

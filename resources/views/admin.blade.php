@@ -39,7 +39,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Dashboard by Bootstrapious.com</title>
+    <title>ACOLHER</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -60,6 +60,8 @@
     <link rel="stylesheet" href="/../../acolher/public/css/admin/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="/../../acolher/public/css/admin/custom.css">
+
+    <link rel="stylesheet" href="/../../acolher/public/css/admin/style.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="/../../acolher/public/img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>

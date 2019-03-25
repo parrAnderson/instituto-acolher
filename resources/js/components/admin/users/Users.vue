@@ -34,7 +34,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="user in users" :key="users.id">
+                        
+                        <tr v-for="user in users" :key="users.id" @click="ShowUser()">
                             <td>
                                 {{user.name}}        
                             </td>
@@ -79,12 +80,16 @@ export default {
         ]),
         mostrarUsers() {
             console.log(this.users)
-        }
+        },
+        ShowUser(){
+        this.$router.push({ name: 'showuser'});
+    }
     },
     beforeMount() {
         this.AllUsers()
         console.log()
     },
+    
 }
 </script>
 

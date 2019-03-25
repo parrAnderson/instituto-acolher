@@ -19,7 +19,7 @@
                     <ul id="side-main-menu" class="side-menu list-unstyled">
                         <li>
                             <router-link to="/">
-                            <a href="index.html"> <i class="fas fa-home"></i>Home</a>     
+                            <a href="#"> <i class="fas fa-home"></i>Home</a>     
                              </router-link>                       
                             </li>
                         
@@ -28,9 +28,17 @@
                                 <a href="#"> <i class="fas fa-clipboard-list"></i>Fichas</a>
                             </router-link>
                         </li>
-    
-                        <li><a href="index.html"> <i class="far fa-calendar-alt"></i>Atendimentos</a></li>
-                        <li><a href="index.html"> <i class="far fa-id-card"></i>Cartão</a></li>
+
+                        <li>
+                            <router-link to="/">
+                            <a href="#"> <i class="far fa-calendar-alt"></i>Atendimentos</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/">
+                            <a href="#"> <i class="far fa-id-card"></i>Cartão</a>
+                            </router-link>
+                        </li>
     
                     </ul>
                 </div>
