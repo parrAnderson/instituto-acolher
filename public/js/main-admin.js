@@ -1927,14 +1927,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ShowUser"
+  name: "ShowUser",
+  data: function data() {
+    return {
+      id: this.$route.params.id
+    };
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['GetUser'])),
+  mounted: function mounted() {
+    this.GetUser(this.id);
+  }
 });
 
 /***/ }),
@@ -2032,9 +2047,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     mostrarUsers: function mostrarUsers() {
       console.log(this.users);
     },
-    ShowUser: function ShowUser() {
+    ShowUser: function ShowUser(id) {
       this.$router.push({
-        name: 'showuser'
+        name: 'showuser',
+        params: {
+          id: id
+        }
       });
     }
   }),
@@ -2774,7 +2792,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Show User\n")])
+  return _c("div", [_vm._v("\n    Show User mapstate\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2816,7 +2834,7 @@ var render = function() {
                       key: _vm.users.id,
                       on: {
                         click: function($event) {
-                          _vm.ShowUser()
+                          _vm.ShowUser(user.id)
                         }
                       }
                     },
@@ -18187,11 +18205,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    data: {}
+    data: {},
+    show: {}
   },
   mutations: {
     ALL_USERS: function ALL_USERS(state, data) {
       state.data = data;
+    },
+    GET_USER: function GET_USER(state, data) {
+      state.show = data;
     }
   },
   actions: {
@@ -18200,6 +18222,15 @@ __webpack_require__.r(__webpack_exports__);
       var url = '/acolher/public/api/users/';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
         context.commit('ALL_USERS', response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    GetUser: function GetUser(context, id) {
+      var url = '/acolher/public/api/users/' + id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
+        context.commit('GET_USER', response.data.data[0]);
+        console.log(response.data.data[0]);
       }).catch(function (error) {
         console.log(error);
       });
@@ -18270,7 +18301,7 @@ var routes = [{
   name: 'users',
   component: _components_admin_users_Users__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
-  path: '/showuser',
+  path: '/showuser/:id',
   name: 'showuser',
   component: _components_admin_users_ShowUser__WEBPACK_IMPORTED_MODULE_2__["default"]
 }];
