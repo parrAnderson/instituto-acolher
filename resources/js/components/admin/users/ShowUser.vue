@@ -352,6 +352,7 @@ export default {
             inputs: {},
             selected: false,
             required: {},
+         
         }
     },
     methods: {
@@ -364,7 +365,7 @@ export default {
     },
     computed: {
         ...mapState({
-            show: state => state.Users.Show,
+            show: state => state.Users.show.data,
         })
     },
     mounted() {
@@ -373,7 +374,10 @@ export default {
     },
     watch:{
         show: function(val){
-            this.inputs.name = this.show.name
+            this.inputs.show = this.show
+            console.log("data")
+            console.log(this.inputs.show)
+
     }
     },
     beforeMount() {
