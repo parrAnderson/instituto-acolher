@@ -365,18 +365,19 @@ export default {
     },
     computed: {
         ...mapState({
-            show: state => state.Users.show.data,
+            show: state => state.Users.show,
         })
     },
     mounted() {
         this.GetUser(this.id)
         console.log(this.show)
+       
     },
     watch:{
         show: function(val){
-            this.inputs.show = this.show
+            this.inputs = this.show
             console.log("data")
-            console.log(this.inputs.show)
+            // console.log(this.inputs.show.name)
 
     }
     },

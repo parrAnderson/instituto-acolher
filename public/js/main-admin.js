@@ -2296,7 +2296,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GetUser'])),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     show: function show(state) {
-      return state.Users.show.data;
+      return state.Users.show;
     }
   })),
   mounted: function mounted() {
@@ -2305,9 +2305,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   watch: {
     show: function show(val) {
-      this.inputs.show = this.show;
-      console.log("data");
-      console.log(this.inputs.show);
+      this.inputs = this.show;
+      console.log("data"); // console.log(this.inputs.show.name)
     }
   },
   beforeMount: function beforeMount() {
@@ -20471,7 +20470,7 @@ __webpack_require__.r(__webpack_exports__);
     GetUser: function GetUser(context, id) {
       var url = '/acolher/public/api/users/' + id;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
-        context.commit('GET_USER', response); //    console.log(response.data.data[0])
+        context.commit('GET_USER', response.data[0]); //    console.log(response.data.data[0])
       }).catch(function (error) {
         console.log(error);
       });

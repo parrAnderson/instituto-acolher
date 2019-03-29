@@ -35,7 +35,7 @@ export default {
         axios
             .get(url)
               .then(response => {
-                context.commit('GET_USER', response)
+                context.commit('GET_USER', response.data[0])
             //    console.log(response.data.data[0])
               }                
             )

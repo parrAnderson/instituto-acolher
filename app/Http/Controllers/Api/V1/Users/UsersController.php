@@ -64,7 +64,7 @@ class UsersController extends Controller
             $this->users = $this->users::where('id', $id)
             ->get();           
 
-        return response()->json($this->users)
+        return response()->json($this->users->all())
         ;
         }catch(\Exception $e ){
             return response()->json([
