@@ -320,11 +320,15 @@
                 </div>
             </div>
     
-            <div class="row justify-content-center row-space-form">
+            <div class="row justify-content-center row-space-btn">
                 <div class="col-8">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button @click="imprimir()" type="submit" class="btn btn-success">
+                        <i class="fas fa-print"></i>
+                        IMPRIMIR</button>
                 </div>
             </div>
+
+
             <div v-if="required !== 'vazio'" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
                     Por favor! Preencha todos os campos obrigatórios *
@@ -356,6 +360,9 @@ export default {
         }
     },
     methods: {
+        imprimir(){
+            window.print();
+        },
         selectInputs() {
             this.selected = true
         },
@@ -405,5 +412,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .row-space-btn{
+        margin-top:10px
+    }
 </style>
