@@ -1780,6 +1780,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import Footer from './layouts/Footer'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3612,6 +3630,8 @@ var render = function() {
       _c("nav-header"),
       _vm._v(" "),
       _c("div", { staticClass: "page" }, [
+        _vm._m(0),
+        _vm._v(" "),
         _c("section", { staticClass: "dashboard-header section-padding" }, [
           _c("div", { staticClass: "container-fluid" }, [_c("router-view")], 1)
         ])
@@ -3620,7 +3640,53 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "header" }, [
+      _c("nav", { staticClass: "navbar" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "navbar-holder d-flex align-items-center justify-content-between"
+            },
+            [
+              _c("div", { staticClass: "navbar-header" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "menu-btn",
+                    attrs: { id: "toggle-btn", href: "#" }
+                  },
+                  [_c("i", { staticClass: "icon-bars" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "navbar-brand",
+                    attrs: { href: "index.html" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "brand-text d-none d-md-inline-block" },
+                      [_c("span", [_vm._v("Menu - Acolher")])]
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -3654,7 +3720,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "row row-space" }, [
           _c("div", { staticClass: "col-12" }, [
             _c("h2", { staticClass: "text-center" }, [
-              _vm._v("DashBoard ADMIN")
+              _vm._v("Painel Administrativo")
             ])
           ])
         ])
@@ -3777,7 +3843,7 @@ var staticRenderFns = [
             }
           }),
           _vm._v(" "),
-          _c("h2", { staticClass: "h5" }, [_vm._v("Administrador")]),
+          _c("h2", { staticClass: "h5" }, [_vm._v("Administradores")]),
           _c("span", [_vm._v("Acolher")])
         ]),
         _vm._v(" "),
@@ -3789,8 +3855,8 @@ var staticRenderFns = [
               attrs: { href: "index.html" }
             },
             [
-              _c("strong", [_vm._v("B")]),
-              _c("strong", { staticClass: "text-primary" }, [_vm._v("D")])
+              _c("strong", [_vm._v("A")]),
+              _c("strong", { staticClass: "text-primary" }, [_vm._v("C")])
             ]
           )
         ])

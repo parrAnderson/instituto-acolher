@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row row-space">
                 <div class="col-12">
-                    <h2 class="text-center">DashBoard ADMIN</h2>
+                    <h2 class="text-center">Painel Administrativo</h2>
                 </div>
             </div>
         </div>
