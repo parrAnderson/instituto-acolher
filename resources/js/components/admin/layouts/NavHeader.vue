@@ -32,7 +32,7 @@
                         </li>
     
                         <li>
-                            <router-link to="/">
+                            <router-link to="/atendimentos">
                                 <a href="#"> <i class="far fa-calendar-alt"></i>Atendimentos</a>
                             </router-link>
                         </li>

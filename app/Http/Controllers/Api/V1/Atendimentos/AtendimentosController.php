@@ -14,7 +14,17 @@ class AtendimentosController extends Controller
 
     public function index()
     {
-        //
+        try{
+            $this->atendimento = $this->atendimento::all();           
+
+        return response()->json([
+            'data' => $this->atendimento,  
+        ]);
+        }catch(\Exception $e ){
+            return response()->json([
+                'data' => $e,  
+            ]);
+        }
     }
 
 
