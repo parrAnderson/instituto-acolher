@@ -1944,6 +1944,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "IndexAtendimento",
@@ -3842,64 +3850,88 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("table", { staticClass: "table table-striped table-sm" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.atendimentos, function(atendimento) {
-              return _c("tr", { key: _vm.atendimentos.id }, [
-                _c("td"),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(atendimento.tipo_atendimento) +
-                      "    \n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(atendimento.created_at) +
-                      "    \n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(atendimento.data_atendimento) +
-                      "    \n                        "
-                  )
-                ])
-              ])
-            }),
-            0
-          )
-        ])
+  return _vm.atendimentos
+    ? _c("div", [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("table", { staticClass: "table table-striped table-sm" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.atendimentos, function(atendimento, index) {
+                  return _c("tr", { key: index }, [
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(atendimento.nome) +
+                          "  \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        " \n                            " +
+                          _vm._s(atendimento.tipo_atendimento) +
+                          "    \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(atendimento.created_at) +
+                          "    \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(atendimento.data_atendimento) +
+                          "    \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(atendimento.idade) +
+                          "    \n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(atendimento.obreiro) +
+                          "    \n                        "
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "btn",
+            on: {
+              click: function($event) {
+                _vm.AllAtendimento()
+              }
+            }
+          },
+          [_vm._v("CLICK")]
+        )
       ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "btn",
-        on: {
-          click: function($event) {
-            _vm.AllAtendimento()
-          }
-        }
-      },
-      [_vm._v("CLICK")]
-    )
-  ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
@@ -3948,7 +3980,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [
           _vm._v(
-            "\n                            OBREIRO\n                        "
+            "\n                            OBREIRO \n                        "
           )
         ])
       ])

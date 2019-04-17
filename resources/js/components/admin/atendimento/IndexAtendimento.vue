@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="atendimentos">
         
          
             <div class="row row-space">
@@ -32,15 +32,17 @@
                                 IDADE
                             </td>
                             <td>
-                                OBREIRO
+                                OBREIRO 
                             </td>
-                        </tr>
+                        </tr> 
                     </thead>    
                     <tbody>
-                        <tr v-for="atendimento in atendimentos" :key="atendimentos.id">
-                            <td></td>
-                           
+                        <tr v-for="(atendimento, index) in atendimentos" :key="index">
                             <td>
+                                {{atendimento.nome}}  
+                            </td>
+                           
+                            <td> 
                                 {{atendimento.tipo_atendimento}}    
                             </td>    
                             <td>
@@ -49,6 +51,12 @@
                             <td>
                                 {{atendimento.data_atendimento}}    
                             </td>  
+                            <td>
+                                {{atendimento.idade}}    
+                            </td> 
+                            <td>
+                                {{atendimento.obreiro}}    
+                            </td> 
                         </tr>    
                     </tbody>                
                 </table>

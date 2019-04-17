@@ -13,4 +13,7 @@ class Atendimentos extends Model
         'data_atendimento',
     ];
 
+    public function Users(){
+        return $this->belongsTo('App\Models\V1\Table\Users', 'user_id');
+    }
 }
