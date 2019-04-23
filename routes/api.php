@@ -43,6 +43,7 @@ Route::group([
 ], function ($router) {
     Route::post('/cadastrar', 'Api\V1\Atendimentos\AtendimentosController@store');
     Route::get('/', 'Api\V1\Atendimentos\AtendimentosController@index');
+    Route::put('/{id}', 'Api\V1\Atendimentos\AtendimentosController@update');
 });
 
 

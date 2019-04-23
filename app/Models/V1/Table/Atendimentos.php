@@ -16,4 +16,13 @@ class Atendimentos extends Model
     public function Users(){
         return $this->belongsTo('App\Models\V1\Table\Users', 'user_id');
     }
+
+    public function put($request, $id){
+        $atendimentos = new atendimentos;
+        $atendimentos = $atendimentos::find($id);
+        $atendimentos->fill($request->input());      
+        $atendimentos->save();
+        return($atendimentos);
+    }
+
 }

@@ -80,7 +80,8 @@ class AtendimentosController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $this->atendimentos = $this->atendimentos->put($request, $id);
+        return($this->atendimentos);
     }
 
 
