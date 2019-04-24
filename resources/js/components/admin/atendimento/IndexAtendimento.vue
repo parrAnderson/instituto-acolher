@@ -37,9 +37,10 @@
                         </tr> 
                     </thead>    
                     <tbody>
-                        <tr v-for="(atendimento, index) in atendimentos" :key="index">
-                            <td>
-                                {{atendimento.nome}}  
+                         
+                        <tr v-for="atendimento in atendimentos" :key="atendimento.id" @click="ShowAtendimento(atendimento.id)">
+                            <td >
+                                {{atendimento.nome}}
                             </td>
                            
                             <td> 
@@ -57,7 +58,9 @@
                             <td>
                                 {{atendimento.obreiro}}    
                             </td> 
-                        </tr>    
+                        </tr>  
+
+                        
                     </tbody>                
                 </table>
                 </div>
@@ -81,6 +84,9 @@ export default {
         ...mapActions([
             'AllAtendimento',
         ]),
+        ShowAtendimento(id){
+            this.$router.push({ name: 'editatendimento', params: {id: id}});
+        },
     },
 
     beforeMount() {
