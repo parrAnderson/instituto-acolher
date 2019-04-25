@@ -1877,14 +1877,41 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "EditAtendimento"
+  name: "EditAtendimento",
+  data: function data() {
+    return {
+      id: this.$route.params.id,
+      request: {},
+      fields: {}
+    };
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['UpdateAtendimento']), {
+    UpdateData: function UpdateData() {
+      this.UpdateAtendimento(this.request);
+    }
+  }),
+  beforeMount: function beforeMount() {
+    this.request.id = this.id;
+    this.request.fields = this.fields;
+  }
 });
 
 /***/ }),
@@ -3883,7 +3910,42 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Editando Atendimento\n")])
+  return _c("div", [
+    _vm._v("\n    Editando Atendimento\n   \n        "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.fields.data_atendimento,
+          expression: "fields.data_atendimento"
+        }
+      ],
+      attrs: { type: "data" },
+      domProps: { value: _vm.fields.data_atendimento },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.$set(_vm.fields, "data_atendimento", $event.target.value)
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "btn",
+        on: {
+          click: function($event) {
+            _vm.UpdateData()
+          }
+        }
+      },
+      [_vm._v("atualizar")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21398,11 +21460,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    data: {}
+    data: {},
+    edit: {}
   },
   mutations: {
     ALL_ATENDIMENTO: function ALL_ATENDIMENTO(state, data) {
       state.data = data;
+    },
+    UPDATE_ATENDIMENTO: function UPDATE_ATENDIMENTO(state, data) {
+      state.edit = data;
     }
   },
   actions: {
@@ -21410,6 +21476,23 @@ __webpack_require__.r(__webpack_exports__);
       var url = '/acolher/public/api/atendimento/';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
         context.commit('ALL_ATENDIMENTO', response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    UpdateAtendimento: function UpdateAtendimento(_ref, request) {
+      var _this = this;
+
+      var commit = _ref.commit;
+      var url = '/acolher/public/api/atendimento/' + request.id;
+      console.log(url);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(url, request.fields).then(function (response) {
+        console.log('Data atualizada' + request.data_atendimento);
+        commit('UPDATE_ATENDIMENTO', response.data);
+
+        _this.$router.push({
+          name: 'atendimentos'
+        });
       }).catch(function (error) {
         console.log(error);
       });
