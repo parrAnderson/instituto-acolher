@@ -1,37 +1,51 @@
 <template>
     <div>
-        Editando Atendimento
-       
-            <input type="data" v-model="fields.data_atendimento">
-            
-            <div class="btn" @click="UpdateData()">atualizar</div>
-       
+        <div class="row">
+            <div class="col">
+                <input type="date" class="form-control" v-model="fields.data_atendimento">
+            </div>
+        </div> <br>
+    
+        <div class="row">
+            <div class="col">
+                <div class="btn btn-primary" @click="UpdateData()">atualizar</div>
+            </div>
+        </div>
+    
     </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
-    export default {
-        name:"EditAtendimento",
-           data() {
+export default {
+    name: "EditAtendimento",
+    data() {
         return {
-            id: this.$route.params.id,       
             request: {},
-            fields:{}  
+            fields: {}
         }
     },
-        methods:{
-            ...mapActions([
+    computed: {
+        ...mapState({
+            atendimentos: state => state.Atendimento.edit
+        })
+    },
+    methods: {
+        ...mapActions([
             'UpdateAtendimento',
         ]),
-        UpdateData(){
-             this.UpdateAtendimento(this.request)
-        }
+        UpdateData() {
+            this.UpdateAtendimento(this.request)
         },
-        beforeMount(){
-            this.request.id = this.id
-            this.request.fields = this.fields
-           
+    },
+    beforeMount() {
+        this.request.fields = this.fields
+        this.request.id = ""
+    },
+    watch: {
+        atendimentos() {
+            this.request.id = this.atendimentos
         }
-        }
+    }
+}
 </script>

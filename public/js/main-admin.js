@@ -1893,24 +1893,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditAtendimento",
   data: function data() {
     return {
-      id: this.$route.params.id,
       request: {},
       fields: {}
     };
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+    atendimentos: function atendimentos(state) {
+      return state.Atendimento.edit;
+    }
+  })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['UpdateAtendimento']), {
     UpdateData: function UpdateData() {
       this.UpdateAtendimento(this.request);
     }
   }),
   beforeMount: function beforeMount() {
-    this.request.id = this.id;
     this.request.fields = this.fields;
+    this.request.id = "";
+  },
+  watch: {
+    atendimentos: function atendimentos() {
+      this.request.id = this.atendimentos;
+    }
   }
 });
 
@@ -1925,7 +1940,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _EditAtendimento__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditAtendimento */ "./resources/js/components/admin/atendimento/EditAtendimento.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2003,27 +2019,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "IndexAtendimento",
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     atendimentos: function atendimentos(state) {
       return state.Atendimento.data;
     }
   })),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['AllAtendimento']), {
-    ShowAtendimento: function ShowAtendimento(id) {
-      this.$router.push({
-        name: 'editatendimento',
-        params: {
-          id: id
-        }
-      });
+  components: {
+    EditAtendimento: _EditAtendimento__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['AllAtendimento', 'EditAtendimento']), {
+    showAtendimento: function showAtendimento(id) {
+      this.EditAtendimento(id);
     }
   }),
   beforeMount: function beforeMount() {
     this.AllAtendimento();
-    console.log("pegou");
   }
 });
 
@@ -3911,40 +3942,50 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\n    Editando Atendimento\n   \n        "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.fields.data_atendimento,
-          expression: "fields.data_atendimento"
-        }
-      ],
-      attrs: { type: "data" },
-      domProps: { value: _vm.fields.data_atendimento },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.fields.data_atendimento,
+              expression: "fields.data_atendimento"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "date" },
+          domProps: { value: _vm.fields.data_atendimento },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.fields, "data_atendimento", $event.target.value)
+            }
           }
-          _vm.$set(_vm.fields, "data_atendimento", $event.target.value)
-        }
-      }
-    }),
+        })
+      ])
+    ]),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "btn",
-        on: {
-          click: function($event) {
-            _vm.UpdateData()
-          }
-        }
-      },
-      [_vm._v("atualizar")]
-    )
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c(
+          "div",
+          {
+            staticClass: "btn btn-primary",
+            on: {
+              click: function($event) {
+                _vm.UpdateData()
+              }
+            }
+          },
+          [_vm._v("atualizar")]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -3973,10 +4014,42 @@ var render = function() {
     ? _c("div", [
         _vm._m(0),
         _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "exampleModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "modal-body" },
+                    [_c("edit-atendimento")],
+                    1
+                  )
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("table", { staticClass: "table table-striped table-sm" }, [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -3985,9 +4058,13 @@ var render = function() {
                     "tr",
                     {
                       key: atendimento.id,
+                      attrs: {
+                        "data-toggle": "modal",
+                        "data-target": "#exampleModal"
+                      },
                       on: {
                         click: function($event) {
-                          _vm.ShowAtendimento(atendimento.id)
+                          _vm.showAtendimento(atendimento.id)
                         }
                       }
                     },
@@ -4072,6 +4149,31 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-12" }, [
         _c("h2", { staticClass: "text-center" }, [_vm._v("Atendimentos")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Data de Atendimento")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
   },
   function() {
@@ -21461,13 +21563,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     data: {},
-    edit: {}
+    edit: ""
   },
   mutations: {
     ALL_ATENDIMENTO: function ALL_ATENDIMENTO(state, data) {
       state.data = data;
     },
     UPDATE_ATENDIMENTO: function UPDATE_ATENDIMENTO(state, data) {
+      state.update = data;
+    },
+    EDIT_ATENDIMENTO: function EDIT_ATENDIMENTO(state, data) {
       state.edit = data;
     }
   },
@@ -21480,19 +21585,17 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    UpdateAtendimento: function UpdateAtendimento(_ref, request) {
-      var _this = this;
-
+    EditAtendimento: function EditAtendimento(_ref, id) {
       var commit = _ref.commit;
+      commit('EDIT_ATENDIMENTO', id);
+    },
+    UpdateAtendimento: function UpdateAtendimento(_ref2, request) {
+      var commit = _ref2.commit;
       var url = '/acolher/public/api/atendimento/' + request.id;
       console.log(url);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(url, request.fields).then(function (response) {
         console.log('Data atualizada' + request.data_atendimento);
         commit('UPDATE_ATENDIMENTO', response.data);
-
-        _this.$router.push({
-          name: 'atendimentos'
-        });
       }).catch(function (error) {
         console.log(error);
       });

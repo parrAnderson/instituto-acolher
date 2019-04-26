@@ -9,8 +9,25 @@
             </div>
        
 
+            
 
-    
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Data de Atendimento</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <edit-atendimento></edit-atendimento>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                    
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <table class="table table-striped table-sm">
@@ -38,7 +55,7 @@
                     </thead>    
                     <tbody>
                          
-                        <tr v-for="atendimento in atendimentos" :key="atendimento.id" @click="ShowAtendimento(atendimento.id)">
+                        <tr data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id)">
                             <td >
                                 {{atendimento.nome}}
                             </td>
@@ -72,26 +89,30 @@
 </template>
 
 <script>
+import EditAtendimento from './EditAtendimento'
 import { mapState, mapActions } from 'vuex';
 export default {
-    name: "IndexAtendimento",
+    name: "IndexAtendimento",   
     computed: {
         ...mapState({
             atendimentos: state => state.Atendimento.data
         })
+    },components:{
+        EditAtendimento,
     },
     methods: {
         ...mapActions([
             'AllAtendimento',
+            'EditAtendimento'
         ]),
-        ShowAtendimento(id){
-            this.$router.push({ name: 'editatendimento', params: {id: id}});
+        showAtendimento(id){           
+           this.EditAtendimento(id)
         },
     },
 
     beforeMount() {
         this.AllAtendimento()
-        console.log("pegou")
+        
     },
     
 }
