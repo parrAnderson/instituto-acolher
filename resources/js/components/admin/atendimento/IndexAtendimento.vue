@@ -55,7 +55,7 @@
                     </thead>    
                     <tbody>
                          
-                        <tr data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id)">
+                        <tr data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id, atendimento.data_atendimento)">
                             <td >
                                 {{atendimento.nome}}
                             </td>
@@ -64,20 +64,20 @@
                                 {{atendimento.tipo_atendimento}}    
                             </td>    
                             <td>
-                                {{atendimento.created_at}}    
+                                {{atendimento.created_at | date}}    
                             </td>  
                             <td>
-                                {{atendimento.data_atendimento}}    
+                                <span>{{ atendimento.data_atendimento | date}}</span>
+                                 
                             </td>  
                             <td>
                                 {{atendimento.idade}}    
                             </td> 
+                            
                             <td>
                                 {{atendimento.obreiro}}    
                             </td> 
-                        </tr>  
-
-                        
+                        </tr>                          
                     </tbody>                
                 </table>
                 </div>
@@ -89,10 +89,18 @@
 </template>
 
 <script>
+
+
+import moment from 'moment'
 import EditAtendimento from './EditAtendimento'
 import { mapState, mapActions } from 'vuex';
 export default {
     name: "IndexAtendimento",   
+    data(){
+        return{
+            require:{}
+        }
+    },
     computed: {
         ...mapState({
             atendimentos: state => state.Atendimento.data
@@ -100,21 +108,34 @@ export default {
     },components:{
         EditAtendimento,
     },
+    filters: {    
+    date: function(value) {
+        moment.locale("pt-br");
+        if (!value) return "";
+        let data = moment(value).format('L');      
+        return data
+    }
+  },
     methods: {
         ...mapActions([
             'AllAtendimento',
             'EditAtendimento'
         ]),
-        showAtendimento(id){           
-           this.EditAtendimento(id)
+        showAtendimento(id, data_atendimento){ 
+            this.require.id = id;
+            this.require.data_atendimento = data_atendimento
+
+           this.EditAtendimento(this.require)
         },
+        tellTime(time) {
+      console.log(this.$moment(time).format(' mm:ss'))
+    }
     },
 
     beforeMount() {
-        this.AllAtendimento()
-        
+        this.AllAtendimento()      
     },
-    
+   
 }
 
 </script>

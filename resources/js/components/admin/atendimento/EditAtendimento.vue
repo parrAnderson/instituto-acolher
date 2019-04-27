@@ -1,33 +1,39 @@
 <template>
     <div>
         <div class="row">
-            <div class="col">
-                <input type="date" class="form-control" v-model="fields.data_atendimento">
+            <div class="col">                
+                <input type="date" class="form-control" v-model="data_atendimento">
             </div>
         </div> <br>
     
         <div class="row">
             <div class="col">
-                <div class="btn btn-primary" @click="UpdateData()">atualizar</div>
+                
+                <div class="btn btn-primary" data-dismiss="modal" @click="UpdateData()">atualizar</div>
             </div>
-        </div>
+        </div>    
+    
     
     </div>
 </template>
 
 <script>
+import moment from 'moment'
 import { mapActions, mapState } from 'vuex'
 export default {
     name: "EditAtendimento",
     data() {
         return {
             request: {},
-            fields: {}
+            fields: {},
+            novo:"",
+            data_atendimento:"",
         }
     },
     computed: {
         ...mapState({
-            atendimentos: state => state.Atendimento.edit
+            editId: state => state.Atendimento.editId,  
+            editDataAtendimento: state => state.Atendimento.editDataAtendimento,         
         })
     },
     methods: {
@@ -35,17 +41,23 @@ export default {
             'UpdateAtendimento',
         ]),
         UpdateData() {
-            this.UpdateAtendimento(this.request)
+            this.fields.data_atendimento = this.data_atendimento
+            this.UpdateAtendimento(this.request)            
         },
     },
     beforeMount() {
         this.request.fields = this.fields
         this.request.id = ""
     },
-    watch: {
-        atendimentos() {
-            this.request.id = this.atendimentos
-        }
+   
+    watch: {       
+        editId() {          
+            this.request.id = this.editId                         
+        },
+         editDataAtendimento(){
+            this.data_atendimento = this.editDataAtendimento            
+         }
+       
     }
 }
 </script>

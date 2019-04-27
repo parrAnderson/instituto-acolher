@@ -3,7 +3,8 @@ import axios from "axios"
 export default {
     state:{
         data:{},
-        edit:""
+        editId:"",
+        editDataAtendimento:"",
     },
     mutations:{
         ALL_ATENDIMENTO(state, data){
@@ -12,8 +13,9 @@ export default {
         UPDATE_ATENDIMENTO(state, data){
             state.update = data
         },
-        EDIT_ATENDIMENTO(state, data){
-            state.edit = data
+        EDIT_ATENDIMENTO(state, data){           
+            state.editId = data.id
+            state.editDataAtendimento = data.data_atendimento
         },
     },
     actions:{
@@ -30,10 +32,11 @@ export default {
             console.log(error);
             });
         }, 
-        EditAtendimento({commit}, id){
-            commit('EDIT_ATENDIMENTO', id)
+        EditAtendimento(context, require){
+            
+            context.commit('EDIT_ATENDIMENTO', require)
         },
-        UpdateAtendimento({commit}, request){              
+        UpdateAtendimento({ dispatch, commit}, request){              
             
             let url = '/acolher/public/api/atendimento/' + request.id;   
             
@@ -42,7 +45,8 @@ export default {
             .put(url, request.fields)
             .then(response => {
                 console.log('Data atualizada' + request.data_atendimento)
-                commit('UPDATE_ATENDIMENTO', response.data)             
+                commit('UPDATE_ATENDIMENTO', response.data)      
+                dispatch("AllAtendimento");       
             })                           
             .catch(function (error) {
                 console.log(error);

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router'
+import VueMoment from 'vue-moment'
 import routes from '../js/routes-admin'
 // import axios from 'axios'
 // import VueAxios from 'vue-axios'
@@ -14,7 +15,7 @@ const router = new VueRouter({
 })
  
   
-Vue.use(VueRouter)
+Vue.use(VueRouter, VueMoment)
 new Vue({
     store,
     router,

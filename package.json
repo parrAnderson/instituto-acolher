@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "imagemin": "^6.0.0",
+        "moment": "^2.24.0",
+        "vue-moment": "^4.0.0",
         "vue-router": "^3.0.2",
         "vue-the-mask": "^0.11.1",
         "vuex": "^3.0.1"
