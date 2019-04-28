@@ -1840,6 +1840,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import NavHeader from './layouts/NavHeader'
 // // import Footer from './layouts/Footer'
 
@@ -1903,6 +1926,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1912,7 +1947,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       request: {},
       fields: {},
       novo: "",
-      data_atendimento: ""
+      data_atendimento: "",
+      hora_atendimento: ""
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
@@ -1921,11 +1957,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     editDataAtendimento: function editDataAtendimento(state) {
       return state.Atendimento.editDataAtendimento;
+    },
+    editHoraAtendimento: function editHoraAtendimento(state) {
+      return state.Atendimento.editHoraAtendimento;
     }
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['UpdateAtendimento']), {
     UpdateData: function UpdateData() {
-      this.fields.data_atendimento = this.data_atendimento;
+      this.fields.hora_atendimento = this.hora_atendimento;
+      this.fields.data_atendimento = this.data_atendimento; // console.log(this.request)
+
       this.UpdateAtendimento(this.request);
     }
   }),
@@ -1939,6 +1980,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     editDataAtendimento: function editDataAtendimento() {
       this.data_atendimento = this.editDataAtendimento;
+    },
+    editHoraAtendimento: function editHoraAtendimento() {
+      this.hora_atendimento = this.editHoraAtendimento;
     }
   }
 });
@@ -1962,6 +2006,28 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2079,9 +2145,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['AllAtendimento', 'EditAtendimento']), {
-    showAtendimento: function showAtendimento(id, data_atendimento) {
+    showAtendimento: function showAtendimento(id, data_atendimento, hora_atendimento) {
       this.require.id = id;
       this.require.data_atendimento = data_atendimento;
+      this.require.hora_atendimento = hora_atendimento;
       this.EditAtendimento(this.require);
     },
     tellTime: function tellTime(time) {
@@ -2104,11 +2171,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2662,6 +2724,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Users",
@@ -2703,7 +2789,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -2741,7 +2827,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -21639,22 +21725,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row row-space" }, [
+        _c(
+          "div",
+          { staticClass: "col-4" },
+          [
+            _c("router-link", { attrs: { to: "/users" } }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { width: "18rem" } },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: {
+                      src:
+                        "/../../acolher/public/img/admin/dashboard/fichas.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title text-center" }, [
+                      _vm._v("Fichas")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-4" },
+          [
+            _c("router-link", { attrs: { to: "/atendimentos" } }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { width: "18rem" } },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: {
+                      src:
+                        "/../../acolher/public/img/admin/dashboard/atendimento.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title text-center" }, [
+                      _vm._v("Atendimentos")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row row-space" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("h2", { staticClass: "text-center" }, [
-              _vm._v("Painel Administrativo")
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "row row-space" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("h2", { staticClass: "text-center" }, [
+          _vm._v("Painel Administrativo")
+        ]),
+        _vm._v(" "),
+        _c("br")
       ])
     ])
   }
@@ -21683,6 +21833,10 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [
+        _c("label", { attrs: { for: "data" } }, [
+          _vm._v("  Data Atendimento ")
+        ]),
+        _vm._v(" "),
         _c("input", {
           directives: [
             {
@@ -21693,7 +21847,7 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { type: "date" },
+          attrs: { type: "date", name: "data" },
           domProps: { value: _vm.data_atendimento },
           on: {
             input: function($event) {
@@ -21701,6 +21855,36 @@ var render = function() {
                 return
               }
               _vm.data_atendimento = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("label", { attrs: { for: "data" } }, [
+          _vm._v("  Hora Atendimento ")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.hora_atendimento,
+              expression: "hora_atendimento"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "time" },
+          domProps: { value: _vm.hora_atendimento },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.hora_atendimento = $event.target.value
             }
           }
         })
@@ -21798,6 +21982,7 @@ var render = function() {
                     "tr",
                     {
                       key: atendimento.id,
+                      staticClass: "pointer",
                       attrs: {
                         "data-toggle": "modal",
                         "data-target": "#exampleModal"
@@ -21806,7 +21991,8 @@ var render = function() {
                         click: function($event) {
                           _vm.showAtendimento(
                             atendimento.id,
-                            atendimento.data_atendimento
+                            atendimento.data_atendimento,
+                            atendimento.hora_atendimento
                           )
                         }
                       }
@@ -21845,6 +22031,12 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", [
+                        _c("span", [
+                          _vm._v(_vm._s(atendimento.hora_atendimento))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
                         _vm._v(
                           "\n                            " +
                             _vm._s(atendimento.idade) +
@@ -21858,6 +22050,30 @@ var render = function() {
                             _vm._s(atendimento.obreiro) +
                             "    \n                        "
                         )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(atendimento.fumante) +
+                            "\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(atendimento.bebida) +
+                            "\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(atendimento.drogas) +
+                            "\n                        "
+                        )
                       ])
                     ]
                   )
@@ -21866,20 +22082,7 @@ var render = function() {
               )
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "btn",
-            on: {
-              click: function($event) {
-                _vm.AllAtendimento()
-              }
-            }
-          },
-          [_vm._v("CLICK")]
-        )
+        ])
       ])
     : _vm._e()
 }
@@ -21937,7 +22140,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [
           _vm._v(
-            "\n                            DATA SOLICITADA\n                        "
+            "\n                           SOLICITADA\n                        "
           )
         ]),
         _vm._v(" "),
@@ -21945,6 +22148,10 @@ var staticRenderFns = [
           _vm._v(
             "\n                            DATA AGENDADA\n                        "
           )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v("\n                            HORA\n                        ")
         ]),
         _vm._v(" "),
         _c("td", [
@@ -21956,6 +22163,22 @@ var staticRenderFns = [
         _c("td", [
           _vm._v(
             "\n                            OBREIRO \n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v("\n                            FUMA\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            BEBE \n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            DROGAS \n                        "
           )
         ])
       ])
@@ -22031,19 +22254,6 @@ var render = function() {
                     _c("a", { attrs: { href: "#" } }, [
                       _c("i", { staticClass: "far fa-calendar-alt" }),
                       _vm._v("Atendimentos")
-                    ])
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "far fa-id-card" }),
-                      _vm._v("Cartão")
                     ])
                   ])
                 ],
@@ -24005,7 +24215,7 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _vm.users
-          ? _c("table", { staticClass: "table table-striped" }, [
+          ? _c("table", { staticClass: "table table-striped table-sm" }, [
               _vm._m(1),
               _vm._v(" "),
               _c(
@@ -24065,7 +24275,31 @@ var render = function() {
                       _c("td", [
                         _vm._v(
                           "\n                            " +
-                            _vm._s(user.religiao) +
+                            _vm._s(user.obreiro) +
+                            "        \n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(user.fumante) +
+                            "        \n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(user.bebida) +
+                            "        \n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(user.drogas) +
                             "        \n                        "
                         )
                       ])
@@ -24107,19 +24341,41 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [
           _vm._v(
-            "\n                            TELEFONE\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("td", [
-          _vm._v(
             "\n                            EMAIL\n                        "
           )
         ]),
         _vm._v(" "),
         _c("td", [
           _vm._v(
-            "\n                            RELIGIÃO\n                        "
+            "\n                            TELEFONE\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            NASCIMENTO\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            OBREIRO \n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v("\n                            FUMA\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            BEBE \n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            DROGAS \n                        "
           )
         ])
       ])
@@ -43994,7 +44250,8 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     data: {},
     editId: "",
-    editDataAtendimento: ""
+    editDataAtendimento: "",
+    editHoraAtendimento: ""
   },
   mutations: {
     ALL_ATENDIMENTO: function ALL_ATENDIMENTO(state, data) {
@@ -44006,6 +44263,7 @@ __webpack_require__.r(__webpack_exports__);
     EDIT_ATENDIMENTO: function EDIT_ATENDIMENTO(state, data) {
       state.editId = data.id;
       state.editDataAtendimento = data.data_atendimento;
+      state.editHoraAtendimento = data.hora_atendimento;
     }
   },
   actions: {
@@ -44026,7 +44284,7 @@ __webpack_require__.r(__webpack_exports__);
       var url = '/acolher/public/api/atendimento/' + request.id;
       console.log(url);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(url, request.fields).then(function (response) {
-        console.log('Data atualizada' + request.data_atendimento);
+        console.log('Data atualizada ' + request.fields.data_atendimento + ' - ' + request.fields.hora_atendimento);
         commit('UPDATE_ATENDIMENTO', response.data);
         dispatch("AllAtendimento");
       }).catch(function (error) {

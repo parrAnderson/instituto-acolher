@@ -1,10 +1,22 @@
 <template>
     <div>
         <div class="row">
-            <div class="col">                
-                <input type="date" class="form-control" v-model="data_atendimento">
+            <div class="col">    
+                 <label for="data">  Data Atendimento </label>                          
+                <input type="date" name="data" class="form-control" v-model="data_atendimento">               
             </div>
-        </div> <br>
+        </div> 
+
+        <div class="row">
+            <div class="col">                             
+                <label for="data">  Hora Atendimento </label> 
+                 <input type="time" class="form-control" v-model="hora_atendimento">             
+            </div>
+        </div> 
+
+        
+        
+        <br>
     
         <div class="row">
             <div class="col">
@@ -28,12 +40,14 @@ export default {
             fields: {},
             novo:"",
             data_atendimento:"",
+            hora_atendimento:"",
         }
     },
     computed: {
         ...mapState({
             editId: state => state.Atendimento.editId,  
-            editDataAtendimento: state => state.Atendimento.editDataAtendimento,         
+            editDataAtendimento: state => state.Atendimento.editDataAtendimento,  
+            editHoraAtendimento: state => state.Atendimento.editHoraAtendimento,       
         })
     },
     methods: {
@@ -41,7 +55,10 @@ export default {
             'UpdateAtendimento',
         ]),
         UpdateData() {
+            this.fields.hora_atendimento = this.hora_atendimento
             this.fields.data_atendimento = this.data_atendimento
+
+            // console.log(this.request)
             this.UpdateAtendimento(this.request)            
         },
     },
@@ -56,6 +73,9 @@ export default {
         },
          editDataAtendimento(){
             this.data_atendimento = this.editDataAtendimento            
+         },
+          editHoraAtendimento(){
+            this.hora_atendimento = this.editHoraAtendimento            
          }
        
     }

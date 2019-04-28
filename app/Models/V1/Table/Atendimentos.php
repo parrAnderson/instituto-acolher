@@ -11,6 +11,7 @@ class Atendimentos extends Model
         'user_id',
         'tipo_atendimento',
         'data_atendimento',
+        'hora_atendimento',
     ];
 
     public function Users(){

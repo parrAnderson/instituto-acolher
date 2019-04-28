@@ -14,3 +14,7 @@
 .side-navbar li a:focus{
     background: #29212100;
 }
+
+.pointer {
+    cursor: pointer;
+}

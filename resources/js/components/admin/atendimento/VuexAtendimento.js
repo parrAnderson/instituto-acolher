@@ -5,6 +5,7 @@ export default {
         data:{},
         editId:"",
         editDataAtendimento:"",
+        editHoraAtendimento:"",
     },
     mutations:{
         ALL_ATENDIMENTO(state, data){
@@ -16,6 +17,7 @@ export default {
         EDIT_ATENDIMENTO(state, data){           
             state.editId = data.id
             state.editDataAtendimento = data.data_atendimento
+            state.editHoraAtendimento = data.hora_atendimento
         },
     },
     actions:{
@@ -24,7 +26,7 @@ export default {
             let url = '/acolher/public/api/atendimento/';        
         axios
             .get(url)
-              .then(response => {
+              .then(response => {    
                 context.commit('ALL_ATENDIMENTO', response.data.data)
               }                
             )
@@ -36,7 +38,8 @@ export default {
             
             context.commit('EDIT_ATENDIMENTO', require)
         },
-        UpdateAtendimento({ dispatch, commit}, request){              
+        UpdateAtendimento({ dispatch, commit}, request){             
+            
             
             let url = '/acolher/public/api/atendimento/' + request.id;   
             
@@ -44,7 +47,7 @@ export default {
             axios
             .put(url, request.fields)
             .then(response => {
-                console.log('Data atualizada' + request.data_atendimento)
+                console.log('Data atualizada ' + request.fields.data_atendimento + ' - ' + request.fields.hora_atendimento)
                 commit('UPDATE_ATENDIMENTO', response.data)      
                 dispatch("AllAtendimento");       
             })                           

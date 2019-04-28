@@ -13,7 +13,7 @@
     
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <table class="table table-striped" v-if="users">
+                    <table class="table table-striped table-sm" v-if="users">
                     <thead>
                         <tr>
                             <td>
@@ -22,14 +22,28 @@
                             <td>
                                 CPF
                             </td>
-                            <td>
-                                TELEFONE
-                            </td>
+                            
                             <td>
                                 EMAIL
                             </td>
                             <td>
-                                RELIGIÃO
+                                TELEFONE
+                            </td>
+                            <td>
+                                NASCIMENTO
+                            </td>
+                            
+                             <td>
+                                OBREIRO 
+                            </td>
+                            <td>
+                                FUMA
+                            </td>
+                            <td>
+                                BEBE 
+                            </td>
+                            <td>
+                                DROGAS 
                             </td>
                         </tr>
                     </thead>
@@ -51,8 +65,18 @@
                             <td>
                                 {{user.data_nascimento}}        
                             </td>
+                           
                             <td>
-                                {{user.religiao}}        
+                                {{user.obreiro}}        
+                            </td>
+                            <td>
+                                {{user.fumante}}        
+                            </td>
+                            <td>
+                                {{user.bebida}}        
+                            </td>
+                            <td>
+                                {{user.drogas}}        
                             </td>
                         </tr>  
                     </tbody>

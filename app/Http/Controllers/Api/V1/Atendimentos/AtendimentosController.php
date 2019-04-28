@@ -28,7 +28,10 @@ class AtendimentosController extends Controller
                 $Users = $atendimento->Users()->get();
     
                 foreach($Users as $User){
-                    $atendimento->nome = $User->name;                          
+                    $atendimento->nome = $User->name;   
+                    $atendimento->fumante = $User->fumante;     
+                    $atendimento->bebida = $User->bebida; 
+                    $atendimento->drogas = $User->drogas;                          
                         
     
                     $atendimento->data_nascimento = date('Y-m-d', strtotime($atendimento->data_nascimento));

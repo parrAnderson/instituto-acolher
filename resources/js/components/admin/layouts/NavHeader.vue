@@ -36,12 +36,7 @@
                                 <a href="#"> <i class="far fa-calendar-alt"></i>Atendimentos</a>
                             </router-link>
                         </li>
-                        <li>
-                            <router-link to="/">
-                                <a href="#"> <i class="far fa-id-card"></i>Cartão</a>
-                            </router-link>
-                        </li>
-    
+                        
                     </ul>
                 </div>
             </div>

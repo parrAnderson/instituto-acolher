@@ -40,10 +40,13 @@
                                 ATENDIMENTO
                             </td>
                             <td>
-                                DATA SOLICITADA
+                               SOLICITADA
                             </td>
                             <td>
                                 DATA AGENDADA
+                            </td>
+                            <td>
+                                HORA
                             </td>
                             <td>
                                 IDADE
@@ -51,11 +54,20 @@
                             <td>
                                 OBREIRO 
                             </td>
+                            <td>
+                                FUMA
+                            </td>
+                            <td>
+                                BEBE 
+                            </td>
+                            <td>
+                                DROGAS 
+                            </td>
                         </tr> 
                     </thead>    
                     <tbody>
                          
-                        <tr data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id, atendimento.data_atendimento)">
+                        <tr class="pointer" data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id, atendimento.data_atendimento, atendimento.hora_atendimento)">
                             <td >
                                 {{atendimento.nome}}
                             </td>
@@ -67,9 +79,11 @@
                                 {{atendimento.created_at | date}}    
                             </td>  
                             <td>
-                                <span>{{ atendimento.data_atendimento | date}}</span>
-                                 
+                                <span>{{ atendimento.data_atendimento | date}}</span>                                 
                             </td>  
+                            <td>
+                                <span>{{ atendimento.hora_atendimento}}</span>                                 
+                            </td> 
                             <td>
                                 {{atendimento.idade}}    
                             </td> 
@@ -77,14 +91,22 @@
                             <td>
                                 {{atendimento.obreiro}}    
                             </td> 
+
+                             <td >
+                                {{atendimento.fumante}}
+                            </td>
+                            <td >
+                                {{atendimento.bebida}}
+                            </td>
+                            <td >
+                                {{atendimento.drogas}}
+                            </td>
                         </tr>                          
                     </tbody>                
                 </table>
                 </div>
             </div>
-        
-       <div class="btn" @click="AllAtendimento()">CLICK</div>
-    
+     
     </div>
 </template>
 
@@ -121,9 +143,10 @@ export default {
             'AllAtendimento',
             'EditAtendimento'
         ]),
-        showAtendimento(id, data_atendimento){ 
+        showAtendimento(id, data_atendimento, hora_atendimento){ 
             this.require.id = id;
             this.require.data_atendimento = data_atendimento
+            this.require.hora_atendimento = hora_atendimento
 
            this.EditAtendimento(this.require)
         },
