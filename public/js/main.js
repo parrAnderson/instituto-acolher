@@ -3175,6 +3175,192 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3682,7 +3868,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.border-div[data-v-877785e2] {\n    border-style: dotted;\n}\n.text-declaracao[data-v-877785e2]{\n    font-size:10px\n}\n.img-quinze[data-v-877785e2] {\n    width: 100px;\n}\n", ""]);
+exports.push([module.i, "\ntable[data-v-877785e2] {\n    table-layout: fixed;\n    word-wrap: break-word;\n}\n.border-div[data-v-877785e2] {\n    border-style: dotted;\n}\n.text-declaracao[data-v-877785e2]{\n    font-size:10px\n}\n.img-quinze[data-v-877785e2] {\n    width: 100px;\n}\n.cartao-tamanho[data-v-877785e2]{\n    height: 447px;\n    width: 570px;\n}\n.border-zero[data-v-877785e2]{\n    padding-right: 0px! important;\n    padding-left: 0px! important;\n}\n.size-fixed-table table > tr > td[data-v-877785e2]{\n    font-size: 13.5px! important;\n}\n@media print\n{\n.no-print[data-v-877785e2], .no-print *[data-v-877785e2]\n    {\n        display: none !important;\n}\n}\n", ""]);
 
 // exports
 
@@ -10512,62 +10698,63 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav-header"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row justify-content-center" }, [
-          _c("div", { staticClass: "col-6 border-div" }, [
-            _vm.cartao
-              ? _c("table", { staticClass: "table " }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", { attrs: { colspan: "4" } }, [
-                      _vm._v("\n                            Nome: "),
-                      _c("span", { staticClass: "text-center" }, [
-                        _vm._v(_vm._s(_vm.cartao.name))
-                      ])
+  return _c("div", [
+    _c("span", { staticClass: "no-print" }, [_c("nav-header")], 1),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-6 border-div cartao-tamanho" }, [
+          _vm.cartao
+            ? _c("table", { staticClass: "table table-sm" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", { attrs: { colspan: "4" } }, [
+                    _vm._v("\n                            Nome: "),
+                    _c("span", { staticClass: "text-center" }, [
+                      _vm._v(_vm._s(_vm.cartao.name))
                     ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", { staticClass: "text-left" }, [
+                  _c("td", [
+                    _vm._v("N° de reg. "),
+                    _c("br"),
+                    _vm._v(" " + _vm._s(_vm.cartao.id))
                   ]),
                   _vm._v(" "),
-                  _c("tr", { staticClass: "text-left" }, [
-                    _c("td", [
-                      _vm._v("N° de reg. "),
-                      _c("br"),
-                      _vm._v(" " + _vm._s(_vm.cartao.id))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(" CPF "),
-                      _c("br"),
-                      _vm._v(" " + _vm._s(_vm.cartao.cpf))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(" RG "),
-                      _c("br"),
-                      _vm._v(" " + _vm._s(_vm.cartao.rg))
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(1)
+                  _c("td", [
+                    _vm._v(" CPF "),
+                    _c("br"),
+                    _vm._v(" " + _vm._s(_vm.cartao.cpf))
                   ]),
                   _vm._v(" "),
-                  _vm._m(2)
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._m(3)
-          ])
+                  _c("td", [
+                    _vm._v(" RG "),
+                    _c("br"),
+                    _vm._v(" " + _vm._s(_vm.cartao.rg))
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]),
+                _vm._v(" "),
+                _vm._m(2)
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._m(3)
         ])
       ]),
       _vm._v(" "),
-      _c("Footer")
-    ],
-    1
-  )
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _vm._m(4)
+    ]),
+    _vm._v(" "),
+    _c("span", { staticClass: "no-print" }, [_c("Footer")], 1)
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -10637,6 +10824,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-6 text-left" }, [
+        _c("br"),
         _vm._v("\n                        __________________________ "),
         _c("br"),
         _vm._v(
@@ -10645,10 +10833,348 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-6 text-right" }, [
+        _c("br"),
         _vm._v("\n                        __________________________ "),
         _c("br"),
         _vm._v("\n                        Acolher\n                    ")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-6 border-div cartao-tamanho border-zero size-fixed-table"
+        },
+        [
+          _c("table", { staticClass: "table table-bordered table-sm" }, [
+            _c("tr", [
+              _c("td", { attrs: { rowspan: "2" } }, [
+                _vm._v(
+                  "\n                            MÊS\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { rowspan: "2" } }, [
+                _vm._v(
+                  "\n                            MENS\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { colspan: "5" } }, [
+                _vm._v(
+                  "\n                            CURSO\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { rowspan: "8" } }, [
+                _vm._v("\n                        DIA DE - PAGTO "),
+                _c("br"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", { attrs: { type: "checkbox" } }),
+                _vm._v(" 10 "),
+                _c("br"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", { attrs: { type: "checkbox" } }),
+                _vm._v(" 20 "),
+                _c("br")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            APO BA\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\n                            APO AV\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\n                            KARDEC\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            INSCR\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            JAN\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            FEV\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            MAR\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            ABR\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            MAI\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            JUN\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td", { attrs: { rowspan: "7" } }, [
+                _vm._v(
+                  "\n                            CESTA BASICA\n                            "
+                ),
+                _c("br"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", { attrs: { type: "checkbox" } }),
+                _vm._v(" 1° "),
+                _c("br"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", { attrs: { type: "checkbox" } }),
+                _vm._v(" 2° "),
+                _c("br")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _vm._v(
+                  "\n                            JUL\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("AGO")]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("SET")]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("OUT")]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("NOV")]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v("DEZ")]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td")
+            ])
+          ])
+        ]
+      )
     ])
   }
 ]
