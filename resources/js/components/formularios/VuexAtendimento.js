@@ -2,11 +2,15 @@ import axios from "axios"
 
 export default {
     state: {
-        data: {},        
+        data: {},
+        solicitacoes:{},        
     },
     mutations: {
         CADASTRAR(state, data){
             state.data = data
+        },
+        GETATENDIMENTO(state, data){
+            state.solicitacoes = data
         }
         
     },
@@ -24,6 +28,20 @@ export default {
             .catch(function (error) {
             console.log(error);
             });
-        }        
+        },   
+        
+        GetAtendimento(context, data){
+            let url = '/acolher/public/api/atendimento/create/' + data;     
+            
+        axios
+            .get(url)
+            .then(response => {
+            context.commit('GETATENDIMENTO', response.data.data)            
+            }                
+        )
+        .catch(function (error) {
+        console.log(error);
+        });
+        }
     }
 }

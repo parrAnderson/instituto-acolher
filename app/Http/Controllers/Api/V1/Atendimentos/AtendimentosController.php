@@ -87,6 +87,14 @@ class AtendimentosController extends Controller
         return($this->atendimentos);
     }
 
+    public function create($id){
+        $this->atendimentos = $this->atendimentos->where('user_id', $id)->get();
+        
+        return response()->json([
+            'data' => $this->atendimentos,  
+        ]);
+    }
+
 
     public function destroy($id)
     {
