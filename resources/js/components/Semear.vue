@@ -12,9 +12,15 @@
                     </div>
                     <h3 class="text-center">ATIVIDADES DISPONÍVEIS NO SEMEAR - <span class="text-primary">ACOLHER</span>
                     </h3>
+                     
                     <div class="row  row-space justify-content-center">
                         <div class="col-12 text-center">
                             <img class="img-fluid" src="/../../acolher/public/img/semear/curso.png" alt="">
+                        </div>
+                    </div>
+                    <div class="row  row-space justify-content-center">
+                        <div class="col-12 text-center">
+                            <img class="img-fluid" src="/../../acolher/public/img/semear/kardecismo.png" alt="">
                         </div>
                     </div>
                     <div class="row  row-space justify-content-center">

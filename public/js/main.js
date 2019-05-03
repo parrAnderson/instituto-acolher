@@ -2343,6 +2343,342 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2478,6 +2814,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -25772,31 +26114,616 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
-          _c("h2", { staticClass: "text-center" }, [_vm._v("PUBLICAÇÕES")]),
+          _c("div", { staticClass: "row  row-space justify-content-center" }, [
+            _c("div", { staticClass: "col-12 text-center" }, [
+              _c("img", {
+                staticClass: "img-fluid",
+                attrs: {
+                  src: "/../../acolher/public/img/publicacao/disponiveis.png",
+                  alt: ""
+                }
+              })
+            ])
+          ]),
           _vm._v(" "),
-          _c("h4", { staticClass: "text-center" }, [_vm._v("Em construção:")]),
+          _c("h3", { staticClass: "text-center text-primary" }, [
+            _vm._v("Prática do Evangelho no Lar")
+          ]),
           _vm._v(" "),
-          _c("p", [
-            _vm._v("\n- Evangelho no Lar"),
-            _c("br"),
-            _vm._v("\n- Recomendações para a Sessão de Passes"),
-            _c("br"),
-            _vm._v("\n- Recomendações para Atendimento na Apometria"),
-            _c("br"),
-            _vm._v("\n- Recomendações para Atendimento no Obreiros da Luz"),
-            _c("br"),
-            _vm._v("\n- Dietas após atendimento na Apometria"),
-            _c("br"),
-            _vm._v("\n- Sessões de Curativo - após atendimento na Apometria"),
-            _c("br"),
-            _vm._v("\n- Corrente Espiritual"),
-            _c("br"),
-            _vm._v("\n- Corrente Médica Espiritual"),
-            _c("br"),
-            _vm._v("\n- Oração a Desencarnados"),
-            _c("br"),
-            _vm._v("\n- Novena - Obreiros da Luz"),
-            _c("br")
+          _c("br"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "text-primary" }, [_vm._v("CONCEITO")]),
+          _vm._v(" "),
+          _c("section", { attrs: { id: "conceito" } }, [
+            _c("p", [
+              _vm._v(
+                "\n                            O Estudo do Evangelho no Lar é uma reunião em família, em dia e hora da semana determinados, para estudo e conversa sobre os preceitos cristãos, visando o aprofundamento dos conhecimentos doutrinários e a manutenção da harmonia e do equilíbrio no lar.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Adotando a prática ensinada pelo Mestre Jesus, é um encontro familiar e fraternal, do qual participam os mentores espirituais, espíritos afins e demais envolvidos no progresso moral e espiritual dos integrantes do grupo.\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " Trata-se de uma prática cristã recomendada pela Doutrina Espírita e um poderoso recurso para a limpeza e higiene espiritual do lar.\n    \n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " É uma das formas mais saudáveis de fraternidade, que começa na família através do diálogo sincero e do exercício da caridade. Cada lição do Evangelho é um roteiro de luz e de bênçãos para o grupo familiar, para toda a\n                            área circunvizinha do lar que o pratique e de espíritos necessitados de esclarecimentos, trazidos pela Espiritualidade para acompanharem os estudos.\n    \n                            "
+              ),
+              _c("br"),
+              _c("br")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h5", { staticClass: "text-primary" }, [
+            _vm._v("IMPORTÂNCIA DO EVANGELHO NO LAR")
+          ]),
+          _vm._v(" "),
+          _c("section", { attrs: { id: "evangelho" } }, [
+            _c("p", [
+              _vm._v(
+                "\n                            O Estudo do Evangelho no Lar abre as portas da nossa casa aos benefícios espirituais, contribuindo para os trabalhos de amparo e intuição dos mentores espirituais aos membros da família.\n    \n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " A busca pela compreensão dos ensinamentos cristãos, com sua absorção através da razão, nos permite o entendimento dos acontecimentos de nossas vidas, oferecendo-nos ânimo para enfrentar as vicissitudes e diretrizes para\n                            que façamos as melhores escolhas para as questões da vida terrena.\n    \n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Através da prática disciplinada e séria do Evangelho, modificamos e melhoramos o padrão vibratório dos nossos pensamentos e sentimentos, desanuviando as nossas mentes congestionadas pelas criações inferiores, agentes da\n                            enfermidade e dos desequilíbrios. Com Jesus no Lar, pelo estudo e vivência do Evangelho, tem-se a verdadeira paz.\n    \n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Com o Evangelho no Lar formamos as defesas magnéticas da nossa casa, envolvendo o ambiente espiritual em energias positivas que desestimulam toda ação maléfica. É uma verdadeira segurança espiritual que passa a funcionar\n                            em benefício de todo o grupo.\n    \n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Além da ajuda que essa prática proporciona no programa espiritual de todo o grupo familiar, estende a caridade aos vizinhos e a quantos se sintam também estimulados a mudar com o exemplo, além de socorrer espíritos diversos\n                            igualmente beneficiados pela fonte de luz!\n                            "
+              ),
+              _c("br"),
+              _c("br")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h5", { staticClass: "text-primary" }, [
+            _vm._v("ORIENTAÇÕES PARA REALIZAÇÃO DO EVANGELHO NO LAR")
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("section", { staticClass: "orientacoes" }, [
+            _c("p", [
+              _vm._v(
+                "\n                            Determine um dia e uma hora da semana em que seja possível a presença de todos os membros da família ou daqueles que desejarem participar da reunião.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " O dia e horário definidos devem ser entendidos como compromisso sério, firmado entre o grupo familiar e a espiritualidade, portanto, devem ser cumpridos rigorosa e disciplinarmente, a fim de permitir a efetiva participação\n                            dos mentores espirituais e de espíritos superiores.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                ' A reunião deve ser iniciada com uma prece simples e espontânea num local da casa menos exposto às perturbações exteriores, fazendo-se em seguida a leitura de um trecho de "O Evangelho Segundo o Espiritismo", aberto ao\n                            acaso ou previamente programado para estudo em sequência.\n                            '
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " A fim de oferecer maior dinâmica à reunião, sugere-se que a leitura seja coletiva e em voz alta, realizada por quantos integrantes sentirem-se à vontade a fazê-la, dedicando-se cada um a um parágrafo do texto por vez.\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " É importante que a leitura seja feita em voz alta e clara, para que os ensinamentos alcancem também os irmãos desencarnados trazidos pelo Plano Espiritual a participarem dos estudos.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Os participantes devem promover breve e saudável debate sobre o texto lido, explorando o entendimento de cada um sobre a aplicação dos ensinamentos na vida diária, bem como a colocação de questões a serem esclarecidas\n                            ou pontos de vista a serem compartilhados.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Não deve haver discussões, críticas e julgamento entre os membros do grupo. O debate de ideias deve ocorrer à luz da Doutrina e eventuais dúvidas levantadas devem ter seu esclarecimento pesquisado e trazido por um dos\n                            membros em próximos encontros.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " A reunião deve ser dirigida por um membro da família ou pela pessoa que tiver mais conhecimento doutrinário, que deverá estimular a participação de todos e conduzir as explicações ao nível do entendimento prático dos presentes.\n                            Pode-se promover a leitura de outras publicações voltadas à Doutrina (“O Livro dos Espíritos”, “O Livro dos Médiuns”, “O que é o Espiritismo”, “A Gênese”, “O Céu e o Inferno” etc).\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Sugere-se que seja colocada toalha branca sobre a mesa e pode-se ainda colocar água em uma jarra sobre a mesma, para que seja fluidificada pelos Espíritos presentes, no transcorrer da reunião. Música suave pode contribuir\n                            para melhor ambientação, auxiliando as vibrações e preces.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Após a leitura do texto e o debate entre os participantes, deve ser proferida prece de encerramento, agradecendo pela assistência dos mentores espirituais e pelos bálsamos depositados na água pelos mesmos, os quais nos\n                            auxiliarão na busca da evolução espiritual através da verdadeira reforma íntima, pedindo que os bons fluidos produzidos na reunião permaneçam em cada um dos integrantes e em todo o lar, até a próxima reunião.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Recomenda-se que a duração seja de 30 a 45 minutos, a contar da prece de abertura à de encerramento.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Vale esclarecer que, ainda que somente um integrante do lar deseje introduzir a Prática do Evangelho, a realização é possível. Ressaltando que poderá estar solitário do ponto de vista da companhia de encarnados, entretanto\n                            estará acompanhado de Irmãos de Luz da Espiritualidade, os quais se regozijarão com a iniciativa do estudo e da busca pela reforma íntima.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Com o tempo, o exemplo da prática e os resultados benéficos do concurso em favor dos valores cristãos, motivarão outros membros da família a juntarem-se aos estudos. Nossos votos de muita Paz!\n    \n                        "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h6", { staticClass: "text-primary" }, [_vm._v("Acolher")]),
+          _vm._v(" "),
+          _c("h6", { staticClass: "font-weigth-bold" }, [
+            _vm._v("Instituto Kardecista de Estudos e Amparo")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-center" }, [
+            _c("div", { staticClass: "col-md-2" }, [
+              _c("img", {
+                staticClass: "img-fluid align-center",
+                attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h3", { staticClass: "text-center text-primary" }, [
+            _vm._v("Vibrações\n                    ")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("section", [
+            _c("p", [
+              _vm._v(
+                "\n                            Elevemos o nosso pensamento a Deus, através de Jesus, e solicitemos ao Divino Mestre a permissão para acompanha-Lo com os nossos corações, distribuindo vibrações de amor neste momento:\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(" Vibremos com Jesus!\n                            "),
+              _c("br"),
+              _vm._v(
+                " Pela paz no nosso planeta;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pelos enfermos encarnados e pelos moribundos;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pelos sofredores desencarnados que se encontram na Crosta, no Umbral e nas Trevas;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pela confraternização religiosa;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pela expansão do Evangelho como norma de conduta;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pelos espíritos que estão reencarnando com tarefas evangélicas definidas;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pelos trabalhadores do bem;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " por nossos guias e mentores espirituais;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pelo triunfo do bem em relação ao mal como guia dos nossos pensamentos e ações;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " por esta casa que nos acolhe;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " por todas as creches, asilos, orfanatos, hospitais, sanatórios e cadeias;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pelas crianças, pelos jovens e pelos idosos;\n                            "
+              ),
+              _c("br"),
+              _vm._v(
+                " pelos nossos lares, nossos familiares, nossos amigos e inimigos!\n                            "
+              ),
+              _c("br"),
+              _vm._v(" Que assim seja!\n                        ")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-center" }, [
+            _c("div", { staticClass: "col-md-2" }, [
+              _c("img", {
+                staticClass: "img-fluid align-center",
+                attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h3", { staticClass: "text-center text-danger" }, [
+            _vm._v("Novena\n                    ")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("section", { attrs: { id: "novena" } }, [
+            _c("p", [
+              _vm._v(
+                "\n    \n    \n                            Realizar durante "
+              ),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("9 dias")
+              ]),
+              _vm._v(
+                " consecutivos, sem interrupção, o seguinte procedimento:\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Etapa 1:")
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" Acender "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("uma vela")
+              ]),
+              _vm._v(" no\n                            "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("quarto")
+              ]),
+              _vm._v(" e oferece-la ao\n                            "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Anjo da Guarda")
+              ]),
+              _vm._v("; Prece: um "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Pai Nosso")
+              ]),
+              _vm._v(" e uma\n                            "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Ave Maria")
+              ]),
+              _vm._v(".\n    \n                            "),
+              _c("br"),
+              _c("br"),
+              _vm._v(" ​​​​​​​\n                            "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Etapa 2:")
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" Acender "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("uma vela")
+              ]),
+              _vm._v(" atrás da\n                            "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("porta de entrada")
+              ]),
+              _vm._v(" da casa e oferece-la à\n                            "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Nossa Senhora do Desterro")
+              ]),
+              _vm._v("; Prece: um "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Pai Nosso")
+              ]),
+              _vm._v(" e uma\n                            "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Ave Maria")
+              ]),
+              _vm._v(".\n                            "),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Etapa 3:")
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" Posicionar em "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("forma de triângulo")
+              ]),
+              _vm._v(" e acender "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("3 velas")
+              ]),
+              _vm._v(", ao "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("ar livre")
+              ]),
+              _vm._v(", e oferece-las à "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("“Corrente do Retorno”")
+              ]),
+              _vm._v(
+                ";\n                            Não deve ser realizada prece nesta etapa.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Em caso de não realização em um dos dias, deve ser reiniciada a Novena.\n                            "
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(
+                " Nossos votos de muita Paz!\n                            "
+              ),
+              _c("br")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h6", { staticClass: "text-primary" }, [_vm._v("Acolher")]),
+          _vm._v(" "),
+          _c("h6", { staticClass: "font-weigth-bold" }, [
+            _vm._v("Instituto Kardecista de Estudos e Amparo")
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h3", { staticClass: "text-center text-primary" }, [
+            _vm._v("Bibliografia - Apometria\n                    ")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("section", { attrs: { id: "bibliografia" } }, [
+            _c("p", { staticClass: "text-primary" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nAZEVEDO, José Lacerda de\n"),
+                _c("br"),
+                _vm._v(
+                  "\nEspirito e Matéria – Novos Horizontes para a Medicina.\n"
+                ),
+                _c("br")
+              ]),
+              _vm._v("\nPorto Alegre: Palotti, 1988. 296p.\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nAZEVEDO, José Lacerda de\n"),
+                _c("br"),
+                _vm._v(
+                  "\nEnergia e Espírito – Teoria e Prática da Apometria.\n"
+                ),
+                _c("br")
+              ]),
+              _vm._v(
+                "\n3a. ed. Caxias do Sul: Gráfica da UCS (Universidade de Caxias do Sul), 2002. 199p.\n"
+              ),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("ANGELO INÁCIO")
+              ]),
+              _vm._v(" [psicografado por Robson Pinheiro Santos].\n"),
+              _c("br"),
+              _vm._v("\nTambores de Angola.\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("ANGELO INÁCIO")
+              ]),
+              _vm._v(" [psicografado por Robson Pinheiro Santos].\n"),
+              _c("br"),
+              _vm._v("\nAruanda.\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("ANGELO INÁCIO")
+              ]),
+              _vm._v(" [psicografado por Robson Pinheiro Santos].\n"),
+              _c("br"),
+              _vm._v("\nNo Reino das Sombras – Livro 1 – Legião\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "BARSANULFO, Eurípedes; Ismael Alonso & Miguel de Alcântara."
+                )
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("\n[psicografado Por João Berbel].\n"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Apometria Vista do Além. 3a. ed. Franca:")
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("\nEd. Farol das Três - Colinas, 2000. 216p.\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nBARZ, Patrícia e Geraldo Magela Borbagatto\n"),
+                _c("br"),
+                _vm._v("\nApometria para Iniciantes\n"),
+                _c("br"),
+                _c("br")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nFILHO, Gilberto Staniezki.\n"),
+                _c("br"),
+                _vm._v("\nApometria – Mais um Instrumento\n"),
+                _c("br"),
+                _c("br")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nCOSTA, Vítor Ronaldo.\n"),
+                _c("br"),
+                _vm._v(
+                  "\nApometria – Novos Horizontes da Medicina Espiritual.\n"
+                ),
+                _c("br")
+              ]),
+              _vm._v("\nMatão: Casa Editora O Clarim, 1997. 188p.\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nGODINHO, J. S.\n"),
+                _c("br"),
+                _vm._v("\nApometria – A Nova Ciência Da Alma.\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLages Holus Editora\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nGODINHO, J. S.\n"),
+                _c("br"),
+                _vm._v("\nRegressão de Memória e Apometria.\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLages Holus Editora\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nGODINHO, J. S.\n"),
+                _c("br"),
+                _vm._v("\nOs Portais da Felicidade – Apometria na Prática\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLages: HeckPublicações, 1997. 172p\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nGODINHO, J. S.\n"),
+                _c("br"),
+                _vm._v(
+                  "\nApometria –O Caminho da Harmonia Espiritual e da Felicidade A Nova Ciência da Alma\n"
+                ),
+                _c("br")
+              ]),
+              _vm._v("\nLondrina: Editora Universalista, 1999.202p\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nGODINHO, J. S.\n"),
+                _c("br"),
+                _vm._v("\nDesvendando o Psiquismo – O Espírito em Terapia\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLages: Holus Editora, 1999. 222p\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nGODINHO, J. S.\n"),
+                _c("br"),
+                _vm._v(
+                  "\nPsiquismo em Terapia – Regressão de Memória e Apometria\n"
+                ),
+                _c("br")
+              ]),
+              _vm._v("\nLimeira: Ed. Do Conhecimento, 2000. 256p\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nGODINHO, J. S.\n"),
+                _c("br"),
+                _vm._v("\nMediunidade e Apometria – Terapêutica Espiritual\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLages: Holus  Editora, 2002. 226p\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\nHERVÉ, Ivan Vianna, Rogério Sele da Silva, Volnei Borges, Eva Isabel Tejada\n"
+                ),
+                _c("br"),
+                _vm._v(
+                  "\nApometria – A conexão entre a Ciência e o Espiritismo\n"
+                ),
+                _c("br")
+              ]),
+              _vm._v("\nCasa Espírita João Pedro\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\nOLIVEIRA, AUGUSTO BRANDÃO DE , CARVALHO, PEDRO DIAS DE, OLIVEIRA, SHIRLEY ROSANA.\n"
+                ),
+                _c("br"),
+                _vm._v("\nIntrodução à Apometria sem Incorporação\n"),
+                _c("br")
+              ]),
+              _vm._v("\nshirleyroli@yahoo.com.br\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nRAMATÍS [psicografado por Norberto Peixoto]\n"),
+                _c("br"),
+                _vm._v("\nChama Crística\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLimeira: Ed. Do Conhecimento, 2001. 160p\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nRAMATÍS [psicografado por Norberto Peixoto]\n"),
+                _c("br"),
+                _vm._v("\nSamadhi\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLimeira: Ed. Do Conhecimento, 2002. 208p\n"),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("\nRAMATÍS [psicografado por Norberto Peixoto]\n"),
+                _c("br"),
+                _vm._v("\nTRILOGIA: APOMETRIA E UMBANDA\n"),
+                _c("br")
+              ]),
+              _vm._v("\nLimeira: Ed. Do Conhecimento\n"),
+              _c("br")
+            ])
           ])
         ])
       ])
@@ -26113,6 +27040,18 @@ var staticRenderFns = [
                 staticClass: "img-fluid",
                 attrs: {
                   src: "/../../acolher/public/img/semear/curso.png",
+                  alt: ""
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row  row-space justify-content-center" }, [
+            _c("div", { staticClass: "col-12 text-center" }, [
+              _c("img", {
+                staticClass: "img-fluid",
+                attrs: {
+                  src: "/../../acolher/public/img/semear/kardecismo.png",
                   alt: ""
                 }
               })
@@ -29364,7 +30303,7 @@ var render = function() {
                           _c(
                             "a",
                             { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Semear")]
+                            [_vm._v("Semear (Cursos)")]
                           )
                         ])
                       ],
@@ -45694,15 +46633,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   actions: {
     CadastrarAtendimento: function CadastrarAtendimento(context, data) {
-      var _this = this;
-
       var url = '/acolher/public/api/atendimento/cadastrar';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
-        context.commit('CADASTRAR', response.data);
-
-        _this.$router.push({
-          name: 'home'
-        });
+        context.commit('CADASTRAR', response.data); // this.$router.push({ name: 'home' });
       }).catch(function (error) {
         console.log(error);
       });

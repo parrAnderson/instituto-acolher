@@ -78,7 +78,7 @@
                             </router-link>
                             <li class="nav-item">
                                 <router-link to="/semear">
-                                    <a class="nav-link" href="#">Semear</a>
+                                    <a class="nav-link" href="#">Semear (Cursos)</a>
                                 </router-link>
                             </li>
                            

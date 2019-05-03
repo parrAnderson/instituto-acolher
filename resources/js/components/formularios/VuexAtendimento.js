@@ -22,7 +22,7 @@ export default {
             .post(url, data)
               .then(response => {
                 context.commit('CADASTRAR', response.data)
-                this.$router.push({ name: 'home' });
+                // this.$router.push({ name: 'home' });
               }                
             )
             .catch(function (error) {
