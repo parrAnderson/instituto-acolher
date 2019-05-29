@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row row-space">
                 <div class="col-12">
-                    <h4 class="text-center">Cadastro</h4>
+                    <h4 class="text-center">Cadastro     </h4>                    
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -75,15 +75,15 @@
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
-                    <input type="text" v-model="inputs.cep" class="form-control" v-mask="'#####-###'" placeholder="CEP *">
+                    <input type="text" v-model="inputs.cep" v-on:keyup="buscar()" class="form-control" v-mask="'#####-###'" placeholder="CEP *">
                 </div>
                 <div class="col-4">
-                    <input type="text" v-model="inputs.bairro" class="form-control" placeholder="Bairro *">
+                    <input type="text" v-model="endereco.bairro" class="form-control" placeholder="Bairro *">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
-                    <input type="text" v-model="inputs.logradouro" class="form-control" placeholder="Logradouro *">
+                    <input type="text" v-model="endereco.logradouro" class="form-control" placeholder="Logradouro *">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -96,39 +96,13 @@
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
-                    <input type="text" v-model="inputs.municipio" class="form-control" placeholder="Município *">
+                    <!-- municipio no banco de dados -->
+                    <input type="text" v-model="endereco.localidade " class="form-control" placeholder="Município *">
                 </div>
                 <div class="col-4">
-                    <select name="estado" v-model="inputs.estado" class="form-control" id>
-                    <option disabled value="">Estado *</option>
-                    <option value="SP - São Paulo">SP - São Paulo</option>          
-                    <option value="AC - Acre">AC - Acre</option>          
-                    <option value="AL - Alagoas">AL - Alagoas</option>          
-                    <option value="AP - Amapá">AP - Amapá</option>          
-                    <option value="AM - Amazonas">AM - Amazonas</option>          
-                    <option value="BA - Bahia">BA - Bahia</option>          
-                    <option value="CE - Ceará">CE - Ceará</option>          
-                    <option value="DF - Distrito Federal">DF - Distrito Federal</option>          
-                    <option value="ES - Espírito Santo">ES - Espírito Santo</option>                     
-                    <option value="GO - Goiás">GO - Goiás</option>          
-                    <option value="MA - Maranhão">MA - Maranhão</option>          
-                    <option value="MT - Mato Grosso">MT - Mato Grosso</option>          
-                    <option value="MS - Mato Grosso do Sul">MS - Mato Grosso do Sul</option>          
-                    <option value="MG - Minas Gerais">MG - Minas Gerais</option>          
-                    <option value="PA - Pará">PA - Pará</option>          
-                    <option value="PB - Paraíba">PB - Paraíba</option>          
-                    <option value="PR - Paraná">PR - Paraná</option>          
-                    <option value="PE - Pernambuco">PE - Pernambuco</option>          
-                    <option value="PI - Piauí">PI - Piauí</option>                      
-                    <option value="RJ - Rio de Janeiro">RJ - Rio de Janeiro</option>          
-                    <option value="RG - Rio Grande do Norte">RG - Rio Grande do Norte</option>          
-                    <option value="RS - Rio Grande do Sul">RS - Rio Grande do Sul</option>          
-                    <option value="RO - Rondônia">RO - Rondônia</option>          
-                    <option value="RR - Roraima">RR - Roraima</option>          
-                    <option value="SC - Santa Catarina">SC - Santa Catarina</option>       
-                    <option value="SE - Sergipe">SE - Sergipe</option>         
-                    <option value="TO - Tocantins">TO - Tocantins</option>
-                  </select>
+                    <!-- estado no banco de dados -->
+                    <input type="text" name="estado" v-model="endereco.uf" placeholder="Estado*" class="form-control" >
+                   
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -346,6 +320,8 @@
 <script>
 import NavHeader from "./../layouts/NavHeader";
 import Footer from "./../layouts/Footer";
+import $ from "jquery";
+
 import {
     mapState,
     mapActions,
@@ -366,6 +342,7 @@ export default {
             tipo_pagamento: "",
             selected: false,
             required: {},
+            endereco:{},
         }
     },
     methods: {
@@ -375,6 +352,30 @@ export default {
         ...mapActions([
             'Register',
         ]),
+         buscar: function(){
+        
+      var self = this;
+      
+      self.naoLocalizado = false;
+      
+      if(/^[0-9]{5}-[0-9]{3}$/.test(this.inputs.cep)){
+        $.getJSON("https://viacep.com.br/ws/" + this.inputs.cep + "/json/", function(endereco){
+          if(endereco.erro){
+            self.endereco = {};
+            $("#inputLogradouro").focus();
+            self.naoLocalizado = true;
+            return;
+          }          
+
+          self.endereco = endereco;
+          self.inputs.logradouro = endereco.logradouro
+
+          console.log(endereco);          
+          $("#inputNumero").focus();
+        });
+      }
+    
+  },
         checkRequired() {
             if (this.inputs.name &&
                 this.inputs.email &&
@@ -447,7 +448,14 @@ export default {
             this.inputs.drogas = ''
             this.inputs.como_soube = ''
             this.inputs.indicacao = ''            
-            this.inputs.estado = ''
+         
+
+            this.endereco.logradouro = this.inputs.logradouro 
+            this.endereco.bairro = this.inputs.bairro 
+             this.endereco.uf = this.inputs.estado 
+
+            this.endereco.localidade = this.inputs.municipio
+
 
         },
         directives: { mask }
