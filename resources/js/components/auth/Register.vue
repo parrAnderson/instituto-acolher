@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row row-space">
                 <div class="col-12">
-                    <h4 class="text-center">Cadastro     </h4>                    
+                    <h4 class="text-center">Cadastro </h4>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -18,11 +18,11 @@
                 </div>
                 <div class="col-4">
                     <select name="genero" v-if="selected" v-model="inputs.genero" class="form-control">
-                    <option selected value="" > Gênero *</option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                    <option>Outros</option>
-                  </select>
+                        <option selected value="" > Gênero *</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Outros</option>
+                      </select>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -50,27 +50,27 @@
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="estado_civil" v-model="inputs.estado_civil" class="form-control" id>
-                    <option disabled value="">Estado Civil *</option>
-                     <option value="Solteiro(a)">Solteiro(a)</option>                    
-                    <option value="Casado(a)">Casado(a)</option>                      
-                    <option>União Estável</option>                      
-                    <option >Separado(a) / Divorciado(a)</option>                      
-                    <option>Viúvo</option>                      
-                    <option>Outros</option>
-                  </select>
+                        <option disabled value="">Estado Civil *</option>
+                         <option value="Solteiro(a)">Solteiro(a)</option>                    
+                        <option value="Casado(a)">Casado(a)</option>                      
+                        <option>União Estável</option>                      
+                        <option >Separado(a) / Divorciado(a)</option>                      
+                        <option>Viúvo</option>                      
+                        <option>Outros</option>
+                      </select>
                 </div>
                 <div class="col-4">
                     <select name="religiao" v-model="inputs.religiao" class="form-control" id>
-                    <option disabled value="">Religião *</option>
-                    <option value="Kardecista / Espírita">Kardecista / Espírita</option>          
-                    <option>Umbandista</option>
-                    <option>Católica</option>            
-                    <option>Evangélica</option>            
-                    <option>Budista</option>            
-                    <option>Judaica</option>            
-                    <option>Candomblé</option>
-                    <option>Outros</option>
-                  </select>
+                        <option disabled value="">Religião *</option>
+                        <option value="Kardecista / Espírita">Kardecista / Espírita</option>          
+                        <option>Umbandista</option>
+                        <option>Católica</option>            
+                        <option>Evangélica</option>            
+                        <option>Budista</option>            
+                        <option>Judaica</option>            
+                        <option>Candomblé</option>
+                        <option>Outros</option>
+                      </select>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -101,40 +101,40 @@
                 </div>
                 <div class="col-4">
                     <!-- estado no banco de dados -->
-                    <input type="text" name="estado" v-model="endereco.uf" placeholder="Estado*" class="form-control" >
-                   
+                    <input type="text" name="estado" v-model="endereco.uf" placeholder="Estado*" class="form-control">
+    
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="fumante" v-model="inputs.fumante" class="form-control" id>
-                    <option disabled value="" >É Fumante? *</option>
-                    <option>Sim</option>
-                    <option>Não</option>
-                  </select>
+                        <option disabled value="" >É Fumante? *</option>
+                        <option>Sim</option>
+                        <option>Não</option>
+                      </select>
                 </div>
                 <div class="col-4">
                     <select name="bebida" v-model="inputs.bebida" class="form-control" id>
-                    <option disabled value="">Consome Bebida Alcólica? *</option>
-                    <option>Não</option>
-                    <option>Raramente</option>
-                    <option>Socialmente</option>
-                    <option>Mais que socialmente</option>
-                  </select>
+                        <option disabled value="">Consome Bebida Alcólica? *</option>
+                        <option>Não</option>
+                        <option>Raramente</option>
+                        <option>Socialmente</option>
+                        <option>Mais que socialmente</option>
+                      </select>
                 </div>
-            </div>    
+            </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="droga" v-model="inputs.drogas" class="form-control" id>
-                    <option value>Possui dependencia em drogas? *</option>
-                    <option>Sim</option>
-                    <option>Não</option>
-                  </select>
+                        <option value>Possui dependencia em drogas? *</option>
+                        <option>Sim</option>
+                        <option>Não</option>
+                      </select>
                 </div>
                 <div class="col-4">
                     <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
                 </div>
-            </div>    
+            </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
@@ -142,7 +142,7 @@
                 <div class="col-4">
                     <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui"></textarea>
                 </div>
-            </div>           
+            </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
                 <div class="col-8">
@@ -154,7 +154,7 @@
                                         <input type="checkbox" v-model="inputs.kardecista" class="form-check-input" name="kardecista" id="kardecista">
                                         <label class="form-check-label" for="kardecista">Kardecista / Espírita?</label>
                                     </div>
-                                </div>    
+                                </div>
                                 <div class="col-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.casa_apometria" class="form-check-input" id="casa_apometria" name="casa_apometria">
@@ -170,12 +170,12 @@
                                         <input type="checkbox" v-model="inputs.casa_umbandista" class="form-check-input" id="casa_umbandista" name="casa_umbandista">
                                         <label class="form-check-label" for="casa_umbandista">Casa Umbandista?</label>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
                 <div class="col-8">
@@ -187,10 +187,10 @@
                                         <input type="checkbox" v-model="inputs.doutrina_kardecista" class="form-check-input" id="doutrina_kardecista" name="doutrina_kardecista">
                                         <label class="form-check-label" for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
                                     </div>
-                                </div>    
+                                </div>
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.principios_umbanda"  class="form-check-input" id="principios_umbanda" name="principios_umbanda">
+                                        <input type="checkbox" v-model="inputs.principios_umbanda" class="form-check-input" id="principios_umbanda" name="principios_umbanda">
                                         <label class="form-check-label" for="principios_umbanda">Principios da Umbanda?</label>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                         </div>
                     </div>
                 </div>
-            </div>           
+            </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Selecione os livros que já leu:</div>
                 <div class="col-8">
@@ -229,58 +229,58 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                         <div class="container">
                             <div class="row row-space-form">
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox"  v-model="inputs.livro_evangelho"  class="form-check-input" id="livro_evangelho" name="livro_evangelho">
+                                        <input type="checkbox" v-model="inputs.livro_evangelho" class="form-check-input" id="livro_evangelho" name="livro_evangelho">
                                         <label class="form-check-label" for="livro_evangelho">Livro o Evangelho Segundo o Espiritismo?</label>
                                     </div>
-                                </div>    
+                                </div>
                                 <div class="col-6">
                                     <div class="form-check">
-                                        <input type="checkbox"  v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
+                                        <input type="checkbox" v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
                                         <label class="form-check-label" for="livro_medicina">Espirito e Matéria: Um Novo Horizonte para a
-                              Medicina?</label>
+                                  Medicina?</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <input type="text" v-model="inputs.outros_livros" class="form-control" placeholder="Caso deseje, indique outros livros espiritualistas que já tenha lido.">
                 </div>
-            </div>              
+            </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">    
+                <div class="col-8">
                     <select class="form-control" v-model="inputs.como_soube">
-                  <option disabled value="">Como soube do Acolher? *</option>        
-                    <option>Parente</option>          
-                    <option>Amigo</option>      
-                    <option>Conhecido</option>            
-                    <option>Site</option>            
-                    <option>Whatsapp</option>            
-                    <option>Instagram</option>            
-                    <option>Facebook</option>            
-                    <option>Youtube</option>            
-                    <option>Outros</option>
-                </select>        
+                      <option disabled value="">Como soube do Acolher? *</option>        
+                        <option>Parente</option>          
+                        <option>Amigo</option>      
+                        <option>Conhecido</option>            
+                        <option>Site</option>            
+                        <option>Whatsapp</option>            
+                        <option>Instagram</option>            
+                        <option>Facebook</option>            
+                        <option>Youtube</option>            
+                        <option>Outros</option>
+                    </select>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <select class="form-control" v-model="inputs.indicacao">
-                    <option disabled value="">Caso tenha recebido uma indicação assinale abaixo:</option>
-                    <option value="Tratou-se de indicação de frequentador do Acolher">Tratou-se de indicação de frequentador do Acolher</option>
-                    <option value="Tratou-se de indicação de Obreiro do Acolher">Tratou-se de indicação de Obreiro do Acolher</option>
-          
-            
-            <option value="Outros">Outros</option>
-                  </select>
+                        <option disabled value="">Caso tenha recebido uma indicação assinale abaixo:</option>
+                        <option value="Tratou-se de indicação de frequentador do Acolher">Tratou-se de indicação de frequentador do Acolher</option>
+                        <option value="Tratou-se de indicação de Obreiro do Acolher">Tratou-se de indicação de Obreiro do Acolher</option>
+              
+                
+                <option value="Outros">Outros</option>
+                      </select>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -293,26 +293,31 @@
                     <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                 </div>
             </div>
-           
+    
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <button @click="registrar()" type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
-            </div>    
+            </div>
+            <div v-if="!validarCpf" class="row justify-content-center row-space-form">
+                <div class="alert alert-danger" role="alert">
+                    CPF INCORRETO
+                </div>
+            </div>
             <div v-if="required !== 'vazio'" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
                     Por favor! Preencha todos os campos obrigatórios *
                 </div>
-            </div>       
-            <div v-if="register.data" class="row justify-content-center row-space-form">
-                <div v-if="register.data"  class="alert alert-danger" role="alert">
-                    <span v-if="register.data.cpf">{{register.data.cpf[0]}}</span> | 
-                    <span v-if="register.data.email">{{register.data.email[0]}}</span>                  
-                </div>
-            </div>        
             </div>
+            <div v-if="register.data" class="row justify-content-center row-space-form">
+                <div v-if="register.data" class="alert alert-danger" role="alert">
+                    <span v-if="register.data.cpf">{{register.data.cpf[0]}}</span> |
+                    <span v-if="register.data.email">{{register.data.email[0]}}</span>
+                </div>
+            </div>
+        </div>
         <Footer>
-                    
+    
         </Footer>
     </div>
 </template>
@@ -330,6 +335,8 @@ import {
 import { mask } from "vue-the-mask";
 import { reject } from 'q';
 
+import validarCpf from 'validar-cpf'
+
 export default {
     name: "Register",
     components: {
@@ -342,7 +349,8 @@ export default {
             tipo_pagamento: "",
             selected: false,
             required: {},
-            endereco:{},
+            endereco: {},
+            validarCpf: true
         }
     },
     methods: {
@@ -352,32 +360,49 @@ export default {
         ...mapActions([
             'Register',
         ]),
-         buscar: function(){
-        
-      var self = this;
-      
-      self.naoLocalizado = false;
-      
-      if(/^[0-9]{5}-[0-9]{3}$/.test(this.inputs.cep)){
-        $.getJSON("https://viacep.com.br/ws/" + this.inputs.cep + "/json/", function(endereco){
-          if(endereco.erro){
-            self.endereco = {};
-            $("#inputLogradouro").focus();
-            self.naoLocalizado = true;
-            return;
-          }          
+        buscar: function() {
 
-          self.endereco = endereco;
-          self.inputs.logradouro = endereco.logradouro
+            var self = this;
 
-          console.log(endereco);          
-          $("#inputNumero").focus();
-        });
-      }
-    
-  },
+            self.naoLocalizado = false;
+
+            if (/^[0-9]{5}-[0-9]{3}$/.test(this.inputs.cep)) {
+                $.getJSON("https://viacep.com.br/ws/" + this.inputs.cep + "/json/", function(endereco) {
+                    if (endereco.erro) {
+                        self.endereco = {};
+                        $("#inputLogradouro").focus();
+                        self.naoLocalizado = true;
+                        return;
+                    }
+
+                    self.endereco = endereco;                    
+                    self.inputs.logradouro = endereco.logradouro
+
+                   self.inputs.bairro = endereco.bairro
+        self.inputs.estado = endereco.uf
+
+        self.inputs.municipio = endereco.localidade
+
+                    // console.log(self.inputs);
+                    $("#inputNumero").focus();
+                });
+            }
+
+        },
         checkRequired() {
-            if (this.inputs.name &&
+
+            // console.log(this.inputs)
+
+            if(this.inputs.cpf){
+                this.validarCpf = validarCpf(this.inputs.cpf); 
+            }else{                
+                this.validarCpf = validarCpf('000.000.000.00');             
+            }
+
+            
+        
+            if (this.validarCpf &&
+                this.inputs.name &&
                 this.inputs.email &&
                 this.inputs.cpf &&
                 this.inputs.data_nascimento &&
@@ -407,11 +432,11 @@ export default {
         },
         registrar() {
             this.checkRequired()
-            
+
             if (!this.required) {
                 this.Register(this.inputs)
                 // console.log(this.inputs)                          
-                
+
             } else {
                 console.log("não registrado, com erros")
             }
@@ -422,42 +447,44 @@ export default {
             register: state => state.Login.register,
         })
     },
-        watch: {
-            required: function(val) {               
-            },
-            register: function(val){
+    watch: {
+        required: function(val) {},
+        register: function(val) {
 
-                console.log(this.register.data.cpf)
-                if(!this.register.data.cpf && !this.register.data.email){
-                    console.log('roteando')
-                    this.$router.push({ name: 'atendimento' });
-                }
-              
+            console.log(this.register.data.cpf)
+            if (!this.register.data.cpf && !this.register.data.email) {
+                console.log('roteando')
+                this.$router.push({ name: 'atendimento' });
             }
 
-        },
-        beforeMount() {
-            this.required = "vazio"
+        }
 
-            this.selectInputs()
-            this.inputs.estado_civil = ''
-            this.inputs.religiao = ''
-            this.inputs.genero = ''
-            this.inputs.fumante = ''
-            this.inputs.bebida = ''
-            this.inputs.drogas = ''
-            this.inputs.como_soube = ''
-            this.inputs.indicacao = ''            
-         
+    },
+    beforeMount() {
 
-            this.endereco.logradouro = this.inputs.logradouro 
-            this.endereco.bairro = this.inputs.bairro 
-             this.endereco.uf = this.inputs.estado 
+       
 
-            this.endereco.localidade = this.inputs.municipio
+        this.required = "vazio"
+
+        this.selectInputs()
+        this.inputs.estado_civil = ''
+        this.inputs.religiao = ''
+        this.inputs.genero = ''
+        this.inputs.fumante = ''
+        this.inputs.bebida = ''
+        this.inputs.drogas = ''
+        this.inputs.como_soube = ''
+        this.inputs.indicacao = ''
 
 
-        },
-        directives: { mask }
-    };
+        // this.endereco.logradouro = this.inputs.logradouro
+        // this.endereco.bairro = this.inputs.bairro
+        // this.endereco.uf = this.inputs.estado
+
+        // this.endereco.localidade = this.inputs.municipio
+
+
+    },
+    directives: { mask }
+};
 </script>

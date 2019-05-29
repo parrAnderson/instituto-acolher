@@ -3002,6 +3002,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var q__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! q */ "./node_modules/q/q.js");
 /* harmony import */ var q__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(q__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var validar_cpf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! validar-cpf */ "./node_modules/validar-cpf/index.js");
+/* harmony import */ var validar_cpf__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(validar_cpf__WEBPACK_IMPORTED_MODULE_6__);
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -3325,6 +3327,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -3343,7 +3351,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       tipo_pagamento: "",
       selected: false,
       required: {},
-      endereco: {}
+      endereco: {},
+      validarCpf: true
     };
   },
   methods: _objectSpread({
@@ -3366,13 +3375,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           self.endereco = endereco;
           self.inputs.logradouro = endereco.logradouro;
-          console.log(endereco);
+          self.inputs.bairro = endereco.bairro;
+          self.inputs.estado = endereco.uf;
+          self.inputs.municipio = endereco.localidade; // console.log(self.inputs);
+
           jquery__WEBPACK_IMPORTED_MODULE_2___default()("#inputNumero").focus();
         });
       }
     },
     checkRequired: function checkRequired() {
-      if (this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer) {
+      // console.log(this.inputs)
+      if (this.inputs.cpf) {
+        this.validarCpf = validar_cpf__WEBPACK_IMPORTED_MODULE_6___default()(this.inputs.cpf);
+      } else {
+        this.validarCpf = validar_cpf__WEBPACK_IMPORTED_MODULE_6___default()('000.000.000.00');
+      }
+
+      if (this.validarCpf && this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer) {
         this.required = false;
         console.log("preenchido");
       } else {
@@ -3418,11 +3437,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.inputs.bebida = '';
     this.inputs.drogas = '';
     this.inputs.como_soube = '';
-    this.inputs.indicacao = '';
-    this.endereco.logradouro = this.inputs.logradouro;
-    this.endereco.bairro = this.inputs.bairro;
-    this.endereco.uf = this.inputs.estado;
-    this.endereco.localidade = this.inputs.municipio;
+    this.inputs.indicacao = ''; // this.endereco.logradouro = this.inputs.logradouro
+    // this.endereco.bairro = this.inputs.bairro
+    // this.endereco.uf = this.inputs.estado
+    // this.endereco.localidade = this.inputs.municipio
   },
   directives: {
     mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_4__["mask"]
@@ -35769,6 +35787,66 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/validar-cpf/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/validar-cpf/index.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+const isRepeatingNumber = str => /^(\d)(\1){10}$/.test(str);
+
+/**
+ * Valida um número de CPF baseado no algorítmo "módulo 11"
+ * @param {String} input - Número de CPF a ser testado
+ * @return {Boolean}
+ * @example
+ * const validarCpf = require('validar-cpf');
+ * console.log(validarCpf('12345678900'));
+ */
+const validarCpf = input => {
+	const cpf = input.replace(/\D/g, '');
+
+	if (
+		cpf === '' ||
+		cpf.length !== 11 ||
+		!/^\d{11}$/.test(cpf) ||
+		isRepeatingNumber(cpf)
+	) {
+		return false;
+	}
+
+	const digits = cpf.split('').map(x => parseInt(x));
+
+	for (let j = 0; j < 2; j++) {
+		let sum = 0;
+
+		for (let i = 0; i < 9 + j; i++) {
+			sum += digits[i] * (10 + j - i);
+		}
+
+		let checkDigit = 11 - (sum % 11);
+
+		if (checkDigit === 10 || checkDigit === 11) {
+			checkDigit = 0;
+		}
+
+		if (checkDigit !== digits[9 + j]) {
+			return false;
+		}
+	}
+
+	return true;
+};
+
+module.exports = validarCpf;
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=template&id=332fccf4&":
 /*!******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=template&id=332fccf4& ***!
@@ -39420,7 +39498,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "Espirito e Matéria: Um Novo Horizonte para a\n                          Medicina?"
+                              "Espirito e Matéria: Um Novo Horizonte para a\n                              Medicina?"
                             )
                           ]
                         )
@@ -39698,6 +39776,23 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
+        !_vm.validarCpf
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-danger",
+                    attrs: { role: "alert" }
+                  },
+                  [_vm._v("\n                CPF INCORRETO\n            ")]
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
         _vm.required !== "vazio"
           ? _c(
               "div",
@@ -39737,7 +39832,7 @@ var render = function() {
                               _vm._v(_vm._s(_vm.register.data.cpf[0]))
                             ])
                           : _vm._e(),
-                        _vm._v(" | \n                "),
+                        _vm._v(" |\n                "),
                         _vm.register.data.email
                           ? _c("span", [
                               _vm._v(_vm._s(_vm.register.data.email[0]))
@@ -39763,7 +39858,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
-        _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro     ")])
+        _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")])
       ])
     ])
   }
