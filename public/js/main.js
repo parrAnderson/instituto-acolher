@@ -3332,6 +3332,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -39498,7 +39508,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "Espirito e Matéria: Um Novo Horizonte para a\n                              Medicina?"
+                              "Espirito e Matéria: Um Novo Horizonte para a\n                                  Medicina?"
                             )
                           ]
                         )
@@ -39754,6 +39764,8 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "row justify-content-center row-space-form" },
@@ -39787,7 +39799,11 @@ var render = function() {
                     staticClass: "alert alert-danger",
                     attrs: { role: "alert" }
                   },
-                  [_vm._v("\n                CPF INCORRETO\n            ")]
+                  [
+                    _vm._v(
+                      "\n                    CPF INCORRETO\n                "
+                    )
+                  ]
                 )
               ]
             )
@@ -39806,7 +39822,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                Por favor! Preencha todos os campos obrigatórios *\n            "
+                      "\n                    Por favor! Preencha todos os campos obrigatórios *\n                "
                     )
                   ]
                 )
@@ -39832,7 +39848,7 @@ var render = function() {
                               _vm._v(_vm._s(_vm.register.data.cpf[0]))
                             ])
                           : _vm._e(),
-                        _vm._v(" |\n                "),
+                        _vm._v(" |\n                    "),
                         _vm.register.data.email
                           ? _c("span", [
                               _vm._v(_vm._s(_vm.register.data.email[0]))
@@ -39861,6 +39877,26 @@ var staticRenderFns = [
         _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
+          _c("h5", { staticClass: "text-center" }, [_vm._v("Declaração")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "               \n\nAo preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não inciar, alterar, suspender ou interromper qualquer  tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser minha única responsabilidade meus atos e deliberações acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.\n            "
+            )
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true

@@ -293,6 +293,16 @@
                     <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                 </div>
             </div>
+            
+            <div class="row justify-content-center row-space-form">
+                <div class="col-8">
+                    <h5 class="text-center">Declaração</h5>
+            <p>               
+
+Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não inciar, alterar, suspender ou interromper qualquer  tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser minha única responsabilidade meus atos e deliberações acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.
+            </p>
+                </div>
+            </div>
     
             <div class="row justify-content-center row-space-form">
                 <div class="col-8">
