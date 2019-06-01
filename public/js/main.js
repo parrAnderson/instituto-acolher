@@ -3342,6 +3342,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3362,7 +3391,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       selected: false,
       required: {},
       endereco: {},
-      validarCpf: true
+      validarCpf: true,
+      menor: false
     };
   },
   methods: _objectSpread({
@@ -3401,7 +3431,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.validarCpf = validar_cpf__WEBPACK_IMPORTED_MODULE_6___default()('000.000.000.00');
       }
 
-      if (this.validarCpf && this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer) {
+      if (this.validarCpf && this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer && this.inputs.possui_filhos) {
         this.required = false;
         console.log("preenchido");
       } else {
@@ -3416,6 +3446,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.Register(this.inputs); // console.log(this.inputs)                          
       } else {
         console.log("não registrado, com erros");
+      }
+    },
+    verificarIdade: function verificarIdade() {
+      if (this.inputs.data_nascimento.length == 10) {
+        var nascimento = this.inputs.data_nascimento.split("/");
+        var dataNascimento = new Date(parseInt(nascimento[2], 10), parseInt(nascimento[1], 10) - 1, parseInt(nascimento[0], 10));
+        var diferenca = Date.now() - dataNascimento.getTime();
+        var calIdade = new Date(diferenca); // miliseconds from epoch
+
+        var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
+
+        if (idade < 18) {
+          this.menor = true;
+        } else {
+          this.menor = false;
+        }
       }
     }
   }),
@@ -3447,7 +3493,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.inputs.bebida = '';
     this.inputs.drogas = '';
     this.inputs.como_soube = '';
-    this.inputs.indicacao = ''; // this.endereco.logradouro = this.inputs.logradouro
+    this.inputs.indicacao = '';
+    this.inputs.possui_filhos = ''; // this.endereco.logradouro = this.inputs.logradouro
     // this.endereco.bairro = this.inputs.bairro
     // this.endereco.uf = this.inputs.estado
     // this.endereco.localidade = this.inputs.municipio
@@ -38002,6 +38049,9 @@ var render = function() {
                 attrs: { type: "text", placeholder: "Data de Nascimento*" },
                 domProps: { value: _vm.inputs.data_nascimento },
                 on: {
+                  keyup: function($event) {
+                    _vm.verificarIdade()
+                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -38563,6 +38613,86 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.inputs.possui_filhos,
+                      expression: "inputs.possui_filhos"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { name: "possui_filhos", id: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.inputs,
+                        "possui_filhos",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
+                    _vm._v("Possui Filhos? *")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Sim")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Não")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputs.quantos_filhos,
+                    expression: "inputs.quantos_filhos"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "number",
+                  name: "quantos_filhos",
+                  placeholder: "Se sim, quantos filhos?"
+                },
+                domProps: { value: _vm.inputs.quantos_filhos },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.inputs, "quantos_filhos", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-4" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
                       value: _vm.inputs.fumante,
                       expression: "inputs.fumante"
                     }
@@ -38722,6 +38852,40 @@ var render = function() {
                       return
                     }
                     _vm.$set(_vm.inputs, "qual_droga", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-8" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputs.recorrer,
+                    expression: "inputs.recorrer"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  rows: "3",
+                  placeholder:
+                    "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
+                },
+                domProps: { value: _vm.inputs.recorrer },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.inputs, "recorrer", $event.target.value)
                   }
                 }
               })
@@ -39730,41 +39894,9 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
-            _c("div", { staticClass: "col-8" }, [
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.recorrer,
-                    expression: "inputs.recorrer"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  rows: "3",
-                  placeholder:
-                    "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
-                },
-                domProps: { value: _vm.inputs.recorrer },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "recorrer", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]
-        ),
+        _vm.menor ? _c("div", [_vm._m(1)]) : _vm._e(),
         _vm._v(" "),
-        _vm._m(1),
+        _vm._m(2),
         _vm._v(" "),
         _c(
           "div",
@@ -39799,11 +39931,7 @@ var render = function() {
                     staticClass: "alert alert-danger",
                     attrs: { role: "alert" }
                   },
-                  [
-                    _vm._v(
-                      "\n                    CPF INCORRETO\n                "
-                    )
-                  ]
+                  [_vm._v("\n                CPF INCORRETO\n            ")]
                 )
               ]
             )
@@ -39822,7 +39950,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    Por favor! Preencha todos os campos obrigatórios *\n                "
+                      "\n                Por favor! Preencha todos os campos obrigatórios *\n            "
                     )
                   ]
                 )
@@ -39848,7 +39976,7 @@ var render = function() {
                               _vm._v(_vm._s(_vm.register.data.cpf[0]))
                             ])
                           : _vm._e(),
-                        _vm._v(" |\n                    "),
+                        _vm._v(" |\n                "),
                         _vm.register.data.email
                           ? _c("span", [
                               _vm._v(_vm._s(_vm.register.data.email[0]))
@@ -39887,11 +40015,27 @@ var staticRenderFns = [
       { staticClass: "row justify-content-center row-space-form" },
       [
         _c("div", { staticClass: "col-8" }, [
+          _vm._v(
+            "\n                    FORMULARIO DO RESPONSAVEL\n                "
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8" }, [
           _c("h5", { staticClass: "text-center" }, [_vm._v("Declaração")]),
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "               \n\nAo preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não inciar, alterar, suspender ou interromper qualquer  tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser minha única responsabilidade meus atos e deliberações acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.\n            "
+              "\n\n                    Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a\n                    não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser minha única responsabilidade meus atos e deliberações\n                    acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.\n                "
             )
           ])
         ])
