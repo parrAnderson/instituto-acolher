@@ -313,9 +313,36 @@
             </div>
     
             <div v-if="menor">
+               <h5 class="text-center"> Dados do responsável </h5>
                 <div class="row justify-content-center row-space-form">
+                     
                     <div class="col-8">
-                        FORMULARIO DO RESPONSAVEL
+                        <input type="text" v-model="inputs.nome_responsavel" class="form-control" placeholder="Nome Completo do Responsável pelo(a) menor a ser atendido(a) *">            
+                    </div>
+                </div>
+
+                <div class="row justify-content-center row-space-form">
+                    <div class="col-4">
+                        <input type="text" v-model="inputs.cpf_responsavel" placeholder="CPF do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" v-model="inputs.rg_responsavel" placeholder="RG do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center row-space-form">
+                    <div class="col-4">
+                        <input type="text" v-model="inputs.telefone_responsavel" placeholder="Telefone Fixo do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" v-model="inputs.celular_responsavel" placeholder="Telefone Celular do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
+                    </div>
+                </div>
+
+                 <div class="row justify-content-center row-space-form">
+                     
+                    <div class="col-8">
+                        <input type="text" v-model="inputs.email_responsavel" class="form-control" placeholder="E-mail do Responsável pelo(a) menor a ser atendido(a) *">            
                     </div>
                 </div>
             </div>

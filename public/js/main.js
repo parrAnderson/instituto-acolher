@@ -3371,6 +3371,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -39894,9 +39921,231 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm.menor ? _c("div", [_vm._m(1)]) : _vm._e(),
+        _vm.menor
+          ? _c("div", [
+              _c("h5", { staticClass: "text-center" }, [
+                _vm._v(" Dados do responsável ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row justify-content-center row-space-form" },
+                [
+                  _c("div", { staticClass: "col-8" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.nome_responsavel,
+                          expression: "inputs.nome_responsavel"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder:
+                          "Nome Completo do Responsável pelo(a) menor a ser atendido(a) *"
+                      },
+                      domProps: { value: _vm.inputs.nome_responsavel },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.inputs,
+                            "nome_responsavel",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row justify-content-center row-space-form" },
+                [
+                  _c("div", { staticClass: "col-4" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.cpf_responsavel,
+                          expression: "inputs.cpf_responsavel"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder:
+                          "CPF do Responsável pelo(a) menor a ser atendido(a)"
+                      },
+                      domProps: { value: _vm.inputs.cpf_responsavel },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.inputs,
+                            "cpf_responsavel",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-4" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.rg_responsavel,
+                          expression: "inputs.rg_responsavel"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder:
+                          "RG do Responsável pelo(a) menor a ser atendido(a) *"
+                      },
+                      domProps: { value: _vm.inputs.rg_responsavel },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.inputs,
+                            "rg_responsavel",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row justify-content-center row-space-form" },
+                [
+                  _c("div", { staticClass: "col-4" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.telefone_responsavel,
+                          expression: "inputs.telefone_responsavel"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder:
+                          "Telefone Fixo do Responsável pelo(a) menor a ser atendido(a)"
+                      },
+                      domProps: { value: _vm.inputs.telefone_responsavel },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.inputs,
+                            "telefone_responsavel",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-4" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.celular_responsavel,
+                          expression: "inputs.celular_responsavel"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder:
+                          "Telefone Celular do Responsável pelo(a) menor a ser atendido(a) *"
+                      },
+                      domProps: { value: _vm.inputs.celular_responsavel },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.inputs,
+                            "celular_responsavel",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row justify-content-center row-space-form" },
+                [
+                  _c("div", { staticClass: "col-8" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.email_responsavel,
+                          expression: "inputs.email_responsavel"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder:
+                          "E-mail do Responsável pelo(a) menor a ser atendido(a) *"
+                      },
+                      domProps: { value: _vm.inputs.email_responsavel },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.inputs,
+                            "email_responsavel",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c(
           "div",
@@ -40005,22 +40254,6 @@ var staticRenderFns = [
         _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row justify-content-center row-space-form" },
-      [
-        _c("div", { staticClass: "col-8" }, [
-          _vm._v(
-            "\n                    FORMULARIO DO RESPONSAVEL\n                "
-          )
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
