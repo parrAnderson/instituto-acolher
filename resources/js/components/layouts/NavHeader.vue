@@ -47,6 +47,11 @@
                                 </router-link>
                             </li>
                             <li class="nav-item">
+                                <router-link to="/quemsomos">
+                                    <a class="nav-link" href="#">Quem Somos</a>
+                                </router-link>
+                            </li>
+                            <li class="nav-item">
                                 <router-link to="/institucional">
                                     <a class="nav-link" href="#">Institucional</a>
                                 </router-link>

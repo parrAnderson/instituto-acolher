@@ -12,6 +12,7 @@ import Semear from './components/Semear'
 // import AtendimentoAdulto from './components/formularios/AtendimentoAdulto'
 import Atendimento from './components/formularios/Atendimento'
 import Obreiro from './components/obreiro/Obreiro'
+import QuemSomos from './components/QuemSomos'
 
 import Carteirinha from './components/carteirinhas/Carteirinha'
 
@@ -36,6 +37,7 @@ const routes = [
     {path:'/register', name:'register',  name:'register', component: Register},
     {path:'/atendimento', name:'atendimento',  component: Atendimento},
     {path:'/obreiro', name:'obreiro',  component: Obreiro},
+    {path:'/quemsomos', name:'quemsomos',  component: QuemSomos},
     {path:'/cartao/:id', name:'cartao',  component: Carteirinha},
     
     // admin
