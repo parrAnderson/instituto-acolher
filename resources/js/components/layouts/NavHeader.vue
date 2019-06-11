@@ -118,7 +118,7 @@
 
                              <li v-if="login.data.id" class="nav-item">
                                 <router-link to="/atendimento">
-                                    <a class="nav-link" href="#">Atendimento</a>
+                                    <a class="nav-link" href="#">Solicitação de Atendimento</a>
                                 </router-link>
                             </li>
 

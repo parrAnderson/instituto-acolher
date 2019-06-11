@@ -41240,7 +41240,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
-        _c("h4", { staticClass: "text-center" }, [_vm._v("Atendimento")])
+        _c("h4", { staticClass: "text-center" }, [
+          _vm._v("Solicitação de Atendimento")
+        ])
       ])
     ])
   },
@@ -41650,7 +41652,7 @@ var render = function() {
                             _c(
                               "a",
                               { staticClass: "nav-link", attrs: { href: "#" } },
-                              [_vm._v("Atendimento")]
+                              [_vm._v("Solicitação de Atendimento")]
                             )
                           ])
                         ],

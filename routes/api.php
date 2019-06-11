@@ -48,3 +48,10 @@ Route::group([
 });
 
 
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'email'
+], function ($router) {
+    Route::get('/cadastrar', 'Emails\cadastroController@index');
+});
+

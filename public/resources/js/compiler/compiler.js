@@ -4750,7 +4750,7 @@ var render = function() {
                             _c(
                               "a",
                               { staticClass: "nav-link", attrs: { href: "#" } },
-                              [_vm._v("Atendimento")]
+                              [_vm._v("Solicitação de Atendimento")]
                             )
                           ])
                         ],
