@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Emails;
-
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,20 +11,28 @@ class cadastroController extends Controller
         return view('emails.cadastro');
     }
 
-    public function send(Request $request){
+    public function cadastro(Request $request){
+
         
-        $nome = $request->nome;
-        $dados = ['nome' => $request->nome,
-        'telefone' => $request->telefone,
+        
+        $this->email = $request->email;
+
+        $dados = [
+        'nome' => $request->nome,
         'email' => $request->email,
-        'mensagem' => $request->mensagem
-    ];
+        'id' => $request->id,
+         ];
        
 
-        Mail::send('emails.cadastro', $dados, function($message){
-            $message->to('jorgeserranojunior@hotmail.com');
-            $message->subject('E-mail enviado pelo site da Acolher');
-        });
+        try {
+            Mail::send('emails.cadastro', $dados, function($message){
+                $message->to($this->email);
+                $message->subject('E-mail enviado pelo site da Acolher');
+            });
+            return('E-mail enviado');
+        } catch (\Error $e) {
+            return $e;
+        }
         // return view('contato');
     }
 }

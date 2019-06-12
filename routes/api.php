@@ -52,6 +52,6 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'email'
 ], function ($router) {
-    Route::get('/cadastrar', 'Emails\cadastroController@index');
+    Route::post('/cadastrar', 'Emails\cadastroController@cadastro');
 });
 
