@@ -21,9 +21,8 @@ export default {
         },
     },
     actions:{
-        AllAtendimento(context){     
-                 
-            let url = '/acolher/public/api/atendimento/';        
+        AllAtendimento(context, data_atendimento){   
+            let url = '/acolher/public/api/atendimento/?dataAtendimento=' + data_atendimento;        
         axios
             .get(url)
               .then(response => {    

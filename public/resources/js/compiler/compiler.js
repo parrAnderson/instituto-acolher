@@ -352,6 +352,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2675,17 +2678,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row row-space justify-content-center" }, [
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-6" }, [
         _c("ul", [
           _c("li", [
             _vm._v(
-              "\n                        Apometria\n\n                    "
+              "\n                        Apometria (2as. feiras)\n\n                    "
             )
           ]),
           _vm._v(" "),
           _c("li", [
             _vm._v(
-              "\n                        Estudo Obreiros da luz\n                    "
+              "\n                        Prática do Evangelho (5as. feiras)\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _vm._v(
+              "\n                        Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)\n                    "
             )
           ])
         ])

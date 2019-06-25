@@ -19,14 +19,17 @@
             </div>
     
             <div class="row row-space justify-content-center">
-                <div class="col-4">
+                <div class="col-6">
                     <ul>
                         <li>
-                            Apometria
+                            Apometria (2as. feiras)
     
                         </li>
                         <li>
-                            Estudo Obreiros da luz
+                            Prática do Evangelho (5as. feiras)
+                        </li>
+                        <li>
+                            Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)
                         </li>
                     </ul>
                 </div>

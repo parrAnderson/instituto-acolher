@@ -47,6 +47,10 @@ export default {
                     response => context.commit('REGISTER', response.customMessages)
                     console.log(response);
                 });
+        },
+
+        EmailCadastroConcluido(){
+            console.log("email, funcionando");
         }
     }
 }

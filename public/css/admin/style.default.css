@@ -447,7 +447,7 @@ nav.navbar a.menu-btn:hover {
   right: 20px;
 }
 
-.side-navbar li a[aria-expanded="true"]::before {
+.side-menu li a[aria-expanded="true"]::before {
   content: '\f107';
   color: #fff;
 }

@@ -16,40 +16,44 @@ class AtendimentosController extends Controller
         $this->users = $Users;
     }
 
-    public function index()
-    {
+    public function index(Request $request)
+    {        
+       
 
-        
-            
         try{
-            $this->atendimentos = $this->atendimentos->get();
+            
+
+            if($request->dataAtendimento > ""){
+
+                $request->dataAtendimento = str_replace('/', '-', $request->dataAtendimento);
+                
+                
+                $request->dataAtendimento = date("Y-m-d", strtotime($request->dataAtendimento));
+// dd($request->dataAtendimento);
+           
+
+                $this->atendimentos = $this->atendimentos->where('data_atendimento', $request->dataAtendimento)->get();
+            }else{
+                $this->atendimentos = $this->atendimentos->get();
+            }   
+
 
             foreach($this->atendimentos as $atendimento){
-                $Users = $atendimento->Users()->get();
-    
+                $Users = $atendimento->Users()->get();    
                 foreach($Users as $User){
                     $atendimento->nome = $User->name;   
                     $atendimento->fumante = $User->fumante;     
                     $atendimento->bebida = $User->bebida; 
-                    $atendimento->drogas = $User->drogas;                          
-                        
-    
-                    $atendimento->data_nascimento = date('Y-m-d', strtotime($atendimento->data_nascimento));
+                    $atendimento->drogas = $User->drogas; 
+                    $atendimento->obreiro = $User->obreiro; 
+                    $atendimento->email = $User->email; 
+                    $atendimento->celular = $User->celular; 
+
+                     $atendimento->data_nascimento = date('Y-m-d', strtotime($User->data_nascimento));
                     $date = new DateTime($atendimento->data_nascimento); 
                     $idade = $date->diff( new DateTime( date('Y-m-d') ) ); 
-                    $idade = $idade->format('%Y');    
-                    if($idade >= 18){
-                        $atendimento->idade = 'Maior';
-                    }else{
-                        $atendimento->idade = 'Menor';
-                    }
-
-                    if($User->obreiro > '' and $User->obreiro > null  ){
-                        $atendimento->obreiro = 'Sim'; 
-                    }else{
-                        $atendimento->obreiro = "Não"; 
-                    }
-    
+                    $idade = $idade->format('%Y');                    
+                    $atendimento->idade = $atendimento->data_nascimento;
                 }
             }              
                  

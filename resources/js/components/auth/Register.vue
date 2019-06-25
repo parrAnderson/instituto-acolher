@@ -5,6 +5,7 @@
             <div class="row row-space">
                 <div class="col-12">
                     <h4 class="text-center">Cadastro </h4>
+                    <button @click="emailCadastro()">ENVIAR EMAIL</button>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -421,11 +422,15 @@ export default {
         }
     },
     methods: {
+        emailCadastro(){
+            this.EmailCadastroConcluido()
+        },
         selectInputs() {
             this.selected = true
         },
         ...mapActions([
             'Register',
+            'EmailCadastroConcluido',
         ]),
         buscar: function() {
 

@@ -30,12 +30,22 @@
                                 <a href="#"> <i class="fas fa-clipboard-list"></i>Fichas</a>
                             </router-link>
                         </li>
-    
+
                         <li>
-                            <router-link to="/atendimentos">
-                                <a href="#"> <i class="far fa-calendar-alt"></i>Atendimentos</a>
-                            </router-link>
+                            <a href="#exampledropdownDropdown" aria-expanded="true" data-toggle="collapse" class=""> <i class="far fa-calendar-alt"></i>Atendimentos </a>
+                            <ul id="exampledropdownDropdown" class="list-unstyled collapse" style="">
+                                <li>
+                                     <router-link to="/atendimentos">
+                                        <a href="#">Todos</a>
+                                    </router-link>
+                                    
+                                </li>                                
+                            </ul>
                         </li>
+    
+                        
+                           
+                         
                         
                     </ul>
                 </div>
@@ -52,6 +62,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+/* #side-main-menu li a {
+    position: relative;
+    font-size: .9rem;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    padding: 12px;
+} */
 
 </style>

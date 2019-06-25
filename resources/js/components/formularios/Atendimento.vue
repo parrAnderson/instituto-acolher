@@ -3,15 +3,19 @@
         <nav-header></nav-header>
         <div class="container">
     
-            <div v-if="atendimento.data.data" class="row justify-content-center">
+            <div v-if="atendimento.data.data" class="row row-space justify-content-center">
                 <div class="col-8">
                     <div class="alert alert-success text-center" role="alert">
-                        <h5>Atendimento registrado, aguarde nosso contato!</h5>
+                        <p>Mensagem enviada com sucesso! <br> 
+                        Obrigado pelo contato. <br>
+                            Você receberá uma mensagem via Whatsapp indicando a data do seu atendimento. <br>
+                            Nossos votos de muita Paz! <br>
+                            Acolher - Instituto Kardecista de Estudos e Amparo</p>
                     </div>
     
                 </div>
             </div>
-    
+     
             <div class="row row-space">
                 <div class="col-12">
                     <h4 class="text-center">Solicitação de Atendimento</h4>
@@ -21,11 +25,12 @@
                 <div class="col-8">
                     <select name="atividade" v-model="inputs.tipo_atendimento" class="form-control" id>
                 <option disable value="" >Indique a atividade de qual pretende receber atendimento *</option>
+
                 <option value="Apometria (2as. feiras)">Apometria (2as. feiras)</option>        
                 <option value="Prática do Evangelho (5as. feiras)">Prática do Evangelho (5as. feiras)</option>
-                <option value="Atendimento Fraterno (5as. feiras)">Atendimento Fraterno (5as. feiras)</option>
-                <option value="Obreiros da Luz">Obreiros da Luz</option>
-                <option value="Passes">Passes</option>
+                <!-- <option value="Atendimento Fraterno (5as. feiras)">Atendimento Fraterno (5as. feiras)</option> -->
+                <option value="Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)">Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)</option>
+
               </select>
                 </div>
             </div>

@@ -1987,6 +1987,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3483,6 +3486,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -3508,10 +3512,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread({
+    emailCadastro: function emailCadastro() {
+      this.EmailCadastroConcluido();
+    },
     selectInputs: function selectInputs() {
       this.selected = true;
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(['Register']), {
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(['Register', 'EmailCadastroConcluido']), {
     buscar: function buscar() {
       var self = this;
       self.naoLocalizado = false;
@@ -3944,6 +3951,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -36421,17 +36433,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row row-space justify-content-center" }, [
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-6" }, [
         _c("ul", [
           _c("li", [
             _vm._v(
-              "\n                        Apometria\n\n                    "
+              "\n                        Apometria (2as. feiras)\n\n                    "
             )
           ]),
           _vm._v(" "),
           _c("li", [
             _vm._v(
-              "\n                        Estudo Obreiros da luz\n                    "
+              "\n                        Prática do Evangelho (5as. feiras)\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _vm._v(
+              "\n                        Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)\n                    "
             )
           ])
         ])
@@ -38247,7 +38265,23 @@ var render = function() {
       _c("nav-header"),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "row row-space" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    _vm.emailCadastro()
+                  }
+                }
+              },
+              [_vm._v("ENVIAR EMAIL")]
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -40375,7 +40409,7 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
@@ -40475,16 +40509,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row row-space" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -41035,7 +41059,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _vm.atendimento.data.data
-          ? _c("div", { staticClass: "row justify-content-center" }, [
+          ? _c("div", { staticClass: "row row-space justify-content-center" }, [
               _vm._m(0)
             ])
           : _vm._e(),
@@ -41103,17 +41127,18 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "option",
-                    { attrs: { value: "Atendimento Fraterno (5as. feiras)" } },
-                    [_vm._v("Atendimento Fraterno (5as. feiras)")]
-                  ),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "Obreiros da Luz" } }, [
-                    _vm._v("Obreiros da Luz")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "Passes" } }, [
-                    _vm._v("Passes")
-                  ])
+                    {
+                      attrs: {
+                        value:
+                          "Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)"
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)"
+                      )
+                    ]
+                  )
                 ]
               )
             ])
@@ -41230,7 +41255,23 @@ var staticRenderFns = [
           staticClass: "alert alert-success text-center",
           attrs: { role: "alert" }
         },
-        [_c("h5", [_vm._v("Atendimento registrado, aguarde nosso contato!")])]
+        [
+          _c("p", [
+            _vm._v("Mensagem enviada com sucesso! "),
+            _c("br"),
+            _vm._v(" \n                    Obrigado pelo contato. "),
+            _c("br"),
+            _vm._v(
+              "\n                        Você receberá uma mensagem via Whatsapp indicando a data do seu atendimento. "
+            ),
+            _c("br"),
+            _vm._v("\n                        Nossos votos de muita Paz! "),
+            _c("br"),
+            _vm._v(
+              "\n                        Acolher - Instituto Kardecista de Estudos e Amparo"
+            )
+          ])
+        ]
       )
     ])
   },
@@ -57716,6 +57757,9 @@ __webpack_require__.r(__webpack_exports__);
 
         console.log(response);
       });
+    },
+    EmailCadastroConcluido: function EmailCadastroConcluido() {
+      console.log("email, funcionando");
     }
   }
 });

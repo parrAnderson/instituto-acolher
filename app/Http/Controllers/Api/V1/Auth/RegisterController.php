@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Emails\emailCadastroController;
 
 class RegisterController extends Controller
 {
-    public function __construct(Users $Users){
+    public function __construct(Users $Users, emailCadastroController  $email){
         $this->Users = $Users;
+        $this->email = $email;
     }
 
     public function login(Request $data){
@@ -24,7 +26,7 @@ class RegisterController extends Controller
     }
     
     public function register(Request $data)
-    {          
+    {       
         $messages = [
             'email.required' => 'Email está vazio',
             'cpf.required' => 'CPF está vazio',
@@ -38,11 +40,17 @@ class RegisterController extends Controller
                 $this->Users = $this->Users->create($data->all());
                 $this->Users->save();
     
+                $this->email->cadastro($data, $this->Users->id);
+
                 return response()->json([
                     'message' => 'Cadastrado',  
-                    'data' => ''              
+                    'data' => $this->Users->id,              
                 ]);
-            }                  
+
+               
+            }    
+            
+            
     }
 
 
