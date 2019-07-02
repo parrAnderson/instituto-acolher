@@ -17,11 +17,40 @@ class RegisterController extends Controller
     }
 
     public function login(Request $data){
-        $this->Users = $this->Users->where('cpf',$data->cpf )->get();
+   
+        // $data->password = bcrypt($data->password);
 
-        // $this->Users = collect($this->Users);
+        // $Usuario = self::all();
+        $Users = $this->Users
+        ->where('email', $data->email)
+        ->take(1)
+        ->get();
 
-        return response()->json($this->Users->all());
+        if($Users->isNotEmpty()){
+            foreach($Users as $User){
+                if (Hash::check($data->password, $User->password)) {
+                    return response()->json([
+                        'message' => '',  
+                        'data' => $Users,              
+                    ]);
+
+                }else{
+                    return response()->json([
+                        'message' => 'Senha Incorreta',  
+                        'data' => '',              
+                    ]);
+                   
+                }               
+               }
+        }else{
+            return response()->json([
+                'message' => 'Email não cadastrado',  
+                'data' => '',              
+            ]);
+           
+        }
+       
+        
 
     }
     
@@ -32,11 +61,14 @@ class RegisterController extends Controller
             'cpf.required' => 'CPF está vazio',
             'cpf.unique' => 'Já existe esse CPF cadastrado',
             'email.unique' => 'Já existe esse EMAIL cadastrado',
+            'password.required' => 'É necessario colocar a senha',
         ];                         
             $validate = Validator::make($data->all(), $this->Users->rules, $messages);
             if($validate->fails()){               
                 return response()->json($validate->errors());
             }else{
+                $data['password'] = Hash::make($data->password);
+                
                 $this->Users = $this->Users->create($data->all());
                 $this->Users->save();
     

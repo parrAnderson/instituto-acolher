@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,13 +34,16 @@ Route::group(['as' => 'admin.','prefix' => 'admin'],function(){
 
 Route::group(['as' => 'usuario.','prefix' => 'usuario'],function(){  
     Route::group(['middleware' => ['auth:web']], function(){  
-
-       
         Route::get('/', function () {
             return('usuario Logado');
-        });
-
+        });        
     });
+
+    Route::get('/sair','Auth\LoginController@logout')->name('user.sair');   
 }); 
+
+   
+
+
 /* FIM ROTAS ADMINISTRADOR */
 

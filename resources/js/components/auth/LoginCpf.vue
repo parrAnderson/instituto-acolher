@@ -18,20 +18,24 @@
 
         <div class="form-group">
 
-            <input type="text" class="form-control" id="cpf" v-mask="'###.###.###.##'" placeholder="Digite seu CPF" v-model="inputs.cpf">
-            <!-- <input type="email" required v-model="inputs.email" class="form-control" id="inputEmail" placeholder="E-mail"> -->
+            <!-- <input type="text" class="form-control" id="cpf" v-mask="'###.###.###.##'" placeholder="Digite seu CPF" v-model="inputs.cpf"> -->
+            <input type="email" required v-model="inputs.email" class="form-control" id="inputEmail" placeholder="E-mail">
 
         </div>
 
-        <!-- <div class="form-group">
+        <div class="form-group">
 
             <input type="password" required autocomplete="off" v-model="inputs.password" class="form-control" id="inputPassword" placeholder="Senha">
 
-        </div> -->
+        </div>
       
         <button @click.prevent.stop="logar()" type="submit" class="btn btn-primary">Login</button>
 
+
     </form>
+
+    <br>
+      <h6 v-if="this.loginMessage" class="text-danger">{{this.loginMessage}}</h6>
     </div>
 <p class="botto-text"> </p>
 </div></div>
@@ -68,20 +72,26 @@ export default {
             'Logon',          
         ]),
         logar(){
+          // console.log(this.inputs)
           this.Logon(this.inputs)         
         }
          },
         computed: {
         ...mapState({
             login: state => state.Login.data,
+            loginMessage: state => state.Login.message,
+      
             
         }),    
     },watch:{
       login: function(val){   
-        console.log('nao funcionando')     
+        // console.log(this.loginMessage)
+        // console.log(this.login)
         if(this.login.id){
-           this.$router.push({ name: 'home' });
-        }
+          this.$router.push({ name: 'home' });
+        }else{
+
+        }  
       }
     },
     directives: { mask }

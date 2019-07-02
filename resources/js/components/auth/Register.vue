@@ -5,7 +5,7 @@
             <div class="row row-space">
                 <div class="col-12">
                     <h4 class="text-center">Cadastro </h4>
-                    <button @click="emailCadastro()">ENVIAR EMAIL</button>
+                    <!-- <button @click="emailCadastro()">ENVIAR EMAIL</button> -->
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -43,8 +43,11 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-4">
                     <input type="text" v-model="inputs.email" class="form-control" placeholder="Email *">
+                </div>
+                <div class="col-4">
+                    <input type="password" v-model="inputs.password" class="form-control" placeholder="Senha *">
                 </div>
             </div>
     
@@ -494,11 +497,12 @@ export default {
                 this.inputs.drogas &&
                 this.inputs.como_soube &&
                 this.inputs.recorrer &&
-                this.inputs.possui_filhos
+                this.inputs.possui_filhos &&
+                this.inputs.password 
             ) {
                 this.required = false
                 console.log("preenchido")
-            } else {
+            } else { 
                 this.required = true
                 console.log("Vazio")
             }

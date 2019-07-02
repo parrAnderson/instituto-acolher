@@ -3029,6 +3029,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3046,23 +3050,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['Logon']), {
     logar: function logar() {
+      // console.log(this.inputs)
       this.Logon(this.inputs);
     }
   }),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     login: function login(state) {
       return state.Login.data;
+    },
+    loginMessage: function loginMessage(state) {
+      return state.Login.message;
     }
   })),
   watch: {
     login: function login(val) {
-      console.log('nao funcionando');
-
+      // console.log(this.loginMessage)
+      // console.log(this.login)
       if (this.login.id) {
         this.$router.push({
           name: 'home'
         });
-      }
+      } else {}
     }
   },
   directives: {
@@ -3096,6 +3104,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -3550,7 +3561,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.validarCpf = validar_cpf__WEBPACK_IMPORTED_MODULE_6___default()('000.000.000.00');
       }
 
-      if (this.validarCpf && this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer && this.inputs.possui_filhos) {
+      if (this.validarCpf && this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer && this.inputs.possui_filhos && this.inputs.password) {
         this.required = false;
         console.log("preenchido");
       } else {
@@ -4139,6 +4150,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -38169,31 +38183,56 @@ var render = function() {
                 _c("input", {
                   directives: [
                     {
-                      name: "mask",
-                      rawName: "v-mask",
-                      value: "###.###.###.##",
-                      expression: "'###.###.###.##'"
-                    },
-                    {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.inputs.cpf,
-                      expression: "inputs.cpf"
+                      value: _vm.inputs.email,
+                      expression: "inputs.email"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: {
-                    type: "text",
-                    id: "cpf",
-                    placeholder: "Digite seu CPF"
+                    type: "email",
+                    required: "",
+                    id: "inputEmail",
+                    placeholder: "E-mail"
                   },
-                  domProps: { value: _vm.inputs.cpf },
+                  domProps: { value: _vm.inputs.email },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.inputs, "cpf", $event.target.value)
+                      _vm.$set(_vm.inputs, "email", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputs.password,
+                      expression: "inputs.password"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "password",
+                    required: "",
+                    autocomplete: "off",
+                    id: "inputPassword",
+                    placeholder: "Senha"
+                  },
+                  domProps: { value: _vm.inputs.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.inputs, "password", $event.target.value)
                     }
                   }
                 })
@@ -38214,7 +38253,15 @@ var render = function() {
                 },
                 [_vm._v("Login")]
               )
-            ])
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            this.loginMessage
+              ? _c("h6", { staticClass: "text-danger" }, [
+                  _vm._v(_vm._s(this.loginMessage))
+                ])
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "botto-text" })
@@ -38265,23 +38312,7 @@ var render = function() {
       _c("nav-header"),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row row-space" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    _vm.emailCadastro()
-                  }
-                }
-              },
-              [_vm._v("ENVIAR EMAIL")]
-            )
-          ])
-        ]),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
@@ -38541,7 +38572,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38560,6 +38591,30 @@ var render = function() {
                       return
                     }
                     _vm.$set(_vm.inputs, "email", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputs.password,
+                    expression: "inputs.password"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "password", placeholder: "Senha *" },
+                domProps: { value: _vm.inputs.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.inputs, "password", $event.target.value)
                   }
                 }
               })
@@ -40409,7 +40464,7 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(0),
+        _vm._m(1),
         _vm._v(" "),
         _c(
           "div",
@@ -40509,6 +40564,16 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row row-space" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -57717,11 +57782,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     data: {},
-    register: {}
+    register: {},
+    message: ""
   },
   mutations: {
     LOGON: function LOGON(state, logon) {
-      state.data = logon;
+      state.data = logon.data.data[0];
+      state.message = logon.data.message;
     },
     REGISTER: function REGISTER(state, register) {
       state.register = register;
@@ -57734,7 +57801,17 @@ __webpack_require__.r(__webpack_exports__);
     Logon: function Logon(context, data) {
       var url = '/acolher/public/api/auth/login';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
-        context.commit('LOGON', response.data[0]);
+        context.commit('LOGON', response); //   console.log(data)
+        //   console.log("DATA DO VUEX")
+        // console.log(response.data.data[0])
+        // if(response.data.data[0] == undefined){
+        //     context.commit('LOGON', response.data.message)
+        //   console.log(response.data.message)
+        // }else{
+        //     context.commit('LOGON', response)
+        // console.log('logado')
+        // }
+        // console.log(response.data.data)
       }).catch(function (error) {
         console.log(error);
       });

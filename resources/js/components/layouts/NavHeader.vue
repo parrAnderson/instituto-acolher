@@ -23,6 +23,9 @@
 
                         <button v-if="login.data.id" @click="sair()" class=" btn btn-danger btn-sm">Sair</button>
 
+
+ 
+
                     </div>
                 </div>
                 <div class="row text-right">
