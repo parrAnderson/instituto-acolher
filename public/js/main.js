@@ -4048,6 +4048,80 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4060,7 +4134,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      inputs: {}
+      inputs: {},
+      required: {}
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
@@ -4077,8 +4152,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['CadastrarAtendimento', 'GetAtendimento']), {
+    checkRequired: function checkRequired() {
+      if (this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.recorrer && this.inputs.tipo_atendimento) {
+        this.required = true;
+        console.log("preenchido");
+      } else {
+        this.required = false;
+        console.log("Vazio");
+      }
+    },
     agendar: function agendar() {
-      this.CadastrarAtendimento(this.inputs);
+      this.checkRequired();
+
+      if (this.required) {
+        this.CadastrarAtendimento(this.inputs);
+      }
     },
     pegarAtendimento: function pegarAtendimento() {}
   }),
@@ -4103,6 +4191,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     if (this.login.id) {
       this.GetAtendimento(this.login.id);
     }
+
+    this.inputs.fumante = '';
+    this.inputs.bebida = '';
+    this.inputs.drogas = '';
   }
 });
 
@@ -41123,13 +41215,325 @@ var render = function() {
       _c("nav-header"),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _vm.atendimento.data.data
-          ? _c("div", { staticClass: "row row-space justify-content-center" }, [
-              _vm._m(0)
+        _c(
+          "div",
+          {
+            staticClass: "modal fade bd-example-modal-lg",
+            attrs: {
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "myLargeModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c("div", { staticClass: "modal-dialog modal-lg" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row justify-content-center row-space-form" },
+                  [
+                    _c("div", { staticClass: "col-4" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.fumante,
+                              expression: "inputs.fumante"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "fumante", id: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.inputs,
+                                "fumante",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { disabled: "", value: "" } }, [
+                            _vm._v("É Fumante? *")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Sim")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Não")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-4" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.bebida,
+                              expression: "inputs.bebida"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "bebida", id: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.inputs,
+                                "bebida",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { disabled: "", value: "" } }, [
+                            _vm._v("Consome Bebida Alcólica? *")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Não")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Raramente")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Socialmente")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Mais que socialmente")])
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row justify-content-center row-space-form" },
+                  [
+                    _c("div", { staticClass: "col-4" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputs.drogas,
+                              expression: "inputs.drogas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "droga", id: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.inputs,
+                                "drogas",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { disabled: "", value: "" } }, [
+                            _vm._v("Possui dependencia em drogas? *")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Sim")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Não")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-4" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.inputs.qual_droga,
+                            expression: "inputs.qual_droga"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Se sim, qual droga?"
+                        },
+                        domProps: { value: _vm.inputs.qual_droga },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.inputs,
+                              "qual_droga",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row justify-content-center row-space-form" },
+                  [
+                    _c("div", { staticClass: "col-8" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.inputs.recorrer,
+                            expression: "inputs.recorrer"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          rows: "3",
+                          placeholder:
+                            "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
+                        },
+                        domProps: { value: _vm.inputs.recorrer },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.inputs,
+                              "recorrer",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row justify-content-center row-space-form" },
+                  [
+                    _c("div", { staticClass: "col-8" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.inputs.outro_vicio,
+                            expression: "inputs.outro_vicio"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          rows: "3",
+                          placeholder: "Caso possua outro vicio, indique aqui"
+                        },
+                        domProps: { value: _vm.inputs.outro_vicio },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.inputs,
+                              "outro_vicio",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", { staticClass: "row justify-content-right" }, [
+                  _c("div", { staticClass: "col-10 text-right" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            _vm.agendar()
+                          }
+                        }
+                      },
+                      [_vm._v("AGENDAR")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-10 text-center" }, [
+                    _vm.required === false
+                      ? _c("p", [_vm._v("Campos obrigatórios (*)")])
+                      : _vm._e()
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _vm.atendimento.data.data
+                  ? _c(
+                      "div",
+                      { staticClass: "row row-space justify-content-center" },
+                      [_vm._m(1)]
+                    )
+                  : _vm._e()
+              ])
             ])
-          : _vm._e(),
+          ]
+        ),
         _vm._v(" "),
-        _vm._m(1),
+        _vm._m(2),
         _vm._v(" "),
         _c(
           "div",
@@ -41231,27 +41635,7 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
-            _c("div", { staticClass: "col-8 text-right" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "submit" },
-                  on: {
-                    click: function($event) {
-                      _vm.agendar()
-                    }
-                  }
-                },
-                [_vm._v("Cadastrar")]
-              )
-            ])
-          ]
-        ),
+        _vm._m(3),
         _vm._v(" "),
         _c("div", { staticClass: "row justify-content-center row-space" }, [
           _c("div", { staticClass: "col-8" }, [
@@ -41259,39 +41643,39 @@ var render = function() {
               "table",
               { staticClass: "table table table-striped" },
               [
-                _vm._m(2),
+                _vm._m(4),
                 _vm._v(" "),
                 _vm._l(_vm.atendimento.solicitacoes, function(solicitacao) {
                   return _c("tr", [
                     _c("td", [
                       _vm._v(
-                        "\n                  " +
+                        "\n                      " +
                           _vm._s(solicitacao.tipo_atendimento) +
-                          "\n              "
+                          "\n                  "
                       )
                     ]),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(
-                        "\n                " +
+                        "\n                    " +
                           _vm._s(_vm._f("date")(solicitacao.created_at)) +
-                          "\n              "
+                          "\n                  "
                       )
                     ]),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(
-                        "\n                " +
+                        "\n                    " +
                           _vm._s(_vm._f("date")(solicitacao.data_atendimento)) +
-                          "\n              "
+                          "\n                  "
                       )
                     ]),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(
-                        "\n                " +
+                        "\n                    " +
                           _vm._s(solicitacao.hora_atendimento) +
-                          "\n              "
+                          "\n                  "
                       )
                     ])
                   ])
@@ -41313,6 +41697,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header text-center" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title text-center",
+          attrs: { id: "exampleModalLabel" }
+        },
+        [_vm._v("ATUALIZE AS INFORMAÇÔES")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-8" }, [
       _c(
         "div",
@@ -41324,16 +41723,16 @@ var staticRenderFns = [
           _c("p", [
             _vm._v("Mensagem enviada com sucesso! "),
             _c("br"),
-            _vm._v(" \n                    Obrigado pelo contato. "),
+            _vm._v(" \n                        Obrigado pelo contato. "),
             _c("br"),
             _vm._v(
-              "\n                        Você receberá uma mensagem via Whatsapp indicando a data do seu atendimento. "
+              "\n                            Você receberá uma mensagem via Whatsapp indicando a data do seu atendimento. "
             ),
             _c("br"),
-            _vm._v("\n                        Nossos votos de muita Paz! "),
+            _vm._v("\n                            Nossos votos de muita Paz! "),
             _c("br"),
             _vm._v(
-              "\n                        Acolher - Instituto Kardecista de Estudos e Amparo"
+              "\n                            Acolher - Instituto Kardecista de Estudos e Amparo"
             )
           ])
         ]
@@ -41356,21 +41755,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-8 text-right" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: {
+                type: "button",
+                "data-toggle": "modal",
+                "data-target": ".bd-example-modal-lg"
+              }
+            },
+            [_vm._v("CADASTRAR")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("tr", [
       _c("td", [
-        _vm._v("\n                Tipo de atendimento\n              ")
+        _vm._v("\n                    Tipo de atendimento\n                  ")
       ]),
       _vm._v(" "),
       _c("td", [
-        _vm._v("\n                Data da solicitação\n              ")
+        _vm._v("\n                    Data da solicitação\n                  ")
       ]),
       _vm._v(" "),
       _c("td", [
-        _vm._v("\n                Data que será feito\n              ")
+        _vm._v("\n                    Data que será feito\n                  ")
       ]),
       _vm._v(" "),
       _c("td", [
-        _vm._v("\n                Horario que será feito\n              ")
+        _vm._v(
+          "\n                    Horario que será feito\n                  "
+        )
       ])
     ])
   }

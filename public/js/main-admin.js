@@ -22209,7 +22209,9 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [
                         _vm._v(
-                          "\n                            Motivo e razão\n                        "
+                          "\n                            " +
+                            _vm._s(atendimento.recorrer) +
+                            "\n                        "
                         )
                       ]),
                       _vm._v(" "),

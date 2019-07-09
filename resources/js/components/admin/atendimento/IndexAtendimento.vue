@@ -131,7 +131,7 @@
                                 {{atendimento.idade | idade}}
                             </td>
                             <td>
-                                Motivo e razão
+                                {{atendimento.recorrer}}
                             </td>
                             <td>
                                 {{atendimento.fumante}}
