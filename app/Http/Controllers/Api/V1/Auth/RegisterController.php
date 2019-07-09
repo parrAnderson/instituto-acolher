@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 use App\Models\V1\Table\Users;
+use App\Models\V1\Table\Razoes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -11,8 +12,9 @@ use App\Http\Controllers\Emails\emailCadastroController;
 
 class RegisterController extends Controller
 {
-    public function __construct(Users $Users, emailCadastroController  $email){
+    public function __construct(Users $Users, Razoes $Razoes, emailCadastroController  $email){
         $this->Users = $Users;
+        $this->Razoes = $Razoes;
         $this->email = $email;
     }
 
@@ -53,9 +55,11 @@ class RegisterController extends Controller
         
 
     }
-    
+
+      
     public function register(Request $data)
     {       
+       
         $messages = [
             'email.required' => 'Email está vazio',
             'cpf.required' => 'CPF está vazio',
@@ -71,7 +75,9 @@ class RegisterController extends Controller
                 
                 $this->Users = $this->Users->create($data->all());
                 $this->Users->save();
-    
+
+                $this->Razoes = $this->Razoes->Cadastrar($data->all(), $this->Users->id);
+                    
                 $this->email->cadastro($data, $this->Users->id);
 
                 return response()->json([

@@ -2292,6 +2292,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader"
 });
@@ -2862,7 +2870,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* #side-main-menu li a {\n    position: relative;\n    font-size: .9rem;\n    font-weight: 300;\n    color: #fff;\n    text-decoration: none;\n    width: 100%;\n    padding: 12px;\n} */\n\n", ""]);
+exports.push([module.i, "\n.dropdown-toggle-menu::after {\n    display: none ! important\n}\n.dropdown-toggle-menu::before {\n    display: none ! important\n}\n.fa-dropdown {\n    float: right;\n    margin-top: 4px;\n}\n", ""]);
 
 // exports
 
@@ -22422,15 +22430,29 @@ var render = function() {
                 _c(
                   "ul",
                   {
-                    staticClass: "list-unstyled collapse",
-                    attrs: { id: "exampledropdownDropdown" }
+                    staticClass: "collapse list-unstyled ",
+                    attrs: { id: "atendimentoDropdown" }
                   },
                   [
                     _c(
                       "li",
                       [
                         _c("router-link", { attrs: { to: "/atendimentos" } }, [
-                          _c("a", { attrs: { href: "#" } }, [_vm._v("Todos")])
+                          _vm._v(
+                            "\n                                    Todos\n                                "
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/atendimentos" } }, [
+                          _vm._v(
+                            "\n                                    Apometria\n                                "
+                          )
                         ])
                       ],
                       1
@@ -22466,7 +22488,7 @@ var staticRenderFns = [
             }
           }),
           _vm._v(" "),
-          _c("h2", { staticClass: "h5" }, [_vm._v("Administradores")]),
+          _c("h2", { staticClass: "h5" }, [_vm._v("Administrador")]),
           _c("span", [_vm._v("Acolher")])
         ]),
         _vm._v(" "),
@@ -22493,13 +22515,18 @@ var staticRenderFns = [
     return _c(
       "a",
       {
+        staticClass: "dropdown-toggle-menu",
         attrs: {
-          href: "#exampledropdownDropdown",
-          "aria-expanded": "true",
+          href: "#atendimentoDropdown",
+          "aria-expanded": "false",
           "data-toggle": "collapse"
         }
       },
-      [_c("i", { staticClass: "far fa-calendar-alt" }), _vm._v("Atendimentos ")]
+      [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+        _vm._v("\n                    Atendimentos  "),
+        _c("i", { staticClass: "fa-dropdown fas fa-caret-down" })
+      ]
     )
   }
 ]

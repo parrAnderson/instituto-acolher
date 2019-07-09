@@ -1,8 +1,8 @@
 <template>
     <div>
-        
-
-       
+    
+    
+    
         <!-- Side Navbar -->
         <nav class="side-navbar">
             <div class="side-navbar-wrapper">
@@ -10,7 +10,7 @@
                 <div class="sidenav-header d-flex align-items-center justify-content-center">
                     <!-- User Info-->
                     <div class="sidenav-header-inner text-center"><img src="/../../acolher/public/img/admin/avatar-7.jpg" alt="person" class="img-fluid rounded-circle">
-                        <h2 class="h5">Administradores</h2><span>Acolher</span>
+                        <h2 class="h5">Administrador</h2><span>Acolher</span>
                     </div>
                     <!-- Small Brand information, appears on minimized sidebar-->
                     <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">C</strong></a></div>
@@ -30,23 +30,31 @@
                                 <a href="#"> <i class="fas fa-clipboard-list"></i>Fichas</a>
                             </router-link>
                         </li>
-
+    
                         <li>
-                            <a href="#exampledropdownDropdown" aria-expanded="true" data-toggle="collapse" class=""> <i class="far fa-calendar-alt"></i>Atendimentos </a>
-                            <ul id="exampledropdownDropdown" class="list-unstyled collapse" style="">
+                            <a href="#atendimentoDropdown" class="dropdown-toggle-menu" aria-expanded="false" data-toggle="collapse"> 
+                        <i class="far fa-calendar-alt"></i>
+                        Atendimentos  <i class="fa-dropdown fas fa-caret-down"></i>
+                        
+                      </a>
+                            <ul id="atendimentoDropdown" class="collapse list-unstyled ">
                                 <li>
-                                     <router-link to="/atendimentos">
-                                        <a href="#">Todos</a>
+                                    <router-link to="/atendimentos">
+                                        Todos
                                     </router-link>
-                                    
-                                </li>                                
+                                </li>
+                                <li>
+                                    <router-link to="/atendimentos">
+                                        Apometria
+                                    </router-link>
+                                </li>
                             </ul>
                         </li>
     
-                        
-                           
-                         
-                        
+    
+    
+    
+    
                     </ul>
                 </div>
             </div>
@@ -63,15 +71,16 @@ export default {
 </script>
 
 <style>
+.dropdown-toggle-menu::after {
+    display: none ! important
+}
 
-/* #side-main-menu li a {
-    position: relative;
-    font-size: .9rem;
-    font-weight: 300;
-    color: #fff;
-    text-decoration: none;
-    width: 100%;
-    padding: 12px;
-} */
+.dropdown-toggle-menu::before {
+    display: none ! important
+}
 
+.fa-dropdown {
+    float: right;
+    margin-top: 4px;
+}
 </style>

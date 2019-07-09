@@ -28,12 +28,6 @@ class Users extends Model
         'numero',
         'complemento',
         'municipio',
-        'estado',
-        'fumante',
-        'bebida',
-        'drogas',
-        'qual_droga',
-        'outro_vicio',
         'tratamento',
         'kardecista',
         'casa_apometria',
@@ -48,8 +42,7 @@ class Users extends Model
         'outros_livros',
         'como_soube',
         'indicacao',
-        'nome_indicacao',
-        'recorrer',
+        'nome_indicacao',        
     ];
 
     public $rules = [                

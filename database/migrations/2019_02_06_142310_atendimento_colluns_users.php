@@ -28,11 +28,6 @@ class AtendimentoCollunsUsers extends Migration
             $table->string('complemento')->nullable();
             $table->string('municipio')->nullable();
             $table->string('estado')->nullable();
-            $table->string('fumante')->nullable();
-            $table->string('bebida')->nullable();
-            $table->string('drogas')->nullable();
-            $table->string('qual_droga')->nullable();
-            $table->string('outro_vicio')->nullable();
             $table->string('kardecista')->nullable();
             $table->string('casa_apometria')->nullable();
             $table->string('casa_umbandista')->nullable();
@@ -48,7 +43,14 @@ class AtendimentoCollunsUsers extends Migration
             $table->string('como_soube')->nullable();
             $table->string('indicacao')->nullable();
             $table->string('nome_indicacao')->nullable();
-            $table->string('recorrer')->nullable();
+
+
+            // $table->string('recorrer')->nullable();
+            // $table->string('fumante')->nullable();
+            // $table->string('bebida')->nullable();
+            // $table->string('drogas')->nullable();
+            // $table->string('qual_droga')->nullable();
+            // $table->string('outro_vicio')->nullable();
         });
     }
 
