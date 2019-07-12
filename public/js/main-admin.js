@@ -2161,6 +2161,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2197,6 +2210,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['AllAtendimento', 'EditAtendimento']), {
+    imprimir: function imprimir() {
+      window.print();
+    },
     showAtendimento: function showAtendimento(id, data_atendimento, hora_atendimento) {
       this.require.id = id;
       this.require.data_atendimento = data_atendimento;
@@ -22020,6 +22036,21 @@ var render = function() {
         _c("div", { staticClass: "row row-space" }, [
           _vm._m(0),
           _vm._v(" "),
+          _c("div", { staticClass: "col-2" }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    _vm.imprimir()
+                  }
+                }
+              },
+              [_vm._m(1)]
+            )
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-3" }, [
             _c("input", {
               directives: [
@@ -22075,7 +22106,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(1),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -22092,7 +22123,7 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("table", { staticClass: "table table-striped table-sm" }, [
-              _vm._m(2),
+              _vm._m(3),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -22254,8 +22285,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-9" }, [
+    return _c("div", { staticClass: "col-7" }, [
       _c("h2", { staticClass: "text-center" }, [_vm._v("Atendimentos")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn" }, [
+      _vm._v("\n            \n                  Imprimir "),
+      _c("i", { staticClass: "fa fa-print", attrs: { "aria-hidden": "true" } })
     ])
   },
   function() {

@@ -3,12 +3,25 @@
     
     
         <div class="row row-space">
-            <div class="col-9">
+            <div class="col-7">
                 <h2 class="text-center">Atendimentos</h2>                
             </div>
-            <div class="col-3">
-                <input type="text" placeholder="BUSCAR DATA DO ATENDIMENTO" v-model="DataAtendimentoBuscar" v-on:keyup="buscarDataAtendimento()"  v-mask="'##/##/####'"  class="form-control">
+            <div class="col-2">
+                 <a href="#" @click="imprimir()">
+                <div class="btn">
+                
+                      Imprimir <i class="fa fa-print" aria-hidden="true"></i> 
+                      
             </div>
+            </a>
+            </div>
+            <div class="col-3">     
+            
+            
+                <input type="text" placeholder="BUSCAR DATA DO ATENDIMENTO" v-model="DataAtendimentoBuscar" v-on:keyup="buscarDataAtendimento()"  v-mask="'##/##/####'"  class="form-control">
+        
+            </div>
+
 
     
         </div>
@@ -196,6 +209,9 @@ export default {
             'AllAtendimento',
             'EditAtendimento'
         ]),
+        imprimir(){
+        window.print();
+      },
         showAtendimento(id, data_atendimento, hora_atendimento) {
             this.require.id = id;
             this.require.data_atendimento = data_atendimento
