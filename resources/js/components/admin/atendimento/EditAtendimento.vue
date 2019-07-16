@@ -46,6 +46,8 @@ export default {
     computed: {
         ...mapState({
             editId: state => state.Atendimento.editId,  
+            editEmail: state => state.Atendimento.editEmail, 
+            editNome: state => state.Atendimento.editNome,
             editDataAtendimento: state => state.Atendimento.editDataAtendimento,  
             editHoraAtendimento: state => state.Atendimento.editHoraAtendimento,       
         })
@@ -57,6 +59,10 @@ export default {
         UpdateData() {
             this.fields.hora_atendimento = this.hora_atendimento
             this.fields.data_atendimento = this.data_atendimento
+
+            this.fields.nome = this.editNome
+            this.fields.email = this.editEmail
+
 
             // console.log(this.request)
             this.UpdateAtendimento(this.request)            

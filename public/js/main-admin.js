@@ -1955,6 +1955,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     editId: function editId(state) {
       return state.Atendimento.editId;
     },
+    editEmail: function editEmail(state) {
+      return state.Atendimento.editEmail;
+    },
+    editNome: function editNome(state) {
+      return state.Atendimento.editNome;
+    },
     editDataAtendimento: function editDataAtendimento(state) {
       return state.Atendimento.editDataAtendimento;
     },
@@ -1965,7 +1971,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['UpdateAtendimento']), {
     UpdateData: function UpdateData() {
       this.fields.hora_atendimento = this.hora_atendimento;
-      this.fields.data_atendimento = this.data_atendimento; // console.log(this.request)
+      this.fields.data_atendimento = this.data_atendimento;
+      this.fields.nome = this.editNome;
+      this.fields.email = this.editEmail; // console.log(this.request)
 
       this.UpdateAtendimento(this.request);
     }
@@ -2183,7 +2191,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       require: {},
-      DataAtendimentoBuscar: ""
+      DataAtendimentoBuscar: "",
+      parametros: {}
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
@@ -2194,7 +2203,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     EditAtendimento: _EditAtendimento__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  watch: {},
+  watch: {
+    $route: function $route() {
+      this.parametros.tipo_atendimento = this.$route.params.tipoatendimento;
+      this.AllAtendimento(this.parametros);
+      console.log(this.parametros);
+    }
+  },
   filters: {
     date: function date(value) {
       moment__WEBPACK_IMPORTED_MODULE_0___default.a.locale("pt-br");
@@ -2213,26 +2228,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     imprimir: function imprimir() {
       window.print();
     },
-    showAtendimento: function showAtendimento(id, data_atendimento, hora_atendimento) {
+    showAtendimento: function showAtendimento(id, email, nome, data_atendimento, hora_atendimento) {
       this.require.id = id;
       this.require.data_atendimento = data_atendimento;
       this.require.hora_atendimento = hora_atendimento;
+      this.require.email = email;
+      this.require.nome = nome;
       this.EditAtendimento(this.require);
     },
     buscarDataAtendimento: function buscarDataAtendimento() {
       if (this.DataAtendimentoBuscar.length == 10) {
         // console.log(this.DataAtendimentoBuscar)
-        this.AllAtendimento(this.DataAtendimentoBuscar);
+        this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar;
+        this.AllAtendimento(this.parametros);
+        console.log(this.parametros);
       } else if (this.DataAtendimentoBuscar.length == 0) {
-        this.AllAtendimento("");
+        this.AllAtendimento(this.parametros);
       }
     },
     tellTime: function tellTime(time) {
       console.log(this.$moment(time).format(' mm:ss'));
     }
   }),
-  beforeMount: function beforeMount() {
-    this.AllAtendimento("");
+  mounted: function mounted() {
+    this.parametros.tipo_atendimento = this.$route.params.tipoatendimento;
+    this.parametros.DataAtendimentoBuscar = '';
+    this.AllAtendimento(this.parametros);
   },
   directives: {
     mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_3__["mask"]
@@ -2250,6 +2271,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22141,6 +22173,8 @@ var render = function() {
                         click: function($event) {
                           _vm.showAtendimento(
                             atendimento.id,
+                            atendimento.email,
+                            atendimento.nome,
                             atendimento.data_atendimento,
                             atendimento.hora_atendimento
                           )
@@ -22479,11 +22513,22 @@ var render = function() {
                     _c(
                       "li",
                       [
-                        _c("router-link", { attrs: { to: "/atendimentos" } }, [
-                          _vm._v(
-                            "\n                                    Todos\n                                "
-                          )
-                        ])
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "tipoatendimento",
+                                params: { tipoatendimento: "todos" }
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Todos\n                                "
+                            )
+                          ]
+                        )
                       ],
                       1
                     ),
@@ -22491,11 +22536,76 @@ var render = function() {
                     _c(
                       "li",
                       [
-                        _c("router-link", { attrs: { to: "/atendimentos" } }, [
-                          _vm._v(
-                            "\n                                    Apometria\n                                "
-                          )
-                        ])
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "tipoatendimento",
+                                params: {
+                                  tipoatendimento:
+                                    "Prática do Evangelho (5as. feiras)"
+                                }
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Prática do Evangelho\n                                "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "tipoatendimento",
+                                params: {
+                                  tipoatendimento: "Apometria (2as. feiras)"
+                                }
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Apometria\n                                "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "tipoatendimento",
+                                params: {
+                                  tipoatendimento:
+                                    "Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)"
+                                }
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Obreiros da Luz\n                                "
+                            )
+                          ]
+                        )
                       ],
                       1
                     )
@@ -44514,6 +44624,8 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     data: {},
     editId: "",
+    editNome: "",
+    editEmail: "",
     editDataAtendimento: "",
     editHoraAtendimento: ""
   },
@@ -44526,13 +44638,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     EDIT_ATENDIMENTO: function EDIT_ATENDIMENTO(state, data) {
       state.editId = data.id;
+      state.editEmail = data.email;
+      state.editNome = data.nome;
       state.editDataAtendimento = data.data_atendimento;
       state.editHoraAtendimento = data.hora_atendimento;
     }
   },
   actions: {
-    AllAtendimento: function AllAtendimento(context, data_atendimento) {
-      var url = '/acolher/public/api/atendimento/?dataAtendimento=' + data_atendimento;
+    AllAtendimento: function AllAtendimento(context, parametros) {
+      var url = '/acolher/public/api/atendimento/?tipo_atendimento=' + parametros.tipo_atendimento + '&dataAtendimento=' + parametros.DataAtendimentoBuscar;
+      console.log(url);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
         context.commit('ALL_ATENDIMENTO', response.data.data);
       }).catch(function (error) {
@@ -44545,15 +44660,20 @@ __webpack_require__.r(__webpack_exports__);
     UpdateAtendimento: function UpdateAtendimento(_ref, request) {
       var dispatch = _ref.dispatch,
           commit = _ref.commit;
-      var url = '/acolher/public/api/atendimento/' + request.id;
-      console.log(url);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(url, request.fields).then(function (response) {
+      var urlChange = '/acolher/public/api/atendimento/' + request.id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(urlChange, request.fields).then(function (response) {
         console.log('Data atualizada ' + request.fields.data_atendimento + ' - ' + request.fields.hora_atendimento);
         commit('UPDATE_ATENDIMENTO', response.data);
-        dispatch("AllAtendimento");
       }).catch(function (error) {
         console.log(error);
-      });
+      }); // ENVIAR EMAIL
+
+      var url = '/acolher/public/api/email/dataatendimento';
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, request.fields).then(function (response) {
+        console.log(response.data);
+      }).catch(function (error) {
+        console.log(error);
+      }); // console.log(request)
     }
   }
 });
@@ -44956,6 +45076,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var routes = [{
   path: '/',
   name: 'home',
@@ -44976,6 +45097,10 @@ var routes = [{
   path: '/atendimento/:id',
   name: 'editatendimento',
   component: _components_admin_atendimento_EditAtendimento__WEBPACK_IMPORTED_MODULE_4__["default"]
+}, {
+  path: '/atendimentos/:tipoatendimento',
+  name: 'tipoatendimento',
+  component: _components_admin_atendimento_IndexAtendimento__WEBPACK_IMPORTED_MODULE_3__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 

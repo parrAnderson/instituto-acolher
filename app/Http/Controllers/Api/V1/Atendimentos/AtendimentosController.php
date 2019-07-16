@@ -29,12 +29,21 @@ class AtendimentosController extends Controller
                 $request->dataAtendimento = date("Y-m-d", strtotime($request->dataAtendimento));
                 // dd($request->dataAtendimento);          
                 $this->atendimentos = $this->atendimentos->where('data_atendimento', $request->dataAtendimento)->get();
+                          
+            
             }else{
-                $this->atendimentos = $this->atendimentos->get();
-            }   
+                $this->atendimentos = $this->atendimentos->get();                
+            } 
+
+            if(($request->tipo_atendimento > '') and ($request->tipo_atendimento !== 'todos')){
+                $this->atendimentos = $this->atendimentos->where('tipo_atendimento', $request->tipo_atendimento);
+            }
+ 
+
+
+
             foreach($this->atendimentos as $atendimento){
                 $Users = $atendimento->Users()->get();    
-
                 
                 foreach($Users as $User){
                     $Razoes = DB::table('razoes')->where('user_id', $User->id)->get();

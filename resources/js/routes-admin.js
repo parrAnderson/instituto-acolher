@@ -7,6 +7,8 @@ import ShowUser from './components/admin/users/ShowUser'
 
 import IndexAtendimento from './components/admin/atendimento/IndexAtendimento'
 
+import IndexAtendimentoTipo from './components/admin/atendimento/IndexAtendimento'
+
 import EditAtendimento from './components/admin/atendimento/EditAtendimento'
 
 
@@ -17,6 +19,8 @@ const routes = [
     
     {path:'/atendimentos', name:'atendimentos',  component: IndexAtendimento},
     {path:'/atendimento/:id', name:'editatendimento',  component: EditAtendimento},
+
+    {path:'/atendimentos/:tipoatendimento', name:'tipoatendimento',  component: IndexAtendimento},
 ]
 
 

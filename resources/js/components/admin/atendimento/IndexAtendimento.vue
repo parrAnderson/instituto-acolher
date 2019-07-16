@@ -97,7 +97,7 @@
                     </thead>
                     <tbody>
     
-                        <tr class="pointer" data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id, atendimento.data_atendimento, atendimento.hora_atendimento)">
+                        <tr class="pointer" data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id, atendimento.email, atendimento.nome, atendimento.data_atendimento, atendimento.hora_atendimento)">
     
                             <!-- ID -->
                             <td v-if="atendimento.obreiro">
@@ -176,6 +176,7 @@ export default {
         return {
             require: {},           
             DataAtendimentoBuscar:"",
+            parametros: {},
         }
     },
     computed: {
@@ -187,8 +188,12 @@ export default {
     components: {
         EditAtendimento,
     },
-    watch:{
-         
+    watch: {
+        $route() {
+             this.parametros.tipo_atendimento = this.$route.params.tipoatendimento
+            this.AllAtendimento(this.parametros)
+               console.log(this.parametros)
+        }
     },
     filters: {
         date: function(value) {
@@ -212,28 +217,40 @@ export default {
         imprimir(){
         window.print();
       },
-        showAtendimento(id, data_atendimento, hora_atendimento) {
+        showAtendimento(id, email, nome, data_atendimento, hora_atendimento) {
+
             this.require.id = id;
             this.require.data_atendimento = data_atendimento
             this.require.hora_atendimento = hora_atendimento
+            this.require.email = email
+            this.require.nome = nome
 
             this.EditAtendimento(this.require)
         },
         buscarDataAtendimento(){               
             if (this.DataAtendimentoBuscar.length == 10) {
                 // console.log(this.DataAtendimentoBuscar)
-                this.AllAtendimento(this.DataAtendimentoBuscar)       
+
+                this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar
+
+                this.AllAtendimento(this.parametros)  
+                
+                   console.log(this.parametros)
             }else if(this.DataAtendimentoBuscar.length == 0){
-                this.AllAtendimento("") 
+                this.AllAtendimento(this.parametros) 
             }         
         }, 
         tellTime(time) {
             console.log(this.$moment(time).format(' mm:ss'))
         }
     },
+    mounted() {
+        this.parametros.tipo_atendimento = this.$route.params.tipoatendimento
 
-    beforeMount() {
-        this.AllAtendimento("")
+        this.parametros.DataAtendimentoBuscar = ''
+     
+        this.AllAtendimento(this.parametros)
+        
     },
     directives: { mask }
 

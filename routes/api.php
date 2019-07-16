@@ -53,5 +53,6 @@ Route::group([
     'prefix' => 'email'
 ], function ($router) {
     Route::post('/cadastrar', 'Emails\cadastroController@cadastro');
+    Route::post('/dataatendimento', 'Emails\emailDataAtendimentoController@AtendimentoCadastrado');
 });
 

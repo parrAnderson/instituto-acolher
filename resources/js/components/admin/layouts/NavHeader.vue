@@ -39,13 +39,24 @@
                       </a>
                             <ul id="atendimentoDropdown" class="collapse list-unstyled ">
                                 <li>
-                                    <router-link to="/atendimentos">
+                                    <router-link :to="{name: 'tipoatendimento', params: {tipoatendimento: 'todos'}}">
                                         Todos
                                     </router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/atendimentos">
+                                    <router-link :to="{name: 'tipoatendimento', params: {tipoatendimento: 'Prática do Evangelho (5as. feiras)'}}">
+                                        Prática do Evangelho
+                                    </router-link>
+                                </li>
+                                
+                                 <li>
+                                    <router-link :to="{name: 'tipoatendimento', params: {tipoatendimento: 'Apometria (2as. feiras)'}}">
                                         Apometria
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{name: 'tipoatendimento', params: {tipoatendimento: 'Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)'}}">
+                                        Obreiros da Luz
                                     </router-link>
                                 </li>
                             </ul>
