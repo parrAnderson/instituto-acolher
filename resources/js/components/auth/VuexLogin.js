@@ -18,8 +18,14 @@ export default {
         LOGOUT(state, exit) {
             state.data = exit
         },
+        SET_LOCAL_STORAGE(state, id){
+            state.data = {'id': id}
+        }
     },
     actions: {
+        SetLocalStorage(context){
+            context.commit('SET_LOCAL_STORAGE', window.localStorage.getItem("user_id"))
+        },
         Logon(context, data) {        
         let url = '/acolher/public/api/auth/login';        
         axios
@@ -27,6 +33,10 @@ export default {
               .then(response => {
 
                 context.commit('LOGON', response)
+
+                console.log(response.data.data[0].id)
+
+                window.localStorage.setItem("user_id", response.data.data[0].id);
 
                 //   console.log(data)
                 //   console.log("DATA DO VUEX")
@@ -49,7 +59,8 @@ export default {
             });
         },
 
-        Logout(context, data) {       
+        Logout(context, data) {   
+            window.localStorage.removeItem("user_id");    
             context.commit('LOGOUT', "")            
         },
         

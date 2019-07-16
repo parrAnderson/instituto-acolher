@@ -4,9 +4,7 @@
         <div class="col-md-2">
             <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
         </div>
-            <div class="col-md-10">
-                
-                
+            <div class="col-md-10">                
                 <div class="row row-login justify-content-end">
                     <div class="col-6">
                         <p class="text-left" v-if="login.data.id">Bem vindo {{login.data.name}}</p>
@@ -150,15 +148,25 @@ export default {
     name: "NavHeader",
     mounted() {
         console.log("Component mounted.");
+
+     console.log(this.login.data.id)
+     
     },
     computed: {
         ...mapState({
             login: state => state.Login,
         }),
     },
+    watch:{
+        login(){
+            this.login = this.login
+            console.log("mudou") 
+        }
+    },
     methods: {
         ...mapActions([
-            'Logout',          
+            'Logout',  
+            'SetLocalStorage',        
         ]),  
         sair() {
             this.Logout("")
