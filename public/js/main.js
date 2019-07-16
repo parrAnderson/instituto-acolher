@@ -3510,6 +3510,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3531,7 +3538,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: {},
       endereco: {},
       validarCpf: true,
-      menor: false
+      menor: false,
+      selectGenero: "",
+      textGenero: "",
+      selectReligiao: "",
+      textReligiao: ""
     };
   },
   methods: _objectSpread({
@@ -3564,6 +3575,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           jquery__WEBPACK_IMPORTED_MODULE_2___default()("#inputNumero").focus();
         });
       }
+    },
+    consoleReligiao: function consoleReligiao() {
+      console.log(this.inputs.religiao);
+    },
+    consoleGenero: function consoleGenero() {
+      console.log(this.inputs.genero);
     },
     checkRequired: function checkRequired() {
       // console.log(this.inputs)
@@ -3613,6 +3630,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   })),
   watch: {
+    // FUNCIONAR O SELECT INPUT
+    textReligiao: function textReligiao() {
+      this.inputs.religiao = this.textReligiao;
+    },
+    selectReligiao: function selectReligiao() {
+      if (this.selectReligiao === 'Outro') {
+        this.inputs.religiao = this.textReligiao;
+      } else {
+        this.inputs.religiao = this.selectReligiao;
+      }
+    },
+    textGenero: function textGenero() {
+      this.inputs.genero = this.textGenero;
+    },
+    selectGenero: function selectGenero() {
+      if (this.selectGenero === 'Outros') {
+        this.inputs.genero = this.textGenero;
+      } else {
+        this.inputs.genero = this.selectGenero;
+      }
+    },
     required: function required(val) {},
     register: function register(val) {
       console.log(this.register.data.cpf);
@@ -3627,10 +3665,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   beforeMount: function beforeMount() {
     this.required = "vazio";
+    this.inputs.genero = this.selectGenero;
+    this.inputs.religiao = this.selectReligiao;
     this.selectInputs();
     this.inputs.estado_civil = '';
-    this.inputs.religiao = '';
-    this.inputs.genero = '';
     this.inputs.fumante = '';
     this.inputs.bebida = '';
     this.inputs.drogas = '';
@@ -38493,55 +38531,79 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
-              _vm.selected
-                ? _c(
-                    "select",
-                    {
-                      directives: [
+            _vm.selectGenero !== "Outros"
+              ? _c("div", { staticClass: "col-4" }, [
+                  _vm.selected
+                    ? _c(
+                        "select",
                         {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.inputs.genero,
-                          expression: "inputs.genero"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { name: "genero" },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.inputs,
-                            "genero",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selectGenero,
+                              expression: "selectGenero"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "genero" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.selectGenero = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { selected: "", value: "" } }, [
+                            _vm._v(" Gênero *")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Masculino")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Feminino")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Outros")])
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.selectGenero == "Outros"
+              ? _c("div", { staticClass: "col-4" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.textGenero,
+                        expression: "textGenero"
                       }
-                    },
-                    [
-                      _c("option", { attrs: { selected: "", value: "" } }, [
-                        _vm._v(" Gênero *")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("Masculino")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("Feminino")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("Outros")])
-                    ]
-                  )
-                : _vm._e()
-            ])
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "Digite o Gênero" },
+                    domProps: { value: _vm.textGenero },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.textGenero = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              : _vm._e()
           ]
         ),
         _vm._v(" "),
@@ -38793,65 +38855,94 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
-              _c(
-                "select",
-                {
-                  directives: [
+            _vm.selectReligiao !== "Outro"
+              ? _c("div", { staticClass: "col-4" }, [
+                  _c(
+                    "select",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.religiao,
-                      expression: "inputs.religiao"
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectReligiao,
+                          expression: "selectReligiao"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "religiao", id: "" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.selectReligiao = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v("Religião *")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Kardecista / Espírita" } },
+                        [_vm._v("Kardecista / Espírita")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Umbandista")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Católica")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Evangélica")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Budista")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Judaica")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Candomblé")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Outro")])
+                    ]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.selectReligiao == "Outro"
+              ? _c("div", { staticClass: "col-4" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.textReligiao,
+                        expression: "textReligiao"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Digite sua religião *"
+                    },
+                    domProps: { value: _vm.textReligiao },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.textReligiao = $event.target.value
+                      }
                     }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "religiao", id: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.inputs,
-                        "religiao",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { disabled: "", value: "" } }, [
-                    _vm._v("Religião *")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "Kardecista / Espírita" } }, [
-                    _vm._v("Kardecista / Espírita")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Umbandista")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Católica")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Evangélica")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Budista")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Judaica")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Candomblé")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Outros")])
-                ]
-              )
-            ])
+                  })
+                ])
+              : _vm._e()
           ]
         ),
         _vm._v(" "),

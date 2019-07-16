@@ -17,13 +17,16 @@
                 <div class="col-4">
                     <input type="text" class="form-control" @keyup="verificarIdade()" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
                 </div>
-                <div class="col-4">
-                    <select name="genero" v-if="selected" v-model="inputs.genero" class="form-control">
+                <div class="col-4" v-if="selectGenero !== 'Outros'">
+                    <select name="genero" v-if="selected" v-model="selectGenero" class="form-control">
                             <option selected value="" > Gênero *</option>
                             <option>Masculino</option>
                             <option>Feminino</option>
                             <option>Outros</option>
-                          </select>
+                          </select> 
+                </div>
+                <div class="col-4" v-if="selectGenero == 'Outros'">
+                    <input type="text" class="form-control" v-model="textGenero" placeholder="Digite o Gênero">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -63,8 +66,8 @@
                             <option>Outros</option>
                           </select>
                 </div>
-                <div class="col-4">
-                    <select name="religiao" v-model="inputs.religiao" class="form-control" id>
+                <div class="col-4" v-if="selectReligiao !== 'Outro'">
+                    <select name="religiao" v-model="selectReligiao" class="form-control" id>
                             <option disabled value="">Religião *</option>
                             <option value="Kardecista / Espírita">Kardecista / Espírita</option>          
                             <option>Umbandista</option>
@@ -73,9 +76,13 @@
                             <option>Budista</option>            
                             <option>Judaica</option>            
                             <option>Candomblé</option>
-                            <option>Outros</option>
+                            <option>Outro</option>
                           </select>
                 </div>
+                  <div class="col-4" v-if="selectReligiao == 'Outro'">
+                    <input type="text" class="form-control" v-model="textReligiao" placeholder="Digite sua religião *">
+                </div>           
+
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-4">
@@ -421,7 +428,11 @@ export default {
             required: {},
             endereco: {},
             validarCpf: true,
-            menor: false
+            menor: false,
+            selectGenero: "",
+            textGenero: "",
+            selectReligiao: "",
+            textReligiao: "",
         }
     },
     methods: {
@@ -463,6 +474,12 @@ export default {
                 });
             }
 
+        },
+        consoleReligiao(){
+            console.log(this.inputs.religiao)
+        },
+        consoleGenero(){
+            console.log(this.inputs.genero)
         },
         checkRequired() {
 
@@ -550,6 +567,29 @@ export default {
         })
     },
     watch: {
+
+        // FUNCIONAR O SELECT INPUT
+         textReligiao(){
+             this.inputs.religiao = this.textReligiao
+        },
+        selectReligiao(){
+            if(this.selectReligiao === 'Outro'){
+                this.inputs.religiao = this.textReligiao
+            }else{
+                this.inputs.religiao  = this.selectReligiao
+            }
+        },
+
+        textGenero(){
+             this.inputs.genero = this.textGenero
+        },
+        selectGenero(){
+            if(this.selectGenero === 'Outros'){
+                this.inputs.genero = this.textGenero
+            }else{
+                this.inputs.genero  = this.selectGenero
+            }
+        },
         required: function(val) {},
         register: function(val) {
 
@@ -564,13 +604,15 @@ export default {
     },
     beforeMount() {
 
-        
+
         this.required = "vazio"
+        this.inputs.genero = this.selectGenero
+        this.inputs.religiao = this.selectReligiao
 
         this.selectInputs()
         this.inputs.estado_civil = ''
-        this.inputs.religiao = ''
-        this.inputs.genero = ''
+   
+        
         this.inputs.fumante = ''
         this.inputs.bebida = ''
         this.inputs.drogas = ''
