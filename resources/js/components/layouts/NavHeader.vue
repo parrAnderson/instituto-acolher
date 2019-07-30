@@ -5,23 +5,23 @@
             <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
         </div>
             <div class="col-md-10">                
-                <div class="row row-login justify-content-end">
-                    <!-- <div class="col-6" v-if="login.data.id">
-                        <p class="text-left" >Bem vindo: {{login.data.name}}</p>
-                    </div> -->
-                    <div class="col-lg-1 col-6 text-right" v-if="!login.data.id">                        
+                <div class="row row-login justify-content-end">                    
+                    <div class="col-lg-2 col-6 text-right btn-login-header" v-if="!login.data.id">                        
                         <router-link to="/login">
                             <button  class="btn btn-success btn-sm">Login</button>
                         </router-link>
                     </div>
-                     <div class="col-lg-2 col-6 text-right" v-if="!login.data.id">  
+                     <div class="col-lg-2 col-6 text-right btn-login-header" v-if="!login.data.id">  
                         <router-link to="/register">
                             <button class="btn btn-primary btn-sm">Cadastrar</button>
-                        </router-link>
-
-                        <button v-if="login.data.id" @click="sair()" class=" btn btn-danger btn-sm">Sair</button> 
-
+                        </router-link>                       
                     </div>
+
+                     <div class="col-lg-2 col-6 text-right btn-login-header" v-if="login.data.id">  
+                        <button @click="sair()" class=" btn btn-danger btn-sm">Sair</button>                     
+                    </div>
+
+
                 </div>
                 <div class="row text-right">
                     <div class="col-12">
@@ -171,3 +171,12 @@ export default {
     } 
 }
 </script>
+
+<style>
+   @media (max-width: 575.98px) { 
+    .btn-login-header{
+        text-align: center !important;
+        float: center ! important;
+    }
+   }
+</style>
