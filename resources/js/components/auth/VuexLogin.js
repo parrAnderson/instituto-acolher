@@ -69,12 +69,14 @@ export default {
             axios
                 .post(url, data)
                 .then(response => {
-                    context.commit('REGISTER', response)      
-                    this.dispatch('Logon',data);              
+                    context.commit('REGISTER', response)  
+                    // this.dispatch('Logon',data); fazer if   
+
                 })
                 .catch(function (error) {
-                    response => context.commit('REGISTER', response.customMessages)
-                    console.log(response);
+                    console.log(error)
+                    // response => context.commit('REGISTER', response.customMessages)
+                    
                 });
         },
 

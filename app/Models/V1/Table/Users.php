@@ -48,7 +48,22 @@ class Users extends Model
     public $rules = [                
         'email'    => 'required|unique:users',
         'cpf'      => 'required|unique:users',       
-        'password'      => 'required',               
+        'password'      => 'required',     
+        'name' => 'required',            
+        'data_nascimento' => 'required',          
+        'celular' => 'required',            
+        'estado_civil' => 'required',            
+        'religiao' => 'required',            
+        'cep' => 'required', 
+        'bairro' => 'required',               
+        'numero' => 'required',           
+        'municipio' => 'required',             
+        'estado' => 'required',             
+        'fumante' => 'required',                         
+        'bebida' => 'required',              
+        'como_soube' => 'required',            
+        'recorrer' => 'required',           
+        'possui_filhos' => 'required',             
     ];
     
 

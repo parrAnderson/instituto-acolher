@@ -1524,8 +1524,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -4687,8 +4685,6 @@ var render = function() {
           "nav",
           { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
           [
-            _vm._m(3),
-            _vm._v(" "),
             _c(
               "div",
               {
@@ -4845,26 +4841,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row text-right" }, [
       _c("div", { staticClass: "col-12" })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
   },
   function() {
     var _vm = this

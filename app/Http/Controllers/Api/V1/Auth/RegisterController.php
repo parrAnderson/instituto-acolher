@@ -61,35 +61,54 @@ class RegisterController extends Controller
     {       
        
         $messages = [
-            'email.required' => 'Email está vazio',
-            'cpf.required' => 'CPF está vazio',
-            'cpf.unique' => 'Já existe esse CPF cadastrado',
-            'email.unique' => 'Já existe esse EMAIL cadastrado',
-            'password.required' => 'É necessario colocar a senha',
-        ];                         
+            'email.required' => ['message' => 'Email está vazio'],
+            'cpf.required' => ['message' => 'CPF está vazio'],
+            'cpf.unique' => ['message' => 'Já existe esse CPF cadastrado'],
+            'email.unique' => ['message' => 'Já existe esse EMAIL cadastrado'],
+            'password.required' => ['message' => 'É necessario colocar a senha'],
+            'name.required' => ['message' => 'É necessario digitar o nome'],
+            'data_nascimento.required' => ['message' => 'É necessario digitar sua data de nascimento'],         
+            'celular.required' => ['message' => 'É necessario digitar seu celular'],
+            'estado_civil.required' => ['message' => 'É necessario digitar seu estado civil'],
+            'religiao.required' => ['message' => 'É necessario digitar sua religião'],
+            'cep.required' => ['message' => 'É necessario digitar seu cep'],
+            'bairro.required' => ['message' => 'É necessario digitar seu bairro'],
+            'numero.required' => ['message' => 'É necessario digitar seu número'],
+            'municipio.required' => ['message' => 'É necessario digitar seu municipio'],
+            'estado.required' => ['message' => 'É necessario digitar seu estado'],
+            'fumante.required' => ['message' => 'É necessario selecionar o campo fumante'],            
+            'bebida.required' => ['message' => 'É necessario selecionar o campo bebida'],
+            'como_soube.required' => ['message' => 'É necessario selecionar o campo como soube'],
+            'recorrer.required' => ['message' => 'É necessario escrever o que o levou a recorrer'],
+            'possui_filhos.required' => ['message' => 'É necessario selecionar o campo filhos'],
+        ];       
+ 
+
             $validate = Validator::make($data->all(), $this->Users->rules, $messages);
-            if($validate->fails()){               
-                return response()->json($validate->errors());
-            }else{
-                $data['password'] = Hash::make($data->password);
+            if($validate->fails()){           
+
+                $validateError = $validate->errors();
+                // $validateError =  collect($validateError);
+                // // $validateError  = $validateError->toJson();
+                // $erros = $validateError;
+
+                return response()->json([
+                    'message' => 'Contem erros',  
+                    'erros' => $validateError,
+                    'data' => '',              
+                ]);  
+                // return response()->json($validate->errors());
                 
+            }else{
+                $data['password'] = Hash::make($data->password);                
                 $this->Users = $this->Users->create($data->all());
                 $this->Users->save();
-
-                $this->Razoes = $this->Razoes->Cadastrar($data->all(), $this->Users->id);
-                    
+                $this->Razoes = $this->Razoes->Cadastrar($data->all(), $this->Users->id);                    
                 $this->email->cadastro($data, $this->Users->id);
-
                 return response()->json([
                     'message' => 'Cadastrado',  
                     'data' => $this->Users->id,              
-                ]);
-
-               
-            }    
-            
-            
+                ]);               
+            }
     }
-
-
 }

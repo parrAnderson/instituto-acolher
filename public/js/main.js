@@ -3517,6 +3517,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3535,14 +3539,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       inputs: {},
       tipo_pagamento: "",
       selected: false,
-      required: {},
+      required: true,
       endereco: {},
       validarCpf: true,
       menor: false,
       selectGenero: "",
       textGenero: "",
       selectReligiao: "",
-      textReligiao: ""
+      textReligiao: "",
+      erros: false
     };
   },
   methods: _objectSpread({
@@ -3583,43 +3588,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log(this.inputs.genero);
     },
     checkRequired: function checkRequired() {
-      // console.log(this.inputs)
       if (this.inputs.cpf) {
         this.validarCpf = validar_cpf__WEBPACK_IMPORTED_MODULE_6___default()(this.inputs.cpf);
       } else {
         this.validarCpf = validar_cpf__WEBPACK_IMPORTED_MODULE_6___default()('000.000.000.00');
       }
 
-      if (this.validarCpf && this.inputs.name && this.inputs.email && this.inputs.cpf && this.inputs.data_nascimento && this.inputs.rg && this.inputs.celular && this.inputs.estado_civil && this.inputs.religiao && this.inputs.cpf && this.inputs.cep && this.inputs.bairro && this.inputs.numero && this.inputs.complemento && this.inputs.municipio && this.inputs.estado && this.inputs.fumante && this.inputs.bebida && this.inputs.drogas && this.inputs.como_soube && this.inputs.recorrer && this.inputs.possui_filhos && this.inputs.password) {
-        this.required = false;
-        console.log("preenchido");
-      } else {
+      if (this.validarCpf) {
         this.required = true;
+      } else {
+        this.required = false;
         console.log("Vazio");
       }
     },
     registrar: function registrar() {
       this.checkRequired();
 
-      if (!this.required) {
-        this.Register(this.inputs); // console.log(this.inputs)                          
+      if (this.required) {
+        this.Register(this.inputs); // console.log(this.inputs)               
       } else {
         console.log("não registrado, com erros");
       }
     },
     verificarIdade: function verificarIdade() {
-      if (this.inputs.data_nascimento.length == 10) {
-        var nascimento = this.inputs.data_nascimento.split("/");
-        var dataNascimento = new Date(parseInt(nascimento[2], 10), parseInt(nascimento[1], 10) - 1, parseInt(nascimento[0], 10));
-        var diferenca = Date.now() - dataNascimento.getTime();
-        var calIdade = new Date(diferenca); // miliseconds from epoch
+      if (this.inputs.data_nascimento) {
+        if (this.inputs.data_nascimento.length == 10) {
+          var nascimento = this.inputs.data_nascimento.split("/");
+          var dataNascimento = new Date(parseInt(nascimento[2], 10), parseInt(nascimento[1], 10) - 1, parseInt(nascimento[0], 10));
+          var diferenca = Date.now() - dataNascimento.getTime();
+          var calIdade = new Date(diferenca); // miliseconds from epoch
 
-        var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
+          var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
 
-        if (idade < 18) {
-          this.menor = true;
-        } else {
-          this.menor = false;
+          if (idade < 18) {
+            this.menor = true;
+          } else {
+            this.menor = false;
+          } //  console.log(this.menor)
+
         }
       }
     }
@@ -3656,15 +3662,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log(this.register.data.cpf);
 
       if (!this.register.data.cpf && !this.register.data.email) {
-        console.log('roteando');
-        this.$router.push({
-          name: 'atendimento'
-        });
+        if (this.register.data.message == "Cadastrado") {
+          console.log('roteando');
+          this.$router.push({
+            name: 'atendimento'
+          });
+        } // 
+
+      }
+
+      if (this.register.data.erros) {
+        this.erros = true;
       }
     }
   },
+  created: function created() {},
   beforeMount: function beforeMount() {
-    this.required = "vazio";
     this.inputs.genero = this.selectGenero;
     this.inputs.religiao = this.selectReligiao;
     this.selectInputs();
@@ -4292,8 +4305,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -38658,7 +38669,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text", placeholder: "RG *" },
+                attrs: { type: "text", placeholder: "RG" },
                 domProps: { value: _vm.inputs.rg },
                 on: {
                   input: function($event) {
@@ -39078,7 +39089,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text", placeholder: "Complemento *" },
+                attrs: { type: "text", placeholder: "Complemento" },
                 domProps: { value: _vm.inputs.complemento },
                 on: {
                   input: function($event) {
@@ -39164,7 +39175,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { name: "possui_filhos", id: "" },
+                  attrs: { name: "possui_filhos" },
                   on: {
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -40705,7 +40716,7 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.required !== "vazio"
+        _vm.erros
           ? _c(
               "div",
               { staticClass: "row justify-content-center row-space-form" },
@@ -40717,42 +40728,21 @@ var render = function() {
                     attrs: { role: "alert" }
                   },
                   [
-                    _vm._v(
-                      "\n                Por favor! Preencha todos os campos obrigatórios *\n            "
+                    _c(
+                      "ul",
+                      _vm._l(_vm.register.data.erros, function(error) {
+                        return _c("li", [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(error[0].message) +
+                              " \n                        "
+                          )
+                        ])
+                      }),
+                      0
                     )
                   ]
                 )
-              ]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.register.data
-          ? _c(
-              "div",
-              { staticClass: "row justify-content-center row-space-form" },
-              [
-                _vm.register.data
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "alert alert-danger",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.register.data.cpf
-                          ? _c("span", [
-                              _vm._v(_vm._s(_vm.register.data.cpf[0]))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" |\n                "),
-                        _vm.register.data.email
-                          ? _c("span", [
-                              _vm._v(_vm._s(_vm.register.data.email[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
               ]
             )
           : _vm._e()
@@ -42200,8 +42190,6 @@ var render = function() {
           "nav",
           { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
           [
-            _vm._m(3),
-            _vm._v(" "),
             _c(
               "div",
               {
@@ -42358,26 +42346,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row text-right" }, [
       _c("div", { staticClass: "col-12" })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
   },
   function() {
     var _vm = this
@@ -58365,19 +58333,11 @@ __webpack_require__.r(__webpack_exports__);
       context.commit('LOGOUT', "");
     },
     Register: function Register(context, data) {
-      var _this = this;
-
       var url = '/acolher/public/api/auth/register';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
-        context.commit('REGISTER', response);
-
-        _this.dispatch('Logon', data);
+        context.commit('REGISTER', response); // this.dispatch('Logon',data); fazer if   
       }).catch(function (error) {
-        (function (response) {
-          return context.commit('REGISTER', response.customMessages);
-        });
-
-        console.log(response);
+        console.log(error); // response => context.commit('REGISTER', response.customMessages)
       });
     },
     EmailCadastroConcluido: function EmailCadastroConcluido() {

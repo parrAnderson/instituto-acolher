@@ -25,6 +25,7 @@ class emailCadastroController extends Controller
        
         try {
             Mail::send('emails.cadastro', $dados, function($message){
+                $message->from('contato@acolher.org', 'Acolher');
                 $message->to($this->email);
                 $message->subject('E-mail enviado pelo site da Acolher');
             });

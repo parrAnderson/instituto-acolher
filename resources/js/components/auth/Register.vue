@@ -34,7 +34,7 @@
                     <input type="text" class="form-control" v-model="inputs.cpf" v-mask="'###.###.###.##'" placeholder="CPF *">
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" v-model="inputs.rg" v-mask="'##.###.###-#'" placeholder="RG *">
+                    <input type="text" class="form-control" v-model="inputs.rg" v-mask="'##.###.###-#'" placeholder="RG">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -102,7 +102,7 @@
                     <input type="text" v-model="inputs.numero" class="form-control" placeholder="Número *">
                 </div>
                 <div class="col-4">
-                    <input type="text" v-model="inputs.complemento" class="form-control" placeholder="Complemento *">
+                    <input type="text" v-model="inputs.complemento" class="form-control" placeholder="Complemento">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -120,7 +120,7 @@
                 <div class="col-4">
                     <!-- municipio no banco de dados -->
     
-                    <select name="possui_filhos" v-model="inputs.possui_filhos" class="form-control" id>
+                    <select name="possui_filhos" v-model="inputs.possui_filhos" class="form-control">
                             <option disabled value="" >Possui Filhos? *</option>
                             <option>Sim</option>
                             <option>Não</option>
@@ -381,15 +381,19 @@
                     CPF INCORRETO
                 </div>
             </div>
-            <div v-if="required !== 'vazio'" class="row justify-content-center row-space-form">
+            <!-- <div v-if="required == false" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
                     Por favor! Preencha todos os campos obrigatórios *
                 </div>
-            </div>
-            <div v-if="register.data" class="row justify-content-center row-space-form">
-                <div v-if="register.data" class="alert alert-danger" role="alert">
-                    <span v-if="register.data.cpf">{{register.data.cpf[0]}}</span> |
-                    <span v-if="register.data.email">{{register.data.email[0]}}</span>
+            </div> -->
+            <div v-if="erros" class="row justify-content-center row-space-form">
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <li v-for="error in register.data.erros">
+                            {{error[0].message}} 
+                            </li>
+                        </ul>
+                    
                 </div>
             </div>
         </div>
@@ -425,7 +429,7 @@ export default {
             inputs: {},
             tipo_pagamento: "",
             selected: false,
-            required: {},
+            required: true,
             endereco: {},
             validarCpf: true,
             menor: false,
@@ -433,6 +437,7 @@ export default {
             textGenero: "",
             selectReligiao: "",
             textReligiao: "",
+            erros: false,
         }
     },
     methods: {
@@ -482,55 +487,24 @@ export default {
             console.log(this.inputs.genero)
         },
         checkRequired() {
-
-            // console.log(this.inputs)
-
             if (this.inputs.cpf) {
                 this.validarCpf = validarCpf(this.inputs.cpf);
             } else {
                 this.validarCpf = validarCpf('000.000.000.00');
             }
-
-
-
-            if (this.validarCpf &&
-                this.inputs.name &&
-                this.inputs.email &&
-                this.inputs.cpf &&
-                this.inputs.data_nascimento &&
-                this.inputs.rg &&
-                this.inputs.celular &&
-                this.inputs.estado_civil &&
-                this.inputs.religiao &&
-                this.inputs.cpf &&
-                this.inputs.cep &&
-                this.inputs.bairro &&
-                this.inputs.numero &&
-                this.inputs.complemento &&
-                this.inputs.municipio &&
-                this.inputs.estado &&
-                this.inputs.fumante &&
-                this.inputs.bebida &&
-                this.inputs.drogas &&
-                this.inputs.como_soube &&
-                this.inputs.recorrer &&
-                this.inputs.possui_filhos &&
-                this.inputs.password 
-            ) {
-                this.required = false
-                console.log("preenchido")
+            if (this.validarCpf) {
+                this.required = true               
             } else { 
-                this.required = true
+                this.required = false
                 console.log("Vazio")
             }
         },
         registrar() {
             this.checkRequired()
 
-            if (!this.required) {
+            if (this.required) {
                 this.Register(this.inputs)
-                // console.log(this.inputs)                          
-
+                // console.log(this.inputs)               
             } else {
                 console.log("não registrado, com erros")
             }
@@ -538,7 +512,8 @@ export default {
         verificarIdade(){
             
 
-        if(this.inputs.data_nascimento.length == 10){
+        if(this.inputs.data_nascimento){
+            if(this.inputs.data_nascimento.length == 10){
        
              var nascimento = this.inputs.data_nascimento.split("/");
             var dataNascimento = new Date(parseInt(nascimento[2], 10),
@@ -550,11 +525,13 @@ export default {
             var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
 
             if(idade < 18){
-                this.menor = true
+                this.menor = true               
             }else{
                 this.menor = false
             }
+            //  console.log(this.menor)
 
+        }
         }
              
 
@@ -595,17 +572,31 @@ export default {
 
             console.log(this.register.data.cpf)
             if (!this.register.data.cpf && !this.register.data.email) {
-                console.log('roteando')
-                this.$router.push({ name: 'atendimento' });
+                
+
+                 if(this.register.data.message == "Cadastrado" ){
+                     console.log('roteando')
+                    this.$router.push({ name: 'atendimento' });
+                }
+                // 
             }
 
+             if(this.register.data.erros){
+                    this.erros = true
+                }
+
+               
+
         }
+
+    },
+    created(){
 
     },
     beforeMount() {
 
 
-        this.required = "vazio"
+        
         this.inputs.genero = this.selectGenero
         this.inputs.religiao = this.selectReligiao
 
