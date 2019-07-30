@@ -9,15 +9,15 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <input type="text" class="form-control" v-model="inputs.name" placeholder="Nome Completo da Pessoa a ser Atendida *">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" class="form-control" @keyup="verificarIdade()" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
                 </div>
-                <div class="col-4" v-if="selectGenero !== 'Outros'">
+                <div class="col-12 col-lg-4" v-if="selectGenero !== 'Outros'">
                     <select name="genero" v-if="selected" v-model="selectGenero" class="form-control">
                             <option selected value="" > Gênero *</option>
                             <option>Masculino</option>
@@ -25,37 +25,37 @@
                             <option>Outros</option>
                           </select> 
                 </div>
-                <div class="col-4" v-if="selectGenero == 'Outros'">
+                <div class="col-12 col-lg-4" v-if="selectGenero == 'Outros'">
                     <input type="text" class="form-control" v-model="textGenero" placeholder="Digite o Gênero">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" class="form-control" v-model="inputs.cpf" v-mask="'###.###.###.##'" placeholder="CPF *">
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" class="form-control" v-model="inputs.rg" v-mask="'##.###.###-#'" placeholder="RG">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" class="form-control" v-model="inputs.celular" v-mask="'(##)#####-####'" placeholder="Telefone Celular *">
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" class="form-control" v-model="inputs.telefone" v-mask="'(##)####-####'" placeholder="Telefone Fixo">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" v-model="inputs.email" class="form-control" placeholder="Email *">
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="password" v-model="inputs.password" class="form-control" placeholder="Senha *">
                 </div>
             </div>
     
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <select name="estado_civil" v-model="inputs.estado_civil" class="form-control" id>
                             <option disabled value="">Estado Civil *</option>
                              <option value="Solteiro(a)">Solteiro(a)</option>                    
@@ -66,7 +66,7 @@
                             <option>Outros</option>
                           </select>
                 </div>
-                <div class="col-4" v-if="selectReligiao !== 'Outro'">
+                <div class="col-12 col-lg-4" v-if="selectReligiao !== 'Outro'">
                     <select name="religiao" v-model="selectReligiao" class="form-control" id>
                             <option disabled value="">Religião *</option>
                             <option value="Kardecista / Espírita">Kardecista / Espírita</option>          
@@ -79,45 +79,45 @@
                             <option>Outro</option>
                           </select>
                 </div>
-                  <div class="col-4" v-if="selectReligiao == 'Outro'">
+                  <div class="col-12 col-lg-4" v-if="selectReligiao == 'Outro'">
                     <input type="text" class="form-control" v-model="textReligiao" placeholder="Digite sua religião *">
                 </div>           
 
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" v-model="inputs.cep" v-on:keyup="buscar()" class="form-control" v-mask="'#####-###'" placeholder="CEP *">
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" v-model="endereco.bairro" class="form-control" placeholder="Bairro *">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <input type="text" v-model="endereco.logradouro" class="form-control" placeholder="Logradouro *">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" v-model="inputs.numero" class="form-control" placeholder="Número *">
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" v-model="inputs.complemento" class="form-control" placeholder="Complemento">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <!-- municipio no banco de dados -->
                     <input type="text" v-model="endereco.localidade " class="form-control" placeholder="Município *">
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <!-- estado no banco de dados -->
                     <input type="text" name="estado" v-model="endereco.uf" placeholder="Estado*" class="form-control">
     
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <!-- municipio no banco de dados -->
     
                     <select name="possui_filhos" v-model="inputs.possui_filhos" class="form-control">
@@ -126,21 +126,21 @@
                             <option>Não</option>
                           </select>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <!-- estado no banco de dados -->
                     <input type="number" name="quantos_filhos" v-model="inputs.quantos_filhos" placeholder="Se sim, quantos filhos?" class="form-control">
     
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <select name="fumante" v-model="inputs.fumante" class="form-control" id>
                             <option disabled value="" >É Fumante? *</option>
                             <option>Sim</option>
                             <option>Não</option>
                           </select>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <select name="bebida" v-model="inputs.bebida" class="form-control" id>
                             <option disabled value="">Consome Bebida Alcólica? *</option>
                             <option>Não</option>
@@ -151,45 +151,45 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <select name="droga" v-model="inputs.drogas" class="form-control" id>
                             <option value>Possui dependencia em drogas? *</option>
                             <option>Sim</option>
                             <option>Não</option>
                           </select>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
                 </div>
             </div>
     
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                 </div>
             </div>
     
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4">
                     <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui"></textarea>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
-                <div class="col-8">
+                <div class="col-12 col-lg-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
+                <div class="col-12 col-lg-8">
                     <div class="card">
                         <div class="container">
                             <div class="row row-space-form">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.kardecista" class="form-check-input" name="kardecista" id="kardecista">
                                         <label class="form-check-label" for="kardecista">Kardecista / Espírita?</label>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.casa_apometria" class="form-check-input" id="casa_apometria" name="casa_apometria">
                                         <label class="form-check-label" for="casa_apometria">Casa de Apômetra?</label>
@@ -199,7 +199,7 @@
                         </div>
                         <div class="container">
                             <div class="row row-space-form">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.casa_umbandista" class="form-check-input" id="casa_umbandista" name="casa_umbandista">
                                         <label class="form-check-label" for="casa_umbandista">Casa Umbandista?</label>
@@ -211,18 +211,18 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
-                <div class="col-8">
+                <div class="col-12 col-lg-8 text-center text-primary">Possui conhecimentos sobre:</div>
+                <div class="col-12 col-lg-8">
                     <div class="card">
                         <div class="container">
                             <div class="row row-space-form">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.doutrina_kardecista" class="form-check-input" id="doutrina_kardecista" name="doutrina_kardecista">
                                         <label class="form-check-label" for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.principios_umbanda" class="form-check-input" id="principios_umbanda" name="principios_umbanda">
                                         <label class="form-check-label" for="principios_umbanda">Principios da Umbanda?</label>
@@ -232,7 +232,7 @@
                         </div>
                         <div class="container">
                             <div class="row row-space-form">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.apometria_codificada" class="form-check-input" id="apometria_codificada" name="apometria_codificada">
                                         <label class="form-check-label" for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
@@ -244,19 +244,19 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-center text-primary">Selecione os livros que já leu:</div>
-                <div class="col-8">
+                <div class="col-12 col-lg-8 text-center text-primary">Selecione os livros que já leu:</div>
+                <div class="col-12 col-lg-8">
                     <div class="card">
                         <div class="container">
                             <div class="row row-space-form">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.livro_espiritos" class="form-check-input" id="livro_espiritos" name="livro_espiritos">
                                         <label class="form-check-label" for="livro_espiritos">Livro dos Espíritos</label>
                                     </div>
                                 </div>
     
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.livro_medius" class="form-check-input" id="livro_medius" name="livro_medius">
                                         <label class="form-check-label" for="livro_medius">Livro dos Médiuns</label>
@@ -266,13 +266,13 @@
                         </div>
                         <div class="container">
                             <div class="row row-space-form">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.livro_evangelho" class="form-check-input" id="livro_evangelho" name="livro_evangelho">
                                         <label class="form-check-label" for="livro_evangelho">Livro o Evangelho Segundo o Espiritismo?</label>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <div class="form-check">
                                         <input type="checkbox" v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
                                         <label class="form-check-label" for="livro_medicina">Espirito e Matéria: Um Novo Horizonte para a
@@ -285,12 +285,12 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <input type="text" v-model="inputs.outros_livros" class="form-control" placeholder="Caso deseje, indique outros livros espiritualistas que já tenha lido.">
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <select class="form-control" v-model="inputs.como_soube">
                           <option disabled value="">Como soube do Acolher? *</option>        
                             <option>Parente</option>          
@@ -306,7 +306,7 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <select class="form-control" v-model="inputs.indicacao">
                             <option disabled value="">Caso tenha recebido uma indicação assinale abaixo:</option>
                             <option value="Tratou-se de indicação de frequentador do Acolher">Tratou-se de indicação de frequentador do Acolher</option>
@@ -318,7 +318,7 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <input type="text" v-model="inputs.nome_indicacao" class="form-control" placeholder="informe o nome da pessoa que lhe indicou o Acolher">
                 </div>
             </div>
@@ -327,32 +327,32 @@
                <h5 class="text-center"> Dados do responsável </h5>
                 <div class="row justify-content-center row-space-form">
                      
-                    <div class="col-8">
+                    <div class="col-12 col-lg-8">
                         <input type="text" v-model="inputs.nome_responsavel" class="form-control" placeholder="Nome Completo do Responsável pelo(a) menor a ser atendido(a) *">            
                     </div>
                 </div>
 
                 <div class="row justify-content-center row-space-form">
-                    <div class="col-4">
+                    <div class="col-12 col-lg-4">
                         <input type="text" v-model="inputs.cpf_responsavel" placeholder="CPF do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-lg-4">
                         <input type="text" v-model="inputs.rg_responsavel" placeholder="RG do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
                     </div>
                 </div>
 
                 <div class="row justify-content-center row-space-form">
-                    <div class="col-4">
+                    <div class="col-12 col-lg-4">
                         <input type="text" v-model="inputs.telefone_responsavel" placeholder="Telefone Fixo do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-lg-4">
                         <input type="text" v-model="inputs.celular_responsavel" placeholder="Telefone Celular do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
                     </div>
                 </div>
 
                  <div class="row justify-content-center row-space-form">
                      
-                    <div class="col-8">
+                    <div class="col-12 col-lg-8">
                         <input type="text" v-model="inputs.email_responsavel" class="form-control" placeholder="E-mail do Responsável pelo(a) menor a ser atendido(a) *">            
                     </div>
                 </div>
@@ -360,7 +360,7 @@
     
     
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <h5 class="text-center">Declaração</h5>
                     <p>
     
@@ -372,7 +372,7 @@
             </div>
     
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <button @click="registrar()" type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
             </div>

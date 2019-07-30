@@ -1521,9 +1521,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -4468,51 +4465,58 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
         _c("div", { staticClass: "row row-login justify-content-end" }, [
-          _c("div", { staticClass: "col-6" }, [
-            _vm.login.data.id
-              ? _c("p", { staticClass: "text-left" }, [
+          _vm.login.data.id
+            ? _c("div", { staticClass: "col-6" }, [
+                _c("p", { staticClass: "text-left" }, [
                   _vm._v("Bem vindo " + _vm._s(_vm.login.data.name))
                 ])
-              : _vm._e()
-          ]),
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-6 text-right" },
-            [
-              _c("router-link", { attrs: { to: "/login" } }, [
-                !_vm.login.data.id
-                  ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
+          !_vm.login.data.id
+            ? _c(
+                "div",
+                { staticClass: "col-lg-1 col-6 text-right" },
+                [
+                  _c("router-link", { attrs: { to: "/login" } }, [
+                    _c("button", { staticClass: "btn btn-success btn-sm" }, [
                       _vm._v("Login")
                     ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("router-link", { attrs: { to: "/register" } }, [
-                !_vm.login.data.id
-                  ? _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                  ])
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.login.data.id
+            ? _c(
+                "div",
+                { staticClass: "col-lg-2 col-6 text-right" },
+                [
+                  _c("router-link", { attrs: { to: "/register" } }, [
+                    _c("button", { staticClass: "btn btn-primary btn-sm" }, [
                       _vm._v("Cadastrar")
                     ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _vm.login.data.id
-                ? _c(
-                    "button",
-                    {
-                      staticClass: " btn btn-danger btn-sm",
-                      on: {
-                        click: function($event) {
-                          _vm.sair()
-                        }
-                      }
-                    },
-                    [_vm._v("Sair")]
-                  )
-                : _vm._e()
-            ],
-            1
-          )
+                  ]),
+                  _vm._v(" "),
+                  _vm.login.data.id
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: " btn btn-danger btn-sm",
+                          on: {
+                            click: function($event) {
+                              _vm.sair()
+                            }
+                          }
+                        },
+                        [_vm._v("Sair")]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _vm._m(1),

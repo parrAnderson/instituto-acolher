@@ -2,43 +2,42 @@
     <div>
     <nav-header></nav-header>
 
-<div class="container">
-<h1 class="form-heading">Login Acolher</h1>
-<div class="login-form">
-<div class="main-div">
-    <div class="panel">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center row-space-form">
+        <div class="col-12 col-lg-8 col-md-8">
+           <div class="panel text-center">
    <h2>Login Acolher</h2>
+ </div>
+
+      <p class="text-center">Por favor digite sua conta de email e senha de acesso</p>
+
+
+       <div class="row justify-content-center row-space-form">
+          <div class="col-12">
+                <input type="email" required v-model="inputs.email" class="form-control" id="inputEmail" placeholder="E-mail">
+          </div>
+          <div class="col-12">
+              <input type="password" required autocomplete="off" v-model="inputs.password" class="form-control" id="inputPassword" placeholder="Senha">
 
 
 
-   <p>Por favor digite sua conta de email e senha</p>
-   </div>
-  
-    <form id="Login">
+          </div>         
+          
+      </div>
 
-        <div class="form-group">
-
-            <!-- <input type="text" class="form-control" id="cpf" v-mask="'###.###.###.##'" placeholder="Digite seu CPF" v-model="inputs.cpf"> -->
-            <input type="email" required v-model="inputs.email" class="form-control" id="inputEmail" placeholder="E-mail">
+<div class="row row-space-form">
+  <div class="col-12 ">
+            <button @click.prevent.stop="logar()" type="submit" class="btn btn-primary text-right float-right">Login</button>
+           <h6 v-if="this.loginMessage" class="text-danger text-center">{{this.loginMessage}}</h6>
+          </div>
+</div>
 
         </div>
-
-        <div class="form-group">
-
-            <input type="password" required autocomplete="off" v-model="inputs.password" class="form-control" id="inputPassword" placeholder="Senha">
-
-        </div>
-      
-        <button @click.prevent.stop="logar()" type="submit" class="btn btn-primary">Login</button>
-
-
-    </form>
-
-    <br>
-      <h6 v-if="this.loginMessage" class="text-danger">{{this.loginMessage}}</h6>
+      </div>
     </div>
-<p class="botto-text"> </p>
-</div></div>
+
+
 
        <Footer></Footer>
     </div>

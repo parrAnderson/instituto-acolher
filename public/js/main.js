@@ -3044,7 +3044,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -4305,9 +4304,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -38329,101 +38325,111 @@ var render = function() {
     [
       _c("nav-header"),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("h1", { staticClass: "form-heading" }, [_vm._v("Login Acolher")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "login-form" }, [
-          _c("div", { staticClass: "main-div" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("form", { attrs: { id: "Login" } }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.email,
-                      expression: "inputs.email"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "email",
-                    required: "",
-                    id: "inputEmail",
-                    placeholder: "E-mail"
-                  },
-                  domProps: { value: _vm.inputs.email },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.inputs, "email", $event.target.value)
-                    }
-                  }
-                })
-              ]),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
+            _c("div", { staticClass: "col-12 col-lg-8 col-md-8" }, [
+              _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.password,
-                      expression: "inputs.password"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "password",
-                    required: "",
-                    autocomplete: "off",
-                    id: "inputPassword",
-                    placeholder: "Senha"
-                  },
-                  domProps: { value: _vm.inputs.password },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.inputs, "password", $event.target.value)
-                    }
-                  }
-                })
+              _c("p", { staticClass: "text-center" }, [
+                _vm._v("Por favor digite sua conta de email e senha de acesso")
               ]),
               _vm._v(" "),
               _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "submit" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      $event.stopPropagation()
-                      _vm.logar()
-                    }
-                  }
-                },
-                [_vm._v("Login")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            this.loginMessage
-              ? _c("h6", { staticClass: "text-danger" }, [
-                  _vm._v(_vm._s(this.loginMessage))
+                "div",
+                { staticClass: "row justify-content-center row-space-form" },
+                [
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.email,
+                          expression: "inputs.email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "email",
+                        required: "",
+                        id: "inputEmail",
+                        placeholder: "E-mail"
+                      },
+                      domProps: { value: _vm.inputs.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.inputs, "email", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.password,
+                          expression: "inputs.password"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "password",
+                        required: "",
+                        autocomplete: "off",
+                        id: "inputPassword",
+                        placeholder: "Senha"
+                      },
+                      domProps: { value: _vm.inputs.password },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.inputs, "password", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "row row-space-form" }, [
+                _c("div", { staticClass: "col-12 " }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary text-right float-right",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          $event.stopPropagation()
+                          _vm.logar()
+                        }
+                      }
+                    },
+                    [_vm._v("Login")]
+                  ),
+                  _vm._v(" "),
+                  this.loginMessage
+                    ? _c("h6", { staticClass: "text-danger text-center" }, [
+                        _vm._v(_vm._s(this.loginMessage))
+                      ])
+                    : _vm._e()
                 ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "botto-text" })
-        ])
+              ])
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("Footer")
@@ -38436,10 +38442,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel" }, [
-      _c("h2", [_vm._v("Login Acolher")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Por favor digite sua conta de email e senha")])
+    return _c("div", { staticClass: "panel text-center" }, [
+      _c("h2", [_vm._v("Login Acolher")])
     ])
   }
 ]
@@ -38476,7 +38480,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("input", {
                 directives: [
                   {
@@ -38509,7 +38513,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38543,7 +38547,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _vm.selectGenero !== "Outros"
-              ? _c("div", { staticClass: "col-4" }, [
+              ? _c("div", { staticClass: "col-12 col-lg-4" }, [
                   _vm.selected
                     ? _c(
                         "select",
@@ -38591,7 +38595,7 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _vm.selectGenero == "Outros"
-              ? _c("div", { staticClass: "col-4" }, [
+              ? _c("div", { staticClass: "col-12 col-lg-4" }, [
                   _c("input", {
                     directives: [
                       {
@@ -38622,7 +38626,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38652,7 +38656,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38688,7 +38692,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38718,7 +38722,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38754,7 +38758,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38778,7 +38782,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38808,7 +38812,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c(
                 "select",
                 {
@@ -38867,7 +38871,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _vm.selectReligiao !== "Outro"
-              ? _c("div", { staticClass: "col-4" }, [
+              ? _c("div", { staticClass: "col-12 col-lg-4" }, [
                   _c(
                     "select",
                     {
@@ -38927,7 +38931,7 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _vm.selectReligiao == "Outro"
-              ? _c("div", { staticClass: "col-4" }, [
+              ? _c("div", { staticClass: "col-12 col-lg-4" }, [
                   _c("input", {
                     directives: [
                       {
@@ -38961,7 +38965,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -38994,7 +38998,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -39024,7 +39028,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("input", {
                 directives: [
                   {
@@ -39054,7 +39058,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -39078,7 +39082,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -39108,7 +39112,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -39132,7 +39136,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -39162,7 +39166,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c(
                 "select",
                 {
@@ -39208,7 +39212,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -39242,7 +39246,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c(
                 "select",
                 {
@@ -39288,7 +39292,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c(
                 "select",
                 {
@@ -39344,7 +39348,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c(
                 "select",
                 {
@@ -39390,7 +39394,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("input", {
                 directives: [
                   {
@@ -39420,7 +39424,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("textarea", {
                 directives: [
                   {
@@ -39454,7 +39458,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("textarea", {
                 directives: [
                   {
@@ -39481,7 +39485,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("textarea", {
                 directives: [
                   {
@@ -39514,15 +39518,17 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8 text-center text-primary" }, [
-              _vm._v("Selecione os lugares que frequenta/frequentou")
-            ]),
+            _c(
+              "div",
+              { staticClass: "col-12 col-lg-8 text-center text-primary" },
+              [_vm._v("Selecione os lugares que frequenta/frequentou")]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "container" }, [
                   _c("div", { staticClass: "row row-space-form" }, [
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -39587,7 +39593,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -39656,7 +39662,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "container" }, [
                   _c("div", { staticClass: "row row-space-form" }, [
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -39731,15 +39737,17 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8 text-center text-primary" }, [
-              _vm._v("Possui conhecimentos sobre:")
-            ]),
+            _c(
+              "div",
+              { staticClass: "col-12 col-lg-8 text-center text-primary" },
+              [_vm._v("Possui conhecimentos sobre:")]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "container" }, [
                   _c("div", { staticClass: "row row-space-form" }, [
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -39807,7 +39815,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -39878,7 +39886,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "container" }, [
                   _c("div", { staticClass: "row row-space-form" }, [
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -39960,15 +39968,17 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8 text-center text-primary" }, [
-              _vm._v("Selecione os livros que já leu:")
-            ]),
+            _c(
+              "div",
+              { staticClass: "col-12 col-lg-8 text-center text-primary" },
+              [_vm._v("Selecione os livros que já leu:")]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "container" }, [
                   _c("div", { staticClass: "row row-space-form" }, [
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -40033,7 +40043,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -40102,7 +40112,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "container" }, [
                   _c("div", { staticClass: "row row-space-form" }, [
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -40167,7 +40177,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
                           directives: [
@@ -40246,7 +40256,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("input", {
                 directives: [
                   {
@@ -40280,7 +40290,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c(
                 "select",
                 {
@@ -40345,7 +40355,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c(
                 "select",
                 {
@@ -40421,7 +40431,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("input", {
                 directives: [
                   {
@@ -40461,7 +40471,7 @@ var render = function() {
                 "div",
                 { staticClass: "row justify-content-center row-space-form" },
                 [
-                  _c("div", { staticClass: "col-8" }, [
+                  _c("div", { staticClass: "col-12 col-lg-8" }, [
                     _c("input", {
                       directives: [
                         {
@@ -40499,7 +40509,7 @@ var render = function() {
                 "div",
                 { staticClass: "row justify-content-center row-space-form" },
                 [
-                  _c("div", { staticClass: "col-4" }, [
+                  _c("div", { staticClass: "col-12 col-lg-4" }, [
                     _c("input", {
                       directives: [
                         {
@@ -40531,7 +40541,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-4" }, [
+                  _c("div", { staticClass: "col-12 col-lg-4" }, [
                     _c("input", {
                       directives: [
                         {
@@ -40569,7 +40579,7 @@ var render = function() {
                 "div",
                 { staticClass: "row justify-content-center row-space-form" },
                 [
-                  _c("div", { staticClass: "col-4" }, [
+                  _c("div", { staticClass: "col-12 col-lg-4" }, [
                     _c("input", {
                       directives: [
                         {
@@ -40601,7 +40611,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-4" }, [
+                  _c("div", { staticClass: "col-12 col-lg-4" }, [
                     _c("input", {
                       directives: [
                         {
@@ -40639,7 +40649,7 @@ var render = function() {
                 "div",
                 { staticClass: "row justify-content-center row-space-form" },
                 [
-                  _c("div", { staticClass: "col-8" }, [
+                  _c("div", { staticClass: "col-12 col-lg-8" }, [
                     _c("input", {
                       directives: [
                         {
@@ -40681,7 +40691,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c(
                 "button",
                 {
@@ -40772,7 +40782,7 @@ var staticRenderFns = [
       "div",
       { staticClass: "row justify-content-center row-space-form" },
       [
-        _c("div", { staticClass: "col-8" }, [
+        _c("div", { staticClass: "col-12 col-lg-8" }, [
           _c("h5", { staticClass: "text-center" }, [_vm._v("Declaração")]),
           _vm._v(" "),
           _c("p", [
@@ -41973,51 +41983,58 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
         _c("div", { staticClass: "row row-login justify-content-end" }, [
-          _c("div", { staticClass: "col-6" }, [
-            _vm.login.data.id
-              ? _c("p", { staticClass: "text-left" }, [
+          _vm.login.data.id
+            ? _c("div", { staticClass: "col-6" }, [
+                _c("p", { staticClass: "text-left" }, [
                   _vm._v("Bem vindo " + _vm._s(_vm.login.data.name))
                 ])
-              : _vm._e()
-          ]),
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-6 text-right" },
-            [
-              _c("router-link", { attrs: { to: "/login" } }, [
-                !_vm.login.data.id
-                  ? _c("button", { staticClass: "btn btn-success btn-sm" }, [
+          !_vm.login.data.id
+            ? _c(
+                "div",
+                { staticClass: "col-lg-1 col-6 text-right" },
+                [
+                  _c("router-link", { attrs: { to: "/login" } }, [
+                    _c("button", { staticClass: "btn btn-success btn-sm" }, [
                       _vm._v("Login")
                     ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("router-link", { attrs: { to: "/register" } }, [
-                !_vm.login.data.id
-                  ? _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                  ])
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.login.data.id
+            ? _c(
+                "div",
+                { staticClass: "col-lg-2 col-6 text-right" },
+                [
+                  _c("router-link", { attrs: { to: "/register" } }, [
+                    _c("button", { staticClass: "btn btn-primary btn-sm" }, [
                       _vm._v("Cadastrar")
                     ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _vm.login.data.id
-                ? _c(
-                    "button",
-                    {
-                      staticClass: " btn btn-danger btn-sm",
-                      on: {
-                        click: function($event) {
-                          _vm.sair()
-                        }
-                      }
-                    },
-                    [_vm._v("Sair")]
-                  )
-                : _vm._e()
-            ],
-            1
-          )
+                  ]),
+                  _vm._v(" "),
+                  _vm.login.data.id
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: " btn btn-danger btn-sm",
+                          on: {
+                            click: function($event) {
+                              _vm.sair()
+                            }
+                          }
+                        },
+                        [_vm._v("Sair")]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _vm._m(1),
