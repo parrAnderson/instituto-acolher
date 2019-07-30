@@ -16,6 +16,8 @@ import QuemSomos from './components/QuemSomos'
 
 import Carteirinha from './components/carteirinhas/Carteirinha'
 
+import CarteirinhaFrequentador from './components/carteirinhas/CarteirinhaFrequentador'
+
 
 //login
 import LoginCpf from './components/auth/LoginCpf'
@@ -39,6 +41,8 @@ const routes = [
     {path:'/obreiro', name:'obreiro',  component: Obreiro},
     {path:'/quemsomos', name:'quemsomos',  component: QuemSomos},
     {path:'/cartao/:id', name:'cartao',  component: Carteirinha},
+
+    {path:'/cartaofrequentador/:id', name:'cartaofrequentador',  component: CarteirinhaFrequentador},
     
     // admin
     // {path:'/', name:'home', component: Dashboard},

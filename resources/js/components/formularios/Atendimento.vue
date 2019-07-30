@@ -5,15 +5,15 @@
 
             <!-- Modal grande -->
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header text-center">
-        <h5 class="modal-title text-center" id="exampleModalLabel">ATUALIZE AS INFORMAÇÔES</h5>
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-      </div>
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">ATUALIZE AS INFORMAÇÔES</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
                   <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="fumante" v-model="inputs.fumante" class="form-control" id>
@@ -56,7 +56,7 @@
                     <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
                 </div>                
             </div>
-<br>
+            <br>
             <div class="row justify-content-right">
                 <div class="col-10 text-right">
                         <button @click="agendar()" type="submit" class="btn btn-primary">AGENDAR</button>
@@ -85,9 +85,6 @@
     </div>
   </div>
 </div>
-
-    
-            
      
             <div class="row row-space">
                 <div class="col-12">
@@ -95,22 +92,22 @@
                 </div>
             </div>
             <div class="row row-space justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-12 col-md-8 col-lg-8">
                     <select name="atividade" v-model="inputs.tipo_atendimento" class="form-control" id>
-                <option disable value="" >Indique a atividade de qual pretende receber atendimento *</option>
+                        <option disable value="" >Indique a atividade de qual pretende receber atendimento *</option>
 
-                <option value="Apometria (2as. feiras)">Apometria (2as. feiras)</option>        
-                <option value="Prática do Evangelho (5as. feiras)">Prática do Evangelho (5as. feiras)</option>
-                <!-- <option value="Atendimento Fraterno (5as. feiras)">Atendimento Fraterno (5as. feiras)</option> -->
-                <option value="Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)">Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)</option>
+                        <option value="Apometria (2as. feiras)">Apometria (2as. feiras)</option>        
+                        <option value="Prática do Evangelho (5as. feiras)">Prática do Evangelho (5as. feiras)</option>
+                        <!-- <option value="Atendimento Fraterno (5as. feiras)">Atendimento Fraterno (5as. feiras)</option> -->
+                        <option value="Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)">Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)</option>
 
-              </select>
+                     </select>
                 </div>
             </div>
     
             <input type="hidden" v-model="inputs.user_id">    
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-right">
+                <div class="col-12 col-md-8 col-lg-8 text-right">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">CADASTRAR</button>
 
 
@@ -119,40 +116,36 @@
             </div>
 
             <div class="row justify-content-center row-space">
-              <div class="col-8">
-                <table class="table table table-striped">
-                <tr>
-                  <td>
-                    Tipo de atendimento
-                  </td>
-                  <td>
-                    Data da solicitação
-                  </td>
-                  <td>
-                    Data que será feito
-                  </td>
-                  <td>
-                    Horario que será feito
-                  </td>
-                </tr>
-                <tr v-for="solicitacao in atendimento.solicitacoes">
-                  <td>
-                      {{solicitacao.tipo_atendimento}}
-                  </td>
-                  <td>
-                    {{solicitacao.created_at | date}}
-                  </td>
-                  <td>
-                    {{solicitacao.data_atendimento | date}}
-                  </td>
-                  <td>
-                    {{solicitacao.hora_atendimento}}
-                  </td>
-                </tr>
-              </table>
-              </div>
+              <div class="col-12 col-md-8 col-lg-8">
+                  <div class="row justify-content-center row-space">
+                    <div class="col-4">
+                        Tipo
+                    </div>
+                    <div class="col-4">
+                        Data da solicitação
+                    </div>
+                    <div class="col-4">
+                        Data que será feito
+                    </div>
+                  </div> 
+
+                  <div v-for="solicitacao in atendimento.solicitacoes" :key="solicitacao.id" class="row justify-content-center row-space">
+                    <div class="col-4">
+                        {{solicitacao.tipo_atendimento}}
+                    </div>
+                    <div class="col-4">
+                          {{solicitacao.created_at | date}}
+                    </div>
+                    <div class="col-4">
+                         {{solicitacao.data_atendimento | date}}
+                    </div>
+                  </div> 
+                  
+
+                
+              
             </div>
-    
+    </div>
         </div>
         <Footer></Footer>
     </div>
@@ -183,8 +176,10 @@ export default {
         })
     },
     watch: {
+        login(){
+            this.GetAtendimento(this.login.id);
+    },
         atendimento() {
-
             console.log("bai seu")
         },
 
@@ -229,9 +224,9 @@ export default {
     }
   },
     beforeMount() {
-        if (!this.login.id) {
-            this.$router.push({ name: 'login' });
-        }
+        // if (!this.login.id) {
+        //     this.$router.push({ name: 'login' });
+        // }
         this.inputs.user_id = this.login.id;
 
         this.inputs.tipo_atendimento = ""

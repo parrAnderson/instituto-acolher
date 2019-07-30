@@ -6,9 +6,9 @@
         </div>
             <div class="col-md-10">                
                 <div class="row row-login justify-content-end">
-                    <div class="col-6" v-if="login.data.id">
-                        <p class="text-left" >Bem vindo {{login.data.name}}</p>
-                    </div>
+                    <!-- <div class="col-6" v-if="login.data.id">
+                        <p class="text-left" >Bem vindo: {{login.data.name}}</p>
+                    </div> -->
                     <div class="col-lg-1 col-6 text-right" v-if="!login.data.id">                        
                         <router-link to="/login">
                             <button  class="btn btn-success btn-sm">Login</button>
@@ -106,21 +106,21 @@
 
                                 </div>
                             </li>
-                            <li v-if="login.data.id" class="nav-item">
+                            <!-- <li v-if="login.data.id" class="nav-item">
                                 <router-link to="/obreiro">
                                     <a class="nav-link" href="#">Obreiro</a>
                                 </router-link>
-                            </li>
+                            </li> -->
 
                              <li v-if="login.data.id" class="nav-item">
                                 <router-link to="/atendimento">
-                                    <a class="nav-link" href="#">Solicitação de Atendimento</a>
+                                    <a class="nav-link text-primary" href="#">Solicitação de Atendimento</a>
                                 </router-link>
                             </li>
 
                             <li v-if="login.data.id" class="nav-item">
-                                <router-link :to="{name: 'cartao', params: {id: login.data.id}}">
-                                    <a class="nav-link" href="#">Cartão</a>
+                                <router-link :to="{name: 'cartaofrequentador', params: {id: login.data.id}}">
+                                    <a class="nav-link text-primary" href="#">Carteirinha Frequentador</a>
                                 </router-link>
                             </li> 
 

@@ -4465,14 +4465,6 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
         _c("div", { staticClass: "row row-login justify-content-end" }, [
-          _vm.login.data.id
-            ? _c("div", { staticClass: "col-6" }, [
-                _c("p", { staticClass: "text-left" }, [
-                  _vm._v("Bem vindo " + _vm._s(_vm.login.data.name))
-                ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
           !_vm.login.data.id
             ? _c(
                 "div",
@@ -4758,27 +4750,13 @@ var render = function() {
                         "li",
                         { staticClass: "nav-item" },
                         [
-                          _c("router-link", { attrs: { to: "/obreiro" } }, [
-                            _c(
-                              "a",
-                              { staticClass: "nav-link", attrs: { href: "#" } },
-                              [_vm._v("Obreiro")]
-                            )
-                          ])
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.login.data.id
-                    ? _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
                           _c("router-link", { attrs: { to: "/atendimento" } }, [
                             _c(
                               "a",
-                              { staticClass: "nav-link", attrs: { href: "#" } },
+                              {
+                                staticClass: "nav-link text-primary",
+                                attrs: { href: "#" }
+                              },
                               [_vm._v("Solicitação de Atendimento")]
                             )
                           ])
@@ -4797,7 +4775,7 @@ var render = function() {
                             {
                               attrs: {
                                 to: {
-                                  name: "cartao",
+                                  name: "cartaofrequentador",
                                   params: { id: _vm.login.data.id }
                                 }
                               }
@@ -4806,10 +4784,10 @@ var render = function() {
                               _c(
                                 "a",
                                 {
-                                  staticClass: "nav-link",
+                                  staticClass: "nav-link text-primary",
                                   attrs: { href: "#" }
                                 },
-                                [_vm._v("Cartão")]
+                                [_vm._v("Carteirinha Frequentador")]
                               )
                             ]
                           )

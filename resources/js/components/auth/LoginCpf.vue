@@ -5,7 +5,7 @@
     <div class="container-fluid">
 
       <div class="row justify-content-center row-space-form">
-        <div class="col-12 col-lg-8 col-md-8">
+        <div class="col-12 col-lg-6 col-md-6">
            <div class="panel text-center">
    <h2>Login Acolher</h2>
  </div>
@@ -14,10 +14,10 @@
 
 
        <div class="row justify-content-center row-space-form">
-          <div class="col-12">
+          <div class="col-12 col-lg-8 col-md-8">
                 <input type="email" required v-model="inputs.email" class="form-control" id="inputEmail" placeholder="E-mail">
           </div>
-          <div class="col-12">
+          <div class="col-12 col-lg-8 col-md-8">
               <input type="password" required autocomplete="off" v-model="inputs.password" class="form-control" id="inputPassword" placeholder="Senha">
 
 
