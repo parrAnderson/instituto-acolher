@@ -22,6 +22,7 @@
                             <option selected value="" > Gênero *</option>
                             <option>Masculino</option>
                             <option>Feminino</option>
+                            <option>Prefiro não indicar</option>
                             <option>Outros</option>
                           </select> 
                 </div>
@@ -46,12 +47,10 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-8">
                     <input type="text" v-model="inputs.email" class="form-control" placeholder="Email *">
                 </div>
-                <div class="col-12 col-lg-4">
-                    <input type="password" v-model="inputs.password" class="form-control" placeholder="Senha *">
-                </div>
+               
             </div>
     
             <div class="row justify-content-center row-space-form">
@@ -61,7 +60,8 @@
                              <option value="Solteiro(a)">Solteiro(a)</option>                    
                             <option value="Casado(a)">Casado(a)</option>                      
                             <option>União Estável</option>                      
-                            <option >Separado(a) / Divorciado(a)</option>                      
+                            <option >Separado(a)</option>  
+                            <option>Divorciado(a)</option>                    
                             <option>Viúvo</option>                      
                             <option>Outros</option>
                           </select>
@@ -76,6 +76,7 @@
                             <option>Budista</option>            
                             <option>Judaica</option>            
                             <option>Candomblé</option>
+                            <option>Prefiro não indicar</option>
                             <option>Outro</option>
                           </select>
                 </div>
@@ -163,12 +164,7 @@
                 </div>
             </div>
     
-            <div class="row justify-content-center row-space-form">
-                <div class="col-12 col-lg-8">
-                    <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
-                </div>
-            </div>
-    
+           
             <div class="row justify-content-center row-space-form">
                 <div class="col-12 col-lg-4">
                     <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
@@ -177,22 +173,42 @@
                     <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui"></textarea>
                 </div>
             </div>
+
+             <div class="row justify-content-center row-space-form">
+                <div class="col-12 col-lg-8">
+                    <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
+                </div>
+            </div>
+    
+
             <div class="row justify-content-center row-space-form">
                 <div class="col-12 col-lg-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
+                
+                
                 <div class="col-12 col-lg-8">
                     <div class="card">
                         <div class="container">
                             <div class="row row-space-form">
                                 <div class="col-12 col-lg-6">
                                     <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.kardecista" class="form-check-input" name="kardecista" id="kardecista">
-                                        <label class="form-check-label" for="kardecista">Kardecista / Espírita?</label>
+                                        
+                                        <select v-model="inputs.kardecista" class="form-control">
+                                            <option value>Kardecista / Espírita?</option>
+                                            <option>Nunca</option>
+                                            <option>Apenas uma vez</option>
+                                            <option>Regularmente</option>
+                                        </select>
+
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.casa_apometria" class="form-check-input" id="casa_apometria" name="casa_apometria">
-                                        <label class="form-check-label" for="casa_apometria">Casa de Apômetra?</label>
+                                    <div class="form-check">                                        
+                                        <select v-model="inputs.casa_apometria" class="form-control">
+                                            <option value>Casa Apômetra?</option>
+                                            <option>Nunca</option>
+                                            <option>Apenas uma vez</option>
+                                            <option>Regularmente</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -201,8 +217,12 @@
                             <div class="row row-space-form">
                                 <div class="col-12 col-lg-6">
                                     <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.casa_umbandista" class="form-check-input" id="casa_umbandista" name="casa_umbandista">
-                                        <label class="form-check-label" for="casa_umbandista">Casa Umbandista?</label>
+                                         <select v-model="inputs.casa_umbandista" class="form-control">
+                                            <option value>Casa Umbandista?</option>
+                                            <option>Nunca</option>
+                                            <option>Apenas uma vez</option>
+                                            <option>Regularmente</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -217,15 +237,25 @@
                         <div class="container">
                             <div class="row row-space-form">
                                 <div class="col-12 col-lg-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.doutrina_kardecista" class="form-check-input" id="doutrina_kardecista" name="doutrina_kardecista">
-                                        <label class="form-check-label" for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
+                                    <div class="form-check">                                       
+                                        <select v-model="inputs.doutrina_kardecista" class="form-control">
+                                            <option value>Doutrina Kardecista / Espírita?</option>
+                                            <option>Sim, superficial</option>
+                                            <option>Sim, considerável</option>
+                                            <option>Sim, profundo</option>
+                                            <option>Não</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.principios_umbanda" class="form-check-input" id="principios_umbanda" name="principios_umbanda">
-                                        <label class="form-check-label" for="principios_umbanda">Principios da Umbanda?</label>
+                                    <div class="form-check">                                       
+                                        <select v-model="inputs.principios_umbanda" class="form-control">
+                                            <option value>Principios da Umbanda?</option>
+                                            <option>Sim, superficial</option>
+                                            <option>Sim, considerável</option>
+                                            <option>Sim, profundo</option>
+                                            <option>Não</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -234,8 +264,13 @@
                             <div class="row row-space-form">
                                 <div class="col-12 col-lg-6">
                                     <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.apometria_codificada" class="form-check-input" id="apometria_codificada" name="apometria_codificada">
-                                        <label class="form-check-label" for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
+                                        <select v-model="inputs.apometria_codificada" class="form-control">
+                                            <option value>Apometria codificada pelo Dr. Lacerda?</option>
+                                            <option>Sim, superficial</option>
+                                            <option>Sim, considerável</option>
+                                            <option>Sim, profundo</option>
+                                            <option>Não</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -357,6 +392,21 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row justify-content-center row-space-form">
+                <div class="col-12 col-lg-8 text-center text-primary">Digite a senha para acesso ao site acolher</div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-12 col-lg-4">
+                    <input type="password" v-model="inputs.password" class="form-control" placeholder="Senha *">
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <input type="password" v-model="confirmarPassword" class="form-control" placeholder="Confirme a senha *">
+                </div>
+            </div> 
+
+            
     
     
             <div class="row justify-content-center row-space-form">
@@ -378,12 +428,18 @@
             </div>
             <div v-if="!validarCpf" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
-                    CPF INCORRETO
+                    CPF Incorreto
                 </div>
+            </div>
+
+            <div class="row justify-content-center" v-if="!senhasIguais">
+                 <div class="alert alert-danger" role="alert">
+                    Você digitou senhas diferentes, por favor digite novamente.
+                </div>                
             </div>
             <!-- <div v-if="required == false" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
-                    Por favor! Preencha todos os campos obrigatórios *
+                    Por favor, preencha todos os campos obrigatórios *
                 </div>
             </div> -->
             <div v-if="erros" class="row justify-content-center row-space-form">
@@ -438,9 +494,18 @@ export default {
             selectReligiao: "",
             textReligiao: "",
             erros: false,
+            confirmarPassword: "",
+            senhasIguais: true,
         }
     },
     methods: {
+        validarSenha(){
+             if((this.confirmarPassword > '') && (this.confirmarPassword !== this.inputs.password)){
+                 this.senhasIguais = false
+             }else if((this.confirmarPassword > '') && (this.confirmarPassword == this.inputs.password)){
+                  this.senhasIguais = true
+             }
+        },
         emailCadastro(){
             this.EmailCadastroConcluido()
         },
@@ -487,6 +552,7 @@ export default {
             console.log(this.inputs.genero)
         },
         checkRequired() {
+             this.validarSenha()
             if (this.inputs.cpf) {
                 this.validarCpf = validarCpf(this.inputs.cpf);
             } else {
@@ -501,8 +567,8 @@ export default {
         },
         registrar() {
             this.checkRequired()
-
-            if (this.required) {
+                // tem que ser false na senha porque quando é true ele exibe a mensagem 
+            if (this.required && this.senhasIguais === true) {
                 this.Register(this.inputs)
                 // console.log(this.inputs)               
             } else {
@@ -521,7 +587,7 @@ export default {
                         parseInt(nascimento[0], 10));
 
             var diferenca = Date.now() -  dataNascimento.getTime();
-            var calIdade = new Date(diferenca); // miliseconds from epoch
+            var calIdade = new Date(diferenca); 
             var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
 
             if(idade < 18){
@@ -602,8 +668,14 @@ export default {
 
         this.selectInputs()
         this.inputs.estado_civil = ''
+
+        this.inputs.casa_umbandista = ''
+        this.inputs.casa_apometria = ''
+        this.inputs.doutrina_kardecista = ''
    
-        
+        this.inputs.apometria_codificada = ''
+        this.inputs.principios_umbanda = ''
+        this.inputs.kardecista = ''
         this.inputs.fumante = ''
         this.inputs.bebida = ''
         this.inputs.drogas = ''

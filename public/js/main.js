@@ -3516,6 +3516,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3542,10 +3598,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       textGenero: "",
       selectReligiao: "",
       textReligiao: "",
-      erros: false
+      erros: false,
+      confirmarPassword: "",
+      senhasIguais: true
     };
   },
   methods: _objectSpread({
+    validarSenha: function validarSenha() {
+      if (this.confirmarPassword > '' && this.confirmarPassword !== this.inputs.password) {
+        this.senhasIguais = false;
+      } else if (this.confirmarPassword > '' && this.confirmarPassword == this.inputs.password) {
+        this.senhasIguais = true;
+      }
+    },
     emailCadastro: function emailCadastro() {
       this.EmailCadastroConcluido();
     },
@@ -3583,6 +3648,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log(this.inputs.genero);
     },
     checkRequired: function checkRequired() {
+      this.validarSenha();
+
       if (this.inputs.cpf) {
         this.validarCpf = validar_cpf__WEBPACK_IMPORTED_MODULE_6___default()(this.inputs.cpf);
       } else {
@@ -3597,9 +3664,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     registrar: function registrar() {
-      this.checkRequired();
+      this.checkRequired(); // tem que ser false na senha porque quando é true ele exibe a mensagem 
 
-      if (this.required) {
+      if (this.required && this.senhasIguais === true) {
         this.Register(this.inputs); // console.log(this.inputs)               
       } else {
         console.log("não registrado, com erros");
@@ -3611,8 +3678,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           var nascimento = this.inputs.data_nascimento.split("/");
           var dataNascimento = new Date(parseInt(nascimento[2], 10), parseInt(nascimento[1], 10) - 1, parseInt(nascimento[0], 10));
           var diferenca = Date.now() - dataNascimento.getTime();
-          var calIdade = new Date(diferenca); // miliseconds from epoch
-
+          var calIdade = new Date(diferenca);
           var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
 
           if (idade < 18) {
@@ -3677,6 +3743,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.inputs.religiao = this.selectReligiao;
     this.selectInputs();
     this.inputs.estado_civil = '';
+    this.inputs.casa_umbandista = '';
+    this.inputs.casa_apometria = '';
+    this.inputs.doutrina_kardecista = '';
+    this.inputs.apometria_codificada = '';
+    this.inputs.principios_umbanda = '';
+    this.inputs.kardecista = '';
     this.inputs.fumante = '';
     this.inputs.bebida = '';
     this.inputs.drogas = '';
@@ -38825,6 +38897,8 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", [_vm._v("Feminino")]),
                           _vm._v(" "),
+                          _c("option", [_vm._v("Prefiro não indicar")]),
+                          _vm._v(" "),
                           _c("option", [_vm._v("Outros")])
                         ]
                       )
@@ -38996,7 +39070,7 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c("input", {
                 directives: [
                   {
@@ -39015,30 +39089,6 @@ var render = function() {
                       return
                     }
                     _vm.$set(_vm.inputs, "email", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.password,
-                    expression: "inputs.password"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "password", placeholder: "Senha *" },
-                domProps: { value: _vm.inputs.password },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "password", $event.target.value)
                   }
                 }
               })
@@ -39099,7 +39149,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("option", [_vm._v("União Estável")]),
                   _vm._v(" "),
-                  _c("option", [_vm._v("Separado(a) / Divorciado(a)")]),
+                  _c("option", [_vm._v("Separado(a)")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Divorciado(a)")]),
                   _vm._v(" "),
                   _c("option", [_vm._v("Viúvo")]),
                   _vm._v(" "),
@@ -39161,6 +39213,8 @@ var render = function() {
                       _c("option", [_vm._v("Judaica")]),
                       _vm._v(" "),
                       _c("option", [_vm._v("Candomblé")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Prefiro não indicar")]),
                       _vm._v(" "),
                       _c("option", [_vm._v("Outro")])
                     ]
@@ -39662,40 +39716,6 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-12 col-lg-8" }, [
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.recorrer,
-                    expression: "inputs.recorrer"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  rows: "3",
-                  placeholder:
-                    "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
-                },
-                domProps: { value: _vm.inputs.recorrer },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "recorrer", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
             _c("div", { staticClass: "col-12 col-lg-4" }, [
               _c("textarea", {
                 directives: [
@@ -39756,6 +39776,40 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
+            _c("div", { staticClass: "col-12 col-lg-8" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputs.recorrer,
+                    expression: "inputs.recorrer"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  rows: "3",
+                  placeholder:
+                    "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
+                },
+                domProps: { value: _vm.inputs.recorrer },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.inputs, "recorrer", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
             _c(
               "div",
               { staticClass: "col-12 col-lg-8 text-center text-primary" },
@@ -39768,130 +39822,98 @@ var render = function() {
                   _c("div", { staticClass: "row row-space-form" }, [
                     _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.inputs.kardecista,
-                              expression: "inputs.kardecista"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            name: "kardecista",
-                            id: "kardecista"
-                          },
-                          domProps: {
-                            checked: Array.isArray(_vm.inputs.kardecista)
-                              ? _vm._i(_vm.inputs.kardecista, null) > -1
-                              : _vm.inputs.kardecista
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.inputs.kardecista,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "kardecista",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "kardecista",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.inputs, "kardecista", $$c)
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.inputs.kardecista,
+                                expression: "inputs.kardecista"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.inputs,
+                                  "kardecista",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
                               }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "kardecista" }
                           },
-                          [_vm._v("Kardecista / Espírita?")]
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Kardecista / Espírita?")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Nunca")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Apenas uma vez")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Regularmente")])
+                          ]
                         )
                       ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.inputs.casa_apometria,
-                              expression: "inputs.casa_apometria"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "casa_apometria",
-                            name: "casa_apometria"
-                          },
-                          domProps: {
-                            checked: Array.isArray(_vm.inputs.casa_apometria)
-                              ? _vm._i(_vm.inputs.casa_apometria, null) > -1
-                              : _vm.inputs.casa_apometria
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.inputs.casa_apometria,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "casa_apometria",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "casa_apometria",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.inputs, "casa_apometria", $$c)
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.inputs.casa_apometria,
+                                expression: "inputs.casa_apometria"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.inputs,
+                                  "casa_apometria",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
                               }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "casa_apometria" }
                           },
-                          [_vm._v("Casa de Apômetra?")]
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Casa Apômetra?")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Nunca")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Apenas uma vez")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Regularmente")])
+                          ]
                         )
                       ])
                     ])
@@ -39902,65 +39924,49 @@ var render = function() {
                   _c("div", { staticClass: "row row-space-form" }, [
                     _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.inputs.casa_umbandista,
-                              expression: "inputs.casa_umbandista"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "casa_umbandista",
-                            name: "casa_umbandista"
-                          },
-                          domProps: {
-                            checked: Array.isArray(_vm.inputs.casa_umbandista)
-                              ? _vm._i(_vm.inputs.casa_umbandista, null) > -1
-                              : _vm.inputs.casa_umbandista
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.inputs.casa_umbandista,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "casa_umbandista",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "casa_umbandista",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.inputs, "casa_umbandista", $$c)
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.inputs.casa_umbandista,
+                                expression: "inputs.casa_umbandista"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.inputs,
+                                  "casa_umbandista",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
                               }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "casa_umbandista" }
                           },
-                          [_vm._v("Casa Umbandista?")]
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Casa Umbandista?")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Nunca")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Apenas uma vez")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Regularmente")])
+                          ]
                         )
                       ])
                     ])
@@ -39987,135 +39993,102 @@ var render = function() {
                   _c("div", { staticClass: "row row-space-form" }, [
                     _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.inputs.doutrina_kardecista,
-                              expression: "inputs.doutrina_kardecista"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "doutrina_kardecista",
-                            name: "doutrina_kardecista"
-                          },
-                          domProps: {
-                            checked: Array.isArray(
-                              _vm.inputs.doutrina_kardecista
-                            )
-                              ? _vm._i(_vm.inputs.doutrina_kardecista, null) >
-                                -1
-                              : _vm.inputs.doutrina_kardecista
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.inputs.doutrina_kardecista,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "doutrina_kardecista",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "doutrina_kardecista",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.inputs, "doutrina_kardecista", $$c)
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.inputs.doutrina_kardecista,
+                                expression: "inputs.doutrina_kardecista"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.inputs,
+                                  "doutrina_kardecista",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
                               }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "doutrina_kardecista" }
                           },
-                          [_vm._v("Doutrina Kardecista / Espírita?")]
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Doutrina Kardecista / Espírita?")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, superficial")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, considerável")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, profundo")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Não")])
+                          ]
                         )
                       ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.inputs.principios_umbanda,
-                              expression: "inputs.principios_umbanda"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "principios_umbanda",
-                            name: "principios_umbanda"
-                          },
-                          domProps: {
-                            checked: Array.isArray(
-                              _vm.inputs.principios_umbanda
-                            )
-                              ? _vm._i(_vm.inputs.principios_umbanda, null) > -1
-                              : _vm.inputs.principios_umbanda
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.inputs.principios_umbanda,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "principios_umbanda",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "principios_umbanda",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.inputs, "principios_umbanda", $$c)
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.inputs.principios_umbanda,
+                                expression: "inputs.principios_umbanda"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.inputs,
+                                  "principios_umbanda",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
                               }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "principios_umbanda" }
                           },
-                          [_vm._v("Principios da Umbanda?")]
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Principios da Umbanda?")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, superficial")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, considerável")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, profundo")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Não")])
+                          ]
                         )
                       ])
                     ])
@@ -40126,72 +40099,51 @@ var render = function() {
                   _c("div", { staticClass: "row row-space-form" }, [
                     _c("div", { staticClass: "col-12 col-lg-6" }, [
                       _c("div", { staticClass: "form-check" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.inputs.apometria_codificada,
-                              expression: "inputs.apometria_codificada"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "apometria_codificada",
-                            name: "apometria_codificada"
-                          },
-                          domProps: {
-                            checked: Array.isArray(
-                              _vm.inputs.apometria_codificada
-                            )
-                              ? _vm._i(_vm.inputs.apometria_codificada, null) >
-                                -1
-                              : _vm.inputs.apometria_codificada
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.inputs.apometria_codificada,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "apometria_codificada",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.inputs,
-                                      "apometria_codificada",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.inputs.apometria_codificada,
+                                expression: "inputs.apometria_codificada"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
                                 _vm.$set(
                                   _vm.inputs,
                                   "apometria_codificada",
-                                  $$c
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
                                 )
                               }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "apometria_codificada" }
                           },
-                          [_vm._v("Apometria codificada pelo Dr. Lacerda?")]
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Apometria codificada pelo Dr. Lacerda?")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, superficial")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, considerável")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Sim, profundo")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Não")])
+                          ]
                         )
                       ])
                     ])
@@ -40929,6 +40881,62 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputs.password,
+                    expression: "inputs.password"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "password", placeholder: "Senha *" },
+                domProps: { value: _vm.inputs.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.inputs, "password", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-lg-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.confirmarPassword,
+                    expression: "confirmarPassword"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "password", placeholder: "Confirme a senha *" },
+                domProps: { value: _vm.confirmarPassword },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.confirmarPassword = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row justify-content-center row-space-form" },
+          [
             _c("div", { staticClass: "col-12 col-lg-8" }, [
               _c(
                 "button",
@@ -40958,10 +40966,24 @@ var render = function() {
                     staticClass: "alert alert-danger",
                     attrs: { role: "alert" }
                   },
-                  [_vm._v("\n                CPF INCORRETO\n            ")]
+                  [_vm._v("\n                CPF Incorreto\n            ")]
                 )
               ]
             )
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.senhasIguais
+          ? _c("div", { staticClass: "row justify-content-center" }, [
+              _c(
+                "div",
+                { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+                [
+                  _vm._v(
+                    "\n                Você digitou senhas diferentes, por favor digite novamente.\n            "
+                  )
+                ]
+              )
+            ])
           : _vm._e(),
         _vm._v(" "),
         _vm.erros
@@ -41011,6 +41033,20 @@ var staticRenderFns = [
         _c("h4", { staticClass: "text-center" }, [_vm._v("Cadastro ")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center row-space-form" },
+      [
+        _c("div", { staticClass: "col-12 col-lg-8 text-center text-primary" }, [
+          _vm._v("Digite a senha para acesso ao site acolher")
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
