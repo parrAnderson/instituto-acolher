@@ -3572,6 +3572,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3600,10 +3611,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       textReligiao: "",
       erros: false,
       confirmarPassword: "",
-      senhasIguais: true
+      senhasIguais: true,
+      responsavelValidado: true
     };
   },
   methods: _objectSpread({
+    ValidarResponsavel: function ValidarResponsavel() {
+      console.log('validando o responsavel');
+
+      if (this.menor) {
+        if (this.inputs.nome_responsavel && this.inputs.rg_responsavel && this.inputs.celular_responsavel && this.inputs.email_responsavel) {
+          this.responsavelValidado = true;
+        } else {
+          this.responsavelValidado = false;
+        }
+      } else {
+        this.responsavelValidado = true;
+      }
+
+      console.log(this.responsavelValidado);
+    },
     validarSenha: function validarSenha() {
       if (this.confirmarPassword > '' && this.confirmarPassword !== this.inputs.password) {
         this.senhasIguais = false;
@@ -3648,6 +3675,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log(this.inputs.genero);
     },
     checkRequired: function checkRequired() {
+      this.ValidarResponsavel();
       this.validarSenha();
 
       if (this.inputs.cpf) {
@@ -3664,9 +3692,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     registrar: function registrar() {
-      this.checkRequired(); // tem que ser false na senha porque quando é true ele exibe a mensagem 
+      this.checkRequired();
 
-      if (this.required && this.senhasIguais === true) {
+      if (this.required && this.senhasIguais === true && this.responsavelValidado === true) {
         this.Register(this.inputs); // console.log(this.inputs)               
       } else {
         console.log("não registrado, com erros");
@@ -40707,6 +40735,12 @@ var render = function() {
                           rawName: "v-model",
                           value: _vm.inputs.cpf_responsavel,
                           expression: "inputs.cpf_responsavel"
+                        },
+                        {
+                          name: "mask",
+                          rawName: "v-mask",
+                          value: "###.###.###.##",
+                          expression: "'###.###.###.##'"
                         }
                       ],
                       staticClass: "form-control",
@@ -40739,6 +40773,12 @@ var render = function() {
                           rawName: "v-model",
                           value: _vm.inputs.rg_responsavel,
                           expression: "inputs.rg_responsavel"
+                        },
+                        {
+                          name: "mask",
+                          rawName: "v-mask",
+                          value: "##.###.###-#",
+                          expression: "'##.###.###-#'"
                         }
                       ],
                       staticClass: "form-control",
@@ -40777,6 +40817,12 @@ var render = function() {
                           rawName: "v-model",
                           value: _vm.inputs.telefone_responsavel,
                           expression: "inputs.telefone_responsavel"
+                        },
+                        {
+                          name: "mask",
+                          rawName: "v-mask",
+                          value: "(##) ####-####",
+                          expression: "'(##) ####-####'"
                         }
                       ],
                       staticClass: "form-control",
@@ -40809,6 +40855,12 @@ var render = function() {
                           rawName: "v-model",
                           value: _vm.inputs.celular_responsavel,
                           expression: "inputs.celular_responsavel"
+                        },
+                        {
+                          name: "mask",
+                          rawName: "v-mask",
+                          value: "(##) #####-####",
+                          expression: "'(##) #####-####'"
                         }
                       ],
                       staticClass: "form-control",
@@ -40980,6 +41032,20 @@ var render = function() {
                 [
                   _vm._v(
                     "\n                Você digitou senhas diferentes, por favor digite novamente.\n            "
+                  )
+                ]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        this.menor && _vm.responsavelValidado === false
+          ? _c("div", { staticClass: "row justify-content-center" }, [
+              _c(
+                "div",
+                { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+                [
+                  _vm._v(
+                    "\n                Por favor preencha o cadastro com as informações do responsavel.\n            "
                   )
                 ]
               )

@@ -369,19 +369,19 @@
 
                 <div class="row justify-content-center row-space-form">
                     <div class="col-12 col-lg-4">
-                        <input type="text" v-model="inputs.cpf_responsavel" placeholder="CPF do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
+                        <input type="text" v-model="inputs.cpf_responsavel" v-mask="'###.###.###.##'" placeholder="CPF do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
                     </div>
                     <div class="col-12 col-lg-4">
-                        <input type="text" v-model="inputs.rg_responsavel" placeholder="RG do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
+                        <input type="text" v-model="inputs.rg_responsavel" v-mask="'##.###.###-#'" placeholder="RG do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
                     </div>
                 </div>
 
                 <div class="row justify-content-center row-space-form">
                     <div class="col-12 col-lg-4">
-                        <input type="text" v-model="inputs.telefone_responsavel" placeholder="Telefone Fixo do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
+                        <input type="text" v-model="inputs.telefone_responsavel" v-mask="'(##) ####-####'" placeholder="Telefone Fixo do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
                     </div>
                     <div class="col-12 col-lg-4">
-                        <input type="text" v-model="inputs.celular_responsavel" placeholder="Telefone Celular do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
+                        <input type="text" v-model="inputs.celular_responsavel" v-mask="'(##) #####-####'" placeholder="Telefone Celular do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
                     </div>
                 </div>
 
@@ -437,6 +437,17 @@
                     Você digitou senhas diferentes, por favor digite novamente.
                 </div>                
             </div>
+
+             <div class="row justify-content-center" v-if="this.menor && responsavelValidado === false">
+                 <div class="alert alert-danger" role="alert">
+                    Por favor preencha o cadastro com as informações do responsavel.
+                </div>                
+            </div>
+
+
+
+            
+            
             <!-- <div v-if="required == false" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
                     Por favor, preencha todos os campos obrigatórios *
@@ -496,9 +507,24 @@ export default {
             erros: false,
             confirmarPassword: "",
             senhasIguais: true,
+            responsavelValidado: true,
         }
     },
     methods: {
+        ValidarResponsavel(){
+            console.log('validando o responsavel')
+            if(this.menor){
+                if(this.inputs.nome_responsavel && this.inputs.rg_responsavel && this.inputs.celular_responsavel && this.inputs.email_responsavel){
+                    this.responsavelValidado = true
+                }else{
+                    this.responsavelValidado = false
+                }
+            }else{
+                this.responsavelValidado = true
+            }
+
+            console.log(this.responsavelValidado)
+        },
         validarSenha(){
              if((this.confirmarPassword > '') && (this.confirmarPassword !== this.inputs.password)){
                  this.senhasIguais = false
@@ -552,6 +578,10 @@ export default {
             console.log(this.inputs.genero)
         },
         checkRequired() {
+            
+            this.ValidarResponsavel()         
+
+
              this.validarSenha()
             if (this.inputs.cpf) {
                 this.validarCpf = validarCpf(this.inputs.cpf);
@@ -566,9 +596,11 @@ export default {
             }
         },
         registrar() {
+
             this.checkRequired()
-                // tem que ser false na senha porque quando é true ele exibe a mensagem 
-            if (this.required && this.senhasIguais === true) {
+               
+
+            if (this.required && this.senhasIguais === true && this.responsavelValidado === true) {
                 this.Register(this.inputs)
                 // console.log(this.inputs)               
             } else {
