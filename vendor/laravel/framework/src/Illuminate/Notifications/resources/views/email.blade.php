@@ -28,6 +28,7 @@
             $color = 'primary';
     }
 ?>
+<!-- @component('mail::button', ['url' => $actionUrl, 'color' => $color]) -->
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])
 {{ $actionText }}
 @endcomponent
@@ -43,7 +44,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>{{ config('app.name') }}
+@lang('Atenciosamente'),<br> Acolher
 @endif
 
 {{-- Subcopy --}}

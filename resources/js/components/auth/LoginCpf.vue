@@ -26,8 +26,11 @@
           
       </div>
 
-<div class="row row-space-form">
-  <div class="col-12 ">
+<div class="row row-space-form justify-content-center">
+  <div class="col-12 col-lg-8 col-md-8">
+            <a href="/../acolher/public/password/reset">
+      Esqueceu a senha
+    </a>
             <button @click.prevent.stop="logar()" type="submit" class="btn btn-primary text-right float-right">Login</button>
            <h6 v-if="this.loginMessage" class="text-danger text-center">{{this.loginMessage}}</h6>
           </div>

@@ -10,15 +10,25 @@
                 </div>
             </div>
             <br>
+
+    
     
     
             <div class="row row-space">
                 <div class="col-12">
-                    <h2 class="text-center">Atividades de Atendimento</h2>
+                    <h2 class="text-center">Atendimentos do Intituto <span class="font-weight-bold text-primary">Acolher</span></h2>
+                    <!-- <h2 class="text-center">Atividades de Atendimento</h2> -->
                 </div>
             </div>
+
+                    <div class="row justify-content-md-center">
+    <div class="col-12 col-md-8 col-lg-8">
+        <img class="img-fluid" src="/../../acolher/public/img/home/horarios.png" alt="">
+    </div>
+</div>
+
     
-            <div class="row row-space justify-content-center text-center">
+            <!-- <div class="row row-space justify-content-center text-center">
                 <div class="col-12">
                     * Apometria (2as. feiras)
                 </div>   
@@ -29,7 +39,7 @@
                    * Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)
                 </div>
                 
-            </div>
+            </div> -->
     
             <div class="row row-space text-center">
                 <div class="col-12">
@@ -39,20 +49,28 @@
                 </div>
             </div>
             <div class="row text-center justify-content-center">
-                <div class="col-12 col-lg-5 col-md-5 col-5">
+                <div class="col-12 col-lg-5 col-md-5 col-5" v-if="!login.data.id">
                     (Ainda não possuo cadastro)<br>
                     <router-link to="/register">
                         <button class="btn btn-primary btn-sm">Cadastrar</button>
                     </router-link>
                 </div>
-                <div class="col-12 col-lg-5 col-md-5 col-5">
+                <div class="col-12 col-lg-5 col-md-5 col-5" v-if="!login.data.id">
                     (Já possuo cadastro)<br>
                     <router-link to="/login">
                         <button class="btn btn-success btn-sm">Login</button>
                     </router-link>
                 </div>
+
+                <div class="col-12 col-lg-5 col-md-5 col-5" v-if="login.data.id">
+                    <br>
+                    <router-link to="/atendimento">
+                        <button class="btn btn-primary btn-sm">Solicitar Atendimento</button>
+                    </router-link>
+                </div>
+                
             </div>
-    
+    <br>
         </div>
         <Footer></Footer>
     
@@ -60,6 +78,10 @@
 </template>
 
 <script>
+import {
+    mapState,
+    mapActions
+} from 'vuex'
 import NavHeader from './layouts/NavHeader'
 import Footer from './layouts/Footer'
 export default {
@@ -68,6 +90,23 @@ export default {
         NavHeader,
         Footer,
     },
+    computed: {
+        ...mapState({
+            login: state => state.Login,
+        }),
+    },
+    watch:{
+        login(){
+            this.login = this.login
+            console.log("mudou") 
+        }
+    },
+    methods: {
+        ...mapActions([
+            'Logout',  
+            'SetLocalStorage',        
+        ]),           
+    }
 }
 </script>
 

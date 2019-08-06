@@ -30,6 +30,7 @@ class emailDataAtendimentoController extends Controller
            
 
             Mail::send('emails.dataatendimento', $dados, function($message){
+                $message->from('contato@acolher.org', 'Acolher');
                 $message->to($this->email);
                 $message->subject('E-mail enviado pelo site da Acolher');
             });

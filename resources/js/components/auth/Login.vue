@@ -28,6 +28,7 @@
         <div class="forgot">
     
 </div>
+
         <button @click.prevent.stop="logar()" type="submit" class="btn btn-primary">Login</button>
 
     </form>
@@ -63,6 +64,9 @@ export default {
         ...mapActions([
             'Logon',          
         ]),
+        passwordReset(){
+          password/reset
+        },
         logar(){
           this.Logon(this.inputs)
           this.$router.push({ name: 'formularios/atendimentoadulto' });

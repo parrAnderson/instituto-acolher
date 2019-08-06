@@ -300,8 +300,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
-/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
+/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -363,14 +368,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   components: {
-    NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
+    NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+    login: function login(state) {
+      return state.Login;
+    }
+  })),
+  watch: {
+    login: function login() {
+      this.login = this.login;
+      console.log("mudou");
+    }
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout', 'SetLocalStorage']))
 });
 
 /***/ }),
@@ -2720,38 +2756,61 @@ var render = function() {
         _vm._m(3),
         _vm._v(" "),
         _c("div", { staticClass: "row text-center justify-content-center" }, [
-          _c(
-            "div",
-            { staticClass: "col-12 col-lg-5 col-md-5 col-5" },
-            [
-              _vm._v("\n                (Ainda não possuo cadastro)"),
-              _c("br"),
-              _vm._v(" "),
-              _c("router-link", { attrs: { to: "/register" } }, [
-                _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-                  _vm._v("Cadastrar")
-                ])
-              ])
-            ],
-            1
-          ),
+          !_vm.login.data.id
+            ? _c(
+                "div",
+                { staticClass: "col-12 col-lg-5 col-md-5 col-5" },
+                [
+                  _vm._v("\n                    (Ainda não possuo cadastro)"),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("router-link", { attrs: { to: "/register" } }, [
+                    _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                      _vm._v("Cadastrar")
+                    ])
+                  ])
+                ],
+                1
+              )
+            : _vm._e(),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-12 col-lg-5 col-md-5 col-5" },
-            [
-              _vm._v("\n                (Já possuo cadastro)"),
-              _c("br"),
-              _vm._v(" "),
-              _c("router-link", { attrs: { to: "/login" } }, [
-                _c("button", { staticClass: "btn btn-success btn-sm" }, [
-                  _vm._v("Login")
-                ])
-              ])
-            ],
-            1
-          )
-        ])
+          !_vm.login.data.id
+            ? _c(
+                "div",
+                { staticClass: "col-12 col-lg-5 col-md-5 col-5" },
+                [
+                  _vm._v("\n                    (Já possuo cadastro)"),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("router-link", { attrs: { to: "/login" } }, [
+                    _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                      _vm._v("Login")
+                    ])
+                  ])
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.login.data.id
+            ? _c(
+                "div",
+                { staticClass: "col-12 col-lg-5 col-md-5 col-5" },
+                [
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("router-link", { attrs: { to: "/atendimento" } }, [
+                    _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                      _vm._v("Solicitar Atendimento")
+                    ])
+                  ])
+                ],
+                1
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("br")
       ]),
       _vm._v(" "),
       _c("Footer")
@@ -2780,7 +2839,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("h2", { staticClass: "text-center" }, [
-          _vm._v("Atividades de Atendimento")
+          _vm._v("Atendimentos do Intituto "),
+          _c("span", { staticClass: "font-weight-bold text-primary" }, [
+            _vm._v("Acolher")
+          ])
         ])
       ])
     ])
@@ -2789,27 +2851,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row row-space justify-content-center text-center" },
-      [
-        _c("div", { staticClass: "col-12" }, [
-          _vm._v("\n                * Apometria (2as. feiras)\n            ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12" }, [
-          _vm._v(
-            "\n                * Prática do Evangelho (5as. feiras)\n            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12" }, [
-          _vm._v(
-            "\n               * Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)\n            "
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "col-12 col-md-8 col-lg-8" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/../../acolher/public/img/home/horarios.png", alt: "" }
+        })
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -2819,7 +2868,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-12" }, [
         _c("p", [
           _vm._v(
-            "\n                    A solicitação de atendimento para as atividades acima devem ser feita atravez de cadastro:\n                "
+            "\n                        A solicitação de atendimento para as atividades acima devem ser feita atravez de cadastro:\n                    "
           )
         ])
       ])

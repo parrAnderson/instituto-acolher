@@ -70,7 +70,7 @@
             </div>
             <br>
 
-            <div v-if="atendimento.data.data" class="row row-space justify-content-center">
+            <div v-if="cadastrado" class="row row-space justify-content-center">
                 <div class="col-8">
                     <div class="alert alert-success text-center" role="alert">
                         <p>Mensagem enviada com sucesso! <br> 
@@ -129,7 +129,7 @@
                     </div>
                   </div> 
 
-                  <div v-for="solicitacao in atendimento.solicitacoes" :key="solicitacao.id" class="row justify-content-center row-space">
+                  <div v-for="solicitacao in atendimento" :key="solicitacao.id" class="row justify-content-center row-space">
                     <div class="col-4">
                         {{solicitacao.tipo_atendimento}}
                     </div>
@@ -166,22 +166,23 @@ export default {
         return {
             inputs: {},
             required: {},
+           
 
         }
     },
     computed: {
         ...mapState({
             login: state => state.Login.data,
-            atendimento: state => state.Atendimento,
+            atendimento: state => state.Atendimento.solicitacoes,
+            cadastrado: state => state.Atendimento.data.data,
         })
     },
     watch: {
         login(){
             this.GetAtendimento(this.login.id);
-    },
-        atendimento() {
-            console.log("bai seu")
-        },
+               this.inputs.user_id = this.login.id;
+    }
+   
 
     },
     methods: {
@@ -209,6 +210,7 @@ export default {
 
             if(this.required){
                 this.CadastrarAtendimento(this.inputs)
+                this.GetAtendimento(this.login.id);
             }
             
         },
@@ -223,11 +225,17 @@ export default {
         return data
     }
   },
+  mounted(){
+      this.inputs.outro_vicio = ''
+        this.inputs.qual_droga = ''
+
+           this.inputs.user_id = this.login.id;
+  },
     beforeMount() {
         // if (!this.login.id) {
         //     this.$router.push({ name: 'login' });
         // }
-        this.inputs.user_id = this.login.id;
+     
 
         this.inputs.tipo_atendimento = ""
 
@@ -239,6 +247,8 @@ export default {
         this.inputs.bebida = ''
         this.inputs.drogas = ''
 
+        this.inputs.outro_vicio = ''
+        this.inputs.qual_droga = ''
 
 
     }

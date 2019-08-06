@@ -18,7 +18,19 @@ class Razoes extends Model
     ];
 
     public function Cadastrar($data, $id){
-      
+        
+        if($data['outro_vicio'] > ''){
+            $data['outro_vicio'] = $data['outro_vicio'];
+        }else{
+            $data['outro_vicio'] = '';
+        }
+
+        if($data['qual_droga'] > ''){
+            $data['qual_droga'] = $data['qual_droga'];
+        }else{
+            $data['qual_droga'] = '';
+        }
+
         $dados = [
             'user_id' => $id,
             'fumante' => $data['fumante'],
