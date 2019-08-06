@@ -2381,6 +2381,187 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4894,7 +5075,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -37382,7 +37563,7 @@ var staticRenderFns = [
                     staticClass: "img-fluid",
                     attrs: {
                       src:
-                        "https://yata2.lss.locawebcorp.com.br/5a011c74958b4b07851bebc2c2cde89b5bb7324e52f6b0253438b07b580fb025",
+                        "/../../acolher/public/img/institucional/fraternidade.png",
                       title: "Fraternidade.png",
                       alt: "Fraternidade.png"
                     }
@@ -37549,8 +37730,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "img-fluid",
                     attrs: {
-                      src:
-                        "https://yata2.lss.locawebcorp.com.br/568f1585d447880d13eb45e02ef5a2d9b90843ecd5fcf8da3ac6b7af14380428",
+                      src: "/../../acolher/public/img/institucional/livro.png",
                       title: "Evangelho do ABC.png",
                       alt: "Evangelho do ABC.png"
                     }
@@ -37648,6 +37828,1300 @@ var staticRenderFns = [
                 _vm._v(
                   "\n                                    Atualmente o grupo conta com\n                                    aproximadamente 15 irmãos com participação assídua em suas\n                                    reuniões semanais, os quais procuram aplicar os\n                                    ensinamentos e métodos adotados pelo irmão Nilton de\n                                    Almeida, mesmo após a sua partida para a Pátria Espiritual,\n                                    em Julho de 2017.\n                                "
                 )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src:
+                        "/../../acolher/public/img/institucional/regiaoabc.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O "),
+                      _c("strong", [
+                        _vm._v("Grupo de Estudo do Evangelho – Guarulhos ")
+                      ]),
+                      _vm._v("é constituído pela comunhão de "),
+                      _c("strong", [_vm._v("amigos de fé ")]),
+                      _vm._v("que se reúnem para a "),
+                      _c("strong", [_vm._v("prática do Evangelho no Lar")]),
+                      _vm._v(", do "),
+                      _c("strong", [_vm._v("estudo da Doutrina Kardecista ")]),
+                      _vm._v("e para o "),
+                      _c("strong", [_vm._v("exercício da mediunidade ")]),
+                      _vm._v("para comunicação com "),
+                      _c("strong", [_vm._v("mentores e guias espirituais ")]),
+                      _vm._v("e também para o "),
+                      _c("strong", [
+                        _vm._v(
+                          "atendimento a irmãos desencarnados necessitados"
+                        )
+                      ]),
+                      _vm._v(", trazidos pela poderosa corrente espiritual.")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "As atividades do referido grupo tiveram início no lar do casal "
+                      ),
+                      _c("strong", [_vm._v("Maurício e Fulvia")]),
+                      _vm._v(", no ano de 1991 (há 28 anos portanto), na "),
+                      _c("strong", [_vm._v("companhia de amigos e vizinhos")]),
+                      _vm._v(". ")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "Hoje, conta com a participação de 12 membros assíduos, mas, ao longo dos anos, contou com a presença de várias pessoas que precisaram estar com o grupo no caminho da evolução."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("De maneira "),
+                      _c("strong", [_vm._v("rotativa")]),
+                      _vm._v(", as reuniões ocorrem às terças-feiras nos "),
+                      _c("strong", [_vm._v("lares")]),
+                      _vm._v(
+                        " de parte dos participantes, com o propósito de auxiliar, orientar, proteger e fortalecer seus integrantes na "
+                      ),
+                      _c("strong", [_vm._v("busca do aprendizado ")]),
+                      _vm._v("e do conhecimento do “"),
+                      _c("strong", [_vm._v("eu interior")]),
+                      _vm._v(
+                        "” de cada um, sob a égide de uma equipe espiritual comandada pelo "
+                      ),
+                      _c("strong", [_vm._v("Dr. Carlos Augusto ")]),
+                      _vm._v("e tendo como "),
+                      _c("strong", [_vm._v("Colônia Principal a Vera Cruz")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "Os irmãos desencarnados atendidos durante nossos trabalhos são encaminhados à referida colônia ou a outras secundárias específicas, tais como Hospital Escola André Luiz para os enfermos e Colônia Pacificadora Luz e Vida, buscando levar conhecimento e luz a esses irmãos e a nós mesmos."
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src: "/../../acolher/public/img/institucional/jesus.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O "),
+                      _c("strong", [_vm._v("Grupo Obreiros da Luz")]),
+                      _vm._v(" foi formado por "),
+                      _c("strong", [_vm._v("irmãos espíritas ")]),
+                      _vm._v("que sentiram a "),
+                      _c("strong", [_vm._v("necessidade")]),
+                      _vm._v(" do desenvolvimento do "),
+                      _c("strong", [
+                        _vm._v("trabalho junto à entidades de Umbanda")
+                      ]),
+                      _vm._v(", "),
+                      _c("strong", [_vm._v("complementarmente")]),
+                      _vm._v(" ao estudo da "),
+                      _c("strong", [_vm._v("Doutrina Kardecista")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "As atividades deste grupo tiveram início no lar do casal Nilton e Salette de Almeida, na companhia do casal Maurício Caetano e Fulvia Ferreira, em 1991, há 28 anos portanto. "
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Sob a égide da "),
+                      _c("strong", [_vm._v("Colônia Espiritual Paz e Amor")]),
+                      _vm._v(
+                        ", os trabalhos passaram a ser realizados, de maneira habitual, na Praia Grande, no lar do casal Alice e Faustino Ferreira, mãe e padrasto de Nilton, respectivamente; sendo também este último, tio de Fulvia."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Com o "),
+                      _c("strong", [_vm._v("decorrer do tempo")]),
+                      _vm._v(", os participantes dos "),
+                      _c("strong", [_vm._v("grupos de Estudo do Evangelho ")]),
+                      _vm._v("realizados por Nilton e Salette de Almeida na "),
+                      _c("strong", [_vm._v("Região do ABC ")]),
+                      _vm._v("e por Maurício e Fulvia em "),
+                      _c("strong", [_vm._v("Guarulhos")]),
+                      _vm._v(", além de "),
+                      _c("strong", [_vm._v("outros amigos e parentes")]),
+                      _vm._v(", "),
+                      _c("strong", [_vm._v("passaram a atuar ")]),
+                      _vm._v(
+                        "também nos trabalhos realizados com as entidades de Umbanda, resultando na formação atual de mais de 40 integrantes."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "Nestes anos de atuação, houve um período no qual as reuniões ocorreram na casa do casal Tadeu e Silvana, tendo retornado à Praia Grande, para serem finalmente transferidas para a cidade de Guarulhos, desde 2013."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O "),
+                      _c("strong", [_vm._v("Obreiros da Luz ")])
+                    ]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _vm._v(
+                          "não é caracterizado como um terreiro de Umbanda"
+                        )
+                      ])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", ")
+                    ]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _vm._v(
+                          "mas como uma reunião de kardecistas que dão passagem à manifestação de entidades ligadas às giras da Umbanda"
+                        )
+                      ])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", na busca do "),
+                      _c("strong", [
+                        _vm._v("desenvolvimento dos médiuns e entidades ")
+                      ]),
+                      _vm._v("e a fim de promover a "),
+                      _c("strong", [
+                        _vm._v("ajuda a irmãos encarnados e desencarnados ")
+                      ]),
+                      _vm._v(
+                        "que estejam necessitando e de acordo com seus merecimentos."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("As "),
+                      _c("strong", [_vm._v("reuniões")]),
+                      _vm._v(" do grupo são realizadas na "),
+                      _c("strong", [_vm._v("sede")]),
+                      _vm._v(" do Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" em "),
+                      _c("strong", [_vm._v("um sábado ")]),
+                      _vm._v("a "),
+                      _c("strong", [_vm._v("cada mês")]),
+                      _vm._v(", com início às "),
+                      _c("strong", [_vm._v("18:00")]),
+                      _vm._v(" h e término programado para às 21:00h (a "),
+                      _c("strong", [_vm._v("cada")])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("strong", [_vm._v("mês")]),
+                      _vm._v(" é dada passagem a entidades de "),
+                      _c("strong", [_vm._v("giras específicas")]),
+                      _vm._v(", a saber: "),
+                      _c("strong", [_vm._v("Caboclos")]),
+                      _vm._v(", "),
+                      _c("strong", [_vm._v("Pretos Velhos")]),
+                      _vm._v(", "),
+                      _c("strong", [_vm._v("Crianças")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("Linha de Esquerda")]),
+                      _vm._v(").")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src: "/../../acolher/public/img/institucional/semear.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O “"),
+                      _c("strong", [
+                        _vm._v("Semear: Módulo de Formação e Estudo")
+                      ]),
+                      _vm._v(
+                        "”, é uma iniciativa a ser aplicada pelo Instituto "
+                      )
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", contando com a "),
+                      _c("strong", [
+                        _vm._v("participação de seus integrantes ")
+                      ]),
+                      _vm._v("para a "),
+                      _c("strong", [_vm._v("elaboração dos conteúdos")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("As atividades, realizadas na sede do Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", têm duas frentes: 1) "),
+                      _c("strong", [
+                        _vm._v("elaboração e aplicação de cursos de formação ")
+                      ]),
+                      _vm._v(
+                        "aos integrantes do Instituto (orientação a médiuns, conceitos da Apometria, Doutrina Kardecista etc.); 2) "
+                      ),
+                      _c("strong", [
+                        _vm._v(
+                          "promoção de estudos e fóruns de debate para o aprofundamento do Saber"
+                        )
+                      ])
+                    ])
+                  ]),
+                  _c("span", [
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("span", { staticStyle: { "font-size": "18px" } }, [
+                        _vm._v(".")
+                      ])
+                    ])
+                  ]),
+                  _c("span", { staticStyle: { "font-size": "18px" } }, [
+                    _c("span", { staticStyle: { color: "black" } })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("A "),
+                      _c("strong", [_vm._v("elaboração do conteúdo ")]),
+                      _vm._v(
+                        "dos cursos e dos grupos de estudos e fóruns de debate, "
+                      ),
+                      _c("strong", [_vm._v("está a cargo de integrantes ")]),
+                      _vm._v("que já se encontram "),
+                      _c("strong", [_vm._v("capacitados para tal")]),
+                      _vm._v(
+                        ", e poderá se estender aos que que venham a desenvolver conteúdo através da busca em literatura e/ou junto à associações que compartilhem módulos de formação (Federação Espírita, por exemplo)."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("A "),
+                      _c("strong", [_vm._v("realização de cursos ")]),
+                      _vm._v(
+                        "ou grupos de estudo está, obviamente, condicionada à "
+                      ),
+                      _c("strong", [
+                        _vm._v(
+                          "disponibilidade dos seus elaboradores e do interesse dos integrantes e/ou frequentadores"
+                        )
+                      ]),
+                      _vm._v(" do ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Segundo Kardec, “"),
+                      _c("strong", [
+                        _c("em", [
+                          _vm._v(
+                            "Os homens semeiam na Terra o que colherão na vida espiritual: os frutos da sua coragem ou da sua fraqueza"
+                          )
+                        ])
+                      ]),
+                      _vm._v("”.")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("A "),
+                      _c("strong", [_vm._v("semente")]),
+                      _vm._v(" foi "),
+                      _c("strong", [_vm._v("plantada")]),
+                      _vm._v(", agora a "),
+                      _c("strong", [_vm._v("colheita")]),
+                      _vm._v(" cabe a "),
+                      _c("strong", [_vm._v("cada um")]),
+                      _vm._v(", de acordo com o seu "),
+                      _c("strong", [_vm._v("interesse")]),
+                      _vm._v(" em "),
+                      _c("strong", [_vm._v("compartilhar")])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("strong", [_vm._v("conhecimentos")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("aprofundar ")]),
+                      _vm._v("o "),
+                      _c("strong", [_vm._v("saber")]),
+                      _vm._v("!")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-8" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src:
+                        "/../../acolher/public/img/institucional/semear-large.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-8" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src: "/../../acolher/public/img/institucional/debate.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src: "/../../acolher/public/img/institucional/estudo.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("As reuniões de “"),
+                      _c("strong", [_vm._v("Estudo e Prática do Evangelho")]),
+                      _vm._v("”, realizadas na sede do Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", visam estabelecer com os "),
+                      _c("strong", [_vm._v("visitantes")]),
+                      _vm._v(" um "),
+                      _c("strong", [_vm._v("primeiro contato ")]),
+                      _vm._v("com o "),
+                      _c("strong", [_vm._v("Kardecismo")]),
+                      _vm._v(", ao mesmo tempo em que proporciona aos "),
+                      _c("strong", [_vm._v("já praticantes ")]),
+                      _vm._v("a oportunidade de "),
+                      _c("strong", [_vm._v("aprofundar")]),
+                      _vm._v(" o "),
+                      _c("strong", [_vm._v("aprendizado")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("As reuniões serão realizadas às "),
+                      _c("strong", [_vm._v("quintas-feiras")]),
+                      _vm._v(", com início às "),
+                      _c("strong", [_vm._v("20:00 h ")]),
+                      _vm._v("e término às "),
+                      _c("strong", [_vm._v("22:00 h")]),
+                      _vm._v(".")
+                    ])
+                  ]),
+                  _vm._v("</\n                            ")
+                ]),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("A reunião é composta de "),
+                      _c("strong", [_vm._v("4 partes")]),
+                      _vm._v(":")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("u", [_c("span", [_vm._v("Parte 1 - ")])]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _c("strong", [_vm._v("Palestra")])
+                      ])
+                    ]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _vm._v(":")
+                      ])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" destina-se à exposição "),
+                      _c("strong", [_vm._v("evangélica-doutrinária")]),
+                      _vm._v(" à luz do Kardecismo ("),
+                      _c("strong", [_vm._v("10 minutos")]),
+                      _vm._v(");")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("u", [_c("span", [_vm._v("Parte 2 - ")])]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _c("strong", [_vm._v("Passes")])
+                      ])
+                    ]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _vm._v(":")
+                      ])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" imposição de "),
+                      _c("strong", [_vm._v("passes fluídicos ")]),
+                      _vm._v("a todos os presentes: obreiros e visitantes ("),
+                      _c("strong", [_vm._v("5 minutos")]),
+                      _vm._v(");")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("u", [_c("span", [_vm._v("Parte 3 - ")])]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _c("strong", [_vm._v("Estudo")])
+                      ])
+                    ]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _vm._v(":")
+                      ])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" estudo de "),
+                      _c("strong", [_vm._v("livro e ou texto ")]),
+                      _vm._v("a ser efetuado com base nos "),
+                      _c("strong", [_vm._v("princípios kardecistas")]),
+                      _vm._v(", através do método da "),
+                      _c("strong", [_vm._v("Mesa ")]),
+                      _vm._v("Redonda, conduzida por um obreiro "),
+                      _c("strong", [_vm._v("dirigente")]),
+                      _vm._v(", com "),
+                      _c("strong", [_vm._v("leitura coletiva ")]),
+                      _vm._v(
+                        "por parte dos demais obreiros integrantes da mesa e com possibilidade de os participantes (obreiros integrantes da mesa ou presentes na assistência) "
+                      ),
+                      _c("strong", [_vm._v("exporem")]),
+                      _vm._v(" suas "),
+                      _c("strong", [_vm._v("opiniões")]),
+                      _vm._v(" e/ou "),
+                      _c("strong", [_vm._v("dúvidas")]),
+                      _vm._v(" a respeito do tema estudado ("),
+                      _c("strong", [_vm._v("60 minutos")]),
+                      _vm._v(").")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("u", [_c("span", [_vm._v("Parte 4 - ")])]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _c("strong", [
+                          _vm._v("Manifestação do Plano Espiritual")
+                        ])
+                      ])
+                    ]),
+                    _c("u", [
+                      _c("span", { staticStyle: { color: "black" } }, [
+                        _vm._v(":")
+                      ])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" estabelecimento de "),
+                      _c("strong", [_vm._v("conexão")]),
+                      _vm._v(" com o "),
+                      _c("strong", [_vm._v("Plano Maior")]),
+                      _vm._v(", oferecendo a possibilidade de "),
+                      _c("strong", [_vm._v("manifestação")]),
+                      _vm._v(" de "),
+                      _c("strong", [_vm._v("mentores")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("guias espirituais ")]),
+                      _vm._v("ou de "),
+                      _c("strong", [
+                        _vm._v("irmãos desencarnados necessitados")
+                      ]),
+                      _vm._v(
+                        ", através dos obreiros médiuns integrantes da mesa ("
+                      ),
+                      _c("strong", [_vm._v("45 minutos")]),
+                      _vm._v("). ")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src:
+                        "/../../acolher/public/img/institucional/atendimento.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O “"),
+                      _c("strong", [
+                        _vm._v("Atendimento Fraterno através do Diálogo")
+                      ]),
+                      _vm._v("“ consiste em "),
+                      _c("strong", [_vm._v("orientar")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("esclarecer")]),
+                      _vm._v(" as pessoas que buscam o Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "Essa atividade será realizada na sede do Instituto "
+                      )
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", às "),
+                      _c("strong", [_vm._v("quintas-feiras")]),
+                      _vm._v(", com início às "),
+                      _c("strong", [_vm._v("20:15 h")]),
+                      _vm._v(" e término às "),
+                      _c("strong", [_vm._v("22:00 h")]),
+                      _vm._v(", após a participação do assistido à "),
+                      _c("strong", [_vm._v("Palestra")]),
+                      _vm._v(" e à "),
+                      _c("strong", [_vm._v("Sessão de Passes")]),
+                      _vm._v(", organizadas pelo grupo de “"),
+                      _c("strong", [_vm._v("Estudo e Prática do Evangelho")]),
+                      _vm._v("”.")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O "),
+                      _c("strong", [_vm._v("Atendimento")]),
+                      _vm._v(" é efetuado por "),
+                      _c("strong", [_vm._v("dois obreiros ")]),
+                      _vm._v("em "),
+                      _c("strong", [_vm._v("sala reservada")]),
+                      _vm._v(", onde o assistido é "),
+                      _c("strong", [_vm._v("recebido")])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("strong", [_vm._v("fraternalmente")]),
+                      _vm._v(" e pode "),
+                      _c("strong", [_vm._v("expor livremente")]),
+                      _vm._v(", em "),
+                      _c("strong", [_vm._v("caráter privativo")]),
+                      _vm._v(", suas "),
+                      _c("strong", [_vm._v("dificuldades")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _c("strong", [_vm._v("Após")]),
+                      _vm._v(" o assistido ser "),
+                      _c("strong", [_vm._v("ouvido")]),
+                      _vm._v(", os obreiros prestam "),
+                      _c("strong", [_vm._v("orientações")]),
+                      _vm._v(" e transmitem "),
+                      _c("strong", [_vm._v("estímulos")]),
+                      _vm._v(
+                        " e, sempre que surgir a oportunidade, oferecem ligeiras "
+                      ),
+                      _c("strong", [_vm._v("noções")])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("strong", [_vm._v("doutrinárias")]),
+                      _vm._v(", para a "),
+                      _c("strong", [_vm._v("compreensão")]),
+                      _vm._v(" dos seus "),
+                      _c("strong", [_vm._v("problemas")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Sempre que possível, "),
+                      _c("strong", [_vm._v("encaminham")]),
+                      _vm._v(" o assistido às "),
+                      _c("strong", [_vm._v("atividades")]),
+                      _vm._v(" do Instituto, que sejam mais "),
+                      _c("strong", [_vm._v("adequadas")]),
+                      _vm._v(" às suas "),
+                      _c("strong", [_vm._v("necessidades")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O "),
+                      _c("strong", [_vm._v("atendimento")]),
+                      _vm._v(" sempre ocorre em "),
+                      _c("strong", [_vm._v("duplas de obreiros")]),
+                      _vm._v(", devidamente "),
+                      _c("strong", [_vm._v("qualificados")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("treinados")]),
+                      _vm._v(", conscientes da enorme "),
+                      _c("strong", [_vm._v("responsabilidade")]),
+                      _vm._v(" em que está investido o ato do “"),
+                      _c("strong", [_vm._v("orientar")]),
+                      _vm._v("”.")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src:
+                        "/../../acolher/public/img/institucional/assistencia.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "A criação do Grupo de Assistência Social Kardecista “"
+                      ),
+                      _c("strong", [
+                        _vm._v("Fora da Caridade não há Salvação")
+                      ]),
+                      _vm._v("“ ocorrerá "),
+                      _c("strong", [_vm._v("oportunamente")]),
+                      _vm._v(", quando o Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" tiver alcançado "),
+                      _c("strong", [_vm._v("regularidade")]),
+                      _vm._v(" em suas "),
+                      _c("strong", [_vm._v("atividades")]),
+                      _vm._v(" e sua configuração de "),
+                      _c("strong", [_vm._v("integrantes")]),
+                      _vm._v(" tiver alcançado a "),
+                      _c("strong", [_vm._v("consistência necessária")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("As "),
+                      _c("strong", [_vm._v("atividades idealizadas ")]),
+                      _vm._v(
+                        "para o referido grupo referir-se-ão à organização de "
+                      ),
+                      _c("strong", [_vm._v("assistência à pessoas carentes")]),
+                      _vm._v(", cujo "),
+                      _c("strong", [_vm._v("formato")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("regularidade ")]),
+                      _vm._v("deverão ser ainda "),
+                      _c("strong", [_vm._v("discutidos")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("estabelecidos")]),
+                      _vm._v(". ")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Iniciativas como doação de "),
+                      _c("strong", [_vm._v("roupas")]),
+                      _vm._v(", coleta e doação de "),
+                      _c("strong", [_vm._v("material escolar")]),
+                      _vm._v(", distribuição de "),
+                      _c("strong", [_vm._v("alimentos")]),
+                      _vm._v(", meios e produtos para o "),
+                      _c("strong", [_vm._v("asseio de moradores de rua")]),
+                      _vm._v(", são "),
+                      _c("strong", [_vm._v("fontes de inspiração ")]),
+                      _vm._v("para o desenvolvimento das "),
+                      _c("strong", [_vm._v("atividades")]),
+                      _vm._v(" a "),
+                      _c("strong", [_vm._v("serem implementadas")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [_vm._v("O fato do Instituto ")]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("strong", [_vm._v("congregar ")]),
+                      _vm._v("diferentes grupos que já "),
+                      _c("strong", [
+                        _vm._v("militam na causa espírita ou espiritualizada")
+                      ]),
+                      _vm._v(", deve configurar-se em "),
+                      _c("strong", [_vm._v("facilitador")]),
+                      _vm._v(" para que seus membros "),
+                      _c("strong", [
+                        _vm._v("unam-se no propósito da prática da caridade ")
+                      ]),
+                      _vm._v("e levem a "),
+                      _c("strong", [
+                        _vm._v("efeito as atividades ora idealizadas")
+                      ]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v(
+                        "Através de Kardec os Espíritos nos ensinaram que “"
+                      ),
+                      _c("strong", [
+                        _c("em", [
+                          _vm._v(
+                            "a nossa felicidade será naturalmente proporcional em relação à felicidade que fizermos para os outros"
+                          )
+                        ])
+                      ]),
+                      _vm._v("”.")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src: "/../../acolher/public/img/institucional/nilton.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Desde a sua fundação tem o Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" como meta também a "),
+                      _c("strong", [_vm._v("divulgação")]),
+                      _vm._v(" do "),
+                      _c("strong", [_vm._v("Kardecismo")]),
+                      _vm._v(". Para promover a "),
+                      _c("strong", [_vm._v("difusão da Doutrina Espírita")]),
+                      _vm._v(
+                        ", buscará implantar e manter a Biblioteca Espírita “Nilton de Almeida”, em homenagem ao nosso querido irmão e obreiro do Kardecismo."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O "),
+                      _c("strong", [_vm._v("funcionamento")]),
+                      _vm._v(" da biblioteca será "),
+                      _c("strong", [_vm._v("coincidente")]),
+                      _vm._v(" com os "),
+                      _c("strong", [_vm._v("trabalhos")]),
+                      _vm._v(" do Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", facultando o "),
+                      _c("strong", [_vm._v("acesso")]),
+                      _vm._v(" a "),
+                      _c("strong", [_vm._v("todos")]),
+                      _vm._v(" os "),
+                      _c("strong", [_vm._v("frequentadores")]),
+                      _vm._v(" da Casa. ")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("A Biblioteca Espírita estará à "),
+                      _c("strong", [_vm._v("disposição")]),
+                      _vm._v(" dos "),
+                      _c("strong", [_vm._v("frequentadores")]),
+                      _vm._v(" de todas as atividades do Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", facilitando igualmente o "),
+                      _c("strong", [_vm._v("acesso")]),
+                      _vm._v(" de "),
+                      _c("strong", [_vm._v("todos")]),
+                      _vm._v(" às "),
+                      _c("strong", [_vm._v("obras")]),
+                      _vm._v(" de cunho reconhecidamente espíritas, para "),
+                      _c("strong", [_vm._v("empréstimos")]),
+                      _vm._v(", por tempo determinado. Será criado um "),
+                      _c("strong", [_vm._v("local específico ")]),
+                      _vm._v("para "),
+                      _c("strong", [_vm._v("disposição")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("consulta")]),
+                      _vm._v(" das "),
+                      _c("strong", [_vm._v("obras")]),
+                      _vm._v(
+                        ", e, futuramente implementado sistema informatizado de pesquisas e controle de empréstimo."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _c("strong", [_vm._v("Conduta Espírita")]),
+                      _vm._v(", segundo André Luiz: “"),
+                      _c("strong", [_vm._v("Divulgar")]),
+                      _vm._v(", por todos os meios lícitos, os "),
+                      _c("strong", [_vm._v("livros")]),
+                      _vm._v(" que "),
+                      _c("strong", [_vm._v("esclareçam")]),
+                      _vm._v(" os "),
+                      _c("strong", [_vm._v("postulados")])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("strong", [_vm._v("espíritas")]),
+                      _vm._v(", prestigiando as "),
+                      _c("strong", [_vm._v("obras santificantes ")]),
+                      _vm._v("que objetivam o "),
+                      _c("strong", [_vm._v("ingresso")]),
+                      _vm._v(" da "),
+                      _c("strong", [_vm._v("Humanidade")]),
+                      _vm._v(" no roteiro da "),
+                      _c("strong", [_vm._v("redenção")]),
+                      _vm._v(" com "),
+                      _c("strong", [_vm._v("Jesus")]),
+                      _vm._v("”.")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-md-center text-center" },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src: "/../../acolher/public/img/institucional/ikae.png",
+                      title: "Evangelho do ABC.png",
+                      alt: "Evangelho do ABC.png"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "text-editor" }, [
+                _c("p", [
+                  _c("span", [
+                    _c("span", [_vm._v("O Instituto ")]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" entende que a "),
+                      _c("strong", [_vm._v("evolução")]),
+                      _vm._v(" de uma "),
+                      _c("strong", [_vm._v("sociedade")]),
+                      _vm._v(", está direta e fundamentalmente ligada à "),
+                      _c("strong", [_vm._v("educação")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("A "),
+                      _c("strong", [_vm._v("educação")]),
+                      _vm._v(" propicia o "),
+                      _c("strong", [_vm._v("conhecimento")]),
+                      _vm._v(" que por sua vez habilita o ser humano para os "),
+                      _c("strong", [_vm._v("crescimentos intelectual")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("moral")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("O "),
+                      _c("strong", [_vm._v("saber")]),
+                      _vm._v(" promove a "),
+                      _c("strong", [_vm._v("consciência cidadã")]),
+                      _vm._v(", abrindo caminhos para a "),
+                      _c("strong", [_vm._v("fraternidade ")]),
+                      _vm._v("e")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v("produzindo uma "),
+                      _c("strong", [_vm._v("sociedade")]),
+                      _vm._v(" mais "),
+                      _c("strong", [_vm._v("justa")]),
+                      _vm._v(", "),
+                      _c("strong", [_vm._v("solidária")]),
+                      _vm._v(", "),
+                      _c("strong", [_vm._v("tolerante")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("igualitária")]),
+                      _vm._v(
+                        ", transformando homens e mulheres em seres mais "
+                      ),
+                      _c("strong", [_vm._v("generosos")]),
+                      _vm._v(" e "),
+                      _c("strong", [_vm._v("livres")]),
+                      _vm._v(".")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [_vm._v("Por esta razão, o Instituto ")]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(" acalenta o "),
+                      _c("strong", [_vm._v("sonho")]),
+                      _vm._v(
+                        " de poder fundar e gerir um instituto que ofereça "
+                      ),
+                      _c("strong", [_vm._v("ensino fundamental gratuito ")]),
+                      _vm._v("e de "),
+                      _c("strong", [_vm._v("elevada qualidade ")]),
+                      _vm._v("a "),
+                      _c("strong", [_vm._v("crianças carentes")]),
+                      _vm._v(".  ")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Com o "),
+                      _c("strong", [_vm._v("trabalho sério ")]),
+                      _vm._v("e "),
+                      _c("strong", [_vm._v("dedicado")]),
+                      _vm._v(" dos obreiros do Instituto ")
+                    ]),
+                    _c("span", { staticStyle: { color: "#203864" } }, [
+                      _c("strong", [_vm._v("Acolher")])
+                    ]),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _vm._v(", "),
+                      _c("strong", [_vm._v("um dia")]),
+                      _vm._v(", o "),
+                      _c("strong", [_vm._v("sonho")])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticStyle: { color: "black" } }, [
+                      _c("strong", [
+                        _vm._v(
+                          "IKAE - Instituto Kardecista Acolher de Educação"
+                        )
+                      ]),
+                      _vm._v(", será uma "),
+                      _c("strong", [_vm._v("realidade")]),
+                      _vm._v("!")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", [
+                    _c("span", [
+                      _vm._v("Segundo "),
+                      _c("strong", [_vm._v("Albert Einstein")]),
+                      _vm._v(
+                        ": “Não existem sonhos impossíveis para aqueles que realmente acreditam que o poder realizador reside no interior de cada ser humano. Sempre que alguém descobre esse poder, algo antes considerado impossível, se torna realidade”.  "
+                      )
+                    ])
+                  ])
+                ])
               ])
             ])
           ])
