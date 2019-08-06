@@ -312,7 +312,7 @@
                                 </div>
                         </div>
 
-                     <div class="row justify-content-md-center text-center">
+                     <div class="row justify-content-center text-center">
                             <div class="col-8">
                                 <img class="img-fluid" src="/../../acolher/public/img/institucional/semear-large.png"
                                     title="Evangelho do ABC.png" alt="Evangelho do ABC.png">
@@ -321,7 +321,7 @@
 
                         
 
-                        <div class="row justify-content-md-center text-center">
+                        <div class="row justify-content-center text-center">
                             <div class="col-8">
                                 <img class="img-fluid" src="/../../acolher/public/img/institucional/debate.png"
                                     title="Evangelho do ABC.png" alt="Evangelho do ABC.png">
