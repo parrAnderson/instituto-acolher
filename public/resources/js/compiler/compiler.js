@@ -421,9 +421,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -447,6 +444,66 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1040,6 +1097,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1063,64 +1122,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1252,6 +1253,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1275,6 +1277,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1513,10 +1520,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -1598,7 +1601,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -2879,21 +2882,12 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
+          _c("br"),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
           _c("h4", { staticClass: "text-center" }, [
             _vm._v('veja abaixo as datas de atendimento do "obreiros da luz":')
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row  row-space justify-content-center" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: {
-                  src:
-                    "/../../acolher/public/img/horarioatendimento/calendario.png",
-                  alt: ""
-                }
-              })
-            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row  row-space justify-content-center" }, [
@@ -2948,6 +2942,195 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
+          _c("div", { staticClass: "row row-space" }, [
+            _c("div", { staticClass: "col-12" }, [
+              _c("h2", { staticClass: "text-center" }, [_vm._v("QUEM SOMOS")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    O Instituto Acolher resulta da associação de integrantes de\n                    "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("diferentes grupos cristãos ")
+                ]),
+                _vm._v(
+                  " de trabalho,\n                    tendo todos eles como objetivos: o "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("aprimoramento espiritual")
+                ]),
+                _vm._v("\n                    através da incessante busca da "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("verdadeira reforma íntima")
+                ]),
+                _vm._v(";\n                    e as "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("práticas do amor")
+                ]),
+                _vm._v(" e de "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("apoio\n                        ao próximo")
+                ]),
+                _vm._v(".\n\n                    "),
+                _c("br"),
+                _c("br"),
+                _vm._v("\n                    O Instituto tem como "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("pilar de sustentação")
+                ]),
+                _vm._v("\n                    os "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("fundamentos")
+                ]),
+                _vm._v(
+                  " codificados por Allan Kardec,\n                    em sua "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("tríplice concepção: Ciência, Filosofia e Religião")
+                ]),
+                _vm._v(".\n                    "),
+                _c("br"),
+                _vm._v(
+                  "\n                    Seguindo as diretrizes divulgadas pelo nobre codificador, os integrantes do\n                    "
+                ),
+                _c("span", { staticClass: "text-primary font-weight-bold" }, [
+                  _vm._v("Acolher")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("alicerçam")
+                ]),
+                _vm._v("\n                    seus trabalhos na "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("fé raciocinada")
+                ]),
+                _vm._v(" e aprimorada através do\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("estudo constante")
+                ]),
+                _vm._v(
+                  " e cuidadoso, procurando afastarem-se de\n                    “pré-conceitos” e\n                    julgamentos, "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("alimentando o conhecer")
+                ]),
+                _vm._v(
+                  " e sendo\n                    sabedores que “possuímos em nós mesmos, pelo pensamento e a vontade, um poder de ação que\n                    se estende muito além dos limites de nossa esfera corpórea”.\n\n                    "
+                ),
+                _c("br"),
+                _c("br"),
+                _vm._v("\n                    Conscientes da palavra do "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Nosso Mestre Jesus")
+                ]),
+                _vm._v(",\n                    segundo a qual, "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("não há salvação fora da caridade")
+                ]),
+                _vm._v(",\n                    o "),
+                _c("span", { staticClass: "font-weight-bold text-primary" }, [
+                  _vm._v("Acolher")
+                ]),
+                _vm._v(" tem como propósito a\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("união de esforços")
+                ]),
+                _vm._v(" dos\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("diferentes grupos ")
+                ]),
+                _vm._v(
+                  "que o constitui para\n                    auxiliar no "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("aprofundamento dos estudos e trabalhos preexistentes")
+                ]),
+                _vm._v(
+                  "\n                    à sua criação, como também, objetiva\n                    "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("planejar e implementar novos projetos")
+                ]),
+                _vm._v(" voltados\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("à caridade")
+                ]),
+                _vm._v(".\n\n\n                    "),
+                _c("br"),
+                _c("br"),
+                _vm._v(
+                  "\n                    Fazendo jus ao seu nome, o Instituto tem como\n                    "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("regra precípua")
+                ]),
+                _vm._v(" a prática do\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("acolher: recebendo")
+                ]),
+                _vm._v("\n                    os irmãos, "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("acolhendo-os")
+                ]),
+                _vm._v(" e\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("aceitando-os")
+                ]),
+                _vm._v(", sempre com\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("sorriso verdadeiro e amável")
+                ]),
+                _vm._v(", seguido de\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("abraço fraternal")
+                ]),
+                _vm._v(", e assim,\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("envolvendo")
+                ]),
+                _vm._v(" a todos no sentimento do\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Amor Puro")
+                ]),
+                _vm._v(" e na sintonia de\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("faixas vibratórias positivas e revigorantes")
+                ]),
+                _vm._v(".\n\n                    Os trabalhos do Instituto "),
+                _c("span", { staticClass: "font-weight-bold text-primary" }, [
+                  _vm._v("Acolher")
+                ]),
+                _vm._v("\n                    são regidos em nome de "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Deus")
+                ]),
+                _vm._v(" e de\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Jesus Cristo")
+                ]),
+                _vm._v(",\n                    dirigidos por "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Guias e Mentores Espirituais")
+                ]),
+                _vm._v("\n                    das comunidades do Plano Maior "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("“Colônia Espiritual Paz e Amor”")
+                ]),
+                _vm._v(",\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("“Colônia Vera Cruz”")
+                ]),
+                _vm._v(" e\n                    "),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("“Hospital Escola André Luiz”")
+                ]),
+                _vm._v(".\n                ")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
           _c("h2", { staticClass: "text-center" }, [_vm._v("Intitucional")]),
           _vm._v(" "),
           _c("div", { staticClass: "container" }, [
@@ -3048,7 +3231,7 @@ var staticRenderFns = [
                 ),
                 _c("strong", [_vm._v("Pai Maior")]),
                 _vm._v(
-                  "guie os pensamentos, palavras e\n                            atitudes de seus integrantes, apoiada na mensagem recebida\n                            do Plano espiritual:\n                            "
+                  " guie os pensamentos, palavras e\n                            atitudes de seus integrantes, apoiada na mensagem recebida\n                            do Plano espiritual:\n                            "
                 ),
                 _c("strong", [
                   _c("em", [_vm._v("“Vocês estão sob minha guarda...”")])
@@ -3556,7 +3739,9 @@ var staticRenderFns = [
               _c("span", { staticClass: "font-weight-bold" }, [
                 _vm._v("Anjo da Guarda")
               ]),
-              _vm._v("; Prece: um "),
+              _vm._v("; \n                            "),
+              _c("br"),
+              _vm._v("Prece: um "),
               _c("span", { staticClass: "font-weight-bold" }, [
                 _vm._v("Pai Nosso")
               ]),
@@ -3585,7 +3770,9 @@ var staticRenderFns = [
               _c("span", { staticClass: "font-weight-bold" }, [
                 _vm._v("Nossa Senhora do Desterro")
               ]),
-              _vm._v("; Prece: um "),
+              _vm._v("; \n                            "),
+              _c("br"),
+              _vm._v("Prece: um "),
               _c("span", { staticClass: "font-weight-bold" }, [
                 _vm._v("Pai Nosso")
               ]),
@@ -3618,8 +3805,10 @@ var staticRenderFns = [
               _c("span", { staticClass: "font-weight-bold" }, [
                 _vm._v("“Corrente do Retorno”")
               ]),
+              _vm._v(";\n                            "),
+              _c("br"),
               _vm._v(
-                ";\n                            Não deve ser realizada prece nesta etapa.\n                            "
+                "Não deve ser realizada prece nesta etapa.\n                            "
               ),
               _c("br"),
               _c("br"),
@@ -3908,201 +4097,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("nav-header"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("Footer")],
+    [
+      _c("nav-header"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }),
+      _vm._v(" "),
+      _c("Footer")
+    ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row row-space" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("h2", { staticClass: "text-center" }, [_vm._v("QUEM SOMOS")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                    O Instituto Acolher resulta da associação de integrantes de\n                    "
-            ),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("diferentes grupos cristãos ")
-            ]),
-            _vm._v(
-              " de trabalho,\n                    tendo todos eles como objetivos: o "
-            ),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("aprimoramento espiritual")
-            ]),
-            _vm._v("\n                    através da incessante busca da "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("verdadeira reforma íntima")
-            ]),
-            _vm._v(";\n                    e as "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("práticas do amor")
-            ]),
-            _vm._v(" e de "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("apoio\n                        ao próximo")
-            ]),
-            _vm._v(".\n\n                    "),
-            _c("br"),
-            _c("br"),
-            _vm._v("\n                    O Instituto tem como "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("pilar de sustentação")
-            ]),
-            _vm._v("\n                    os "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("fundamentos")
-            ]),
-            _vm._v(
-              " codificados por Allan Kardec,\n                    em sua "
-            ),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("tríplice concepção: Ciência, Filosofia e Religião")
-            ]),
-            _vm._v(".\n                    "),
-            _c("br"),
-            _vm._v(
-              "\n                    Seguindo as diretrizes divulgadas pelo nobre codificador, os integrantes do\n                    "
-            ),
-            _c("span", { staticClass: "text-primary font-weight-bold" }, [
-              _vm._v("Acolher")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("alicerçam")
-            ]),
-            _vm._v("\n                    seus trabalhos na "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("fé raciocinada")
-            ]),
-            _vm._v(" e aprimorada através do\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("estudo constante")
-            ]),
-            _vm._v(
-              " e cuidadoso, procurando afastarem-se de\n                    “pré-conceitos” e\n                    julgamentos, "
-            ),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("alimentando o conhecer")
-            ]),
-            _vm._v(
-              " e sendo\n                    sabedores que “possuímos em nós mesmos, pelo pensamento e a vontade, um poder de ação que\n                    se estende muito além dos limites de nossa esfera corpórea”.\n\n                    "
-            ),
-            _c("br"),
-            _c("br"),
-            _vm._v("\n                    Conscientes da palavra do "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("Nosso Mestre Jesus")
-            ]),
-            _vm._v(",\n                    segundo a qual, "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("não há salvação fora da caridade")
-            ]),
-            _vm._v(",\n                    o "),
-            _c("span", { staticClass: "font-weight-bold text-primary" }, [
-              _vm._v("Acolher")
-            ]),
-            _vm._v(" tem como propósito a\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("união de esforços")
-            ]),
-            _vm._v(" dos\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("diferentes grupos ")
-            ]),
-            _vm._v("que o constitui para\n                    auxiliar no "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("aprofundamento dos estudos e trabalhos preexistentes")
-            ]),
-            _vm._v(
-              "\n                    à sua criação, como também, objetiva\n                    "
-            ),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("planejar e implementar novos projetos")
-            ]),
-            _vm._v(" voltados\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("à caridade")
-            ]),
-            _vm._v(".\n\n\n                    "),
-            _c("br"),
-            _c("br"),
-            _vm._v(
-              "\n                    Fazendo jus ao seu nome, o Instituto tem como\n                    "
-            ),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("regra precípua")
-            ]),
-            _vm._v(" a prática do\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("acolher: recebendo")
-            ]),
-            _vm._v("\n                    os irmãos, "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("acolhendo-os")
-            ]),
-            _vm._v(" e\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("aceitando-os")
-            ]),
-            _vm._v(", sempre com\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("sorriso verdadeiro e amável")
-            ]),
-            _vm._v(", seguido de\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("abraço fraternal")
-            ]),
-            _vm._v(", e assim,\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("envolvendo")
-            ]),
-            _vm._v(" a todos no sentimento do\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("Amor Puro")
-            ]),
-            _vm._v(" e na sintonia de\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("faixas vibratórias positivas e revigorantes")
-            ]),
-            _vm._v(".\n\n                    Os trabalhos do Instituto "),
-            _c("span", { staticClass: "font-weight-bold text-primary" }, [
-              _vm._v("Acolher")
-            ]),
-            _vm._v("\n                    são regidos em nome de "),
-            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Deus")]),
-            _vm._v(" e de\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("Jesus Cristo")
-            ]),
-            _vm._v(",\n                    dirigidos por "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("Guias e Mentores Espirituais")
-            ]),
-            _vm._v("\n                    das comunidades do Plano Maior "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("“Colônia Espiritual Paz e Amor”")
-            ]),
-            _vm._v(",\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("“Colônia Vera Cruz”")
-            ]),
-            _vm._v(" e\n                    "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("“Hospital Escola André Luiz”")
-            ]),
-            _vm._v(".\n                ")
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -4276,36 +4281,44 @@ var staticRenderFns = [
               " poderão fazê-lo\natravés das seguintes modalidades previstas em seu Estatuto: "
             ),
             _c("br"),
+            _c("br"),
             _vm._v(" "),
             _c("ul", [
               _c("li", [
                 _c("span", { staticClass: "font-weight-bold" }, [
-                  _vm._v("Colaboradores Efetivos:")
+                  _vm._v("Associados Contribuintes:")
                 ]),
                 _vm._v(
-                  " membros registrados na secretaria do Instituto\ncomprometidos em efetuar contribuição mensal no valor de R$ 60,00.\n    "
-                )
+                  "\n    membros registrados na secretaria do Instituto\ncomprometidos em efetuar contribuição mensal no valor de "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("R$ 60,00.")
+                ])
               ])
             ]),
             _vm._v(" "),
             _c("ul", [
               _c("li", [
                 _c("span", { staticClass: "font-weight-bold" }, [
-                  _vm._v("Colaboradores Eventuais:")
+                  _vm._v("Frequentadores:")
                 ]),
                 _vm._v(
-                  " membros registrados na secretaria do Instituto\ncomprometidos em efetuar contribuições regulares (em valor a ser acordado\nentre o colaborador e o Instituto).\n    "
-                )
+                  " membros registrados na secretaria do Instituto, \nparticipantes de cursos ou frequentadores das atividades de atendimento da casa, que, voluntariamente, \nqueiram contribuir com o valor de "
+                ),
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("R$ 60,00")
+                ]),
+                _vm._v(" ou outro montante acordado com o Instituto.\n\n    ")
               ])
             ]),
             _vm._v(" "),
             _c("ul", [
               _c("li", [
                 _c("span", { staticClass: "font-weight-bold" }, [
-                  _vm._v("Simpatizantes:")
+                  _vm._v("Simpatizantes: ")
                 ]),
                 _vm._v(
-                  " pessoas interessadas em contribuir pontualmente ou sem interesse\nem assumir compromisso de contribuição.\n    "
+                  "  pessoas interessadas em contribuir pontualmente com o Instituto.\n    "
                 )
               ])
             ]),
@@ -4315,13 +4328,13 @@ var staticRenderFns = [
             ]),
             _vm._v(" de "),
             _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("colaboradores")
+              _vm._v("doações")
             ]),
-            _vm._v("\n na secretaria do Instituto "),
+            _vm._v(" na secretaria do Instituto \n"),
             _c("span", { staticClass: "font-weight-bold text-primary" }, [
               _vm._v("Acolher")
             ]),
-            _vm._v(" é \n "),
+            _vm._v(" é "),
             _c("span", { staticClass: "font-weight-bold" }, [
               _vm._v("confidencial")
             ]),
@@ -4329,19 +4342,19 @@ var staticRenderFns = [
             _c("span", { staticClass: "font-weight-bold" }, [
               _vm._v("sigiloso,")
             ]),
-            _vm._v("\n  sendo mantido "),
+            _vm._v("\n sendo mantido "),
             _c("span", { staticClass: "font-weight-bold" }, [
               _vm._v("exclusivamente")
             ]),
-            _vm._v(" para o devido \n  "),
+            _vm._v("\n para o devido "),
             _c("span", { staticClass: "font-weight-bold" }, [
               _vm._v("planejamento financeiro")
             ]),
-            _vm._v(" da\ninstituição e para "),
+            _vm._v(" da instituição e para "),
             _c("span", { staticClass: "font-weight-bold" }, [
               _vm._v("prestação de contas")
             ]),
-            _vm._v(" ao \n"),
+            _vm._v("\n  ao "),
             _c("span", { staticClass: "font-weight-bold" }, [
               _vm._v("Conselho Fiscal.")
             ])
@@ -4436,43 +4449,7 @@ var staticRenderFns = [
               _c("img", {
                 staticClass: "img-fluid",
                 attrs: {
-                  src: "/../../acolher/public/img/semear/discussao.png",
-                  alt: ""
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row  row-space justify-content-center" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: {
-                  src: "/../../acolher/public/img/semear/debate.png",
-                  alt: ""
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row  row-space justify-content-center" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: {
-                  src: "/../../acolher/public/img/semear/perguntas.png",
-                  alt: ""
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row  row-space justify-content-center" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: {
-                  src: "/../../acolher/public/img/semear/oficina.png",
+                  src: "/../../acolher/public/img/semear/apometria.png",
                   alt: ""
                 }
               })
@@ -4654,21 +4631,6 @@ var render = function() {
                       "li",
                       { staticClass: "nav-item" },
                       [
-                        _c("router-link", { attrs: { to: "/quemsomos" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Quem Somos")]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
                         _c("router-link", { attrs: { to: "/institucional" } }, [
                           _c(
                             "a",
@@ -4719,7 +4681,7 @@ var render = function() {
                           _c(
                             "a",
                             { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Publicação")]
+                            [_vm._v("Publicações")]
                           )
                         ])
                       ],
@@ -4748,7 +4710,7 @@ var render = function() {
                         _c(
                           "a",
                           { staticClass: "nav-link", attrs: { href: "#" } },
-                          [_vm._v("Horarios")]
+                          [_vm._v("Horarios de Atendimento")]
                         )
                       ]
                     ),

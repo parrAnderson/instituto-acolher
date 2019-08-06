@@ -13,13 +13,10 @@
         <img class="img-fluid" src="/../../acolher/public/img/horarioatendimento/atendimento1.png" alt="">
     </div>
 </div>
+<br><br><br>
 <h4 class="text-center">veja abaixo as datas de atendimento do "obreiros da luz":</h4>
 
-<div class="row  row-space justify-content-center">
-    <div class="col-12 text-center">
-        <img class="img-fluid" src="/../../acolher/public/img/horarioatendimento/calendario.png" alt="">
-    </div>
-</div>
+
 
 <div class="row  row-space justify-content-center">
     <div class="col-12 text-center">

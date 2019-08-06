@@ -23,7 +23,12 @@
                             <img class="img-fluid" src="/../../acolher/public/img/semear/kardecismo.png" alt="">
                         </div>
                     </div>
-                    <div class="row  row-space justify-content-center">
+                     <div class="row  row-space justify-content-center">
+                        <div class="col-12 text-center">
+                            <img class="img-fluid" src="/../../acolher/public/img/semear/apometria.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="row  row-space justify-content-center">
                         <div class="col-12 text-center">
                             <img class="img-fluid" src="/../../acolher/public/img/semear/discussao.png" alt="">
                         </div>
@@ -42,7 +47,7 @@
                         <div class="col-12 text-center">
                             <img class="img-fluid" src="/../../acolher/public/img/semear/oficina.png" alt="">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

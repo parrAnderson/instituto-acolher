@@ -138,20 +138,22 @@
                             <span class="font-weight-bold">Etapa 1:</span>
                             <br> Acender <span class="font-weight-bold">uma vela</span> no
                             <span class="font-weight-bold">quarto</span> e oferece-la ao
-                            <span class="font-weight-bold">Anjo da Guarda</span>; Prece: um <span class="font-weight-bold">Pai Nosso</span> e uma
+                            <span class="font-weight-bold">Anjo da Guarda</span>; 
+                            <br>Prece: um <span class="font-weight-bold">Pai Nosso</span> e uma
                             <span class="font-weight-bold">Ave Maria</span>.
     
                             <br><br> ​​​​​​​
                             <span class="font-weight-bold">Etapa 2:</span>
                             <br> Acender <span class="font-weight-bold">uma vela</span> atrás da
                             <span class="font-weight-bold">porta de entrada</span> da casa e oferece-la à
-                            <span class="font-weight-bold">Nossa Senhora do Desterro</span>; Prece: um <span class="font-weight-bold">Pai Nosso</span> e uma
+                            <span class="font-weight-bold">Nossa Senhora do Desterro</span>; 
+                            <br>Prece: um <span class="font-weight-bold">Pai Nosso</span> e uma
                             <span class="font-weight-bold">Ave Maria</span>.
                             <br><br>
     
                             <span class="font-weight-bold">Etapa 3:</span>
                             <br> Posicionar em <span class="font-weight-bold">forma de triângulo</span> e acender <span class="font-weight-bold">3 velas</span>, ao <span class="font-weight-bold">ar livre</span>, e oferece-las à <span class="font-weight-bold">“Corrente do Retorno”</span>;
-                            Não deve ser realizada prece nesta etapa.
+                            <br>Não deve ser realizada prece nesta etapa.
                             <br><br> Em caso de não realização em um dos dias, deve ser reiniciada a Novena.
                             <br><br> Nossos votos de muita Paz!
                             <br>

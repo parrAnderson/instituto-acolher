@@ -44,11 +44,7 @@
                   </a>
                                 </router-link>
                             </li>
-                            <li class="nav-item">
-                                <router-link to="/quemsomos">
-                                    <a class="nav-link" href="#">Quem Somos</a>
-                                </router-link>
-                            </li>
+                            
                             <li class="nav-item">
                                 <router-link to="/institucional">
                                     <a class="nav-link" href="#">Institucional</a>
@@ -68,7 +64,7 @@
                             <li class="nav-item">
                             <li class="nav-item">
                                 <router-link to="/publicacoes">
-                                    <a class="nav-link" href="#">Publicação</a>
+                                    <a class="nav-link" href="#">Publicações</a>
                                 </router-link>
                             </li>
                             <li class="nav-item">
@@ -77,7 +73,7 @@
                                 </router-link>
                             </li>
                             <router-link to="/horariodeatendimento">
-                                <a class="nav-link" href="#">Horarios</a>
+                                <a class="nav-link" href="#">Horarios de Atendimento</a>
                             </router-link>
                             <li class="nav-item">
                                 <router-link to="/semear">

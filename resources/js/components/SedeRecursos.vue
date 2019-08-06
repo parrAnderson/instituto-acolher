@@ -39,37 +39,38 @@ a serem <span class="font-weight-bold">pagas</span> pelos <span class="font-weig
 Os <span class="font-weight-bold">interessados</span> em 
 <span class="font-weight-bold">contribuir financeiramente</span> com o Instituto 
 <span class="font-weight-bold text-primary">Acolher</span> poderão fazê-lo
-através das seguintes modalidades previstas em seu Estatuto: <br>
+através das seguintes modalidades previstas em seu Estatuto: <br><br>
 
 <ul>
     <li>
-<span class="font-weight-bold">Colaboradores Efetivos:</span> membros registrados na secretaria do Instituto
-comprometidos em efetuar contribuição mensal no valor de R$ 60,00.
+    <span class="font-weight-bold">Associados Contribuintes:</span>
+    membros registrados na secretaria do Instituto
+comprometidos em efetuar contribuição mensal no valor de <span class="font-weight-bold">R$ 60,00.</span>
+
+    </li>
+</ul>
+<ul>
+    <li>
+<span class="font-weight-bold">Frequentadores:</span> membros registrados na secretaria do Instituto, 
+participantes de cursos ou frequentadores das atividades de atendimento da casa, que, voluntariamente, 
+queiram contribuir com o valor de <span class="font-weight-bold">R$ 60,00</span> ou outro montante acordado com o Instituto.
+
     </li>
 </ul>
 
 <ul>
     <li>
-<span class="font-weight-bold">Colaboradores Eventuais:</span> membros registrados na secretaria do Instituto
-comprometidos em efetuar contribuições regulares (em valor a ser acordado
-entre o colaborador e o Instituto).
+<span class="font-weight-bold">Simpatizantes: </span>  pessoas interessadas em contribuir pontualmente com o Instituto.
     </li>
 </ul>
 
-<ul>
-    <li>
-<span class="font-weight-bold">Simpatizantes:</span> pessoas interessadas em contribuir pontualmente ou sem interesse
-em assumir compromisso de contribuição.
-    </li>
-</ul>
+O <span class="font-weight-bold">registro</span> de <span class="font-weight-bold">doações</span> na secretaria do Instituto 
+<span class="font-weight-bold text-primary">Acolher</span> é <span class="font-weight-bold">confidencial</span> e <span class="font-weight-bold">sigiloso,</span>
+ sendo mantido <span class="font-weight-bold">exclusivamente</span>
+ para o devido <span class="font-weight-bold">planejamento financeiro</span> da instituição e para <span class="font-weight-bold">prestação de contas</span>
+  ao <span class="font-weight-bold">Conselho Fiscal.</span>
 
-O <span class="font-weight-bold">registro</span> de <span class="font-weight-bold">colaboradores</span>
- na secretaria do Instituto <span class="font-weight-bold text-primary">Acolher</span> é 
- <span class="font-weight-bold">confidencial</span> e <span class="font-weight-bold">sigiloso,</span>
-  sendo mantido <span class="font-weight-bold">exclusivamente</span> para o devido 
-  <span class="font-weight-bold">planejamento financeiro</span> da
-instituição e para <span class="font-weight-bold">prestação de contas</span> ao 
-<span class="font-weight-bold">Conselho Fiscal.</span>
+
           </p>
             </div>
         </div>
