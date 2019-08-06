@@ -26,8 +26,11 @@
                             <option>Outros</option>
                           </select> 
                 </div>
-                <div class="col-12 col-lg-4" v-if="selectGenero == 'Outros'">
+                <div class="col-10 col-lg-3" v-if="selectGenero == 'Outros'">
                     <input type="text" class="form-control" v-model="textGenero" placeholder="Digite o Gênero">
+                </div>
+                <div class="col-2 col-lg-1" v-if="selectGenero == 'Outros'">
+                    <div class="btn btn-primary" @click="voltarGenero()"><i class="fas fa-chevron-up"></i></div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
@@ -80,9 +83,13 @@
                             <option>Outro</option>
                           </select>
                 </div>
-                  <div class="col-12 col-lg-4" v-if="selectReligiao == 'Outro'">
+                  <div class="col-10 col-lg-3" v-if="selectReligiao == 'Outro'">
                     <input type="text" class="form-control" v-model="textReligiao" placeholder="Digite sua religião *">
-                </div>           
+                </div>   
+
+                <div class="col-2 col-lg-1" v-if="selectReligiao == 'Outro'">
+                    <div class="btn btn-primary" @click="voltarReligiao()"><i class="fas fa-chevron-up"></i></div>
+                </div>        
 
             </div>
             <div class="row justify-content-center row-space-form">
@@ -574,8 +581,26 @@ export default {
         consoleReligiao(){
             console.log(this.inputs.religiao)
         },
+        voltarReligiao(){
+            if(this.selectReligiao === 'Outro'){
+                this.selectReligiao = ''
+                this.textReligiao = ''
+                this.inputs.religiao = this.selectReligiao 
+            }else{
+                this.inputs.religiao  = this.textReligiao
+            }
+        },
         consoleGenero(){
             console.log(this.inputs.genero)
+        },        
+        voltarGenero(){
+            if(this.selectGenero === 'Outros'){
+                this.selectGenero = ''
+                this.textGenero = ''
+                this.inputs.genero = this.selectGenero 
+            }else{
+                this.inputs.genero  = this.textGenero
+            }
         },
         checkRequired() {
             

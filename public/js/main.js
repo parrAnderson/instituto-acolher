@@ -3583,6 +3583,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3671,8 +3678,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     consoleReligiao: function consoleReligiao() {
       console.log(this.inputs.religiao);
     },
+    voltarReligiao: function voltarReligiao() {
+      if (this.selectReligiao === 'Outro') {
+        this.selectReligiao = '';
+        this.textReligiao = '';
+        this.inputs.religiao = this.selectReligiao;
+      } else {
+        this.inputs.religiao = this.textReligiao;
+      }
+    },
     consoleGenero: function consoleGenero() {
       console.log(this.inputs.genero);
+    },
+    voltarGenero: function voltarGenero() {
+      if (this.selectGenero === 'Outros') {
+        this.selectGenero = '';
+        this.textGenero = '';
+        this.inputs.genero = this.selectGenero;
+      } else {
+        this.inputs.genero = this.textGenero;
+      }
     },
     checkRequired: function checkRequired() {
       this.ValidarResponsavel();
@@ -38935,7 +38960,7 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _vm.selectGenero == "Outros"
-              ? _c("div", { staticClass: "col-12 col-lg-4" }, [
+              ? _c("div", { staticClass: "col-10 col-lg-3" }, [
                   _c("input", {
                     directives: [
                       {
@@ -38957,6 +38982,23 @@ var render = function() {
                       }
                     }
                   })
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.selectGenero == "Outros"
+              ? _c("div", { staticClass: "col-2 col-lg-1" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: {
+                        click: function($event) {
+                          _vm.voltarGenero()
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-chevron-up" })]
+                  )
                 ])
               : _vm._e()
           ]
@@ -39251,7 +39293,7 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _vm.selectReligiao == "Outro"
-              ? _c("div", { staticClass: "col-12 col-lg-4" }, [
+              ? _c("div", { staticClass: "col-10 col-lg-3" }, [
                   _c("input", {
                     directives: [
                       {
@@ -39276,6 +39318,23 @@ var render = function() {
                       }
                     }
                   })
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.selectReligiao == "Outro"
+              ? _c("div", { staticClass: "col-2 col-lg-1" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: {
+                        click: function($event) {
+                          _vm.voltarReligiao()
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-chevron-up" })]
+                  )
                 ])
               : _vm._e()
           ]
