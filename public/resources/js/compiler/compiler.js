@@ -4101,7 +4101,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "row justify-content-md-center text-center" },
+              { staticClass: "row justify-content-center text-center" },
               [
                 _c("div", { staticClass: "col-8" }, [
                   _c("img", {
@@ -4119,7 +4119,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "row justify-content-md-center text-center" },
+              { staticClass: "row justify-content-center text-center" },
               [
                 _c("div", { staticClass: "col-8" }, [
                   _c("img", {

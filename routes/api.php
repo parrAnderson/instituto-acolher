@@ -31,6 +31,7 @@ Route::group([
     'prefix' => 'users'
 ], function ($router) {
     Route::post('/atualizar', 'Api\V1\Users\UsersController@atualizar');
+    Route::post('/atualizarobreiro', 'Api\V1\Users\UsersController@atualizarObreiro');
     Route::get('/{id}', 'Api\V1\Users\UsersController@showUser');
     Route::get('/cartao/{id}', 'Api\V1\Users\UsersController@showCard');
     Route::get('/', 'Api\V1\Users\UsersController@allUsers');
@@ -53,6 +54,7 @@ Route::group([
     'prefix' => 'email'
 ], function ($router) {
     Route::post('/cadastrar', 'Emails\cadastroController@cadastro');
+    Route::post('/obreiro', 'Emails\emailCadastroObreiroController@obreiroCadastro');
     Route::post('/dataatendimento', 'Emails\emailDataAtendimentoController@AtendimentoCadastrado');
 });
 

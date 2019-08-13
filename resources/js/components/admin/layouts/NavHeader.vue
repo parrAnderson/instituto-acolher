@@ -13,7 +13,7 @@
                         <h2 class="h5">Administrador</h2><span>Acolher</span>
                     </div>
                     <!-- Small Brand information, appears on minimized sidebar-->
-                    <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">C</strong></a></div>
+                    <div class="sidenav-header-logo"><a href="#" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">C</strong></a></div>
                 </div>
                 <!-- Sidebar Navigation Menus-->
                 <div class="main-menu">

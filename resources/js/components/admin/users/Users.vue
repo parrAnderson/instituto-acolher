@@ -1,91 +1,47 @@
 <template>
-    <div>
-        
-         
-            <div class="row row-space">
-                <div class="col-12">
-                    <h2 class="text-center">Fichas</h2>
-                </div>
+    <div>       
+        <div class="row row-space">
+            <div class="col-12">
+                <h2 class="text-center">Fichas</h2>
             </div>
-       
-
-
-    
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <table class="table table-striped table-sm" v-if="users">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <table class="table table-striped table-sm" v-if="users">
                     <thead>
                         <tr>
-                            <td>
-                                NOME
-                            </td>
-                            <td>
-                                CPF
-                            </td>
-                            
-                            <td>
-                                EMAIL
-                            </td>
-                            <td>
-                                TELEFONE
-                            </td>
-                            <td>
-                                NASCIMENTO
-                            </td>
-                            
-                             <td>
-                                OBREIRO 
-                            </td>
-                            <td>
-                                FUMA
-                            </td>
-                            <td>
-                                BEBE 
-                            </td>
-                            <td>
-                                DROGAS 
-                            </td>
+                            <td>NOME</td>
+                            <td>CPF</td>                            
+                            <td>EMAIL</td>
+                            <td>TELEFONE</td>
+                            <td>NASCIMENTO</td>                            
+                            <td>OBREIRO</td>
+                            <td>FUMA</td>
+                            <td>BEBE </td>
+                            <td>DROGAS</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        
-                        <tr v-for="user in users" :key="users.id" @click="ShowUser(user.id)">
-                            <td>
-                                {{user.name}}        
+                    <tbody>                        
+                        <tr v-for="user in users" :key="users.id" >
+                            <td @click="ShowUser(user.id)">{{user.name}}</td>
+                            <td @click="ShowUser(user.id)">{{user.cpf}}</td>
+                            <td @click="ShowUser(user.id)">{{user.telefone}}</td>
+                            <td @click="ShowUser(user.id)">{{user.email}}</td>
+                            <td @click="ShowUser(user.id)">{{user.data_nascimento}}</td>                           
+                            <td @click="ShowUser(user.id)" v-if="user.obreiro">
+                                {{user.obreiro}}
                             </td>
-                             <td>
-                                {{user.cpf}}        
+                            <td @click="ChangeObreiro(user.id)" v-else>
+                                <span class="text-primary pointer">Mudar para obreiro</span>
                             </td>
-                            <td>
-                                {{user.telefone}}        
-                            </td>
-                            <td>
-                                {{user.email}}        
-                            </td>
-                            <td>
-                                {{user.data_nascimento}}        
-                            </td>
-                           
-                            <td>
-                                {{user.obreiro}}        
-                            </td>
-                            <td>
-                                {{user.fumante}}        
-                            </td>
-                            <td>
-                                {{user.bebida}}        
-                            </td>
-                            <td>
-                                {{user.drogas}}        
-                            </td>
+                            <td @click="ShowUser(user.id)">{{user.fumante}}</td>
+                            <td @click="ShowUser(user.id)">{{user.bebida}}</td>
+                            <td @click="ShowUser(user.id)">{{user.drogas}}</td>
                         </tr>  
                     </tbody>
                 </table>
-                </div>
             </div>
-        
-       
-    
+        </div>
     </div>
 </template>
 
@@ -105,10 +61,13 @@ export default {
         mostrarUsers() {
             console.log(this.users)
         },
-        ShowUser(id){
-        
+        ShowUser(id){        
         this.$router.push({ name: 'showuser', params: {id: id}});
-    }
+        },
+        ChangeObreiro(id){ 
+            console.log(id)       
+            this.$router.push({ name: 'obreiro', params: {id: id}});
+        }
     },
     beforeMount() {
         this.AllUsers()
@@ -118,6 +77,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
 
 </style>

@@ -100,7 +100,7 @@ export default {
                 this.inputs = []
                 this.validatepassword = ""
                 
-                this.$router.push({ name: 'obreiro' });
+                // this.$router.push({ name: 'obreiro' });
             }else{
                 console.log("não registrado, com erros")
             }                     

@@ -1,5 +1,6 @@
 import axios from "axios"
 
+
 export default {
     state: {
         data: {},        
@@ -12,13 +13,13 @@ export default {
     },
     actions: {
         CadastrarObreiro(context, data){
-            let url = '/acolher/public/api/users/atualizar';        
+            // console.log(data)
+            let url = '/acolher/public/api/users/atualizarobreiro';        
         axios
             .post(url, data)
               .then(response => {
-                context.commit('CADASTRAR', response.data)
-                this.dispatch('Logon',data);
-                this.$router.push({ name: 'home' });
+                context.commit('CADASTRAR', response.data)               
+                
               }                
             )
             .catch(function (error) {

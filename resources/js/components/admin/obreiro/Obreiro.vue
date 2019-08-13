@@ -4,8 +4,8 @@
          <div class="container">
       <div class="row row-space"> 
         <div class="col-12">
-          <h4 class="text-center">Você é obreiro {{login.data.name}}?</h4>
-          <p class="text-center">Caso seja, digite seu número de obreiro</p>          
+          <h4 class="text-center">Por favor digite o número de obreiro que deseja</h4>
+          <p class="text-center">Quando todos os obreiros forem cadastrados será liberado a opção de gerar a partir do último</p>          
         </div>
       </div>
        <div class="row row-space justify-content-center row-space-form">
@@ -14,21 +14,22 @@
         </div>
       </div>
 
-      <input type="hidden" v-model="inputs.id">
-       <input type="hidden" v-model="inputs.cpf">
+      <br>
+      
+
 
        <div class="row justify-content-center row-space-form">
             <div class="col-2 text-left">
-                <button  @click="NaoSou()"  type="submit" class="btn btn-warning">Não sou</button>
+                <button  @click="NaoSou()"  type="submit" class="btn btn-danger">Voltar</button>
             </div>
 
         <div class="col-2 text-right">
             <button @click="Cadastrar()" type="submit" class="btn btn-primary">Cadastrar</button>
-            </div>
+            </div> 
         </div>
          
          </div>
-        <Footer></Footer>
+      
     </div>
 </template>
 
@@ -44,40 +45,46 @@ import NavHeader from "./../layouts/NavHeader";
         },
         data(){
             return{
-                inputs:{}            
+                inputs:{},            
             }
         },
         watch:{
-            
+            $route(){
+                this.inputs.id = this.$route.params.id
+                
+            }
         },
         methods:{
          ...mapActions([
             'CadastrarObreiro',
         ]),
         NaoSou(){
-            this.$router.push({ name: 'home' });
+            this.$router.push({ name: 'users' });
         },
         Cadastrar(){
+            // console.log(this.inputs)
             this.CadastrarObreiro(this.inputs)
         }
         },
         computed: {
             ...mapState({
-                login: state => state.Login,
+                // login: state => state.Login,
                 obreiro: state => state.Obreiro.data
             })
         },
-        mounted(){
-            if(!this.login.data.id){
-                this.$router.push({ name: 'login' });
-            }
-            this.inputs.id = this.login.data.id      
-             this.inputs.cpf = this.login.data.cpf        
+        beforeMount(){
+            this.inputs.id = this.$route.params.id
+            
+            // if(!this.login.data.id){
+            //     this.$router.push({ name: 'login' });
+            // }
+            // this.inputs.id = this.login.data.id      
+            //  this.inputs.cpf = this.login.data.cpf        
         },
         watch:{
             obreiro(){
                  if(this.obreiro.data == "atualizado"){
-                this.$router.push({ name: 'home' });
+                this.$router.push({ name: 'users' });
 
             }
             }

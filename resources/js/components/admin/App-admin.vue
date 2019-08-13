@@ -9,7 +9,7 @@
                 <div class="container-fluid">
                     <div class="navbar-holder d-flex align-items-center justify-content-between">
                         <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a>
-                            <a href="index.html" class="navbar-brand">
+                            <a href="#" class="navbar-brand">
                                 <div class="brand-text d-none d-md-inline-block"><span>Menu - Acolher</span></div>
                             </a>
                         </div>

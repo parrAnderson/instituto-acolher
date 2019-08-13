@@ -11,6 +11,8 @@ import IndexAtendimentoTipo from './components/admin/atendimento/IndexAtendiment
 
 import EditAtendimento from './components/admin/atendimento/EditAtendimento'
 
+import Obreiro from './components/admin/obreiro/Obreiro'
+
 
 const routes = [
     {path:'/', name:'home', component: Dashboard},
@@ -19,8 +21,10 @@ const routes = [
     
     {path:'/atendimentos', name:'atendimentos',  component: IndexAtendimento},
     {path:'/atendimento/:id', name:'editatendimento',  component: EditAtendimento},
-
+    {path:'/obreiro/:id', name:'obreiro',  component: Obreiro},
     {path:'/atendimentos/:tipoatendimento', name:'tipoatendimento',  component: IndexAtendimento},
+
+    
 ]
 
 
