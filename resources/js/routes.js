@@ -15,6 +15,7 @@ import Atendimento from './components/formularios/Atendimento'
 import QuemSomos from './components/QuemSomos'
 
 import Carteirinha from './components/carteirinhas/Carteirinha'
+import Cracha from './components/carteirinhas/Cracha'
 
 import CarteirinhaFrequentador from './components/carteirinhas/CarteirinhaFrequentador'
 
@@ -41,6 +42,7 @@ const routes = [
     // {path:'/obreiro', name:'obreiro',  component: Obreiro},
     {path:'/quemsomos', name:'quemsomos',  component: QuemSomos},
     {path:'/cartao/:id', name:'cartao',  component: Carteirinha},
+    {path:'/cracha/:id', name:'cracha',  component: Cracha},
 
     {path:'/cartaofrequentador/:id', name:'cartaofrequentador',  component: CarteirinhaFrequentador},
     

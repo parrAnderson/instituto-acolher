@@ -1737,25 +1737,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
-  mounted: function mounted() {
-    console.log("Component mounted.");
-    console.log(this.login.data.id);
+  data: function data() {
+    return {
+      exibirCardObreiro: false
+    };
+  },
+  created: function created() {
+    this.linkObreiroFrequentador();
+    console.log("ue"); //     console.log("Component mounted.");
+    //  console.log(this.login.data.id)
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     login: function login(state) {
       return state.Login;
-    }
+    } // cartao: state => state.Cartao,
+
   })),
   watch: {
     login: function login() {
       this.login = this.login;
-      console.log("mudou");
+      this.linkObreiroFrequentador();
     }
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout', 'SetLocalStorage']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout', 'SetLocalStorage', 'SelecionarUserCartao']), {
+    linkObreiroFrequentador: function linkObreiroFrequentador() {
+      if (this.login.data.obreiro !== '' && this.login.data.obreiro !== 'null' && this.login.data.obreiro !== null) {
+        this.exibirCardObreiro = true;
+        console.log(this.exibirCardObreiro);
+      }
+    },
     sair: function sair() {
       this.Logout("");
       this.$router.push({
@@ -6348,32 +6378,100 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.login.data.id
+                  !_vm.exibirCardObreiro
                     ? _c(
                         "li",
                         { staticClass: "nav-item" },
                         [
-                          _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: {
-                                  name: "cartaofrequentador",
-                                  params: { id: _vm.login.data.id }
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "a",
+                          _vm.login.data.id
+                            ? _c(
+                                "router-link",
                                 {
-                                  staticClass: "nav-link text-primary",
-                                  attrs: { href: "#" }
+                                  attrs: {
+                                    to: {
+                                      name: "cartaofrequentador",
+                                      params: { id: _vm.login.data.id }
+                                    }
+                                  }
                                 },
-                                [_vm._v("Carteirinha Frequentador")]
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link text-primary",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Carteirinha Frequentador")]
+                                  )
+                                ]
                               )
-                            ]
-                          )
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.exibirCardObreiro
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _vm.login.data.id
+                            ? _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "cartao",
+                                      params: { id: _vm.login.data.id }
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link text-primary",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Cartão do Obreiro")]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.exibirCardObreiro
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _vm.login.data.id
+                            ? _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "cracha",
+                                      params: { id: _vm.login.data.id }
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link text-primary",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Crachá do Obreiro")]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
                         ],
                         1
                       )

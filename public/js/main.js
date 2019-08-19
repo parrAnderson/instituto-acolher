@@ -4458,6 +4458,110 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carteirinhas/Cracha.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
+/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+var _name$components$crea;
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_name$components$crea = {
+  name: "CarteirinhaFrequentador",
+  components: {
+    NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  created: function created() {
+    console.log("funcionando");
+  },
+  data: function data() {
+    return {
+      id: this.$route.params.id,
+      inputs: {}
+    };
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['SelecionarUserCartao']), {
+    imprimir: function imprimir() {
+      window.print();
+    }
+  })
+}, _defineProperty(_name$components$crea, "created", function created() {
+  this.SelecionarUserCartao(this.id);
+}), _defineProperty(_name$components$crea, "computed", _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+  cartao: function cartao(state) {
+    return state.Cartao.data;
+  } // corrigir
+
+}))), _defineProperty(_name$components$crea, "watch", {
+  cartao: function cartao() {
+    console.log(this.cartao.name);
+  }
+}), _name$components$crea);
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formularios/Atendimento.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formularios/Atendimento.vue?vue&type=script&lang=js& ***!
@@ -4889,25 +4993,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
-  mounted: function mounted() {
-    console.log("Component mounted.");
-    console.log(this.login.data.id);
+  data: function data() {
+    return {
+      exibirCardObreiro: false
+    };
+  },
+  created: function created() {
+    this.linkObreiroFrequentador();
+    console.log("ue"); //     console.log("Component mounted.");
+    //  console.log(this.login.data.id)
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     login: function login(state) {
       return state.Login;
-    }
+    } // cartao: state => state.Cartao,
+
   })),
   watch: {
     login: function login() {
       this.login = this.login;
-      console.log("mudou");
+      this.linkObreiroFrequentador();
     }
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout', 'SetLocalStorage']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout', 'SetLocalStorage', 'SelecionarUserCartao']), {
+    linkObreiroFrequentador: function linkObreiroFrequentador() {
+      if (this.login.data.obreiro !== '' && this.login.data.obreiro !== 'null' && this.login.data.obreiro !== null) {
+        this.exibirCardObreiro = true;
+        console.log(this.exibirCardObreiro);
+      }
+    },
     sair: function sair() {
       this.Logout("");
       this.$router.push({
@@ -5019,6 +5153,25 @@ exports.push([module.i, "\ntable[data-v-877785e2] {\n    table-layout: fixed;\n 
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carteirinhas/CarteirinhaFrequentador.vue?vue&type=style&index=0&lang=css& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.img-cartao{\n    width: 150px;\n    border-radius: 50%\n}\n@media print\n{\n.no-print, .no-print *\n    {\n        display: none !important;\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36018,6 +36171,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Cracha.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layouts/NavHeader.vue?vue&type=style&index=0&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/layouts/NavHeader.vue?vue&type=style&index=0&lang=css& ***!
@@ -43209,6 +43392,98 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=template&id=134422d7&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/carteirinhas/Cracha.vue?vue&type=template&id=134422d7& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("span", { staticClass: "no-print" }, [_c("nav-header")], 1),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-center row-space" }, [
+        _c("div", { staticClass: "col-12 col-lg-6 col-md-6" }, [
+          _c("h5", { staticClass: "card-title text-center" }, [
+            _vm._v("Crachá do Obreiro")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card text-center" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("p", { staticClass: "text-center" }, [
+                _vm._v("Acolher - Instituto Kardecista")
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "card-img-top img-cartao",
+                attrs: {
+                  src: "/../../acolher/public/img/avatar.png",
+                  alt: "Imagem de capa do card"
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-center" }, [
+                _c("p", { staticClass: "text-primary text-center" }, [
+                  _vm._v(_vm._s(_vm.cartao.name))
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("N° de reg. obreiro: "),
+                  _c("span", { staticClass: "text-primary" }, [
+                    _vm._v(_vm._s(_vm.cartao.obreiro))
+                  ]),
+                  _c("br"),
+                  _vm._v("\n                        CPF:  "),
+                  _c("span", { staticClass: "text-primary" }, [
+                    _vm._v(_vm._s(_vm.cartao.cpf))
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "no-print" }, [
+        _c("div", { staticClass: "row justify-content-center row-space" }, [
+          _c("div", { staticClass: "col-12 col-lg-6 col-md-6" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary text-center",
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    _vm.imprimir()
+                  }
+                }
+              },
+              [_vm._v("Imprimir")]
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("span", { staticClass: "no-print" }, [_c("Footer")], 1)
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formularios/Atendimento.vue?vue&type=template&id=39d2afe7&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formularios/Atendimento.vue?vue&type=template&id=39d2afe7& ***!
@@ -44176,32 +44451,100 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.login.data.id
+                  !_vm.exibirCardObreiro
                     ? _c(
                         "li",
                         { staticClass: "nav-item" },
                         [
-                          _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: {
-                                  name: "cartaofrequentador",
-                                  params: { id: _vm.login.data.id }
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "a",
+                          _vm.login.data.id
+                            ? _c(
+                                "router-link",
                                 {
-                                  staticClass: "nav-link text-primary",
-                                  attrs: { href: "#" }
+                                  attrs: {
+                                    to: {
+                                      name: "cartaofrequentador",
+                                      params: { id: _vm.login.data.id }
+                                    }
+                                  }
                                 },
-                                [_vm._v("Carteirinha Frequentador")]
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link text-primary",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Carteirinha Frequentador")]
+                                  )
+                                ]
                               )
-                            ]
-                          )
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.exibirCardObreiro
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _vm.login.data.id
+                            ? _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "cartao",
+                                      params: { id: _vm.login.data.id }
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link text-primary",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Cartão do Obreiro")]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.exibirCardObreiro
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _vm.login.data.id
+                            ? _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "cracha",
+                                      params: { id: _vm.login.data.id }
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link text-primary",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Crachá do Obreiro")]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
                         ],
                         1
                       )
@@ -60046,21 +60389,25 @@ __webpack_require__.r(__webpack_exports__);
     LOGOUT: function LOGOUT(state, exit) {
       state.data = exit;
     },
-    SET_LOCAL_STORAGE: function SET_LOCAL_STORAGE(state, id) {
+    SET_LOCAL_STORAGE: function SET_LOCAL_STORAGE(state, localStorage) {
       state.data = {
-        'id': id
+        'id': localStorage.id,
+        'obreiro': localStorage.obreiro
       };
     }
   },
   actions: {
     SetLocalStorage: function SetLocalStorage(context) {
-      context.commit('SET_LOCAL_STORAGE', window.localStorage.getItem("user_id"));
+      var localStorage = {};
+      localStorage.id = window.localStorage.getItem("user_id");
+      localStorage.obreiro = window.localStorage.getItem("user_obreiro");
+      context.commit('SET_LOCAL_STORAGE', localStorage);
     },
     Logon: function Logon(context, data) {
       var url = '/acolher/public/api/auth/login';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
         context.commit('LOGON', response);
-        console.log(response.data.data[0].id);
+        window.localStorage.setItem("user_obreiro", response.data.data[0].obreiro);
         window.localStorage.setItem("user_id", response.data.data[0].id); //   console.log(data)
         //   console.log("DATA DO VUEX")
         // console.log(response.data.data[0])
@@ -60078,6 +60425,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     Logout: function Logout(context, data) {
       window.localStorage.removeItem("user_id");
+      window.localStorage.removeItem("user_obreiro");
       context.commit('LOGOUT', "");
     },
     Register: function Register(context, data) {
@@ -60265,6 +60613,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarteirinhaFrequentador_vue_vue_type_template_id_abed947a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarteirinhaFrequentador_vue_vue_type_template_id_abed947a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/carteirinhas/Cracha.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/carteirinhas/Cracha.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Cracha_vue_vue_type_template_id_134422d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cracha.vue?vue&type=template&id=134422d7& */ "./resources/js/components/carteirinhas/Cracha.vue?vue&type=template&id=134422d7&");
+/* harmony import */ var _Cracha_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Cracha.vue?vue&type=script&lang=js& */ "./resources/js/components/carteirinhas/Cracha.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Cracha_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Cracha.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Cracha_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Cracha_vue_vue_type_template_id_134422d7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Cracha_vue_vue_type_template_id_134422d7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/carteirinhas/Cracha.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/carteirinhas/Cracha.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/carteirinhas/Cracha.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Cracha.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Cracha.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/carteirinhas/Cracha.vue?vue&type=template&id=134422d7&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/carteirinhas/Cracha.vue?vue&type=template&id=134422d7& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_template_id_134422d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Cracha.vue?vue&type=template&id=134422d7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/carteirinhas/Cracha.vue?vue&type=template&id=134422d7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_template_id_134422d7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Cracha_vue_vue_type_template_id_134422d7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -60635,9 +61070,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_formularios_Atendimento__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/formularios/Atendimento */ "./resources/js/components/formularios/Atendimento.vue");
 /* harmony import */ var _components_QuemSomos__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/QuemSomos */ "./resources/js/components/QuemSomos.vue");
 /* harmony import */ var _components_carteirinhas_Carteirinha__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/carteirinhas/Carteirinha */ "./resources/js/components/carteirinhas/Carteirinha.vue");
-/* harmony import */ var _components_carteirinhas_CarteirinhaFrequentador__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/carteirinhas/CarteirinhaFrequentador */ "./resources/js/components/carteirinhas/CarteirinhaFrequentador.vue");
-/* harmony import */ var _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/auth/LoginCpf */ "./resources/js/components/auth/LoginCpf.vue");
-/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.vue");
+/* harmony import */ var _components_carteirinhas_Cracha__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/carteirinhas/Cracha */ "./resources/js/components/carteirinhas/Cracha.vue");
+/* harmony import */ var _components_carteirinhas_CarteirinhaFrequentador__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/carteirinhas/CarteirinhaFrequentador */ "./resources/js/components/carteirinhas/CarteirinhaFrequentador.vue");
+/* harmony import */ var _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/auth/LoginCpf */ "./resources/js/components/auth/LoginCpf.vue");
+/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.vue");
 var _ref;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -60652,6 +61088,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  // import AtendimentoAdulto from './components/formularios/AtendimentoAdulto'
 
  // import Obreiro from './components/obreiro/Obreiro'
+
 
 
 
@@ -60696,11 +61133,11 @@ var routes = [{
 }, {
   path: '/login',
   name: 'login',
-  component: _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_12__["default"]
+  component: _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_13__["default"]
 }, (_ref = {
   path: '/register',
   name: 'register'
-}, _defineProperty(_ref, "name", 'register'), _defineProperty(_ref, "component", _components_auth_Register__WEBPACK_IMPORTED_MODULE_13__["default"]), _ref), {
+}, _defineProperty(_ref, "name", 'register'), _defineProperty(_ref, "component", _components_auth_Register__WEBPACK_IMPORTED_MODULE_14__["default"]), _ref), {
   path: '/atendimento',
   name: 'atendimento',
   component: _components_formularios_Atendimento__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -60714,9 +61151,13 @@ var routes = [{
   name: 'cartao',
   component: _components_carteirinhas_Carteirinha__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
+  path: '/cracha/:id',
+  name: 'cracha',
+  component: _components_carteirinhas_Cracha__WEBPACK_IMPORTED_MODULE_11__["default"]
+}, {
   path: '/cartaofrequentador/:id',
   name: 'cartaofrequentador',
-  component: _components_carteirinhas_CarteirinhaFrequentador__WEBPACK_IMPORTED_MODULE_11__["default"]
+  component: _components_carteirinhas_CarteirinhaFrequentador__WEBPACK_IMPORTED_MODULE_12__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 

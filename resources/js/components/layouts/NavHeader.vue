@@ -112,13 +112,30 @@
                                 <router-link to="/atendimento">
                                     <a class="nav-link text-primary" href="#">Solicitação de Atendimento</a>
                                 </router-link>
+                            
                             </li>
-
-                            <li v-if="login.data.id" class="nav-item">
-                                <router-link :to="{name: 'cartaofrequentador', params: {id: login.data.id}}">
+                            
+                                <li v-if="!exibirCardObreiro"  class="nav-item">
+                                <router-link  v-if="login.data.id" :to="{name: 'cartaofrequentador', params: {id: login.data.id}}">
                                     <a class="nav-link text-primary" href="#">Carteirinha Frequentador</a>
                                 </router-link>
+                            </li>
+                           
+                            
+                                 <li v-if="exibirCardObreiro"  class="nav-item">
+                                 <router-link v-if="login.data.id"  :to="{name: 'cartao', params: {id: login.data.id}}">
+                                    <a class="nav-link text-primary" href="#">Cartão do Obreiro</a>
+                                </router-link>                              
+
                             </li> 
+                            <li  v-if="exibirCardObreiro" class="nav-item">
+                             <router-link  v-if="login.data.id"  :to="{name: 'cracha', params: {id: login.data.id}}">
+                                    <a class="nav-link text-primary" href="#">Crachá do Obreiro</a>
+                                </router-link>
+
+                            </li> 
+                           
+                             
 
                         </ul>
                     </div>
@@ -137,34 +154,52 @@ import {
 } from 'vuex'
 export default {
     name: "NavHeader",
-    mounted() {
-        console.log("Component mounted.");
+    data(){
+        return{
+         exibirCardObreiro : false
+        }
+    },
+    created() {
+        this.linkObreiroFrequentador()
+        console.log("ue")
+    //     console.log("Component mounted.");
 
-     console.log(this.login.data.id)
+    //  console.log(this.login.data.id)
      
     },
     computed: {
         ...mapState({
             login: state => state.Login,
+            // cartao: state => state.Cartao,
         }),
     },
     watch:{
         login(){
             this.login = this.login
-            console.log("mudou") 
+            this.linkObreiroFrequentador()
         }
     },
     methods: {
         ...mapActions([
             'Logout',  
-            'SetLocalStorage',        
+            'SetLocalStorage',     
+            'SelecionarUserCartao',   
         ]),  
+        linkObreiroFrequentador(){
+          
+                if((this.login.data.obreiro !== '') && (this.login.data.obreiro !== 'null') && (this.login.data.obreiro !== null) ){
+                    this.exibirCardObreiro = true;
+                    console.log(this.exibirCardObreiro)
+                }
+            
+        },
         sair() {
             this.Logout("")
             this.$router.push({ name: 'home' });
             console.log('saiu')
         }    
-    } 
+    },
+     
 }
 </script>
 

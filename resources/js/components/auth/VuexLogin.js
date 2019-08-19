@@ -9,7 +9,7 @@ export default {
     },
     mutations: {
         LOGON(state, logon) {
-            state.data = logon.data.data[0]
+            state.data = logon.data.data[0]           
             state.message = logon.data.message
         },
         REGISTER(state, register) {
@@ -18,13 +18,22 @@ export default {
         LOGOUT(state, exit) {
             state.data = exit
         },
-        SET_LOCAL_STORAGE(state, id){
-            state.data = {'id': id}
+        SET_LOCAL_STORAGE(state, localStorage){
+            state.data = {
+                'id': localStorage.id,
+                'obreiro': localStorage.obreiro,
+            }
         }
     },
     actions: {
         SetLocalStorage(context){
-            context.commit('SET_LOCAL_STORAGE', window.localStorage.getItem("user_id"))
+            let localStorage =  {}
+
+            localStorage.id = window.localStorage.getItem("user_id")
+            localStorage.obreiro = window.localStorage.getItem("user_obreiro")
+
+            context.commit('SET_LOCAL_STORAGE', localStorage)
+           
         },
         Logon(context, data) {        
         let url = '/acolher/public/api/auth/login';        
@@ -32,10 +41,9 @@ export default {
             .post(url, data)
               .then(response => {
 
-                context.commit('LOGON', response)
+                context.commit('LOGON', response)  
 
-                console.log(response.data.data[0].id)
-
+                window.localStorage.setItem("user_obreiro", response.data.data[0].obreiro);
                 window.localStorage.setItem("user_id", response.data.data[0].id);
 
                 //   console.log(data)
@@ -61,6 +69,7 @@ export default {
 
         Logout(context, data) {   
             window.localStorage.removeItem("user_id");    
+            window.localStorage.removeItem("user_obreiro");   
             context.commit('LOGOUT', "")            
         },
         
