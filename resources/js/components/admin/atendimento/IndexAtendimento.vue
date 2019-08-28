@@ -48,7 +48,8 @@
     
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <table class="table table-striped table-sm">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
                     <thead>
                         <tr>
                             <td>
@@ -75,9 +76,7 @@
                             <td>
                                 AGENDADO
                             </td>
-                            <td>
-                                HORA
-                            </td>
+                            
                             <td>
                                 IDADE
                             </td>
@@ -93,11 +92,14 @@
                             <td>
                                 DROGAS
                             </td>
+                            <td>
+                                Ficha de atendimento
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
     
-                        <tr class="pointer" data-toggle="modal" data-target="#exampleModal" v-for="atendimento in atendimentos" :key="atendimento.id" @click="showAtendimento(atendimento.id, atendimento.email, atendimento.nome, atendimento.data_atendimento, atendimento.hora_atendimento)">
+                        <tr   v-for="atendimento in atendimentos" :key="atendimento.id" >
     
                             <!-- ID -->
                             <td v-if="atendimento.obreiro">
@@ -134,12 +136,11 @@
                             <td>
                                 {{atendimento.created_at | date}}
                             </td>
-                            <td>
-                                <span>{{ atendimento.data_atendimento | date}}</span>
+                            <td data-toggle="modal" data-target="#exampleModal" class="pointer" @click="showAtendimento(atendimento.id, atendimento.email, atendimento.nome, atendimento.data_atendimento, atendimento.hora_atendimento)">
+                                <span v-if="atendimento.data_atendimento">{{ atendimento.data_atendimento | date}}</span>
+                                <span v-else><div class="btn btn-primary btn-sm">Agendar</div></span>
                             </td>
-                            <td>
-                                <span>{{ atendimento.hora_atendimento}}</span>
-                            </td>
+                            
                             <td>
                                 {{atendimento.idade | idade}}
                             </td>
@@ -155,9 +156,13 @@
                             <td>
                                 {{atendimento.drogas}}
                             </td>
+                            <td>
+                                <div class="btn btn-sm btn-warning">Gerar</div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     
@@ -193,7 +198,7 @@ export default {
              this.parametros.tipo_atendimento = this.$route.params.tipoatendimento
             this.AllAtendimento(this.parametros)
                console.log(this.parametros)
-        }
+        }        
     },
     filters: {
         date: function(value) {

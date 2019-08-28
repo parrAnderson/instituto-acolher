@@ -41,6 +41,7 @@ export default {
             novo:"",
             data_atendimento:"",
             hora_atendimento:"",
+            parametros:{},
         }
     },
     computed: {
@@ -55,6 +56,7 @@ export default {
     methods: {
         ...mapActions([
             'UpdateAtendimento',
+            'AllAtendimento',
         ]),
         UpdateData() {
             this.fields.hora_atendimento = this.hora_atendimento
@@ -65,12 +67,24 @@ export default {
 
 
             // console.log(this.request)
-            this.UpdateAtendimento(this.request)            
+            this.UpdateAtendimento(this.request)   
+
+            // parametros.tipo_atendimento
+            // parametros.DataAtendimentoBuscar
+
+    if(this.DataAtendimentoBuscar){
+          this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar
+    }
+          
+            this.AllAtendimento(this.parametros)         
         },
     },
     beforeMount() {
         this.request.fields = this.fields
         this.request.id = ""
+
+        this.parametros.tipo_atendimento = this.$route.params.tipoatendimento
+        this.parametros.DataAtendimentoBuscar = ''
     },
    
     watch: {       

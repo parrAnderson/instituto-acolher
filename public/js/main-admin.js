@@ -1948,7 +1948,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       fields: {},
       novo: "",
       data_atendimento: "",
-      hora_atendimento: ""
+      hora_atendimento: "",
+      parametros: {}
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
@@ -1968,19 +1969,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return state.Atendimento.editHoraAtendimento;
     }
   })),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['UpdateAtendimento']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['UpdateAtendimento', 'AllAtendimento']), {
     UpdateData: function UpdateData() {
       this.fields.hora_atendimento = this.hora_atendimento;
       this.fields.data_atendimento = this.data_atendimento;
       this.fields.nome = this.editNome;
       this.fields.email = this.editEmail; // console.log(this.request)
 
-      this.UpdateAtendimento(this.request);
+      this.UpdateAtendimento(this.request); // parametros.tipo_atendimento
+      // parametros.DataAtendimentoBuscar
+
+      if (this.DataAtendimentoBuscar) {
+        this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar;
+      }
+
+      this.AllAtendimento(this.parametros);
     }
   }),
   beforeMount: function beforeMount() {
     this.request.fields = this.fields;
     this.request.id = "";
+    this.parametros.tipo_atendimento = this.$route.params.tipoatendimento;
+    this.parametros.DataAtendimentoBuscar = '';
   },
   watch: {
     editId: function editId() {
@@ -2016,6 +2026,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22300,34 +22315,14 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("table", { staticClass: "table table-striped table-sm" }, [
-              _vm._m(3),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.atendimentos, function(atendimento) {
-                  return _c(
-                    "tr",
-                    {
-                      key: atendimento.id,
-                      staticClass: "pointer",
-                      attrs: {
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      },
-                      on: {
-                        click: function($event) {
-                          _vm.showAtendimento(
-                            atendimento.id,
-                            atendimento.email,
-                            atendimento.nome,
-                            atendimento.data_atendimento,
-                            atendimento.hora_atendimento
-                          )
-                        }
-                      }
-                    },
-                    [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-striped table-sm" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.atendimentos, function(atendimento) {
+                    return _c("tr", { key: atendimento.id }, [
                       atendimento.obreiro
                         ? _c("td", [
                             _vm._v(
@@ -22396,19 +22391,44 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", [
-                        _c("span", [
-                          _vm._v(
-                            _vm._s(_vm._f("date")(atendimento.data_atendimento))
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", [
-                          _vm._v(_vm._s(atendimento.hora_atendimento))
-                        ])
-                      ]),
+                      _c(
+                        "td",
+                        {
+                          staticClass: "pointer",
+                          attrs: {
+                            "data-toggle": "modal",
+                            "data-target": "#exampleModal"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.showAtendimento(
+                                atendimento.id,
+                                atendimento.email,
+                                atendimento.nome,
+                                atendimento.data_atendimento,
+                                atendimento.hora_atendimento
+                              )
+                            }
+                          }
+                        },
+                        [
+                          atendimento.data_atendimento
+                            ? _c("span", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm._f("date")(atendimento.data_atendimento)
+                                  )
+                                )
+                              ])
+                            : _c("span", [
+                                _c(
+                                  "div",
+                                  { staticClass: "btn btn-primary btn-sm" },
+                                  [_vm._v("Agendar")]
+                                )
+                              ])
+                        ]
+                      ),
                       _vm._v(" "),
                       _c("td", [
                         _vm._v(
@@ -22448,12 +22468,14 @@ var render = function() {
                             _vm._s(atendimento.drogas) +
                             "\n                        "
                         )
-                      ])
-                    ]
-                  )
-                }),
-                0
-              )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4, true)
+                    ])
+                  }),
+                  0
+                )
+              ])
             ])
           ])
         ])
@@ -22552,10 +22574,6 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("td", [
-          _vm._v("\n                            HORA\n                        ")
-        ]),
-        _vm._v(" "),
-        _c("td", [
           _vm._v(
             "\n                            IDADE\n                        "
           )
@@ -22579,8 +22597,22 @@ var staticRenderFns = [
           _vm._v(
             "\n                            DROGAS\n                        "
           )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _vm._v(
+            "\n                            Ficha de atendimento\n                        "
+          )
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("div", { staticClass: "btn btn-sm btn-warning" }, [_vm._v("Gerar")])
     ])
   }
 ]
