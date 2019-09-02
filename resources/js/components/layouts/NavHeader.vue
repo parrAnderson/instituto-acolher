@@ -73,11 +73,11 @@
                                 </router-link>
                             </li>
                             <router-link to="/horariodeatendimento">
-                                <a class="nav-link" href="#">Horarios de Atendimento</a>
+                                <a class="nav-link" href="#">Horários de Atendimento</a>
                             </router-link>
                             <li class="nav-item">
                                 <router-link to="/semear">
-                                    <a class="nav-link" href="#">Semear (Cursos)</a>
+                                    <a class="nav-link" href="#">Conteúdo dos Cursos</a>
                                 </router-link>
                             </li>
                            

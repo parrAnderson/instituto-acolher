@@ -37317,7 +37317,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-12" }, [
         _c("p", [
           _vm._v(
-            "\n                        A solicitação de atendimento para as atividades acima devem ser feita atravez de cadastro:\n                    "
+            "\n                        A solicitação de atendimento para atividades do Acolher deve ser feita através de cadastro:\n                    "
           )
         ])
       ])
@@ -42785,7 +42785,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "\n\n                    Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a\n                    não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser minha única responsabilidade meus atos e deliberações\n                    acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.\n                "
+              "\n\n                    Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a\n                    não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha única responsabilidade meus atos e deliberações\n                    acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.\n                "
             )
           ])
         ])
@@ -44336,7 +44336,7 @@ var render = function() {
                         _c(
                           "a",
                           { staticClass: "nav-link", attrs: { href: "#" } },
-                          [_vm._v("Horarios de Atendimento")]
+                          [_vm._v("Horários de Atendimento")]
                         )
                       ]
                     ),
@@ -44349,7 +44349,7 @@ var render = function() {
                           _c(
                             "a",
                             { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Semear (Cursos)")]
+                            [_vm._v("Conteúdo dos Cursos")]
                           )
                         ])
                       ],

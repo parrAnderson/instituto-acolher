@@ -44,7 +44,7 @@
             <div class="row row-space text-center">
                 <div class="col-12">
                     <p>
-                        A solicitação de atendimento para as atividades acima devem ser feita atravez de cadastro:
+                        A solicitação de atendimento para atividades do Acolher deve ser feita através de cadastro:
                     </p>
                 </div>
             </div>

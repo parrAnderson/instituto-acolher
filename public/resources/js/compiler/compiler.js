@@ -3079,7 +3079,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-12" }, [
         _c("p", [
           _vm._v(
-            "\n                        A solicitação de atendimento para as atividades acima devem ser feita atravez de cadastro:\n                    "
+            "\n                        A solicitação de atendimento para atividades do Acolher deve ser feita através de cadastro:\n                    "
           )
         ])
       ])
@@ -6263,7 +6263,7 @@ var render = function() {
                         _c(
                           "a",
                           { staticClass: "nav-link", attrs: { href: "#" } },
-                          [_vm._v("Horarios de Atendimento")]
+                          [_vm._v("Horários de Atendimento")]
                         )
                       ]
                     ),
@@ -6276,7 +6276,7 @@ var render = function() {
                           _c(
                             "a",
                             { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Semear (Cursos)")]
+                            [_vm._v("Conteúdo dos Cursos")]
                           )
                         ])
                       ],

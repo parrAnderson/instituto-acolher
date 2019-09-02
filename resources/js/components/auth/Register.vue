@@ -422,7 +422,7 @@
                     <p>
     
                         Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a
-                        não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser minha única responsabilidade meus atos e deliberações
+                        não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha única responsabilidade meus atos e deliberações
                         acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.
                     </p>
                 </div>
@@ -467,7 +467,7 @@
                             {{error[0].message}} 
                             </li>
                         </ul>
-                    
+                     
                 </div>
             </div>
         </div>
