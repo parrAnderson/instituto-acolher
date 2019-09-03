@@ -21,7 +21,7 @@
                     </router-link>
                 </div>
                 <div class="col-4">
-                    <router-link to="/atendimentos">
+                    <router-link :to="{name: 'tipoatendimento', params: {tipoatendimento: 'todos'}}">
                         <div class="card" style="width: 18rem;">
                             <img class="card-img-top" src="/../../acolher/public/img/admin/dashboard/atendimento.jpg" alt="Card image cap">
                             <div class="card-body">

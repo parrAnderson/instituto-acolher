@@ -119,6 +119,13 @@ class AtendimentosController extends Controller
         ]);
     }
 
+    public function edit($id){
+        $this->atendimentos = $this->atendimentos->where('id', $id)->get();
+        
+        return response()->json([
+            'data' => $this->atendimentos,  
+        ]);
+    }
 
     public function destroy($id)
     {

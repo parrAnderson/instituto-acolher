@@ -4,28 +4,28 @@
         <div class="container">
             <div class="row row-space">
                 <div class="col-12">
-                    <h3 class="text-center">MÓDULOS DO SEMEAR - ACOLHER </h3>
-                    <div class="row">
+                    <h3 class="text-center">CURSOS DISPONÍVEIS NO SEMEAR - ACOLHER </h3>
+                    <!-- <div class="row">
                         <div class="col-12">
                             <img class="img-fluid" src="/../../acolher/public/img/semear/acolher.png" alt="">
                         </div>
-                    </div>
-                    <h3 class="text-center">ATIVIDADES DISPONÍVEIS NO SEMEAR - <span class="text-primary">ACOLHER</span>
-                    </h3>
+                    </div> -->
+                    <!-- <h3 class="text-center">ATIVIDADES DISPONÍVEIS NO SEMEAR - <span class="text-primary">ACOLHER</span>
+                    </h3> -->
                      
                     <div class="row  row-space justify-content-center">
                         <div class="col-12 text-center">
-                            <img class="img-fluid" src="/../../acolher/public/img/semear/curso.png" alt="">
+                            <img class="img-fluid" src="/../../acolher/public/img/semear/1.png" alt="">
                         </div>
                     </div>
                     <div class="row  row-space justify-content-center">
                         <div class="col-12 text-center">
-                            <img class="img-fluid" src="/../../acolher/public/img/semear/kardecismo.png" alt="">
+                            <img class="img-fluid" src="/../../acolher/public/img/semear/2.png" alt="">
                         </div>
                     </div>
                      <div class="row  row-space justify-content-center">
                         <div class="col-12 text-center">
-                            <img class="img-fluid" src="/../../acolher/public/img/semear/apometria.png" alt="">
+                            <img class="img-fluid" src="/../../acolher/public/img/semear/3.png" alt="">
                         </div>
                     </div>
                     <!-- <div class="row  row-space justify-content-center">

@@ -3,6 +3,13 @@
     <nav-header></nav-header>
 
     <div class="container">
+        
+        <div class="row justify-content-md-center">
+                <div class="col-md-3">
+                    <img class="img-fluid align-center img-logo-home" src="/../../acolher/public/img/logo.png" alt>
+                </div>
+            </div>
+
         <div class="row row-space">
             <div class="col-12">
                 <h2 class="text-center">HORARIO DE ATENDIMENTO</h2>

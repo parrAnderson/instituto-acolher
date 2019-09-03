@@ -114,38 +114,42 @@
                     <!-- <button @click="pegarAtendimento()" type="submit" class="btn btn-primary">Pegar</button> -->
                 </div>
             </div>
-
-            <div class="row justify-content-center row-space">
-              <div class="col-12 col-md-8 col-lg-8">
-                  <div class="row justify-content-center row-space">
-                    <div class="col-4">
-                        Tipo
-                    </div>
-                    <div class="col-4">
-                        Data da solicitação
-                    </div>
-                    <div class="col-4">
-                        Data que será feito
-                    </div>
-                  </div> 
-
-                  <div v-for="solicitacao in atendimento" :key="solicitacao.id" class="row justify-content-center row-space">
-                    <div class="col-4">
-                        {{solicitacao.tipo_atendimento}}
-                    </div>
-                    <div class="col-4">
-                          {{solicitacao.created_at | date}}
-                    </div>
-                    <div class="col-4">
-                         {{solicitacao.data_atendimento | date}}
-                    </div>
-                  </div> 
-                  
-
-                
-              
+            
+            <div class="row row-space justify-content-center">
+              <div class="col-12">
+            <div class="table-responsive-sm">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Data de solicitação
+                        </th>
+                        <th>
+                            Data que será feito
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="solicitacao in atendimento" :key="solicitacao.id">
+                        <td>
+                            {{solicitacao.tipo_atendimento}}
+                        </td>
+                        <td>
+                            {{solicitacao.created_at | date}}
+                        </td>
+                        <td>
+                            {{solicitacao.data_atendimento | date}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-    </div>
+              </div>
+            </div>
+
         </div>
         <Footer></Footer>
     </div>

@@ -1836,6 +1836,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1859,6 +1866,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2092,6 +2106,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2115,6 +2136,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3016,6 +3045,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4733,6 +4770,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -5010,6 +5051,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -5066,7 +5112,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5104,7 +5150,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -36926,6 +36972,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("img", {
+            staticClass: "img-fluid align-center img-logo-home",
+            attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("h2", { staticClass: "text-center" }, [_vm._v("CONTATO")]),
@@ -36995,6 +37050,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("img", {
+            staticClass: "img-fluid align-center img-logo-home",
+            attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("h2", { staticClass: "text-center" }, [_vm._v("DIREÇÃO")]),
@@ -37357,6 +37421,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("img", {
+            staticClass: "img-fluid align-center img-logo-home",
+            attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("h2", { staticClass: "text-center" }, [
@@ -37438,6 +37511,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("img", {
+            staticClass: "img-fluid align-center img-logo-home",
+            attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("div", { staticClass: "row row-space" }, [
@@ -39932,6 +40014,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("img", {
+            staticClass: "img-fluid align-center img-logo-home",
+            attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("h2", { staticClass: "text-center" }, [_vm._v("SEDE E RECURSOS")]),
@@ -40191,24 +40282,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "row row-space" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("h3", { staticClass: "text-center" }, [
-            _vm._v("MÓDULOS DO SEMEAR - ACOLHER ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: {
-                  src: "/../../acolher/public/img/semear/acolher.png",
-                  alt: ""
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("h3", { staticClass: "text-center" }, [
-            _vm._v("ATIVIDADES DISPONÍVEIS NO SEMEAR - "),
-            _c("span", { staticClass: "text-primary" }, [_vm._v("ACOLHER")])
+            _vm._v("CURSOS DISPONÍVEIS NO SEMEAR - ACOLHER ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row  row-space justify-content-center" }, [
@@ -40216,7 +40290,7 @@ var staticRenderFns = [
               _c("img", {
                 staticClass: "img-fluid",
                 attrs: {
-                  src: "/../../acolher/public/img/semear/curso.png",
+                  src: "/../../acolher/public/img/semear/1.png",
                   alt: ""
                 }
               })
@@ -40228,7 +40302,7 @@ var staticRenderFns = [
               _c("img", {
                 staticClass: "img-fluid",
                 attrs: {
-                  src: "/../../acolher/public/img/semear/kardecismo.png",
+                  src: "/../../acolher/public/img/semear/2.png",
                   alt: ""
                 }
               })
@@ -40240,7 +40314,7 @@ var staticRenderFns = [
               _c("img", {
                 staticClass: "img-fluid",
                 attrs: {
-                  src: "/../../acolher/public/img/semear/apometria.png",
+                  src: "/../../acolher/public/img/semear/3.png",
                   alt: ""
                 }
               })
@@ -43927,50 +44001,48 @@ var render = function() {
         _vm._v(" "),
         _vm._m(3),
         _vm._v(" "),
-        _c("div", { staticClass: "row justify-content-center row-space" }, [
-          _c(
-            "div",
-            { staticClass: "col-12 col-md-8 col-lg-8" },
-            [
-              _vm._m(4),
-              _vm._v(" "),
-              _vm._l(_vm.atendimento, function(solicitacao) {
-                return _c(
-                  "div",
-                  {
-                    key: solicitacao.id,
-                    staticClass: "row justify-content-center row-space"
-                  },
-                  [
-                    _c("div", { staticClass: "col-4" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(solicitacao.tipo_atendimento) +
-                          "\n                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-4" }, [
-                      _vm._v(
-                        "\n                          " +
-                          _vm._s(_vm._f("date")(solicitacao.created_at)) +
-                          "\n                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-4" }, [
-                      _vm._v(
-                        "\n                         " +
-                          _vm._s(_vm._f("date")(solicitacao.data_atendimento)) +
-                          "\n                    "
-                      )
+        _c("div", { staticClass: "row row-space justify-content-center" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c("div", { staticClass: "table-responsive-sm" }, [
+              _c("table", { staticClass: "table table-striped table-sm" }, [
+                _vm._m(4),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.atendimento, function(solicitacao) {
+                    return _c("tr", { key: solicitacao.id }, [
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(solicitacao.tipo_atendimento) +
+                            "\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm._f("date")(solicitacao.created_at)) +
+                            "\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(
+                              _vm._f("date")(solicitacao.data_atendimento)
+                            ) +
+                            "\n                        "
+                        )
+                      ])
                     ])
-                  ]
+                  }),
+                  0
                 )
-              })
-            ],
-            2
-          )
+              ])
+            ])
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -44067,21 +44139,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center row-space" }, [
-      _c("div", { staticClass: "col-4" }, [
-        _vm._v("\n                        Tipo\n                    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4" }, [
-        _vm._v(
-          "\n                        Data da solicitação\n                    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4" }, [
-        _vm._v(
-          "\n                        Data que será feito\n                    "
-        )
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [
+          _vm._v("\n                            Tipo\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v(
+            "\n                            Data de solicitação\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v(
+            "\n                            Data que será feito\n                        "
+          )
+        ])
       ])
     ])
   }
@@ -44156,30 +44230,35 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row nav-top" }, [
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "col-md-2" },
+        [
+          _c("router-link", { attrs: { to: "/" } }, [
+            _c("img", {
+              staticClass: "img-fluid align-center",
+              attrs: {
+                src: "/../../acolher/public/img/logo-footer.png",
+                alt: ""
+              }
+            })
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
         _c("div", { staticClass: "row row-login justify-content-end" }, [
           !_vm.login.data.id
             ? _c(
                 "div",
-                { staticClass: "col-lg-2 col-6 text-right btn-login-header" },
                 [
                   _c("router-link", { attrs: { to: "/login" } }, [
                     _c("button", { staticClass: "btn btn-success btn-sm" }, [
                       _vm._v("Login")
                     ])
-                  ])
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          !_vm.login.data.id
-            ? _c(
-                "div",
-                { staticClass: "col-lg-2 col-6 text-right btn-login-header" },
-                [
+                  ]),
+                  _vm._v(" "),
                   _c("router-link", { attrs: { to: "/register" } }, [
                     _c("button", { staticClass: "btn btn-primary btn-sm" }, [
                       _vm._v("Cadastrar")
@@ -44191,34 +44270,28 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.login.data.id
-            ? _c(
-                "div",
-                { staticClass: "col-lg-2 col-6 text-right btn-login-header" },
-                [
-                  _c(
-                    "button",
-                    {
-                      staticClass: " btn btn-danger btn-sm",
-                      on: {
-                        click: function($event) {
-                          _vm.sair()
-                        }
+            ? _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: " btn btn-danger btn-sm",
+                    on: {
+                      click: function($event) {
+                        _vm.sair()
                       }
-                    },
-                    [_vm._v("Sair")]
-                  )
-                ]
-              )
+                    }
+                  },
+                  [_vm._v("Sair")]
+                )
+              ])
             : _vm._e()
-        ]),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "nav",
-          { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
-          [
-            _vm._m(2),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "row justify-content-center bg-light" }, [
+          _c("nav", { staticClass: "navbar navbar-expand-lg navbar-light" }, [
+            _vm._m(0),
             _vm._v(" "),
             _c(
               "div",
@@ -44241,7 +44314,7 @@ var render = function() {
                             { staticClass: "nav-link", attrs: { href: "#" } },
                             [
                               _vm._v(
-                                "\n                    Home\n                    "
+                                "\n                                        Home\n                                        "
                               ),
                               _c("span", { staticClass: "sr-only" }, [
                                 _vm._v("(current)")
@@ -44360,224 +44433,221 @@ var render = function() {
                 )
               ]
             )
-          ]
-        ),
+          ])
+        ]),
         _vm._v(" "),
-        _c(
-          "nav",
-          { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
-          [
-            _c(
+        _vm.login.data.id
+          ? _c(
               "div",
               {
-                staticClass: "collapse navbar-collapse",
-                attrs: { id: "navbarSupportedContent" }
+                staticClass: "row justify-content-center navbar-light",
+                staticStyle: { "background-color": "#e3f2fd" }
               },
               [
-                _c("ul", { staticClass: "nav navbar-nav mx-auto" }, [
-                  _vm.login.data.user
-                    ? _c("li", { staticClass: "nav-item dropdown" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link dropdown-toggle",
-                            attrs: {
-                              href: "#",
-                              id: "navbarDropdown",
-                              "data-hover": "dropdown",
-                              role: "button",
-                              "data-toggle": "dropdown",
-                              "aria-haspopup": "true",
-                              "aria-expanded": "false"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    Formulários\n                                    "
-                            )
-                          ]
-                        ),
+                _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "collapse navbar-collapse",
+                      attrs: { id: "navbarSupportedContent" }
+                    },
+                    [
+                      _c("ul", { staticClass: "nav navbar-nav mx-auto" }, [
+                        _vm.login.data.user
+                          ? _c("li", { staticClass: "nav-item dropdown" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link dropdown-toggle",
+                                  attrs: {
+                                    href: "#",
+                                    id: "navbarDropdown",
+                                    "data-hover": "dropdown",
+                                    role: "button",
+                                    "data-toggle": "dropdown",
+                                    "aria-haspopup": "true",
+                                    "aria-expanded": "false"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Formulários\n                                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { "aria-labelledby": "navbarDropdown" }
+                                },
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: "/formularios/atendimentoadulto"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "Cadastro Prévio para Atendimento a Adulto 1ª Vez"
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "dropdown-menu",
-                            attrs: { "aria-labelledby": "navbarDropdown" }
-                          },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: { to: "/formularios/atendimentoadulto" }
-                              },
+                        _vm.login.data.id
+                          ? _c(
+                              "li",
+                              { staticClass: "nav-item" },
                               [
                                 _c(
-                                  "a",
-                                  {
-                                    staticClass: "dropdown-item",
-                                    attrs: { href: "#" }
-                                  },
+                                  "router-link",
+                                  { attrs: { to: "/atendimento" } },
                                   [
-                                    _vm._v(
-                                      "Cadastro Prévio para Atendimento a Adulto 1ª Vez"
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "nav-link text-primary",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Solicitação de Atendimento")]
                                     )
                                   ]
                                 )
-                              ]
+                              ],
+                              1
                             )
-                          ],
-                          1
-                        )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        !_vm.exibirCardObreiro
+                          ? _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _vm.login.data.id
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          to: {
+                                            name: "cartaofrequentador",
+                                            params: { id: _vm.login.data.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "nav-link text-primary",
+                                            attrs: { href: "#" }
+                                          },
+                                          [_vm._v("Carteirinha Frequentador")]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.exibirCardObreiro
+                          ? _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _vm.login.data.id
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          to: {
+                                            name: "cartao",
+                                            params: { id: _vm.login.data.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "nav-link text-primary",
+                                            attrs: { href: "#" }
+                                          },
+                                          [_vm._v("Cartão do Obreiro")]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.exibirCardObreiro
+                          ? _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _vm.login.data.id
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          to: {
+                                            name: "cracha",
+                                            params: { id: _vm.login.data.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "nav-link text-primary",
+                                            attrs: { href: "#" }
+                                          },
+                                          [_vm._v("Crachá do Obreiro")]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          : _vm._e()
                       ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.login.data.id
-                    ? _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _c("router-link", { attrs: { to: "/atendimento" } }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link text-primary",
-                                attrs: { href: "#" }
-                              },
-                              [_vm._v("Solicitação de Atendimento")]
-                            )
-                          ])
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.exibirCardObreiro
-                    ? _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _vm.login.data.id
-                            ? _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "cartaofrequentador",
-                                      params: { id: _vm.login.data.id }
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "nav-link text-primary",
-                                      attrs: { href: "#" }
-                                    },
-                                    [_vm._v("Carteirinha Frequentador")]
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.exibirCardObreiro
-                    ? _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _vm.login.data.id
-                            ? _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "cartao",
-                                      params: { id: _vm.login.data.id }
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "nav-link text-primary",
-                                      attrs: { href: "#" }
-                                    },
-                                    [_vm._v("Cartão do Obreiro")]
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.exibirCardObreiro
-                    ? _c(
-                        "li",
-                        { staticClass: "nav-item" },
-                        [
-                          _vm.login.data.id
-                            ? _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "cracha",
-                                      params: { id: _vm.login.data.id }
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "nav-link text-primary",
-                                      attrs: { href: "#" }
-                                    },
-                                    [_vm._v("Crachá do Obreiro")]
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e()
+                    ]
+                  )
                 ])
               ]
             )
-          ]
-        )
+          : _vm._e()
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "img-fluid align-center",
-        attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-right" }, [
-      _c("div", { staticClass: "col-12" })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

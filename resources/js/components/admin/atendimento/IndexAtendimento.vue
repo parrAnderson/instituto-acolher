@@ -157,7 +157,9 @@
                                 {{atendimento.drogas}}
                             </td>
                             <td>
-                                <div class="btn btn-sm btn-warning">Gerar</div>
+                               <router-link :to="{name: 'fichaatendimento', params: {id: atendimento.id}}">
+                                <div class="btn btn-sm btn-warning">FICHA</div>
+                               </router-link>
                             </td>
                         </tr>
                     </tbody>

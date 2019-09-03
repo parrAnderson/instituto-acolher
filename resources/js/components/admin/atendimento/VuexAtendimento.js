@@ -3,11 +3,13 @@ import axios from "axios"
 export default {
     state:{
         data:{},
+        show:{},
         editId:"",
         editNome:"",
         editEmail:"",
         editDataAtendimento:"",
         editHoraAtendimento:"",
+        
     },
     mutations:{
         ALL_ATENDIMENTO(state, data){
@@ -15,6 +17,9 @@ export default {
         },
         UPDATE_ATENDIMENTO(state, data){
             state.update = data
+        },
+        GET_ATENDIMENTO(state, data){
+            state.show = data
         },
         EDIT_ATENDIMENTO(state, data){   
                   
@@ -26,6 +31,21 @@ export default {
         },
     },
     actions:{
+        GetAtendimento(context, id){
+            let urlChange = '/acolher/public/api/atendimento/' + id; 
+            
+            axios
+            .get(urlChange)
+            .then(response => {
+                context.commit('GET_ATENDIMENTO', response.data.data[0])     
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error);
+            });  
+            
+            
+        },
         AllAtendimento(context, parametros){   
 
             let url = '/acolher/public/api/atendimento/?tipo_atendimento=' + parametros.tipo_atendimento + '&dataAtendimento=' + parametros.DataAtendimentoBuscar;        
@@ -56,7 +76,7 @@ export default {
             .put(urlChange, request.fields)
             .then(response => {
                 console.log('Data atualizada ' + request.fields.data_atendimento + ' - ' + request.fields.hora_atendimento)
-                commit('UPDATE_ATENDIMENTO', response.data)      
+                commit('UPDATE_ATENDIMENTO', response.data)     
                       
             })                           
             .catch(function (error) {

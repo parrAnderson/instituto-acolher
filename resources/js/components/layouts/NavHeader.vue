@@ -2,34 +2,42 @@
 <div class="container">
     <div class="row nav-top">
         <div class="col-md-2">
-            <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
+            <router-link to="/">
+                <img class="img-fluid align-center" src="/../../acolher/public/img/logo-footer.png" alt>
+            </router-link>
         </div>
+        
             <div class="col-md-10">                
-                <div class="row row-login justify-content-end">                    
-                    <div class="col-lg-2 col-6 text-right btn-login-header" v-if="!login.data.id">                        
+                <div class="row row-login justify-content-end">
+                    <div v-if="!login.data.id">
                         <router-link to="/login">
                             <button  class="btn btn-success btn-sm">Login</button>
                         </router-link>
-                    </div>
-                     <div class="col-lg-2 col-6 text-right btn-login-header" v-if="!login.data.id">  
+
                         <router-link to="/register">
                             <button class="btn btn-primary btn-sm">Cadastrar</button>
-                        </router-link>                       
-                    </div>
+                        </router-link> 
 
-                     <div class="col-lg-2 col-6 text-right btn-login-header" v-if="login.data.id">  
+                    </div>
+                    <div v-if="login.data.id">  
                         <button @click="sair()" class=" btn btn-danger btn-sm">Sair</button>                     
                     </div>
 
+                    
 
-                </div>
-                <div class="row text-right">
-                    <div class="col-12">
-
+                    <!-- <div class="col-lg-2 col-6 text-right btn-login-header" >                        
+                        
                     </div>
-                </div>
+                     <div class="col-lg-2 col-6 text-right btn-login-header" v-if="!login.data.id">  
+                                           
+                    </div> -->
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    
+                </div>
+               </div>    
+            <div class="col-md-12">
+                <div class="row justify-content-center bg-light">
+                    <nav class="navbar navbar-expand-lg navbar-light">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -39,9 +47,9 @@
                             <li class="nav-item active">
                                 <router-link to="/">
                                     <a class="nav-link" href="#">
-                    Home
-                    <span class="sr-only">(current)</span>
-                  </a>
+                                        Home
+                                        <span class="sr-only">(current)</span>
+                                    </a>
                                 </router-link>
                             </li>
                             
@@ -83,65 +91,62 @@
                            
                         </ul>
                     </div>
-                </nav>
+                    </nav> 
+                </div>              
 
+                <div class="row justify-content-center navbar-light" style="background-color: #e3f2fd;" v-if="login.data.id" >
+                    <nav class="navbar navbar-expand-lg">                   
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav mx-auto">                            
+                                <li class="nav-item dropdown" v-if="login.data.user">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-hover="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Formulários
+                                        </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <router-link to="/formularios/atendimentoadulto">
+                                            <a class="dropdown-item" href="#">Cadastro Prévio para Atendimento a Adulto 1ª Vez</a>
+                                        </router-link>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    
+                                    </div>
+                                </li>
+                                <!-- <li v-if="login.data.id" class="nav-item">
+                                    <router-link to="/obreiro">
+                                        <a class="nav-link" href="#">Obreiro</a>
+                                    </router-link>
+                                </li> -->
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav mx-auto">                            
-                            <li class="nav-item dropdown" v-if="login.data.user">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-hover="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Formulários
-                                    </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <router-link to="/formularios/atendimentoadulto">
-                                        <a class="dropdown-item" href="#">Cadastro Prévio para Atendimento a Adulto 1ª Vez</a>
+                                <li v-if="login.data.id" class="nav-item">
+                                    <router-link to="/atendimento">
+                                        <a class="nav-link text-primary" href="#">Solicitação de Atendimento</a>
+                                    </router-link>
+                                
+                                </li>
+                                
+                                    <li v-if="!exibirCardObreiro"  class="nav-item">
+                                    <router-link  v-if="login.data.id" :to="{name: 'cartaofrequentador', params: {id: login.data.id}}">
+                                        <a class="nav-link text-primary" href="#">Carteirinha Frequentador</a>
+                                    </router-link>
+                                </li>
+                            
+                                
+                                    <li v-if="exibirCardObreiro"  class="nav-item">
+                                    <router-link v-if="login.data.id"  :to="{name: 'cartao', params: {id: login.data.id}}">
+                                        <a class="nav-link text-primary" href="#">Cartão do Obreiro</a>
+                                    </router-link>                              
+
+                                </li> 
+                                <li  v-if="exibirCardObreiro" class="nav-item">
+                                <router-link  v-if="login.data.id"  :to="{name: 'cracha', params: {id: login.data.id}}">
+                                        <a class="nav-link text-primary" href="#">Crachá do Obreiro</a>
                                     </router-link>
 
-                                </div>
-                            </li>
-                            <!-- <li v-if="login.data.id" class="nav-item">
-                                <router-link to="/obreiro">
-                                    <a class="nav-link" href="#">Obreiro</a>
-                                </router-link>
-                            </li> -->
-
-                             <li v-if="login.data.id" class="nav-item">
-                                <router-link to="/atendimento">
-                                    <a class="nav-link text-primary" href="#">Solicitação de Atendimento</a>
-                                </router-link>
+                                </li>                           
                             
-                            </li>
-                            
-                                <li v-if="!exibirCardObreiro"  class="nav-item">
-                                <router-link  v-if="login.data.id" :to="{name: 'cartaofrequentador', params: {id: login.data.id}}">
-                                    <a class="nav-link text-primary" href="#">Carteirinha Frequentador</a>
-                                </router-link>
-                            </li>
-                           
-                            
-                                 <li v-if="exibirCardObreiro"  class="nav-item">
-                                 <router-link v-if="login.data.id"  :to="{name: 'cartao', params: {id: login.data.id}}">
-                                    <a class="nav-link text-primary" href="#">Cartão do Obreiro</a>
-                                </router-link>                              
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
 
-                            </li> 
-                            <li  v-if="exibirCardObreiro" class="nav-item">
-                             <router-link  v-if="login.data.id"  :to="{name: 'cracha', params: {id: login.data.id}}">
-                                    <a class="nav-link text-primary" href="#">Crachá do Obreiro</a>
-                                </router-link>
-
-                            </li> 
-                           
-                             
-
-                        </ul>
-                    </div>
-                </nav>
-
-                
             </div>
         </div>
     </div>
