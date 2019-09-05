@@ -85,6 +85,7 @@ export default {
                 .catch(function (error) {
                     console.log(error)
                     // response => context.commit('REGISTER', response.customMessages)
+                    console.log(response)
                     
                 });
         },
