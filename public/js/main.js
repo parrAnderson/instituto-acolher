@@ -60548,11 +60548,11 @@ __webpack_require__.r(__webpack_exports__);
     Register: function Register(context, data) {
       var url = '/acolher/public/api/auth/register';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, data).then(function (response) {
-        context.commit('REGISTER', response); // this.dispatch('Logon',data); fazer if   
+        context.commit('REGISTER', response);
       }).catch(function (error) {
         console.log(error); // response => context.commit('REGISTER', response.customMessages)
 
-        console.log(response);
+        console.log(error.response);
       });
     },
     EmailCadastroConcluido: function EmailCadastroConcluido() {
