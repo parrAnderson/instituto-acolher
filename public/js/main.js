@@ -4080,6 +4080,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   created: function created() {},
   beforeMount: function beforeMount() {
+    this.inputs.outro_vicio = '';
+    this.inputs.qual_droga = '';
     this.inputs.genero = this.selectGenero;
     this.inputs.religiao = this.selectReligiao;
     this.selectInputs();

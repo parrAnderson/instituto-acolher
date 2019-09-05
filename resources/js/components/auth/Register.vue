@@ -750,7 +750,8 @@ export default {
     beforeMount() {
 
 
-        
+        this.inputs.outro_vicio = ''
+        this.inputs.qual_droga = ''
         this.inputs.genero = this.selectGenero
         this.inputs.religiao = this.selectReligiao
 
