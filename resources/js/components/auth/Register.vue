@@ -467,11 +467,22 @@
                         <li v-for="error in register.data.erros">
                             {{error[0].message}} 
                             </li>
-                        </ul>
-                     
+                        </ul>                     
                 </div>
             </div>
+
+        <div v-if="registradoComSucesso" class="row justify-content-center row-space-form">
+                <div class="alert alert-success" role="alert">
+                    Cadastro efetuado com sucesso   
+                    <p>Você será redirecionado para fazer login</p>                
+                </div>
+            </div>
+
+            <!-- <div class="btn" @click="registradoComSucesso = true" > mudar registrado</div> -->
+
         </div>
+
+
         <Footer>
     
         </Footer>
@@ -516,6 +527,7 @@ export default {
             confirmarPassword: "",
             senhasIguais: true,
             responsavelValidado: true,
+            registradoComSucesso: false,
         }
     },
     methods: {
@@ -671,6 +683,20 @@ export default {
         })
     },
     watch: {
+        registradoComSucesso(){
+            if(this.registradoComSucesso === true){
+
+                 var that = this;
+
+                
+                window.setTimeout(function() {
+                    console.log("efetuando o time out")
+                    that.$router.push({ name: 'login' });
+                }, 3000);
+
+                
+            }
+        },
 
         // FUNCIONAR O SELECT INPUT
          textReligiao(){
@@ -703,7 +729,8 @@ export default {
 
                  if(this.register.data.message == "Cadastrado" ){
                      console.log('roteando')
-                    this.$router.push({ name: 'atendimento' });
+                   this.registradoComSucesso = true
+                    // this.$router.push({ name: 'atendimento' });
                 }
                 // 
             }

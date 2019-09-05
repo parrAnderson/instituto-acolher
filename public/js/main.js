@@ -3855,6 +3855,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3884,7 +3895,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       erros: false,
       confirmarPassword: "",
       senhasIguais: true,
-      responsavelValidado: true
+      responsavelValidado: true,
+      registradoComSucesso: false
     };
   },
   methods: _objectSpread({
@@ -4017,6 +4029,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   })),
   watch: {
+    registradoComSucesso: function registradoComSucesso() {
+      if (this.registradoComSucesso === true) {
+        var that = this;
+        window.setTimeout(function () {
+          console.log("efetuando o time out");
+          that.$router.push({
+            name: 'login'
+          });
+        }, 3000);
+      }
+    },
     // FUNCIONAR O SELECT INPUT
     textReligiao: function textReligiao() {
       this.inputs.religiao = this.textReligiao;
@@ -4045,9 +4068,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (!this.register.data.cpf && !this.register.data.email) {
         if (this.register.data.message == "Cadastrado") {
           console.log('roteando');
-          this.$router.push({
-            name: 'atendimento'
-          });
+          this.registradoComSucesso = true; // this.$router.push({ name: 'atendimento' });
         } // 
 
       }
@@ -42816,6 +42837,14 @@ var render = function() {
                 )
               ]
             )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.registradoComSucesso
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [_vm._m(3)]
+            )
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -42866,6 +42895,21 @@ var staticRenderFns = [
             )
           ])
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "alert alert-success", attrs: { role: "alert" } },
+      [
+        _vm._v(
+          "\n                Cadastro efetuado com sucesso   \n                "
+        ),
+        _c("p", [_vm._v("Você será redirecionado para fazer login")])
       ]
     )
   }
