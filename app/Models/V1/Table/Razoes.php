@@ -19,15 +19,22 @@ class Razoes extends Model
 
     public function Cadastrar($data, $id){
         
-        if($data['outro_vicio'] > ''){
-            $data['outro_vicio'] = $data['outro_vicio'];
+        if(isset($data['outro_vicio'])){
+            if($data['outro_vicio'] > ''){
+                $data['outro_vicio'] = $data['outro_vicio'];
+            }else{
+                $data['outro_vicio'] = '';
+            }
         }else{
             $data['outro_vicio'] = '';
         }
 
-        if($data['qual_droga'] > ''){
-            $data['qual_droga'] = $data['qual_droga'];
-        }else{
+        if(isset($data['qual_droga'])){
+            if($data['qual_droga'] > ''){
+                $data['qual_droga'] = $data['qual_droga'];
+            }else{
+                $data['qual_droga'] = '';
+            }
             $data['qual_droga'] = '';
         }
 
