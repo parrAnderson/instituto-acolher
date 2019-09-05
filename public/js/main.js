@@ -3854,6 +3854,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -3905,7 +3906,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     validarSenha: function validarSenha() {
       if (this.confirmarPassword > '' && this.confirmarPassword !== this.inputs.password) {
         this.senhasIguais = false;
-      } else if (this.confirmarPassword > '' && this.confirmarPassword == this.inputs.password) {
+      } else if (this.confirmarPassword == '' && this.confirmarPassword !== this.inputs.password) {
+        this.senhasIguais = false;
+      } else if (this.confirmarPassword > '' && this.confirmarPassword === this.inputs.password) {
         this.senhasIguais = true;
       }
     },

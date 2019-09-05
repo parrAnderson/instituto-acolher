@@ -445,6 +445,7 @@
                 </div>                
             </div>
 
+
              <div class="row justify-content-center" v-if="this.menor && responsavelValidado === false">
                  <div class="alert alert-danger" role="alert">
                     Por favor preencha o cadastro com as informações do responsavel.
@@ -535,7 +536,10 @@ export default {
         validarSenha(){
              if((this.confirmarPassword > '') && (this.confirmarPassword !== this.inputs.password)){
                  this.senhasIguais = false
-             }else if((this.confirmarPassword > '') && (this.confirmarPassword == this.inputs.password)){
+             }else if((this.confirmarPassword == '') && (this.confirmarPassword !== this.inputs.password)){
+                 this.senhasIguais = false
+             }
+             else if((this.confirmarPassword > '') && (this.confirmarPassword === this.inputs.password)){
                   this.senhasIguais = true
              }
         },
