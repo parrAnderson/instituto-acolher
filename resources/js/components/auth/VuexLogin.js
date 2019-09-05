@@ -78,8 +78,13 @@ export default {
             axios
                 .post(url, data)
                 .then(response => {
-                    context.commit('REGISTER', response)  
-                    // this.dispatch('Logon',data); fazer if   
+                    context.commit('REGISTER', response)
+
+                    console.log(response)
+
+                    if(response){                    
+                        this.dispatch('Logon', data);
+                    }   
 
                 })
                 .catch(function (error) {
