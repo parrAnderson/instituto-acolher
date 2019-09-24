@@ -28,7 +28,7 @@ class Users extends Model
         'numero',
         'complemento',
         'municipio',
-        'tratamento',
+        
         'kardecista',
         'casa_apometria',
         'casa_umbandista',
@@ -59,10 +59,10 @@ class Users extends Model
         'numero' => 'required',           
         'municipio' => 'required',             
         'estado' => 'required',             
-        'fumante' => 'required',                         
-        'bebida' => 'required',              
+                               
+                  
         'como_soube' => 'required',            
-        'recorrer' => 'required',           
+                
         'possui_filhos' => 'required',             
     ];
     

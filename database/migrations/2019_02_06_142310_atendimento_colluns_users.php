@@ -34,7 +34,7 @@ class AtendimentoCollunsUsers extends Migration
             $table->string('doutrina_kardecista')->nullable();
             $table->string('principios_umbanda')->nullable();
             $table->string('apometria_codificada')->nullable();
-            $table->string('tratamento')->nullable();
+            // $table->string('tratamento')->nullable();
             $table->string('livro_espiritos')->nullable();
             $table->string('livro_medius')->nullable();
             $table->string('livro_evangelho')->nullable();

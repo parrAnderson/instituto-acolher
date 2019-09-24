@@ -75,11 +75,8 @@ class RegisterController extends Controller
             'bairro.required' => ['message' => 'É necessario digitar seu bairro'],
             'numero.required' => ['message' => 'É necessario digitar seu número'],
             'municipio.required' => ['message' => 'É necessario digitar seu municipio'],
-            'estado.required' => ['message' => 'É necessario digitar seu estado'],
-            'fumante.required' => ['message' => 'É necessario selecionar o campo fumante'],            
-            'bebida.required' => ['message' => 'É necessario selecionar o campo bebida'],
+            'estado.required' => ['message' => 'É necessario digitar seu estado'],            
             'como_soube.required' => ['message' => 'É necessario selecionar o campo como soube'],
-            'recorrer.required' => ['message' => 'É necessario escrever o que o levou a recorrer'],
             'possui_filhos.required' => ['message' => 'É necessario selecionar o campo filhos'],
         ];       
  
@@ -103,7 +100,7 @@ class RegisterController extends Controller
                 $data['password'] = Hash::make($data->password);                
                 $this->Users = $this->Users->create($data->all());
                 $this->Users->save();
-                $this->Razoes = $this->Razoes->Cadastrar($data->all(), $this->Users->id);                    
+                // desativado $this->Razoes = $this->Razoes->Cadastrar($data->all(), $this->Users->id);                    
                 $this->email->cadastro($data, $this->Users->id);
                 return response()->json([
                     'message' => 'Cadastrado',  

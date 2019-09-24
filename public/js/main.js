@@ -3793,79 +3793,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3896,7 +3823,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       confirmarPassword: "",
       senhasIguais: true,
       responsavelValidado: true,
-      registradoComSucesso: false
+      registradoComSucesso: false,
+      btnRegistrando: false,
+      check_declaracao: ""
     };
   },
   methods: _objectSpread({
@@ -3948,8 +3877,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           self.inputs.logradouro = endereco.logradouro;
           self.inputs.bairro = endereco.bairro;
           self.inputs.estado = endereco.uf;
-          self.inputs.municipio = endereco.localidade; // console.log(self.inputs);
-
+          self.inputs.municipio = endereco.localidade;
           jquery__WEBPACK_IMPORTED_MODULE_2___default()("#inputNumero").focus();
         });
       }
@@ -3979,6 +3907,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     checkRequired: function checkRequired() {
+      if (this.check_declaracao == '') {
+        this.check_declaracao = false;
+      }
+
       this.ValidarResponsavel();
       this.validarSenha();
 
@@ -3998,9 +3930,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     registrar: function registrar() {
       this.checkRequired();
 
-      if (this.required && this.senhasIguais === true && this.responsavelValidado === true) {
-        this.Register(this.inputs); // console.log(this.inputs)               
+      if (this.check_declaracao && this.required && this.senhasIguais === true && this.responsavelValidado === true) {
+        this.Register(this.inputs);
+
+        if (this.register.data.erros) {
+          this.btnRegistrando = true;
+        } // console.log(this.inputs)               
+
       } else {
+        this.btnRegistrando = false;
         console.log("não registrado, com erros");
       }
     },
@@ -4017,8 +3955,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             this.menor = true;
           } else {
             this.menor = false;
-          } //  console.log(this.menor)
-
+          }
         }
       }
     }
@@ -4040,7 +3977,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, 3000);
       }
     },
-    // FUNCIONAR O SELECT INPUT
     textReligiao: function textReligiao() {
       this.inputs.religiao = this.textReligiao;
     },
@@ -4068,9 +4004,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (!this.register.data.cpf && !this.register.data.email) {
         if (this.register.data.message == "Cadastrado") {
           console.log('roteando');
-          this.registradoComSucesso = true; // this.$router.push({ name: 'atendimento' });
-        } // 
-
+          this.registradoComSucesso = true;
+        }
       }
 
       if (this.register.data.erros) {
@@ -4078,10 +4013,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   },
-  created: function created() {},
   beforeMount: function beforeMount() {
-    this.inputs.outro_vicio = '';
-    this.inputs.qual_droga = '';
     this.inputs.genero = this.selectGenero;
     this.inputs.religiao = this.selectReligiao;
     this.selectInputs();
@@ -4092,15 +4024,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.inputs.apometria_codificada = '';
     this.inputs.principios_umbanda = '';
     this.inputs.kardecista = '';
-    this.inputs.fumante = '';
-    this.inputs.bebida = '';
-    this.inputs.drogas = '';
     this.inputs.como_soube = '';
     this.inputs.indicacao = '';
-    this.inputs.possui_filhos = ''; // this.endereco.logradouro = this.inputs.logradouro
-    // this.endereco.bairro = this.inputs.bairro
-    // this.endereco.uf = this.inputs.estado
-    // this.endereco.localidade = this.inputs.municipio
+    this.inputs.possui_filhos = '';
+    this.check_declaracao = '';
   },
   directives: {
     mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_4__["mask"]
@@ -41324,278 +41251,6 @@ var render = function() {
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.fumante,
-                      expression: "inputs.fumante"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "fumante", id: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.inputs,
-                        "fumante",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { disabled: "", value: "" } }, [
-                    _vm._v("É Fumante? *")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Sim")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Não")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.bebida,
-                      expression: "inputs.bebida"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "bebida", id: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.inputs,
-                        "bebida",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { disabled: "", value: "" } }, [
-                    _vm._v("Consome Bebida Alcólica? *")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Não")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Raramente")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Socialmente")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Mais que socialmente")])
-                ]
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputs.drogas,
-                      expression: "inputs.drogas"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "droga", id: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.inputs,
-                        "drogas",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "" } }, [
-                    _vm._v("Possui dependencia em drogas? *")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Sim")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Não")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.qual_droga,
-                    expression: "inputs.qual_droga"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", placeholder: "Se sim, qual droga?" },
-                domProps: { value: _vm.inputs.qual_droga },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "qual_droga", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.outro_vicio,
-                    expression: "inputs.outro_vicio"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  rows: "3",
-                  placeholder: "Caso possua outro vicio, indique aqui"
-                },
-                domProps: { value: _vm.inputs.outro_vicio },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "outro_vicio", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.tratamento,
-                    expression: "inputs.tratamento"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  rows: "3",
-                  placeholder: "Se está sob tratamento médico, indique aqui"
-                },
-                domProps: { value: _vm.inputs.tratamento },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "tratamento", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
-            _c("div", { staticClass: "col-12 col-lg-8" }, [
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputs.recorrer,
-                    expression: "inputs.recorrer"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  rows: "3",
-                  placeholder:
-                    "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
-                },
-                domProps: { value: _vm.inputs.recorrer },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.inputs, "recorrer", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row justify-content-center row-space-form" },
-          [
             _c(
               "div",
               { staticClass: "col-12 col-lg-8 text-center text-primary" },
@@ -42215,7 +41870,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "Espirito e Matéria: Um Novo Horizonte para a\n                                  Medicina?"
+                              "Espirito e Matéria: Um Novo Horizonte para a\n                                        Medicina?"
                             )
                           ]
                         )
@@ -42741,29 +42396,117 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
         _c(
           "div",
           { staticClass: "row justify-content-center row-space-form" },
           [
             _c("div", { staticClass: "col-12 col-lg-8" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "submit" },
+              _c("h5", { staticClass: "text-center" }, [_vm._v("Declaração")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a\n                    não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha única responsabilidade meus atos e deliberações\n                    acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group form-check" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.check_declaracao,
+                      expression: "check_declaracao"
+                    }
+                  ],
+                  staticClass: "form-check-input",
+                  attrs: { type: "checkbox", id: "exampleCheck1" },
+                  domProps: {
+                    checked: Array.isArray(_vm.check_declaracao)
+                      ? _vm._i(_vm.check_declaracao, null) > -1
+                      : _vm.check_declaracao
+                  },
                   on: {
-                    click: function($event) {
-                      _vm.registrar()
+                    change: function($event) {
+                      var $$a = _vm.check_declaracao,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.check_declaracao = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.check_declaracao = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.check_declaracao = $$c
+                      }
                     }
                   }
-                },
-                [_vm._v("Cadastrar")]
-              )
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-check-label",
+                    attrs: { for: "exampleCheck1" }
+                  },
+                  [_vm._v("Li e aceito os terminos acima especificados.")]
+                )
+              ])
             ])
           ]
         ),
+        _vm._v(" "),
+        !_vm.btnRegistrando
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c("div", { staticClass: "col-12 col-lg-8" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          _vm.registrar()
+                        }
+                      }
+                    },
+                    [_vm._v("Cadastrar")]
+                  )
+                ])
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.btnRegistrando
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [_vm._m(2)]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.check_declaracao && _vm.check_declaracao !== ""
+          ? _c("div", { staticClass: "row justify-content-center" }, [
+              _c(
+                "div",
+                { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+                [
+                  _vm._v(
+                    "\n                Confirme a leitura da declaração\n            "
+                  )
+                ]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         !_vm.validarCpf
           ? _c(
@@ -42829,7 +42572,7 @@ var render = function() {
                           _vm._v(
                             "\n                        " +
                               _vm._s(error[0].message) +
-                              " \n                        "
+                              "\n                    "
                           )
                         ])
                       }),
@@ -42884,21 +42627,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row justify-content-center row-space-form" },
-      [
-        _c("div", { staticClass: "col-12 col-lg-8" }, [
-          _c("h5", { staticClass: "text-center" }, [_vm._v("Declaração")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n\n                    Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a\n                    não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha única responsabilidade meus atos e deliberações\n                    acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.\n                "
-            )
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "col-12 col-lg-8" }, [
+      _c("button", { staticClass: "btn btn-warning disabled" }, [
+        _vm._v("Registrando...")
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -42909,7 +42642,7 @@ var staticRenderFns = [
       { staticClass: "alert alert-success", attrs: { role: "alert" } },
       [
         _vm._v(
-          "\n                Cadastro efetuado com sucesso   \n                "
+          "\n                Cadastro efetuado com sucesso\n                "
         ),
         _c("p", [_vm._v("Você será redirecionado para fazer login")])
       ]
