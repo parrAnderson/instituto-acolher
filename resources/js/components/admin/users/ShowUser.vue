@@ -4,134 +4,185 @@
         <div class="container">
             <div class="row row-space">
                 <div class="col-12">
-                    <h4 class="text-center">Cadastro</h4>
+                    <h4 class="text-center">Ficha</h4>
                 </div>
             </div>
-            <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <input type="text" class="form-control" v-model="inputs.name" placeholder="Nome Completo da Pessoa a ser Atendida *">
+            <div class="row justify-content-center">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                        <label for="">Nome completo</label>
+                        <input type="text" class="form-control" v-model="inputs.name" placeholder="Nome Completo da Pessoa a ser Atendida *">
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <input type="text" class="form-control" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
+            <div class="row justify-content-center">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">Data de nascimento</label>                    
+                        <input type="text" class="form-control" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
                 </div>
-                <div class="col-4">
-                    <select name="genero" v-if="selected" v-model="inputs.genero" class="form-control">
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">Gênero *</label>
+                        <select name="genero" v-if="selected" v-model="inputs.genero" class="form-control">
                         <option selected value="" > Gênero *</option>
                         <option>Masculino</option>
                         <option>Feminino</option>
                         <option>Outros</option>
                       </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">CPF</label>
+                        <input type="text" class="form-control" v-model="inputs.cpf" v-mask="'###.###.###.##'" placeholder="CPF *">
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">RG *</label>
+                        <input type="text" class="form-control" v-model="inputs.rg" v-mask="'##.###.###-#'" placeholder="RG *">
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <input type="text" class="form-control" v-model="inputs.cpf" v-mask="'###.###.###.##'" placeholder="CPF *">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">Telefone Celular *</label>
+                        <input type="text" class="form-control" v-model="inputs.celular" v-mask="'(##)#####-####'" placeholder="Telefone Celular *">
+                    </div>
                 </div>
-                <div class="col-4">
-                    <input type="text" class="form-control" v-model="inputs.rg" v-mask="'##.###.###-#'" placeholder="RG *">
-                </div>
-            </div>
-            <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <input type="text" class="form-control" v-model="inputs.celular" v-mask="'(##)#####-####'" placeholder="Telefone Celular *">
-                </div>
-                <div class="col-4">
-                    <input type="text" class="form-control" v-model="inputs.telefone" v-mask="'(##)####-####'" placeholder="Telefone Fixo">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">Telefone Fixo</label>
+                        <input type="text" class="form-control" v-model="inputs.telefone" v-mask="'(##)####-####'" placeholder="Telefone Fixo">
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <input type="text" v-model="inputs.email" class="form-control" placeholder="Email *">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                            <label for="">Email *</label>
+                        <input type="text" v-model="inputs.email" class="form-control" placeholder="Email *">
+                    </div>
                 </div>
             </div>
     
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <select name="estado_civil" v-model="inputs.estado_civil" class="form-control" id>
-                        <option disabled value="">Estado Civil *</option>
-                         <option value="Solteiro(a)">Solteiro(a)</option>                    
-                        <option value="Casado(a)">Casado(a)</option>                      
-                        <option>União Estável</option>                      
-                        <option >Separado(a) / Divorciado(a)</option>                      
-                        <option>Viúvo</option>                      
-                        <option>Outros</option>
-                      </select>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">Estado Civil *</label>
+                        <select name="estado_civil" v-model="inputs.estado_civil" class="form-control" id>
+                            <option disabled value="">Estado Civil *</option>
+                            <option value="Solteiro(a)">Solteiro(a)</option>                    
+                            <option value="Casado(a)">Casado(a)</option>                      
+                            <option>União Estável</option>                      
+                            <option >Separado(a) / Divorciado(a)</option>                      
+                            <option>Viúvo</option>                      
+                            <option>Outros</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <select name="religiao" v-model="inputs.religiao" class="form-control" id>
-                        <option disabled value="">Religião *</option>
-                        <option value="Kardecista / Espírita">Kardecista / Espírita</option>          
-                        <option>Umbandista</option>
-                        <option>Católica</option>            
-                        <option>Evangélica</option>            
-                        <option>Budista</option>            
-                        <option>Judaica</option>            
-                        <option>Candomblé</option>
-                        <option>Outros</option>
-                      </select>
-                </div>
-            </div>
-            <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <input type="text" v-model="inputs.cep" class="form-control" v-mask="'#####-###'" placeholder="CEP *">
-                </div>
-                <div class="col-4">
-                    <input type="text" v-model="inputs.bairro" class="form-control" placeholder="Bairro *">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="">Religião *</label>
+                        <select name="religiao" v-model="inputs.religiao" class="form-control" id>
+                            <option disabled value="">Religião *</option>
+                            <option value="Kardecista / Espírita">Kardecista / Espírita</option>          
+                            <option>Umbandista</option>
+                            <option>Católica</option>            
+                            <option>Evangélica</option>            
+                            <option>Budista</option>            
+                            <option>Judaica</option>            
+                            <option>Candomblé</option>
+                            <option>Outros</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <input type="text" v-model="inputs.logradouro" class="form-control" placeholder="Logradouro *">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                            <label for="">CEP *</label>
+                        <input type="text" v-model="inputs.cep" class="form-control" v-mask="'#####-###'" placeholder="CEP *">
+                    </div>
+                 </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                            <label for="">Bairro *</label>
+                        <input type="text" v-model="inputs.bairro" class="form-control" placeholder="Bairro *">
+                    </div>
+                 </div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                            <label for="">Logradouro *</label>
+                        <input type="text" v-model="inputs.logradouro" class="form-control" placeholder="Logradouro *">
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <input type="text" v-model="inputs.numero" class="form-control" placeholder="Número *">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                                <label for="">Número *</label>
+                        <input type="text" v-model="inputs.numero" class="form-control" placeholder="Número *">
+                    </div>
                 </div>
-                <div class="col-4">
-                    <input type="text" v-model="inputs.complemento" class="form-control" placeholder="Complemento *">
-                </div>
-            </div>
-            <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <input type="text" v-model="inputs.municipio" class="form-control" placeholder="Município *">
-                </div>
-                <div class="col-4">
-                    <select name="estado" v-model="inputs.estado" class="form-control" id>
-                        <option disabled value="">Estado *</option>
-                        <option value="SP - São Paulo">SP - São Paulo</option>          
-                        <option value="AC - Acre">AC - Acre</option>          
-                        <option value="AL - Alagoas">AL - Alagoas</option>          
-                        <option value="AP - Amapá">AP - Amapá</option>          
-                        <option value="AM - Amazonas">AM - Amazonas</option>          
-                        <option value="BA - Bahia">BA - Bahia</option>          
-                        <option value="CE - Ceará">CE - Ceará</option>          
-                        <option value="DF - Distrito Federal">DF - Distrito Federal</option>          
-                        <option value="ES - Espírito Santo">ES - Espírito Santo</option>                     
-                        <option value="GO - Goiás">GO - Goiás</option>          
-                        <option value="MA - Maranhão">MA - Maranhão</option>          
-                        <option value="MT - Mato Grosso">MT - Mato Grosso</option>          
-                        <option value="MS - Mato Grosso do Sul">MS - Mato Grosso do Sul</option>          
-                        <option value="MG - Minas Gerais">MG - Minas Gerais</option>          
-                        <option value="PA - Pará">PA - Pará</option>          
-                        <option value="PB - Paraíba">PB - Paraíba</option>          
-                        <option value="PR - Paraná">PR - Paraná</option>          
-                        <option value="PE - Pernambuco">PE - Pernambuco</option>          
-                        <option value="PI - Piauí">PI - Piauí</option>                      
-                        <option value="RJ - Rio de Janeiro">RJ - Rio de Janeiro</option>          
-                        <option value="RG - Rio Grande do Norte">RG - Rio Grande do Norte</option>          
-                        <option value="RS - Rio Grande do Sul">RS - Rio Grande do Sul</option>          
-                        <option value="RO - Rondônia">RO - Rondônia</option>          
-                        <option value="RR - Roraima">RR - Roraima</option>          
-                        <option value="SC - Santa Catarina">SC - Santa Catarina</option>       
-                        <option value="SE - Sergipe">SE - Sergipe</option>         
-                        <option value="TO - Tocantins">TO - Tocantins</option>
-                      </select>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                                <label for="">Complemento *</label>
+                        <input type="text" v-model="inputs.complemento" class="form-control" placeholder="Complemento *">
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                            <label for="">Município *</label>
+                        <input type="text" v-model="inputs.municipio" class="form-control" placeholder="Município *">
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-group">
+                            <label for="">Estado *</label>
+                        <select name="estado" v-model="inputs.estado" class="form-control" id>
+                            <option disabled value="">Estado *</option>
+                            <option value="SP - São Paulo">SP - São Paulo</option>          
+                            <option value="AC - Acre">AC - Acre</option>          
+                            <option value="AL - Alagoas">AL - Alagoas</option>          
+                            <option value="AP - Amapá">AP - Amapá</option>          
+                            <option value="AM - Amazonas">AM - Amazonas</option>          
+                            <option value="BA - Bahia">BA - Bahia</option>          
+                            <option value="CE - Ceará">CE - Ceará</option>          
+                            <option value="DF - Distrito Federal">DF - Distrito Federal</option>          
+                            <option value="ES - Espírito Santo">ES - Espírito Santo</option>                     
+                            <option value="GO - Goiás">GO - Goiás</option>          
+                            <option value="MA - Maranhão">MA - Maranhão</option>          
+                            <option value="MT - Mato Grosso">MT - Mato Grosso</option>          
+                            <option value="MS - Mato Grosso do Sul">MS - Mato Grosso do Sul</option>          
+                            <option value="MG - Minas Gerais">MG - Minas Gerais</option>          
+                            <option value="PA - Pará">PA - Pará</option>          
+                            <option value="PB - Paraíba">PB - Paraíba</option>          
+                            <option value="PR - Paraná">PR - Paraná</option>          
+                            <option value="PE - Pernambuco">PE - Pernambuco</option>          
+                            <option value="PI - Piauí">PI - Piauí</option>                      
+                            <option value="RJ - Rio de Janeiro">RJ - Rio de Janeiro</option>          
+                            <option value="RG - Rio Grande do Norte">RG - Rio Grande do Norte</option>          
+                            <option value="RS - Rio Grande do Sul">RS - Rio Grande do Sul</option>          
+                            <option value="RO - Rondônia">RO - Rondônia</option>          
+                            <option value="RR - Roraima">RR - Roraima</option>          
+                            <option value="SC - Santa Catarina">SC - Santa Catarina</option>       
+                            <option value="SE - Sergipe">SE - Sergipe</option>         
+                            <option value="TO - Tocantins">TO - Tocantins</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="fumante" v-model="inputs.fumante" class="form-control" id>
                         <option disabled value="" >É Fumante? *</option>
@@ -148,8 +199,8 @@
                         <option>Mais que socialmente</option>
                       </select>
                 </div>
-            </div>
-            <div class="row justify-content-center row-space-form">
+            </div> -->
+            <!-- <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <select name="droga" v-model="inputs.drogas" class="form-control" id>
                         <option value>Possui dependencia em drogas? *</option>
@@ -160,15 +211,15 @@
                 <div class="col-4">
                     <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
                 </div>
-            </div>
-            <div class="row justify-content-center row-space-form">
+            </div> -->
+            <!-- <div class="row justify-content-center row-space-form">
                 <div class="col-4">
                     <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
                 </div>
                 <div class="col-4">
                     <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui"></textarea>
                 </div>
-            </div>
+            </div> -->
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
                 <div class="col-8">
@@ -277,48 +328,60 @@
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <input type="text" v-model="inputs.outros_livros" class="form-control" placeholder="Caso deseje, indique outros livros espiritualistas que já tenha lido.">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                            <label for="">Caso deseje, indique outros livros espiritualistas que já tenha lido.</label>
+                        <input type="text" v-model="inputs.outros_livros" class="form-control" placeholder="Caso deseje, indique outros livros espiritualistas que já tenha lido.">
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <select class="form-control" v-model="inputs.como_soube">
-                      <option disabled value="">Como soube do Acolher? *</option>        
-                        <option>Parente</option>          
-                        <option>Amigo</option>      
-                        <option>Conhecido</option>            
-                        <option>Site</option>            
-                        <option>Whatsapp</option>            
-                        <option>Instagram</option>            
-                        <option>Facebook</option>            
-                        <option>Youtube</option>            
-                        <option>Outros</option>
-                    </select>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                            <label for="">Como soube do Acolher? *</label>
+                        <select class="form-control" v-model="inputs.como_soube">
+                        <option disabled value="">Como soube do Acolher? *</option>        
+                            <option>Parente</option>          
+                            <option>Amigo</option>      
+                            <option>Conhecido</option>            
+                            <option>Site</option>            
+                            <option>Whatsapp</option>            
+                            <option>Instagram</option>            
+                            <option>Facebook</option>            
+                            <option>Youtube</option>            
+                            <option>Outros</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                            <label for="">Caso tenha recebido uma indicação assinale abaixo:</label>
                     <select class="form-control" v-model="inputs.indicacao">
                         <option disabled value="">Caso tenha recebido uma indicação assinale abaixo:</option>
                         <option value="Tratou-se de indicação de frequentador do Acolher">Tratou-se de indicação de frequentador do Acolher</option>
                         <option value="Tratou-se de indicação de Obreiro do Acolher">Tratou-se de indicação de Obreiro do Acolher</option>
               
                 
-                <option value="Outros">Outros</option>
+                    <option value="Outros">Outros</option>
                       </select>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <input type="text" v-model="inputs.nome_indicacao" class="form-control" placeholder="informe o nome da pessoa que lhe indicou o Acolher">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                                <label for="">Informe o nome da pessoa que lhe indicou o Acolher</label>
+                        <input type="text" v-model="inputs.nome_indicacao" class="form-control" placeholder="Informe o nome da pessoa que lhe indicou o Acolher">
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center row-space-form">
+            <!-- <div class="row justify-content-center row-space-form">
                 <div class="col-8">
                     <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                 </div>
-            </div>
+            </div> -->
     
             <div class="row justify-content-center row-space-btn">
                 <div class="col-8">
@@ -414,5 +477,8 @@ export default {
 <style scoped>
     .row-space-btn{
         margin-top:10px
+    }
+    .dashboard-header div[class*="col-"] {
+        margin-bottom: 0px !important;
     }
 </style>
