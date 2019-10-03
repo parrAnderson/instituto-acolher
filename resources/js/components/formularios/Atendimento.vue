@@ -3,88 +3,101 @@
         <nav-header></nav-header>
         <div class="container">
 
-            <!-- Modal grande -->
-
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">ATUALIZE AS INFORMAÇÔES</h5>
-                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                    </button> -->
-                </div>
-                  <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <select name="fumante" v-model="inputs.fumante" class="form-control" id>
-                            <option disabled value="" >É Fumante? *</option>
-                            <option>Sim</option>
-                            <option>Não</option>
-                          </select>
-                </div>
-                <div class="col-4">
-                    <select name="bebida" v-model="inputs.bebida" class="form-control" id>
-                            <option disabled value="">Consome Bebida Alcólica? *</option>
-                            <option>Não</option>
-                            <option>Raramente</option>
-                            <option>Socialmente</option>
-                            <option>Mais que socialmente</option>
-                          </select>
-                </div>
-            </div>
-            <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <select name="droga" v-model="inputs.drogas" class="form-control" id>
-                            <option disabled value="">Possui dependencia em drogas? *</option>
-                            <option>Sim</option>
-                            <option>Não</option>
-                          </select>
-                </div> 
-                <div class="col-4">
-                    <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
-                </div>
-            </div>
-    
-            <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
-                </div>
-            </div>
-    
-            <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
-                </div>                
-            </div>
-            <br>
-            <div class="row justify-content-right">
-                <div class="col-10 text-right">
-                        <button @click="agendar()" type="submit" class="btn btn-primary">AGENDAR</button>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-10 text-center">
-                       <p v-if="required === false">Campos obrigatórios (*)</p>
-                </div>
-            </div>
-            <br>
-
-            <div v-if="cadastrado" class="row row-space justify-content-center">
-                <div class="col-8">
-                    <div class="alert alert-success text-center" role="alert">
-                        <p>Mensagem enviada com sucesso! <br> 
-                        Obrigado pelo contato. <br>
-                            Você receberá uma mensagem via Whatsapp indicando a data do seu atendimento. <br>
-                            Nossos votos de muita Paz! <br>
-                            Acolher - Instituto Kardecista de Estudos e Amparo</p>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                        <h5 class="modal-title text-center" id="exampleModalLabel">ATUALIZE AS INFORMAÇÔES</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-    
+                    <div v-if="!cadastrado">
+                        <div class="row justify-content-center row-space-form">
+                        <div class="col-4">
+                            <select name="fumante" v-model="inputs.fumante" class="form-control" id>
+                                    <option disabled value="" >É Fumante? *</option>
+                                    <option>Sim</option>
+                                    <option>Não</option>
+                                </select>
+                        </div>
+                        <div class="col-4">
+                            <select name="bebida" v-model="inputs.bebida" class="form-control" id>
+                                    <option disabled value="">Consome Bebida Alcólica? *</option>
+                                    <option>Não</option>
+                                    <option>Raramente</option>
+                                    <option>Socialmente</option>
+                                    <option>Mais que socialmente</option>
+                                </select>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center row-space-form">
+                            <div class="col-4">
+                                <select name="droga" v-model="inputs.drogas" class="form-control" id>
+                                        <option disabled value="">Possui dependencia em drogas? *</option>
+                                        <option>Sim</option>
+                                        <option>Não</option>
+                                    </select>
+                            </div> 
+                            <div class="col-4">
+                                <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
+                            </div>
+                        </div>
+                
+                        <div class="row justify-content-center row-space-form">
+                            <div class="col-8">
+                                <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
+                            </div>
+                        </div>
+                
+                        <div class="row justify-content-center row-space-form">
+                            <div class="col-8">
+                                <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
+                            </div>                
+                        </div>
+                        <div class="row justify-content-center row-space-form">
+                            <div class="col-8">
+                                <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui."></textarea>
+                            </div>                
+                        </div>
+                        <br>
+                        <div class="row justify-content-right row-space-form">
+                            <div class="col-10 text-right">
+                                    <button @click="agendar()" type="submit" class="btn btn-primary">AGENDAR</button>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-10 text-center">
+                                <p v-if="required === false">Campos obrigatórios (*)</p>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+
+                    <div v-if="cadastrado" class="row row-space justify-content-center">
+                        <div class="col-8">
+                            <div class="alert alert-success text-center" role="alert">
+                                <p>Mensagem enviada com sucesso! <br> 
+                                Obrigado pelo contato. <br>
+                                    Você receberá uma mensagem via Whatsapp indicando a data do seu atendimento. <br>
+                                    Nossos votos de muita Paz! <br>
+                                    Acolher - Instituto Kardecista de Estudos e Amparo</p>
+                            </div>
+                            
+                            <div class="btn btn-primary text-right" type="button"  data-dismiss="modal" @click="closeModal()">
+                                FECHAR
+                            </div>
+            
+                        </div>
+                </div>
+                <div class="row row-space">
+                    <!-- Espaçamento -->
                 </div>
             </div>
+        </div>
     </div>
-  </div>
-</div>
      
             <div class="row row-space">
                 <div class="col-12">
@@ -97,7 +110,8 @@
                         <option disable value="" >Indique a atividade de qual pretende receber atendimento *</option>
 
                         <option value="Apometria (2as. feiras)">Apometria (2as. feiras)</option>        
-                        <option value="Prática do Evangelho (5as. feiras)">Prática do Evangelho (5as. feiras)</option>
+                        <option value="Passes (2as. feiras)">Passes (2as. feiras)</option>  
+                        <option value="Prática do evangelho - Reunião Espírita (5as. feiras)">Prática do evangelho - Reunião Espírita (5as. feiras)</option>
                         <!-- <option value="Atendimento Fraterno (5as. feiras)">Atendimento Fraterno (5as. feiras)</option> -->
                         <option value="Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)">Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)</option>
 
@@ -190,9 +204,25 @@ export default {
 
     },
     methods: {
+        closeModal(){
+          this.LimparAtendimento()
+
+
+          this.inputs.fumante = '' 
+        this.inputs.bebida = ''
+        this.inputs.drogas = ''
+
+        this.inputs.outro_vicio = ''
+        this.inputs.qual_droga = ''
+        this.inputs.tratamento = ''
+        this.inputs.recorrer = ''
+
+         
+        },
         ...mapActions([
             'CadastrarAtendimento',
             'GetAtendimento',
+            'LimparAtendimento',
         ]),
         checkRequired(){
             if(this.inputs.fumante &&

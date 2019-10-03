@@ -14,7 +14,8 @@ class Razoes extends Model
         'drogas',
         'qual_droga',
         'outro_vicio',
-        'recorrer'
+        'recorrer',
+        'tratamento',
     ];
 
     public function Cadastrar($data, $id){

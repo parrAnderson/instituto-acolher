@@ -4,7 +4,7 @@
     
         <div class="row row-space">
             <div class="col-7">
-                <h2 class="text-center">Atendimentos</h2>                
+                <h2 class="text-center">{{parametros.tipo_atendimento}}</h2>                
             </div>
             <div class="col-2">
                  <a href="#" @click="imprimir()">
@@ -67,13 +67,11 @@
                             <td>
                                 CELULAR
                             </td>
-                            <td>
-                                ATENDIMENTO
-                            </td>
+                           
                             <td>
                                 SOLICITADA
                             </td>
-                            <td>
+                            <td class-="text-primary">
                                 AGENDADO
                             </td>
                             
@@ -83,12 +81,7 @@
                             <td>
                                 Motivo e razão
                             </td>
-                            <td>
-                                FUMA
-                            </td>
-                            <td>
-                                BEBE
-                            </td>
+                            
                             <td>
                                 DROGAS
                             </td>
@@ -131,13 +124,10 @@
                             </td>
     
                             <td>
-                                {{atendimento.tipo_atendimento}}
-                            </td>
-                            <td>
                                 {{atendimento.created_at | date}}
                             </td>
                             <td data-toggle="modal" data-target="#exampleModal" class="pointer" @click="showAtendimento(atendimento.id, atendimento.email, atendimento.nome, atendimento.data_atendimento, atendimento.hora_atendimento)">
-                                <span v-if="atendimento.data_atendimento">{{ atendimento.data_atendimento | date}}</span>
+                                <span v-if="atendimento.data_atendimento" class-="text-primary">{{ atendimento.data_atendimento | date}}</span>
                                 <span v-else><div class="btn btn-primary btn-sm">Agendar</div></span>
                             </td>
                             
@@ -147,12 +137,7 @@
                             <td>
                                 {{atendimento.recorrer}}
                             </td>
-                            <td>
-                                {{atendimento.fumante}}
-                            </td>
-                            <td>
-                                {{atendimento.bebida}}
-                            </td>
+                            
                             <td>
                                 {{atendimento.drogas}}
                             </td>
@@ -200,7 +185,8 @@ export default {
              this.parametros.tipo_atendimento = this.$route.params.tipoatendimento
             this.AllAtendimento(this.parametros)
                console.log(this.parametros)
-        }        
+        },
+               
     },
     filters: {
         date: function(value) {
@@ -236,14 +222,15 @@ export default {
         },
         buscarDataAtendimento(){               
             if (this.DataAtendimentoBuscar.length == 10) {
-                // console.log(this.DataAtendimentoBuscar)
+               
 
                 this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar
+                     
+                this.AllAtendimento(this.parametros)                  
+            
 
-                this.AllAtendimento(this.parametros)  
-                
-                   console.log(this.parametros)
             }else if(this.DataAtendimentoBuscar.length == 0){
+                this.parametros.DataAtendimentoBuscar = ""
                 this.AllAtendimento(this.parametros) 
             }         
         }, 

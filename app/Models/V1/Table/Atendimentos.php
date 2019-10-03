@@ -12,18 +12,20 @@ class Atendimentos extends Model
         'tipo_atendimento',
         'data_atendimento',
         'hora_atendimento',
+        'fumante',
+        'bebida',
+        'drogas',
+        'qual_droga',
+        'outro_vicio',
+        'recorrer',
+        'tratamento',
     ];
 
     public function Users(){
         return $this->belongsTo('App\Models\V1\Table\Users', 'user_id');
     }
 
-    // public function Razoes(){
-    //     $razoes = Razoes::find(1)->where('user_id', $request->id)->first();  
-    //     return $razoes;
-    // }
-
-    
+  
 
     public function put($request, $id){
         $atendimentos = new atendimentos;

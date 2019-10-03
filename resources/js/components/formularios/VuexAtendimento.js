@@ -11,10 +11,16 @@ export default {
         },
         GETATENDIMENTO(state, data){
             state.solicitacoes = data
-        }
+        },
+        LIMPAR(state, data){
+            state.data = {}
+        },
         
     },
     actions: {
+        LimparAtendimento(context){
+            context.commit('LIMPAR')
+        },
         CadastrarAtendimento(context, data){
             let url = '/acolher/public/api/atendimento/cadastrar';     
             
