@@ -1,23 +1,9 @@
 Categoria do atendido
 Numero frequentador
 Numero Obreiro
-Tipo de atendimento
 
-Maca
-Rodada
 Idade
 
-Fumante
-Consome Bebida
-Possui algum vicio
-Esta sob tratamento médico
-O motivo de recorrer
-
-
-assinali quais doutrinas e filosofias frequenta ou frequentou? (ver se ja não tem)
-Tem conhecimento doutrina filofia
-
-O que o levou ao acolher
 
 
 Já passou por outro atendimento
@@ -34,6 +20,26 @@ Qual, data e motivo
                     <h4 class="text-center">Atendimento - {{atendimento.tipo_atendimento}}</h4>
                 </div>
             </div>
+            <div class="row justify-content-center">                      
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">                        
+                    <label >Categoria / Nº</label>   <br>
+                    <span class="text-left font-weight-bold" v-if="inputs.obreiro"> Obreiro - {{inputs.obreiro}}</span>    
+                    <span class="text-left font-weight-bold" v-else> Frequentador - {{inputs.id}}</span>   
+                                        
+                </div>                                 
+                <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        <label for="">Maca</label>                    
+                        <input type="text" v-model="atendimento.maca" class="form-control" placeholder="Maca">
+                    </div>
+                </div>                
+                <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                    <div class="form-group">
+                            <label for="">Rodada</label>                    
+                        <input type="text" v-model="atendimento.rodada" class="form-control" placeholder="Rodada">
+                    </div>                        
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                     <div class="form-group">
@@ -46,14 +52,24 @@ Qual, data e motivo
                 <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                     <div class="form-group">
                         <label for="">É Fumante? *</label>                    
-                        <input type="text" class="form-control" v-model="atendimento.fumante"  placeholder="É Fumante? *">
-                </div>
-                </div>
+                        <select name="fumante" v-model="atendimento.fumante" class="form-control" id>
+                            <option disabled value="" >É Fumante? *</option>
+                            <option>Sim</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                </div>                 
+            
                 <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                     <div class="form-group">
                               <label for="">Consome Bebida Alcólica? *</label>                    
-                        <input type="text" class="form-control" v-model="atendimento.bebida"  placeholder="Consome Bebida Alcólica? *">
-                
+                         <select name="bebida" v-model="atendimento.bebida" class="form-control" id>
+                        <option disabled value="">Consome Bebida Alcólica? *</option>
+                        <option>Não</option>
+                        <option>Raramente</option>
+                        <option>Socialmente</option>
+                        <option>Mais que socialmente</option>
+                      </select>
                     </div>
                 </div>
             </div>
@@ -105,19 +121,18 @@ Qual, data e motivo
                 </div>
             </div>
 
-        <!-- Fumante
-Consome Bebida
-Possui algum vicio
-Esta sob tratamento médico
-O motivo de recorrer -->
-
-
             <div class="row justify-content-center">
-                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
                     <div class="form-group">
                         <label for="">Data de nascimento</label>                    
                         <input type="text" class="form-control" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
+                    </div>
                 </div>
+                <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1">
+                    <div class="form-group">
+                        <label for="">Idade</label>           <br>         
+                        <button type="button" class="btn btn-outline-secondary">{{atendimento.idade}}</button>
+                    </div>
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                     <div class="form-group">
@@ -279,113 +294,91 @@ O motivo de recorrer -->
                     </div>
                 </div>
             </div>
-            <!-- <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <select name="fumante" v-model="inputs.fumante" class="form-control" id>
-                        <option disabled value="" >É Fumante? *</option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                      </select>
-                </div>
-                <div class="col-4">
-                    <select name="bebida" v-model="inputs.bebida" class="form-control" id>
-                        <option disabled value="">Consome Bebida Alcólica? *</option>
-                        <option>Não</option>
-                        <option>Raramente</option>
-                        <option>Socialmente</option>
-                        <option>Mais que socialmente</option>
-                      </select>
-                </div>
-            </div> -->
-            <!-- <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <select name="droga" v-model="inputs.drogas" class="form-control" id>
-                        <option value>Possui dependencia em drogas? *</option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                      </select>
-                </div>
-                <div class="col-4">
-                    <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
-                </div>
-            </div> -->
-            <!-- <div class="row justify-content-center row-space-form">
-                <div class="col-4">
-                    <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
-                </div>
-                <div class="col-4">
-                    <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui"></textarea>
-                </div>
-            </div> -->
+      
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
-                <div class="col-8">
-                    <div class="card">
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.kardecista" class="form-check-input" name="kardecista" id="kardecista">
-                                        <label class="form-check-label" for="kardecista">Kardecista / Espírita?</label>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.casa_apometria" class="form-check-input" id="casa_apometria" name="casa_apometria">
-                                        <label class="form-check-label" for="casa_apometria">Casa de Apômetra?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.casa_umbandista" class="form-check-input" id="casa_umbandista" name="casa_umbandista">
-                                        <label class="form-check-label" for="casa_umbandista">Casa Umbandista?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-12 text-center ">
+                    <span class="text-primary">Selecione os lugares que frequenta/frequentou</span>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4"> 
+                    <div class="form-group">
+                        <label for="kardecista">Kardecista / Espírita?</label>
+                            <select v-model="inputs.kardecista" class="form-control">
+                            <option value>Kardecista / Espírita?</option>
+                            <option>Nunca</option>
+                            <option>Apenas uma vez</option>
+                            <option>Regularmente</option>
+                        </select>
                     </div>
                 </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-check">                                        
+                        <label for="casa_apometria">Casa de Apômetra?</label>
+                        <select v-model="inputs.casa_apometria" class="form-control">
+                            <option value>Casa Apômetra?</option>
+                            <option>Nunca</option>
+                            <option>Apenas uma vez</option>
+                            <option>Regularmente</option>
+                        </select>
+                    </div>
+                </div>                          
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">                                       
+                        <label for="casa_umbandista">Casa Umbandista?</label>
+                        <select v-model="inputs.casa_umbandista" class="form-control">
+                            <option value>Casa Umbandista?</option>
+                            <option>Nunca</option>
+                            <option>Apenas uma vez</option>
+                            <option>Regularmente</option>
+                        </select>
+                    </div>
+                </div>     
+                                          
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
-                <div class="col-8">
-                    <div class="card">
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.doutrina_kardecista" class="form-check-input" id="doutrina_kardecista" name="doutrina_kardecista">
-                                        <label class="form-check-label" for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.principios_umbanda" class="form-check-input" id="principios_umbanda" name="principios_umbanda">
-                                        <label class="form-check-label" for="principios_umbanda">Principios da Umbanda?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.apometria_codificada" class="form-check-input" id="apometria_codificada" name="apometria_codificada">
-                                        <label class="form-check-label" for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-12 text-center ">
+                   <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4"> 
+                    <div class="form-group">
+                         <label for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
+                        <select v-model="inputs.doutrina_kardecista" class="form-control">
+                            <option value>Doutrina Kardecista / Espírita?</option>
+                            <option>Sim, superficial</option>
+                            <option>Sim, considerável</option>
+                            <option>Sim, profundo</option>
+                            <option>Não</option>
+                        </select>
                     </div>
                 </div>
-            </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-check">                                        
+                        <label for="principios_umbanda">Principios da Umbanda?</label>
+                            <select v-model="inputs.principios_umbanda" class="form-control">
+                            <option value>Principios da Umbanda?</option>
+                            <option>Sim, superficial</option>
+                            <option>Sim, considerável</option>
+                            <option>Sim, profundo</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                </div>                          
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">                                       
+                        <label for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
+                        <select v-model="inputs.apometria_codificada" class="form-control">
+                            <option value>Apometria codificada pelo Dr. Lacerda?</option>
+                            <option>Sim, superficial</option>
+                            <option>Sim, considerável</option>
+                            <option>Sim, profundo</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                </div>     
+                                          
+            </div> 
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Selecione os livros que já leu:</div>
-                <div class="col-8">
+                
                     <div class="card">
                         <div class="container">
                             <div class="row row-space-form">
@@ -422,7 +415,7 @@ O motivo de recorrer -->
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </div>
             <div class="row justify-content-center row-space-form">
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -480,28 +473,240 @@ O motivo de recorrer -->
                 </div>
             </div> -->
     
-            <div class="row justify-content-center row-space-btn">
+                    
+        </div>
+    
+        <div class="container container-space">
+            <div class="row row-space">
+                <div class="col-12">
+                    <h4 class="text-center">Já passou por outro atendimento?</h4>
+                </div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                                <label for="">Qual tipo de atendimento</label>
+                        <input type="text" v-model="atendimento.outro_atendimento" class="form-control" placeholder="Informe qual o tipo de atendimento">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                                <label for="">Motivo</label>
+                        <input type="text" v-model="atendimento.nome_outro_atendimento_motivo" class="form-control" placeholder="Informe o motivo do atendimento">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                                <label for="">data</label>
+                        <input type="date" v-model="atendimento.nome_outro_atendimento_data" class="form-control" placeholder="informe a data do atendimento">
+                    </div>
+                </div>
+                    </div>
+                </div>                
+            </div>
+        </div>  
+
+        <div class="container container-space">
+            <div class="row row-space">
+                <div class="col-12">
+                    <h4 class="text-center">Recomendações</h4>
+                </div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                           <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_agua" class="form-check-input">
+                                <label class="form-check-label">Beber água energizada</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_adotar" class="form-check-input">
+                                <label class="form-check-label">Adotar o lema "ORAI E VIGIAI</label>
+                            </div>
+                        </div>                
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_repousar" class="form-check-input">
+                                <label class="form-check-label">Repousar por ____ dias</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_perdao" class="form-check-input">
+                                <label class="form-check-label">Fazer oração do perdão</label>
+                            </div>
+                        </div>                
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_peso" class="form-check-input">
+                                <label class="form-check-label">Não carregar peso, não fazer esforço e não subir escadas por ____ dias</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_ler" class="form-check-input">
+                                <label class="form-check-label">Ler livros e/ou textos edificantes</label>
+                            </div>
+                        </div>                
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_litros" class="form-check-input">
+                                <label class="form-check-label">Beber 2 litros d'agua por dia (de mandeira fracionada em pequenos intervalos)</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_familia" class="form-check-input">
+                                <label class="form-check-label">Orações em família</label>
+                            </div>
+                        </div>                
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_carne" class="form-check-input">
+                                <label class="form-check-label">Não ingerir carne vermelha por ____ dias</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_caridade" class="form-check-input">
+                                <label class="form-check-label">Praticar caridade ao próximo</label>
+                            </div>
+                        </div>                
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.recomendacao_especializado" class="form-check-input">
+                                <label class="form-check-label">Procurar tratamento especializado</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox"  class="form-check-input">
+                                <label class="form-check-label"> _________________________________ </label>
+                            </div>
+                        </div>                
+                    </div>
+                </div>                
+            </div>
+        </div> 
+
+
+        <div class="container container-space">
+            <div class="row row-space">
+                <div class="col-12">
+                    <h4 class="text-center">Sugestão de encaminhamento para outra atividade acolher</h4>
+                </div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                           <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.encaminhamento_evangelho" class="form-check-input">
+                                <label class="form-check-label">Evangelho</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.encaminhamento_dialogo" class="form-check-input">
+                                <label class="form-check-label">Dialogo Fraterno</label>
+                            </div>
+                        </div>    
+
+                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox"  class="form-check-input">
+                                <label class="form-check-label"> _________________________________ </label>
+                            </div>
+                        </div>               
+                    </div>     
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                           <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.encaminhamento_obreiros" class="form-check-input">
+                                <label class="form-check-label">Obreiros da luz</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox" v-model="atendimento.encaminhamento_curso" class="form-check-input">
+                                <label class="form-check-label">Curso de __________________</label>
+                            </div>
+                        </div>    
+
+                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <input type="checkbox"  class="form-check-input">
+                                <label class="form-check-label"> _________________________________ </label>
+                            </div>
+                        </div>               
+                    </div>               
+                </div>                
+            </div>
+        </div> 
+
+        <div class="container container-space">
+            <div class="row row-space">
+                <div class="col-12">
+                    <h4 class="text-center">Observações</h4>
+                </div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                           <div class="form-group">
+                                 <textarea class="form-control" v-modal="atendimento.observacao" rows="10" cols="30">
+                                     
+                                </textarea> 
+                            </div>
+                        </div>                                  
+                    </div>   
+                             
+                </div>                
+            </div>
+        </div> 
+
+    <!-- IMPRIMIR  -->
+        <div class="container">
+            <div class="row row-space">
+                <div class="col-12">
+                    <div class="row justify-content-center row-space-btn">
                 <div class="col-8">
                     <button @click="imprimir()" type="submit" class="btn btn-success">
                         <i class="fas fa-print"></i>
                         IMPRIMIR</button>
                 </div>
             </div>
-
-
             <div v-if="required !== 'vazio'" class="row justify-content-center row-space-form">
                 <div class="alert alert-danger" role="alert">
                     Por favor! Preencha todos os campos obrigatórios *
                 </div>
-            </div>
-            <!-- <div v-if="register.data" class="row justify-content-center row-space-form">
-                    <div v-if="register.data"  class="alert alert-danger" role="alert">
-                        <span v-if="register.data.cpf">{{register.data.cpf[0]}}</span> | 
-                        <span v-if="register.data.email">{{register.data.email[0]}}</span>                  
-                    </div>
-                </div>         -->
-        </div>
-    
+            </div>  
+                </div>
+            </div>    
+        </div>  
+
     </div>
 </template>
 
@@ -578,5 +783,8 @@ export default {
 <style scoped>
     .row-space-btn{
         margin-top:10px
+    }
+    .container-space{
+        margin-top:15px
     }
 </style>

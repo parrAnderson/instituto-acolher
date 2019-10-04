@@ -54,7 +54,7 @@ class AtendimentosController extends Controller
                     $date = new DateTime($atendimento->data_nascimento); 
                     $idade = $date->diff( new DateTime( date('Y-m-d') ) ); 
                     $idade = $idade->format('%Y');                    
-                    $atendimento->idade = $atendimento->data_nascimento;
+                    $atendimento->idade =  $idade;
 
                     // foreach($Razoes as $Razao){
                     //     $atendimento->fumante = $Razao->fumante; 
@@ -117,7 +117,21 @@ class AtendimentosController extends Controller
     }
 
     public function edit($id){
+        
         $this->atendimentos = $this->atendimentos->where('id', $id)->get();
+
+        foreach($this->atendimentos as $atendimento){
+            $Users = $atendimento->Users()->get();    
+                
+            foreach($Users as $User){
+            $atendimento->data_nascimento = date('Y-m-d', strtotime($User->data_nascimento));
+                $date = new DateTime($atendimento->data_nascimento); 
+                $idade = $date->diff( new DateTime( date('Y-m-d') ) ); 
+                $idade = $idade->format('%Y');                    
+                $atendimento->idade = $idade;               
+        }
+    }
+      
         
         return response()->json([
             'data' => $this->atendimentos,  

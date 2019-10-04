@@ -221,71 +221,86 @@
                 </div>
             </div> -->
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-center text-primary">Selecione os lugares que frequenta/frequentou</div>
-                <div class="col-8">
-                    <div class="card">
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.kardecista" class="form-check-input" name="kardecista" id="kardecista">
-                                        <label class="form-check-label" for="kardecista">Kardecista / Espírita?</label>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.casa_apometria" class="form-check-input" id="casa_apometria" name="casa_apometria">
-                                        <label class="form-check-label" for="casa_apometria">Casa de Apômetra?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.casa_umbandista" class="form-check-input" id="casa_umbandista" name="casa_umbandista">
-                                        <label class="form-check-label" for="casa_umbandista">Casa Umbandista?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-12 text-center ">
+                    <span class="text-primary">Selecione os lugares que frequenta/frequentou</span>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4"> 
+                    <div class="form-group">
+                        <label for="kardecista">Kardecista / Espírita?</label>
+                            <select v-model="inputs.kardecista" class="form-control">
+                            <option value>Kardecista / Espírita?</option>
+                            <option>Nunca</option>
+                            <option>Apenas uma vez</option>
+                            <option>Regularmente</option>
+                        </select>
                     </div>
                 </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-check">                                        
+                        <label for="casa_apometria">Casa de Apômetra?</label>
+                        <select v-model="inputs.casa_apometria" class="form-control">
+                            <option value>Casa Apômetra?</option>
+                            <option>Nunca</option>
+                            <option>Apenas uma vez</option>
+                            <option>Regularmente</option>
+                        </select>
+                    </div>
+                </div>                          
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">                                       
+                        <label for="casa_umbandista">Casa Umbandista?</label>
+                        <select v-model="inputs.casa_umbandista" class="form-control">
+                            <option value>Casa Umbandista?</option>
+                            <option>Nunca</option>
+                            <option>Apenas uma vez</option>
+                            <option>Regularmente</option>
+                        </select>
+                    </div>
+                </div>     
+                                          
             </div>
             <div class="row justify-content-center row-space-form">
-                <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
-                <div class="col-8">
-                    <div class="card">
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.doutrina_kardecista" class="form-check-input" id="doutrina_kardecista" name="doutrina_kardecista">
-                                        <label class="form-check-label" for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.principios_umbanda" class="form-check-input" id="principios_umbanda" name="principios_umbanda">
-                                        <label class="form-check-label" for="principios_umbanda">Principios da Umbanda?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row row-space-form">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input type="checkbox" v-model="inputs.apometria_codificada" class="form-check-input" id="apometria_codificada" name="apometria_codificada">
-                                        <label class="form-check-label" for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-12 text-center ">
+                   <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4"> 
+                    <div class="form-group">
+                         <label for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
+                        <select v-model="inputs.doutrina_kardecista" class="form-control">
+                            <option value>Doutrina Kardecista / Espírita?</option>
+                            <option>Sim, superficial</option>
+                            <option>Sim, considerável</option>
+                            <option>Sim, profundo</option>
+                            <option>Não</option>
+                        </select>
                     </div>
                 </div>
-            </div>
+                <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+                    <div class="form-check">                                        
+                        <label for="principios_umbanda">Principios da Umbanda?</label>
+                            <select v-model="inputs.principios_umbanda" class="form-control">
+                            <option value>Principios da Umbanda?</option>
+                            <option>Sim, superficial</option>
+                            <option>Sim, considerável</option>
+                            <option>Sim, profundo</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                </div>                          
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">                                       
+                        <label for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
+                        <select v-model="inputs.apometria_codificada" class="form-control">
+                            <option value>Apometria codificada pelo Dr. Lacerda?</option>
+                            <option>Sim, superficial</option>
+                            <option>Sim, considerável</option>
+                            <option>Sim, profundo</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                </div>     
+                                          
+            </div>            
             <div class="row justify-content-center row-space-form">
                 <div class="col-8 text-center text-primary">Selecione os livros que já leu:</div>
                 <div class="col-8">
