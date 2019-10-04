@@ -54,7 +54,7 @@ class AtendimentosController extends Controller
                     $date = new DateTime($atendimento->data_nascimento); 
                     $idade = $date->diff( new DateTime( date('Y-m-d') ) ); 
                     $idade = $idade->format('%Y');                    
-                    $atendimento->idade =  $idade;
+                    $atendimento->idade = $atendimento->data_nascimento;
 
                     // foreach($Razoes as $Razao){
                     //     $atendimento->fumante = $Razao->fumante; 
