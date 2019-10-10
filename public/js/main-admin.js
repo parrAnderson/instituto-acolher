@@ -2735,6 +2735,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2744,17 +2782,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       idAtendimento: this.$route.params.id,
       inputs: {},
       selected: false,
-      required: {}
+      required: {},
+      menor: false
     };
   },
   methods: _objectSpread({
+    //Register
+    verificarIdade: function verificarIdade() {
+      console.log(this.show.data_nascimento);
+
+      if (this.show.data_nascimento) {
+        if (this.show.data_nascimento.length == 10) {
+          var nascimento = this.inputs.data_nascimento.split("/");
+          var dataNascimento = new Date(parseInt(nascimento[2], 10), parseInt(nascimento[1], 10) - 1, parseInt(nascimento[0], 10));
+          var diferenca = Date.now() - dataNascimento.getTime();
+          var calIdade = new Date(diferenca);
+          var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
+          this.idade = idade;
+
+          if (idade < 18) {
+            this.menor = true;
+          } else {
+            this.menor = false;
+          }
+        }
+      }
+    },
+    //fim Register
+    salvarAtendimento: function salvarAtendimento() {
+      // console.log(this.inputs)
+      this.UpdateAllAtendimento(this.atendimento);
+    },
     imprimir: function imprimir() {
       window.print();
     },
     selectInputs: function selectInputs() {
       this.selected = true;
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GetUser', 'GetAtendimento'])),
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GetUser', 'GetAtendimento', 'UpdateAllAtendimento'])),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     show: function show(state) {
       return state.Users.show;
@@ -2769,6 +2834,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   watch: {
     show: function show(val) {
       this.inputs = this.show;
+      this.verificarIdade();
     },
     id: function id() {
       this.inputs = this.show;
@@ -23568,6 +23634,9 @@ var render = function() {
               attrs: { type: "text", placeholder: "Data de Nascimento*" },
               domProps: { value: _vm.inputs.data_nascimento },
               on: {
+                keyup: function($event) {
+                  _vm.verificarIdade()
+                },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -23591,7 +23660,7 @@ var render = function() {
                 staticClass: "btn btn-outline-secondary",
                 attrs: { type: "button" }
               },
-              [_vm._v(_vm._s(_vm.atendimento.idade))]
+              [_vm._v(_vm._s(this.idade))]
             )
           ])
         ]),
@@ -25081,6 +25150,256 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container container-space" }, [
+      _vm.menor
+        ? _c("div", [
+            _c("h5", { staticClass: "text-center" }, [
+              _vm._v(" Dados do responsável ")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c("div", { staticClass: "col-12 col-lg-8" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputs.nome_responsavel,
+                        expression: "inputs.nome_responsavel"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder:
+                        "Nome Completo do Responsável pelo(a) menor a ser atendido(a) *"
+                    },
+                    domProps: { value: _vm.inputs.nome_responsavel },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.inputs,
+                          "nome_responsavel",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c("div", { staticClass: "col-12 col-lg-4" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputs.cpf_responsavel,
+                        expression: "inputs.cpf_responsavel"
+                      },
+                      {
+                        name: "mask",
+                        rawName: "v-mask",
+                        value: "###.###.###.##",
+                        expression: "'###.###.###.##'"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder:
+                        "CPF do Responsável pelo(a) menor a ser atendido(a)"
+                    },
+                    domProps: { value: _vm.inputs.cpf_responsavel },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.inputs,
+                          "cpf_responsavel",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-lg-4" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputs.rg_responsavel,
+                        expression: "inputs.rg_responsavel"
+                      },
+                      {
+                        name: "mask",
+                        rawName: "v-mask",
+                        value: "##.###.###-#",
+                        expression: "'##.###.###-#'"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder:
+                        "RG do Responsável pelo(a) menor a ser atendido(a) *"
+                    },
+                    domProps: { value: _vm.inputs.rg_responsavel },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.inputs,
+                          "rg_responsavel",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c("div", { staticClass: "col-12 col-lg-4" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputs.telefone_responsavel,
+                        expression: "inputs.telefone_responsavel"
+                      },
+                      {
+                        name: "mask",
+                        rawName: "v-mask",
+                        value: "(##) ####-####",
+                        expression: "'(##) ####-####'"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder:
+                        "Telefone Fixo do Responsável pelo(a) menor a ser atendido(a)"
+                    },
+                    domProps: { value: _vm.inputs.telefone_responsavel },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.inputs,
+                          "telefone_responsavel",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-lg-4" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputs.celular_responsavel,
+                        expression: "inputs.celular_responsavel"
+                      },
+                      {
+                        name: "mask",
+                        rawName: "v-mask",
+                        value: "(##) #####-####",
+                        expression: "'(##) #####-####'"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder:
+                        "Telefone Celular do Responsável pelo(a) menor a ser atendido(a) *"
+                    },
+                    domProps: { value: _vm.inputs.celular_responsavel },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.inputs,
+                          "celular_responsavel",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c("div", { staticClass: "col-12 col-lg-8" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputs.email_responsavel,
+                        expression: "inputs.email_responsavel"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder:
+                        "E-mail do Responsável pelo(a) menor a ser atendido(a) *"
+                    },
+                    domProps: { value: _vm.inputs.email_responsavel },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.inputs,
+                          "email_responsavel",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ]
+            )
+          ])
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container container-space" }, [
       _vm._m(2),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center row-space-form" }, [
@@ -25139,8 +25458,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.atendimento.nome_outro_atendimento_motivo,
-                        expression: "atendimento.nome_outro_atendimento_motivo"
+                        value: _vm.atendimento.outro_atendimento_motivo,
+                        expression: "atendimento.outro_atendimento_motivo"
                       }
                     ],
                     staticClass: "form-control",
@@ -25149,7 +25468,7 @@ var render = function() {
                       placeholder: "Informe o motivo do atendimento"
                     },
                     domProps: {
-                      value: _vm.atendimento.nome_outro_atendimento_motivo
+                      value: _vm.atendimento.outro_atendimento_motivo
                     },
                     on: {
                       input: function($event) {
@@ -25158,7 +25477,7 @@ var render = function() {
                         }
                         _vm.$set(
                           _vm.atendimento,
-                          "nome_outro_atendimento_motivo",
+                          "outro_atendimento_motivo",
                           $event.target.value
                         )
                       }
@@ -25180,8 +25499,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.atendimento.nome_outro_atendimento_data,
-                        expression: "atendimento.nome_outro_atendimento_data"
+                        value: _vm.atendimento.outro_atendimento_data,
+                        expression: "atendimento.outro_atendimento_data"
                       }
                     ],
                     staticClass: "form-control",
@@ -25189,9 +25508,7 @@ var render = function() {
                       type: "date",
                       placeholder: "informe a data do atendimento"
                     },
-                    domProps: {
-                      value: _vm.atendimento.nome_outro_atendimento_data
-                    },
+                    domProps: { value: _vm.atendimento.outro_atendimento_data },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
@@ -25199,7 +25516,7 @@ var render = function() {
                         }
                         _vm.$set(
                           _vm.atendimento,
-                          "nome_outro_atendimento_data",
+                          "outro_atendimento_data",
                           $event.target.value
                         )
                       }
@@ -26199,14 +26516,27 @@ var render = function() {
                   _c("textarea", {
                     directives: [
                       {
-                        name: "modal",
-                        rawName: "v-modal",
+                        name: "model",
+                        rawName: "v-model",
                         value: _vm.atendimento.observacao,
                         expression: "atendimento.observacao"
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { rows: "10", cols: "30" }
+                    attrs: { rows: "10", cols: "30" },
+                    domProps: { value: _vm.atendimento.observacao },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.atendimento,
+                          "observacao",
+                          $event.target.value
+                        )
+                      }
+                    }
                   })
                 ])
               ]
@@ -26223,11 +26553,30 @@ var render = function() {
             "div",
             { staticClass: "row justify-content-center row-space-btn" },
             [
-              _c("div", { staticClass: "col-8" }, [
+              _c("div", { staticClass: "col-4 text-left" }, [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-success",
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        _vm.salvarAtendimento()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-print" }),
+                    _vm._v("\n                    SALVAR ")
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4 text-right" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
                     attrs: { type: "submit" },
                     on: {
                       click: function($event) {
@@ -49065,9 +49414,21 @@ __webpack_require__.r(__webpack_exports__);
     EditAtendimento: function EditAtendimento(context, require) {
       context.commit('EDIT_ATENDIMENTO', require);
     },
-    UpdateAtendimento: function UpdateAtendimento(_ref, request) {
+    UpdateAllAtendimento: function UpdateAllAtendimento(_ref, request) {
       var dispatch = _ref.dispatch,
           commit = _ref.commit;
+      var urlChange = '/acolher/public/api/atendimento/' + request.id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(urlChange, request).then(function (response) {
+        commit('UPDATE_ATENDIMENTO', response.data);
+        console.log("Atualizou");
+      }).catch(function (error) {
+        console.log(error);
+        console.log(error.response);
+      });
+    },
+    UpdateAtendimento: function UpdateAtendimento(_ref2, request) {
+      var dispatch = _ref2.dispatch,
+          commit = _ref2.commit;
       var urlChange = '/acolher/public/api/atendimento/' + request.id;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(urlChange, request.fields).then(function (response) {
         console.log('Data atualizada ' + request.fields.data_atendimento + ' - ' + request.fields.hora_atendimento);

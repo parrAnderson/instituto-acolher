@@ -19,6 +19,30 @@ class Atendimentos extends Model
         'outro_vicio',
         'recorrer',
         'tratamento',
+        
+        'maca',
+        'rodada',
+        'outro_atendimento',
+        'outro_atendimento_motivo',
+        'outro_atendimento_data',
+
+        'recomendacao_agua',
+        'recomendacao_adotar',
+        'recomendacao_repousar',
+        'recomendacao_perdao',
+        'recomendacao_peso',
+        'recomendacao_ler',
+        'recomendacao_litros',
+        'recomendacao_familia',
+        'recomendacao_carne',
+        'recomendacao_caridade',
+        'recomendacao_especializado',
+
+        'encaminhamento_evangelho',
+        'encaminhamento_dialogo',
+        'encaminhamento_obreiros',
+        'encaminhamento_curso',
+        'observacao',
     ];
 
     public function Users(){

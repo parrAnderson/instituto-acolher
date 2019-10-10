@@ -66,6 +66,23 @@ export default {
             
             context.commit('EDIT_ATENDIMENTO', require)
         },
+        UpdateAllAtendimento({ dispatch, commit}, request){ 
+            let urlChange = '/acolher/public/api/atendimento/' + request.id;  
+            
+            axios
+            .put(urlChange, request)
+            .then(response => {             
+                commit('UPDATE_ATENDIMENTO', response.data)     
+                console.log("Atualizou")
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error)
+                console.log(error.response)
+                
+            });
+
+        },
         UpdateAtendimento({ dispatch, commit}, request){             
             
             

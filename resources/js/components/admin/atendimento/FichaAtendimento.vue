@@ -43,7 +43,7 @@ Qual, data e motivo
             <div class="row justify-content-center">
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                     <div class="form-group">
-                        <label for="">Nome completo</label>
+                        <label for="">Nome completo</label>                         
                         <input type="text" class="form-control" v-model="inputs.name" placeholder="Nome Completo da Pessoa a ser Atendida *">
                     </div>
                 </div>
@@ -125,13 +125,13 @@ Qual, data e motivo
                 <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
                     <div class="form-group">
                         <label for="">Data de nascimento</label>                    
-                        <input type="text" class="form-control" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
+                        <input type="text" class="form-control" @keyup="verificarIdade()" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
                     </div>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1">
                     <div class="form-group">
                         <label for="">Idade</label>           <br>         
-                        <button type="button" class="btn btn-outline-secondary">{{atendimento.idade}}</button>
+                        <button type="button" class="btn btn-outline-secondary">{{this.idade}}</button>
                     </div>
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
@@ -475,6 +475,39 @@ Qual, data e motivo
     
                     
         </div>
+
+        <div class="container container-space">
+             <div v-if="menor">
+            <h5 class="text-center"> Dados do responsável </h5>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-12 col-lg-8">
+                    <input type="text" v-model="inputs.nome_responsavel" class="form-control" placeholder="Nome Completo do Responsável pelo(a) menor a ser atendido(a) *">
+                </div>
+            </div>
+
+            <div class="row justify-content-center row-space-form">
+                <div class="col-12 col-lg-4">
+                    <input type="text" v-model="inputs.cpf_responsavel" v-mask="'###.###.###.##'" placeholder="CPF do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
+                </div>
+                <div class="col-12 col-lg-4">
+                    <input type="text" v-model="inputs.rg_responsavel" v-mask="'##.###.###-#'" placeholder="RG do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
+                </div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-12 col-lg-4">
+                    <input type="text" v-model="inputs.telefone_responsavel" v-mask="'(##) ####-####'" placeholder="Telefone Fixo do Responsável pelo(a) menor a ser atendido(a)" class="form-control">
+                </div>
+                <div class="col-12 col-lg-4">
+                    <input type="text" v-model="inputs.celular_responsavel" v-mask="'(##) #####-####'" placeholder="Telefone Celular do Responsável pelo(a) menor a ser atendido(a) *" class="form-control">
+                </div>
+            </div>
+            <div class="row justify-content-center row-space-form">
+                <div class="col-12 col-lg-8">
+                    <input type="text" v-model="inputs.email_responsavel" class="form-control" placeholder="E-mail do Responsável pelo(a) menor a ser atendido(a) *">
+                </div>
+            </div>
+        </div>
+        </div>
     
         <div class="container container-space">
             <div class="row row-space">
@@ -494,13 +527,13 @@ Qual, data e motivo
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group">
                                 <label for="">Motivo</label>
-                        <input type="text" v-model="atendimento.nome_outro_atendimento_motivo" class="form-control" placeholder="Informe o motivo do atendimento">
+                        <input type="text" v-model="atendimento.outro_atendimento_motivo" class="form-control" placeholder="Informe o motivo do atendimento">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group">
                                 <label for="">data</label>
-                        <input type="date" v-model="atendimento.nome_outro_atendimento_data" class="form-control" placeholder="informe a data do atendimento">
+                        <input type="date" v-model="atendimento.outro_atendimento_data" class="form-control" placeholder="informe a data do atendimento">
                     </div>
                 </div>
                     </div>
@@ -676,7 +709,7 @@ Qual, data e motivo
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                            <div class="form-group">
-                                 <textarea class="form-control" v-modal="atendimento.observacao" rows="10" cols="30">
+                                 <textarea class="form-control" v-model="atendimento.observacao" rows="10" cols="30">
                                      
                                 </textarea> 
                             </div>
@@ -692,8 +725,13 @@ Qual, data e motivo
             <div class="row row-space">
                 <div class="col-12">
                     <div class="row justify-content-center row-space-btn">
-                <div class="col-8">
-                    <button @click="imprimir()" type="submit" class="btn btn-success">
+                        <div class="col-4 text-left">
+                    <button @click="salvarAtendimento()" type="submit" class="btn btn-primary">
+                        <i class="fas fa-print"></i>
+                        SALVAR </button>
+                </div>
+                <div class="col-4 text-right">
+                    <button @click="imprimir()" type="submit" class="btn btn-warning">
                         <i class="fas fa-print"></i>
                         IMPRIMIR</button>
                 </div>
@@ -721,10 +759,39 @@ export default {
             inputs: {},
             selected: false,
             required: {},
+            menor: false,
          
         }
     },
     methods: {
+        //Register
+            verificarIdade() {
+                console.log(this.show.data_nascimento)
+            if (this.show.data_nascimento) {
+                
+                    if (this.show.data_nascimento.length == 10) {
+                        var nascimento = this.inputs.data_nascimento.split("/");
+                        var dataNascimento = new Date(parseInt(nascimento[2], 10),
+                            parseInt(nascimento[1], 10) - 1,
+                            parseInt(nascimento[0], 10));
+                        var diferenca = Date.now() - dataNascimento.getTime();
+                        var calIdade = new Date(diferenca);
+                        var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
+                        this.idade = idade
+                        if (idade < 18) {
+                            this.menor = true
+                        } else {
+                            this.menor = false
+                        }
+                    }
+                }
+            },
+        //fim Register
+        salvarAtendimento(){
+            // console.log(this.inputs)
+            this.UpdateAllAtendimento(this.atendimento)
+            
+        },
         imprimir(){
             window.print();
         },
@@ -734,6 +801,7 @@ export default {
         ...mapActions([
             'GetUser',
             'GetAtendimento',
+            'UpdateAllAtendimento'
         ]),
     },
     computed: {
@@ -744,11 +812,13 @@ export default {
     },
     created() {
       this.inputs = this.show
+      
        
     },
     watch:{
         show: function(val){
             this.inputs = this.show
+            this.verificarIdade()
         },
         id(){
             this.inputs = this.show 
@@ -774,6 +844,8 @@ export default {
             this.inputs.como_soube = ''
             this.inputs.indicacao = ''            
             this.inputs.estado = ''
+
+            
 
         },
         directives: { mask }
