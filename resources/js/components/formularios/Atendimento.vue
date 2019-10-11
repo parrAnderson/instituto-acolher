@@ -217,6 +217,7 @@ export default {
         this.inputs.tratamento = ''
         this.inputs.recorrer = ''
 
+        this.GetAtendimento(this.login.id);
          
         },
         ...mapActions([
@@ -246,7 +247,9 @@ export default {
                 this.CadastrarAtendimento(this.inputs)
                 this.GetAtendimento(this.login.id);
             }
-            
+
+            this.GetAtendimento(this.login.id);
+             
         },
         pegarAtendimento() {
 

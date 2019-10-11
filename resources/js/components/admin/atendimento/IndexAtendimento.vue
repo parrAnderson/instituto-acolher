@@ -3,31 +3,40 @@
     
     
         <div class="row row-space">
-            <div class="col-7">
-                <h2 class="text-center">{{parametros.tipo_atendimento}}</h2>                
-            </div>
-            <div class="col-2">
-                 <a href="#" @click="imprimir()">
-                <div class="btn">
-                
-                      Imprimir <i class="fa fa-print" aria-hidden="true"></i> 
-                      
-            </div>
-            </a>
-            </div>
-            <div class="col-3">     
-            
-            
-                <input type="text" placeholder="BUSCAR DATA DO ATENDIMENTO" v-model="DataAtendimentoBuscar" v-on:keyup="buscarDataAtendimento()"  v-mask="'##/##/####'"  class="form-control">
+            <div class="col-4">
+                <div class="row">
+                        <div class="col-12 text-center">
+                            <label>BUSCAR DATA DO ATENDIMENTO</label>
+                        <input type="text" placeholder="BUSCAR DATA DO ATENDIMENTO" v-model="DataAtendimentoBuscar" v-on:keyup="buscarDataAtendimento()"  v-mask="'##/##/####'"  class="form-control">
         
+                        </div>
+                    </div>
+            </div>
+            
+            <div class="col-4 text-center">
+                <div class="row">
+                    <div class="col-12">
+                        <h5> Tipo de atendimento</h5>
+                        <h5 class="card-title text-success" v-if="parametros.tipo_atendimento == 'todos'">Todos</h5>
+                        <h5 class="card-title text-success" v-else>{{parametros.tipo_atendimento}}</h5>
+                    </div>
+                    
+                </div>
             </div>
 
-
-    
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#" @click="imprimir()">
+                    <div class="btn btn-primary btn-sm">                
+                        Imprimir lista de atendimento <i class="fa fa-print" aria-hidden="true"></i>                       
+                    </div>
+                </a>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-    
-    
-    
     
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -46,7 +55,7 @@
             </div>
         </div>
     
-        <div class="row justify-content-center">
+        <div class="row justify-content-center row-space">
             <div class="col-md-12">
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
@@ -87,6 +96,12 @@
                             </td>
                             <td>
                                 Ficha de atendimento
+                            </td>
+                            <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
+                                Maca
+                            </td>
+                             <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
+                                Rodada
                             </td>
                         </tr>
                     </thead>
@@ -146,6 +161,12 @@
                                 <div class="btn btn-sm btn-warning">FICHA</div>
                                </router-link>
                             </td>
+                             <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
+                                 {{atendimento.maca}}
+                             </td>
+                              <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
+                                  {{atendimento.rodada}}
+                            </td>    
                         </tr>
                     </tbody>
                 </table>
@@ -251,3 +272,8 @@ export default {
 }
 </script>
 
+<style>
+    .row-space{
+        margin-top:15px;
+    }
+</style>

@@ -16,9 +16,9 @@
                             <td>TELEFONE</td>
                             <td>NASCIMENTO</td>                            
                             <td>OBREIRO</td>
-                            <td>FUMA</td>
+                            <!-- <td>FUMA</td>
                             <td>BEBE </td>
-                            <td>DROGAS</td>
+                            <td>DROGAS</td> -->
                         </tr>
                     </thead>
                     <tbody>                        
@@ -34,9 +34,9 @@
                             <td @click="ChangeObreiro(user.id)" v-else>
                                 <span class="text-primary pointer">Mudar para obreiro</span>
                             </td>
-                            <td @click="ShowUser(user.id)">{{user.fumante}}</td>
+                            <!-- <td @click="ShowUser(user.id)">{{user.fumante}}</td>
                             <td @click="ShowUser(user.id)">{{user.bebida}}</td>
-                            <td @click="ShowUser(user.id)">{{user.drogas}}</td>
+                            <td @click="ShowUser(user.id)">{{user.drogas}}</td> -->
                         </tr>  
                     </tbody>
                 </table>

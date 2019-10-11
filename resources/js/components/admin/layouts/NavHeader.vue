@@ -59,6 +59,13 @@
                                         Obreiros da Luz
                                     </router-link>
                                 </li>
+                                <li>
+                                    <router-link :to="{name: 'tipoatendimento', params: {tipoatendimento: 'Passes (2as. feiras)'}}">
+                                        Passes
+                                    </router-link>
+                                </li>
+
+                                
                             </ul>
                         </li>
     

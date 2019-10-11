@@ -4784,6 +4784,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.inputs.qual_droga = '';
       this.inputs.tratamento = '';
       this.inputs.recorrer = '';
+      this.GetAtendimento(this.login.id);
     }
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['CadastrarAtendimento', 'GetAtendimento', 'LimparAtendimento']), {
     checkRequired: function checkRequired() {
@@ -4802,6 +4803,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.CadastrarAtendimento(this.inputs);
         this.GetAtendimento(this.login.id);
       }
+
+      this.GetAtendimento(this.login.id);
     },
     pegarAtendimento: function pegarAtendimento() {}
   }),
