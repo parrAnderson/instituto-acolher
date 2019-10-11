@@ -11,6 +11,9 @@ export default {
         },
         GET_USER(state, data){
             state.show = data
+        },
+        UPDATE_USER(state, data){
+            state.update = data
         }
     },
 
@@ -42,6 +45,24 @@ export default {
             .catch(function (error) {
             console.log(error);
             });
-        }      
+        },
+        UpdateUser({ dispatch, commit}, request){ 
+            // console.log(request)
+            let url = '/acolher/public/api/users/atualizar';  
+            
+            axios
+            .post(url, request)
+            .then(response => {             
+                commit('UPDATE_USER', response.data)     
+                console.log("Atualizou o usuario")
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error)
+                console.log(error.response)
+                
+            });
+
+        },      
     }
 }

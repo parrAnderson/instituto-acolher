@@ -2773,6 +2773,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2783,14 +2796,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       inputs: {},
       selected: false,
       required: {},
-      menor: false
+      menor: false,
+      idade: "",
+      selectGenero: "",
+      textGenero: "",
+      selectReligiao: "",
+      textReligiao: ""
     };
   },
   methods: _objectSpread({
     //Register
+    voltarReligiao: function voltarReligiao() {
+      if (this.selectReligiao === 'Outro') {
+        this.selectReligiao = '';
+        this.textReligiao = '';
+        this.inputs.religiao = this.selectReligiao;
+      } else {
+        this.inputs.religiao = this.textReligiao;
+      }
+    },
+    voltarGenero: function voltarGenero() {
+      if (this.selectGenero === 'Outros') {
+        this.selectGenero = '';
+        this.textGenero = '';
+        this.inputs.genero = this.selectGenero;
+      } else {
+        this.inputs.genero = this.textGenero;
+      }
+    },
     verificarIdade: function verificarIdade() {
-      console.log(this.show.data_nascimento);
-
       if (this.show.data_nascimento) {
         if (this.show.data_nascimento.length == 10) {
           var nascimento = this.inputs.data_nascimento.split("/");
@@ -2812,6 +2846,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     salvarAtendimento: function salvarAtendimento() {
       // console.log(this.inputs)
       this.UpdateAllAtendimento(this.atendimento);
+      this.UpdateUser(this.inputs);
     },
     imprimir: function imprimir() {
       window.print();
@@ -2819,7 +2854,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     selectInputs: function selectInputs() {
       this.selected = true;
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GetUser', 'GetAtendimento', 'UpdateAllAtendimento'])),
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['GetUser', 'GetAtendimento', 'UpdateAllAtendimento', 'UpdateUser'])),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     show: function show(state) {
       return state.Users.show;
@@ -2835,12 +2870,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     show: function show(val) {
       this.inputs = this.show;
       this.verificarIdade();
+      this.selectGenero = this.inputs.genero;
+      this.selectReligiao = this.inputs.religiao;
     },
     id: function id() {
       this.inputs = this.show;
     },
     atendimento: function atendimento() {
       this.GetUser(this.atendimento.user_id);
+    },
+    textReligiao: function textReligiao() {
+      this.inputs.religiao = this.textReligiao;
+    },
+    selectReligiao: function selectReligiao() {
+      if (this.selectReligiao === 'Outro') {
+        this.inputs.religiao = this.textReligiao;
+      } else {
+        this.inputs.religiao = this.selectReligiao;
+      }
+    },
+    textGenero: function textGenero() {
+      this.inputs.genero = this.textGenero;
+    },
+    selectGenero: function selectGenero() {
+      if (this.selectGenero === 'Outros') {
+        this.inputs.genero = this.textGenero;
+      } else {
+        this.inputs.genero = this.selectGenero;
+      }
     }
   },
   beforeMount: function beforeMount() {
@@ -2848,8 +2905,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.required = "vazio";
     this.selectInputs();
     this.inputs.estado_civil = '';
-    this.inputs.religiao = '';
-    this.inputs.genero = '';
     this.inputs.fumante = '';
     this.inputs.bebida = '';
     this.inputs.drogas = '';
@@ -3958,7 +4013,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row-space-btn[data-v-ff8c263e]{\n    margin-top:10px\n}\n.container-space[data-v-ff8c263e]{\n    margin-top:15px\n}\n", ""]);
+exports.push([module.i, "\n.row-space-btn[data-v-ff8c263e] {\n    margin-top: 10px\n}\n.container-space[data-v-ff8c263e] {\n    margin-top: 15px\n}\n", ""]);
 
 // exports
 
@@ -23665,59 +23720,112 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Gênero *")]),
-            _vm._v(" "),
-            _vm.selected
-              ? _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.inputs.genero,
-                        expression: "inputs.genero"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { name: "genero" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.inputs,
-                          "genero",
-                          $event.target.multiple
+        _vm.selectGenero !== "Outros"
+          ? _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Gênero")]),
+              _vm._v(" "),
+              _vm.selected
+                ? _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectGenero,
+                          expression: "selectGenero"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "genero" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.selectGenero = $event.target.multiple
                             ? $$selectedVal
                             : $$selectedVal[0]
-                        )
+                        }
                       }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { domProps: { value: this.inputs.genero } },
+                        [
+                          _vm._v(
+                            " " +
+                              _vm._s(this.inputs.genero) +
+                              "\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Masculino")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Feminino")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Prefiro não indicar")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Outros")])
+                    ]
+                  )
+                : _vm._e()
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.selectGenero == "Outros"
+          ? _c("div", { staticClass: "col-10 col-lg-3" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Gênero")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.textGenero,
+                    expression: "textGenero"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Digite o Gênero" },
+                domProps: { value: _vm.textGenero },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  },
-                  [
-                    _c("option", { attrs: { selected: "", value: "" } }, [
-                      _vm._v(" Gênero *")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Masculino")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Feminino")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Outros")])
-                  ]
-                )
-              : _vm._e()
-          ])
-        ])
+                    _vm.textGenero = $event.target.value
+                  }
+                }
+              })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.selectGenero == "Outros"
+          ? _c("div", { staticClass: "col-2 col-lg-1" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("voltar")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "btn btn-primary",
+                  on: {
+                    click: function($event) {
+                      _vm.voltarGenero()
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-chevron-up" })]
+              )
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center" }, [
@@ -23725,33 +23833,7 @@ var render = function() {
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "" } }, [_vm._v("CPF")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.inputs.cpf,
-                  expression: "inputs.cpf"
-                },
-                {
-                  name: "mask",
-                  rawName: "v-mask",
-                  value: "###.###.###.##",
-                  expression: "'###.###.###.##'"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "CPF *" },
-              domProps: { value: _vm.inputs.cpf },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.inputs, "cpf", $event.target.value)
-                }
-              }
-            })
+            _c("h5", [_vm._v(_vm._s(_vm.inputs.cpf))])
           ])
         ]),
         _vm._v(" "),
@@ -23865,27 +23947,11 @@ var render = function() {
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "" } }, [_vm._v("Email *")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.inputs.email,
-                  expression: "inputs.email"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Email *" },
-              domProps: { value: _vm.inputs.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.inputs, "email", $event.target.value)
-                }
-              }
-            })
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("h5", [_vm._v(_vm._s(_vm.inputs.email))])
+              ])
+            ])
           ])
         ])
       ]),
@@ -23951,67 +24017,114 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Religião *")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
+        _vm.selectReligiao !== "Outro"
+          ? _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
+              _c("label", [_vm._v("Religião")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.selectReligiao,
+                      expression: "selectReligiao"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { name: "religiao", id: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.selectReligiao = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { domProps: { value: this.inputs.religiao } }, [
+                    _vm._v(" " + _vm._s(this.inputs.religiao))
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Kardecista / Espírita" } }, [
+                    _vm._v("Kardecista / Espírita")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Umbandista")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Católica")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Evangélica")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Budista")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Judaica")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Candomblé")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Prefiro não indicar")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Outro")])
+                ]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.selectReligiao == "Outro"
+          ? _c("div", { staticClass: "col-8 col-lg-3" }, [
+              _c("label", [_vm._v("Religião")]),
+              _vm._v(" "),
+              _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.inputs.religiao,
-                    expression: "inputs.religiao"
+                    value: _vm.textReligiao,
+                    expression: "textReligiao"
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { name: "religiao", id: "" },
+                attrs: { type: "text", placeholder: "Digite sua religião *" },
+                domProps: { value: _vm.textReligiao },
                 on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.inputs,
-                      "religiao",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.textReligiao = $event.target.value
                   }
                 }
-              },
-              [
-                _c("option", { attrs: { disabled: "", value: "" } }, [
-                  _vm._v("Religião *")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Kardecista / Espírita" } }, [
-                  _vm._v("Kardecista / Espírita")
-                ]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Umbandista")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Católica")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Evangélica")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Budista")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Judaica")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Candomblé")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Outros")])
-              ]
-            )
-          ])
-        ])
+              })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.selectReligiao == "Outro"
+          ? _c("div", { staticClass: "col-2 col-lg-1" }, [
+              _c("label", [_vm._v("Voltar")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "btn btn-primary",
+                  on: {
+                    click: function($event) {
+                      _vm.voltarReligiao()
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-chevron-up" })]
+              )
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center row-space-form" }, [
@@ -24929,7 +25042,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "Espirito e Matéria: Um Novo Horizonte para a\n                              Medicina?"
+                        "Espirito e Matéria: Um Novo Horizonte para a\n                                    Medicina?"
                       )
                     ]
                   )
@@ -26567,7 +26680,7 @@ var render = function() {
                   },
                   [
                     _c("i", { staticClass: "fas fa-print" }),
-                    _vm._v("\n                    SALVAR ")
+                    _vm._v("\n                            SALVAR ")
                   ]
                 )
               ]),
@@ -26586,7 +26699,7 @@ var render = function() {
                   },
                   [
                     _c("i", { staticClass: "fas fa-print" }),
-                    _vm._v("\n                    IMPRIMIR")
+                    _vm._v("\n                            IMPRIMIR")
                   ]
                 )
               ])
@@ -26606,7 +26719,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                Por favor! Preencha todos os campos obrigatórios *\n            "
+                        "\n                        Por favor! Preencha todos os campos obrigatórios *\n                    "
                       )
                     ]
                   )
@@ -49956,6 +50069,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     GET_USER: function GET_USER(state, data) {
       state.show = data;
+    },
+    UPDATE_USER: function UPDATE_USER(state, data) {
+      state.update = data;
     }
   },
   actions: {
@@ -49974,6 +50090,19 @@ __webpack_require__.r(__webpack_exports__);
         context.commit('GET_USER', response.data[0]); //    console.log(response.data.data[0])
       }).catch(function (error) {
         console.log(error);
+      });
+    },
+    UpdateUser: function UpdateUser(_ref, request) {
+      var dispatch = _ref.dispatch,
+          commit = _ref.commit;
+      // console.log(request)
+      var url = '/acolher/public/api/users/atualizar';
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, request).then(function (response) {
+        commit('UPDATE_USER', response.data);
+        console.log("Atualizou o usuario");
+      }).catch(function (error) {
+        console.log(error);
+        console.log(error.response);
       });
     }
   }
