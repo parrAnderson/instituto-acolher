@@ -3117,6 +3117,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4060,7 +4073,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row-space{\n    margin-top:15px;\n}\n", ""]);
+exports.push([module.i, "\n@media print\n{\n.no-print, .no-print *\n    {\n        display: none !important;\n}\n.with-print{\n        display:block !important;\n}\n}\n.with-print{\n        display:none;\n}\n.row-space{\n        margin-top:15px;\n}\n", ""]);
 
 // exports
 
@@ -26948,8 +26961,24 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.atendimentos
     ? _c("div", [
-        _c("div", { staticClass: "row row-space" }, [
-          _c("div", { staticClass: "col-4" }, [
+        _c(
+          "div",
+          { staticClass: "row row-space with-print justify-content-center" },
+          [
+            _c("div", { staticClass: "col-12" }, [
+              _vm.parametros.tipo_atendimento == "todos"
+                ? _c("h5", { staticClass: "text-center text-success" }, [
+                    _vm._v("Todos os atendimento")
+                  ])
+                : _c("h5", { staticClass: "text-center text-success" }, [
+                    _vm._v(_vm._s(_vm.parametros.tipo_atendimento))
+                  ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "row row-space no-print" }, [
+          _c("div", { staticClass: "col-4 no-print" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-12 text-center" }, [
                 _c("label", [_vm._v("BUSCAR DATA DO ATENDIMENTO")]),
@@ -26991,7 +27020,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-4 text-center" }, [
+          _c("div", { staticClass: "col-4 text-center no-print" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-12" }, [
                 _c("h5", [_vm._v(" Tipo de atendimento")]),
@@ -27007,7 +27036,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-4" }, [
+          _c("div", { staticClass: "col-4 no-print" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-12" }, [
                 _c(
@@ -27083,7 +27112,7 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { staticClass: "no-print" }, [
                       _vm._v(
                         "\n                            EMAIL\n                        "
                       )
@@ -27095,7 +27124,7 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { staticClass: "no-print" }, [
                       _vm._v(
                         "\n                            SOLICITADA\n                        "
                       )
@@ -27113,19 +27142,19 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { staticClass: "no-print" }, [
                       _vm._v(
                         "\n                            Motivo e razão\n                        "
                       )
                     ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { staticClass: "no-print" }, [
                       _vm._v(
                         "\n                            DROGAS\n                        "
                       )
                     ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { staticClass: "no-print" }, [
                       _vm._v(
                         "\n                            Ficha de atendimento\n                        "
                       )
@@ -27145,7 +27174,13 @@ var render = function() {
                             "\n                            Rodada\n                        "
                           )
                         ])
-                      : _vm._e()
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "with-print" }, [
+                      _vm._v(
+                        "\n                            ASSINATURA\n                        "
+                      )
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
@@ -27189,7 +27224,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", [
+                      _c("td", { staticClass: "no-print" }, [
                         _vm._v(
                           "\n                            " +
                             _vm._s(atendimento.email) +
@@ -27205,7 +27240,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", [
+                      _c("td", { staticClass: "no-print" }, [
                         _vm._v(
                           "\n                            " +
                             _vm._s(_vm._f("date")(atendimento.created_at)) +
@@ -27251,7 +27286,10 @@ var render = function() {
                             : _c("span", [
                                 _c(
                                   "div",
-                                  { staticClass: "btn btn-primary btn-sm" },
+                                  {
+                                    staticClass:
+                                      "btn btn-primary btn-sm no-print"
+                                  },
                                   [_vm._v("Agendar")]
                                 )
                               ])
@@ -27266,7 +27304,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", [
+                      _c("td", { staticClass: "no-print" }, [
                         _vm._v(
                           "\n                            " +
                             _vm._s(atendimento.recorrer) +
@@ -27274,7 +27312,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("td", [
+                      _c("td", { staticClass: "no-print" }, [
                         _vm._v(
                           "\n                            " +
                             _vm._s(atendimento.drogas) +
@@ -27284,6 +27322,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "td",
+                        { staticClass: "no-print" },
                         [
                           _c(
                             "router-link",
@@ -27327,7 +27366,13 @@ var render = function() {
                                 "\n                        "
                             )
                           ])
-                        : _vm._e()
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "with-print" }, [
+                        _vm._v(
+                          "\n                            ______________________________________________________\n                        "
+                        )
+                      ])
                     ])
                   }),
                   0

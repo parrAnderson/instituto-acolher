@@ -1,9 +1,16 @@
 <template>
     <div v-if="atendimentos">
     
+        <div class="row row-space with-print justify-content-center">
+            <div class="col-12">
+                
+                  <h5 class="text-center text-success" v-if="parametros.tipo_atendimento == 'todos'">Todos os atendimento</h5>
+                  <h5 class="text-center text-success" v-else>{{parametros.tipo_atendimento}}</h5>
+            </div>
+        </div>
     
-        <div class="row row-space">
-            <div class="col-4">
+        <div class="row row-space no-print">
+            <div class="col-4 no-print">
                 <div class="row">
                         <div class="col-12 text-center">
                             <label>BUSCAR DATA DO ATENDIMENTO</label>
@@ -13,7 +20,7 @@
                     </div>
             </div>
             
-            <div class="col-4 text-center">
+            <div class="col-4 text-center no-print">
                 <div class="row">
                     <div class="col-12">
                         <h5> Tipo de atendimento</h5>
@@ -24,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-4 no-print">
                 <div class="row">
                     <div class="col-12">
                         <a href="#" @click="imprimir()">
@@ -70,14 +77,14 @@
                             <td>
                                 NOME
                             </td>
-                            <td>
+                            <td class="no-print">
                                 EMAIL
                             </td>
                             <td>
                                 CELULAR
                             </td>
                            
-                            <td>
+                            <td class="no-print">
                                 SOLICITADA
                             </td>
                             <td class-="text-primary">
@@ -87,14 +94,14 @@
                             <td>
                                 IDADE
                             </td>
-                            <td>
+                            <td class="no-print">
                                 Motivo e razão
                             </td>
                             
-                            <td>
+                            <td class="no-print">
                                 DROGAS
                             </td>
-                            <td>
+                            <td class="no-print">
                                 Ficha de atendimento
                             </td>
                             <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
@@ -102,6 +109,9 @@
                             </td>
                              <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
                                 Rodada
+                            </td>
+                            <td class="with-print">
+                                ASSINATURA
                             </td>
                         </tr>
                     </thead>
@@ -131,32 +141,32 @@
                                 {{atendimento.nome}}
                             </td>
     
-                            <td>
+                            <td class="no-print">
                                 {{atendimento.email}}
                             </td>
                             <td>
                                 {{atendimento.celular}}
                             </td>
     
-                            <td>
+                            <td class="no-print">
                                 {{atendimento.created_at | date}}
                             </td>
                             <td data-toggle="modal" data-target="#exampleModal" class="pointer" @click="showAtendimento(atendimento.id, atendimento.email, atendimento.nome, atendimento.data_atendimento, atendimento.hora_atendimento)">
                                 <span v-if="atendimento.data_atendimento" class-="text-primary">{{ atendimento.data_atendimento | date}}</span>
-                                <span v-else><div class="btn btn-primary btn-sm">Agendar</div></span>
+                                <span v-else><div class="btn btn-primary btn-sm no-print">Agendar</div></span>
                             </td>
                             
                             <td>
                                 {{atendimento.idade | idade}}
                             </td>
-                            <td>
+                            <td class="no-print">
                                 {{atendimento.recorrer}}
                             </td>
                             
-                            <td>
+                            <td class="no-print">
                                 {{atendimento.drogas}}
                             </td>
-                            <td>
+                            <td class="no-print">
                                <router-link :to="{name: 'fichaatendimento', params: {id: atendimento.id}}">
                                 <div class="btn btn-sm btn-warning">FICHA</div>
                                </router-link>
@@ -167,6 +177,9 @@
                               <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
                                   {{atendimento.rodada}}
                             </td>    
+                            <td class="with-print">
+                                ______________________________________________________
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -273,6 +286,19 @@ export default {
 </script>
 
 <style>
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+    .with-print{
+        display:block !important;
+    }
+}
+    .with-print{
+        display:none;
+    }
     .row-space{
         margin-top:15px;
     }
