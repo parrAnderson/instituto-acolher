@@ -6,6 +6,8 @@ import Login from './components/auth/VuexLogin'
 import Atendimento from './components/formularios/VuexAtendimento'
 import Cartao  from './components/carteirinhas/VuexCartao'
 
+import FazerAtendimento from './components/FazerAtendimento/VuexAtendimento'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -13,6 +15,7 @@ export default new Vuex.Store({
         Login,
         // Obreiro,
         Atendimento,
-        Cartao
+        Cartao,
+        FazerAtendimento,
     }
 })

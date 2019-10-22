@@ -114,6 +114,44 @@
                                         <a class="nav-link" href="#">Obreiro</a>
                                     </router-link>
                                 </li> -->
+                            
+                    <li v-if="login.data.id">
+                        <a href="#atendimentoDropdown" class="dropdown-toggle-menu" aria-expanded="false" data-toggle="collapse">
+                            
+                            Tipo Atendimentos <i class="fa-dropdown fas fa-caret-down"></i>
+
+                        </a>
+                        <ul id="atendimentoDropdown" class="collapse list-unstyled ">
+                            <li>
+                                <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'todos'}}">
+                                    Todos
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Prática do Evangelho (5as. feiras)'}}">
+                                    Prática do Evangelho
+                                </router-link>
+                            </li>
+
+                            <li>
+                                <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Apometria (2as. feiras)'}}">
+                                    Apometria
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)'}}">
+                                    Obreiros da Luz
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Passes (2as. feiras)'}}">
+                                    Passes
+                                </router-link>
+                            </li>
+
+                        </ul>
+                    </li>
+
 
                                 <li v-if="login.data.id" class="nav-item">
                                     <router-link to="/atendimento">

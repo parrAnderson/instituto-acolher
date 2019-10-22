@@ -1796,6 +1796,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -6435,6 +6473,150 @@ var render = function() {
                           : _vm._e(),
                         _vm._v(" "),
                         _vm.login.data.id
+                          ? _c("li", [
+                              _vm._m(1),
+                              _vm._v(" "),
+                              _c(
+                                "ul",
+                                {
+                                  staticClass: "collapse list-unstyled ",
+                                  attrs: { id: "atendimentoDropdown" }
+                                },
+                                [
+                                  _c(
+                                    "li",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "fazertipoatendimento",
+                                              params: {
+                                                tipoatendimento: "todos"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                    Todos\n                                "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "fazertipoatendimento",
+                                              params: {
+                                                tipoatendimento:
+                                                  "Prática do Evangelho (5as. feiras)"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                    Prática do Evangelho\n                                "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "fazertipoatendimento",
+                                              params: {
+                                                tipoatendimento:
+                                                  "Apometria (2as. feiras)"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                    Apometria\n                                "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "fazertipoatendimento",
+                                              params: {
+                                                tipoatendimento:
+                                                  "Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                    Obreiros da Luz\n                                "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "fazertipoatendimento",
+                                              params: {
+                                                tipoatendimento:
+                                                  "Passes (2as. feiras)"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                    Passes\n                                "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.login.data.id
                           ? _c(
                               "li",
                               { staticClass: "nav-item" },
@@ -6589,6 +6771,28 @@ var staticRenderFns = [
         }
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "dropdown-toggle-menu",
+        attrs: {
+          href: "#atendimentoDropdown",
+          "aria-expanded": "false",
+          "data-toggle": "collapse"
+        }
+      },
+      [
+        _vm._v(
+          "\n                            \n                            Tipo Atendimentos "
+        ),
+        _c("i", { staticClass: "fa-dropdown fas fa-caret-down" })
+      ]
     )
   }
 ]

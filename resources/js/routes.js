@@ -19,6 +19,10 @@ import Cracha from './components/carteirinhas/Cracha'
 
 import CarteirinhaFrequentador from './components/carteirinhas/CarteirinhaFrequentador'
 
+// Fazer Atendimento
+import FazerIndexAtendimento from './components/FazerAtendimento/IndexAtendimento'
+import FazerEditAtendimento from './components/FazerAtendimento/EditAtendimento'
+import FazerFichaAtendimento from './components/FazerAtendimento/FichaAtendimento'
 
 //login
 import LoginCpf from './components/auth/LoginCpf'
@@ -39,6 +43,13 @@ const routes = [
     {path:'/login', name:'login', component: LoginCpf},
     {path:'/register', name:'register',  name:'register', component: Register},
     {path:'/atendimento', name:'atendimento',  component: Atendimento},
+
+    // ATENDIMENTOS
+    {path:'/fazer/atendimentos', name:'atendimentos',  component: FazerIndexAtendimento},
+    {path:'/fazer/atendimento/:id', name:'editatendimento',  component: FazerEditAtendimento},
+    {path:'/fazer/fichaatendimento/:id', name:'fichaatendimento',  component: FazerFichaAtendimento},
+    {path:'/fazer/atendimentos/:tipoatendimento', name:'fazertipoatendimento',  component: FazerIndexAtendimento},
+
     // {path:'/obreiro', name:'obreiro',  component: Obreiro},
     {path:'/quemsomos', name:'quemsomos',  component: QuemSomos},
     {path:'/cartao/:id', name:'cartao',  component: Carteirinha},
