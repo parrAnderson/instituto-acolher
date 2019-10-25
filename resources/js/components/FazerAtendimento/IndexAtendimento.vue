@@ -1,6 +1,7 @@
 <template>
 <div>
     <nav-header></nav-header>
+    <hr/>
     <div class="container">
         <div v-if="atendimentos">
             <div class="row row-space with-print justify-content-center">
@@ -286,6 +287,10 @@ export default {
     .no-print * {
         display: none !important;
     }
+
+    .nav-top {
+    margin-top: 0px;
+}
 
     .with-print {
         display: block !important;

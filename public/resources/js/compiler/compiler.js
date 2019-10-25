@@ -1798,42 +1798,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -1947,7 +1911,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (max-width: 575.98px) {\n.btn-login-header{\n     text-align: center !important;\n     float: center ! important;\n}\n}\n", ""]);
+exports.push([module.i, "\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
 
 // exports
 
@@ -6208,7 +6172,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-10" }, [
+      _c("div", { staticClass: "col-md-10 no-print" }, [
         _c("div", { staticClass: "row row-login justify-content-end" }, [
           !_vm.login.data.id
             ? _c(
@@ -6432,7 +6396,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                        Formulários\n                                        "
+                                    "\n                                    Formulários\n                                "
                                   )
                                 ]
                               ),
@@ -6473,8 +6437,24 @@ var render = function() {
                           : _vm._e(),
                         _vm._v(" "),
                         _vm.login.data.id
-                          ? _c("li", [
-                              _vm._m(1),
+                          ? _c("li", { staticClass: "nav-item dropdown" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "nav-link dropdown-toggle text-primary",
+                                  attrs: {
+                                    href: "#atendimentoDropdown",
+                                    "aria-expanded": "false",
+                                    "data-toggle": "collapse"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    Tipo Atendimentos\n                                "
+                                  )
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "ul",
@@ -6500,7 +6480,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Todos\n                                "
+                                            "\n                                            Todos\n                                        "
                                           )
                                         ]
                                       )
@@ -6526,7 +6506,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Prática do Evangelho\n                                "
+                                            "\n                                            Prática do Evangelho\n                                        "
                                           )
                                         ]
                                       )
@@ -6552,7 +6532,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Apometria\n                                "
+                                            "\n                                            Apometria\n                                        "
                                           )
                                         ]
                                       )
@@ -6578,7 +6558,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Obreiros da Luz\n                                "
+                                            "\n                                            Obreiros da Luz\n                                        "
                                           )
                                         ]
                                       )
@@ -6604,7 +6584,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Passes\n                                "
+                                            "\n                                            Passes\n                                        "
                                           )
                                         ]
                                       )
@@ -6771,28 +6751,6 @@ var staticRenderFns = [
         }
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "dropdown-toggle-menu",
-        attrs: {
-          href: "#atendimentoDropdown",
-          "aria-expanded": "false",
-          "data-toggle": "collapse"
-        }
-      },
-      [
-        _vm._v(
-          "\n                            \n                            Tipo Atendimentos "
-        ),
-        _c("i", { staticClass: "fa-dropdown fas fa-caret-down" })
-      ]
     )
   }
 ]

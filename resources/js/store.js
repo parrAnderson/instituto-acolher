@@ -5,6 +5,7 @@ import Login from './components/auth/VuexLogin'
 // import Obreiro from './components/obreiro/VuexObreiro'
 import Atendimento from './components/formularios/VuexAtendimento'
 import Cartao  from './components/carteirinhas/VuexCartao'
+import Users  from './components/users/VuexUsers'
 
 import FazerAtendimento from './components/FazerAtendimento/VuexAtendimento'
 
@@ -17,5 +18,6 @@ export default new Vuex.Store({
         Atendimento,
         Cartao,
         FazerAtendimento,
+        Users,
     }
 })

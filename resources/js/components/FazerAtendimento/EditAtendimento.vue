@@ -15,7 +15,6 @@
         </div> 
 
         
-        
         <br>
     
         <div class="row">
@@ -38,7 +37,6 @@ export default {
         return {
             request: {},
             fields: {},
-            novo:"",
             data_atendimento:"",
             hora_atendimento:"",
             parametros:{},
@@ -46,11 +44,11 @@ export default {
     },
     computed: {
         ...mapState({
-            editId: state => state.Atendimento.editId,  
-            editEmail: state => state.Atendimento.editEmail, 
-            editNome: state => state.Atendimento.editNome,
-            editDataAtendimento: state => state.Atendimento.editDataAtendimento,  
-            editHoraAtendimento: state => state.Atendimento.editHoraAtendimento,       
+            editId: state => state.FazerAtendimento.editId,  
+            editEmail: state => state.FazerAtendimento.editEmail, 
+            editNome: state => state.FazerAtendimento.editNome,
+            editDataAtendimento: state => state.FazerAtendimento.editDataAtendimento,  
+            editHoraAtendimento: state => state.FazerAtendimento.editHoraAtendimento,       
         })
     },
     methods: {
@@ -58,19 +56,14 @@ export default {
             'UpdateAtendimento',
             'AllAtendimento',
         ]),
-        UpdateData() {
+        UpdateData() {          
             this.fields.hora_atendimento = this.hora_atendimento
             this.fields.data_atendimento = this.data_atendimento
-
             this.fields.nome = this.editNome
             this.fields.email = this.editEmail
 
-
             // console.log(this.request)
             this.UpdateAtendimento(this.request)   
-
-            // parametros.tipo_atendimento
-            // parametros.DataAtendimentoBuscar
 
     if(this.DataAtendimentoBuscar){
           this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar
@@ -92,7 +85,8 @@ export default {
             this.request.id = this.editId                         
         },
          editDataAtendimento(){
-            this.data_atendimento = this.editDataAtendimento            
+            this.data_atendimento = this.editDataAtendimento  
+            this.AllAtendimento(this.parametros)            
          },
           editHoraAtendimento(){
             this.hora_atendimento = this.editHoraAtendimento            

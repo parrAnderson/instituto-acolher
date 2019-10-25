@@ -850,7 +850,7 @@ export default {
     computed: {
         ...mapState({
             show: state => state.Users.show,
-            atendimento: state => state.Atendimento.show,
+            atendimento: state => state.FazerAtendimento.show,
         })
     },
     created() {

@@ -1986,7 +1986,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1995,7 +1994,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       request: {},
       fields: {},
-      novo: "",
       data_atendimento: "",
       hora_atendimento: "",
       parametros: {}
@@ -2003,19 +2001,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     editId: function editId(state) {
-      return state.Atendimento.editId;
+      return state.FazerAtendimento.editId;
     },
     editEmail: function editEmail(state) {
-      return state.Atendimento.editEmail;
+      return state.FazerAtendimento.editEmail;
     },
     editNome: function editNome(state) {
-      return state.Atendimento.editNome;
+      return state.FazerAtendimento.editNome;
     },
     editDataAtendimento: function editDataAtendimento(state) {
-      return state.Atendimento.editDataAtendimento;
+      return state.FazerAtendimento.editDataAtendimento;
     },
     editHoraAtendimento: function editHoraAtendimento(state) {
-      return state.Atendimento.editHoraAtendimento;
+      return state.FazerAtendimento.editHoraAtendimento;
     }
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['UpdateAtendimento', 'AllAtendimento']), {
@@ -2025,8 +2023,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.fields.nome = this.editNome;
       this.fields.email = this.editEmail; // console.log(this.request)
 
-      this.UpdateAtendimento(this.request); // parametros.tipo_atendimento
-      // parametros.DataAtendimentoBuscar
+      this.UpdateAtendimento(this.request);
 
       if (this.DataAtendimentoBuscar) {
         this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar;
@@ -2047,6 +2044,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     editDataAtendimento: function editDataAtendimento() {
       this.data_atendimento = this.editDataAtendimento;
+      this.AllAtendimento(this.parametros);
     },
     editHoraAtendimento: function editHoraAtendimento() {
       this.hora_atendimento = this.editHoraAtendimento;
@@ -2909,7 +2907,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return state.Users.show;
     },
     atendimento: function atendimento(state) {
-      return state.Atendimento.show;
+      return state.FazerAtendimento.show;
     }
   })),
   created: function created() {
@@ -2989,6 +2987,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -6348,42 +6347,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -6478,7 +6441,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media print {\n.no-print,\n    .no-print * {\n        display: none !important;\n}\n.with-print {\n        display: block !important;\n}\n}\n.with-print {\n    display: none;\n}\n.row-space {\n    margin-top: 15px;\n}\n", ""]);
+exports.push([module.i, "\n@media print {\n.no-print,\n    .no-print * {\n        display: none !important;\n}\n.nav-top {\n    margin-top: 0px;\n}\n.with-print {\n        display: block !important;\n}\n}\n.with-print {\n    display: none;\n}\n.row-space {\n    margin-top: 15px;\n}\n", ""]);
 
 // exports
 
@@ -6611,7 +6574,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (max-width: 575.98px) {\n.btn-login-header{\n     text-align: center !important;\n     float: center ! important;\n}\n}\n", ""]);
+exports.push([module.i, "\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
 
 // exports
 
@@ -42396,6 +42359,8 @@ var render = function() {
     [
       _c("nav-header"),
       _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _vm.atendimentos
           ? _c("div", [
@@ -49866,7 +49831,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-10" }, [
+      _c("div", { staticClass: "col-md-10 no-print" }, [
         _c("div", { staticClass: "row row-login justify-content-end" }, [
           !_vm.login.data.id
             ? _c(
@@ -50090,7 +50055,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                        Formulários\n                                        "
+                                    "\n                                    Formulários\n                                "
                                   )
                                 ]
                               ),
@@ -50131,8 +50096,24 @@ var render = function() {
                           : _vm._e(),
                         _vm._v(" "),
                         _vm.login.data.id
-                          ? _c("li", [
-                              _vm._m(1),
+                          ? _c("li", { staticClass: "nav-item dropdown" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "nav-link dropdown-toggle text-primary",
+                                  attrs: {
+                                    href: "#atendimentoDropdown",
+                                    "aria-expanded": "false",
+                                    "data-toggle": "collapse"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    Tipo Atendimentos\n                                "
+                                  )
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "ul",
@@ -50158,7 +50139,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Todos\n                                "
+                                            "\n                                            Todos\n                                        "
                                           )
                                         ]
                                       )
@@ -50184,7 +50165,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Prática do Evangelho\n                                "
+                                            "\n                                            Prática do Evangelho\n                                        "
                                           )
                                         ]
                                       )
@@ -50210,7 +50191,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Apometria\n                                "
+                                            "\n                                            Apometria\n                                        "
                                           )
                                         ]
                                       )
@@ -50236,7 +50217,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Obreiros da Luz\n                                "
+                                            "\n                                            Obreiros da Luz\n                                        "
                                           )
                                         ]
                                       )
@@ -50262,7 +50243,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    Passes\n                                "
+                                            "\n                                            Passes\n                                        "
                                           )
                                         ]
                                       )
@@ -50429,28 +50410,6 @@ var staticRenderFns = [
         }
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "dropdown-toggle-menu",
-        attrs: {
-          href: "#atendimentoDropdown",
-          "aria-expanded": "false",
-          "data-toggle": "collapse"
-        }
-      },
-      [
-        _vm._v(
-          "\n                            \n                            Tipo Atendimentos "
-        ),
-        _c("i", { staticClass: "fa-dropdown fas fa-caret-down" })
-      ]
     )
   }
 ]
@@ -67215,6 +67174,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/users/VuexUsers.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/users/VuexUsers.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: {
+    data: {},
+    show: {}
+  },
+  mutations: {
+    ALL_USERS: function ALL_USERS(state, data) {
+      state.data = data;
+    },
+    GET_USER: function GET_USER(state, data) {
+      state.show = data;
+    },
+    UPDATE_USER: function UPDATE_USER(state, data) {
+      state.update = data;
+    }
+  },
+  actions: {
+    AllUsers: function AllUsers(context) {
+      // console.log('funcionando vuex admin');
+      var url = '/acolher/public/api/users/';
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
+        context.commit('ALL_USERS', response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    GetUser: function GetUser(context, id) {
+      var url = '/acolher/public/api/users/' + id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
+        context.commit('GET_USER', response.data[0]); //    console.log(response.data.data[0])
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    UpdateUser: function UpdateUser(_ref, request) {
+      var dispatch = _ref.dispatch,
+          commit = _ref.commit;
+      // console.log(request)
+      var url = '/acolher/public/api/users/atualizar';
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, request).then(function (response) {
+        commit('UPDATE_USER', response.data);
+        console.log("Atualizou o usuario");
+      }).catch(function (error) {
+        console.log(error);
+        console.log(error.response);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/main.js":
 /*!******************************!*\
   !*** ./resources/js/main.js ***!
@@ -67404,10 +67427,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_auth_VuexLogin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/auth/VuexLogin */ "./resources/js/components/auth/VuexLogin.js");
 /* harmony import */ var _components_formularios_VuexAtendimento__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/formularios/VuexAtendimento */ "./resources/js/components/formularios/VuexAtendimento.js");
 /* harmony import */ var _components_carteirinhas_VuexCartao__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/carteirinhas/VuexCartao */ "./resources/js/components/carteirinhas/VuexCartao.js");
-/* harmony import */ var _components_FazerAtendimento_VuexAtendimento__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/FazerAtendimento/VuexAtendimento */ "./resources/js/components/FazerAtendimento/VuexAtendimento.js");
+/* harmony import */ var _components_users_VuexUsers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/users/VuexUsers */ "./resources/js/components/users/VuexUsers.js");
+/* harmony import */ var _components_FazerAtendimento_VuexAtendimento__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/FazerAtendimento/VuexAtendimento */ "./resources/js/components/FazerAtendimento/VuexAtendimento.js");
 
 
  // import Obreiro from './components/obreiro/VuexObreiro'
+
 
 
 
@@ -67419,7 +67444,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     // Obreiro,
     Atendimento: _components_formularios_VuexAtendimento__WEBPACK_IMPORTED_MODULE_3__["default"],
     Cartao: _components_carteirinhas_VuexCartao__WEBPACK_IMPORTED_MODULE_4__["default"],
-    FazerAtendimento: _components_FazerAtendimento_VuexAtendimento__WEBPACK_IMPORTED_MODULE_5__["default"]
+    FazerAtendimento: _components_FazerAtendimento_VuexAtendimento__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Users: _components_users_VuexUsers__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 }));
 
