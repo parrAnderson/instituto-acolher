@@ -2017,6 +2017,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader"
 });
@@ -2689,6 +2702,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Users",
+  data: function data() {
+    return {
+      parametros: {}
+    };
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     users: function users(state) {
       return state.Users.data;
@@ -2717,8 +2735,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   beforeMount: function beforeMount() {
-    this.AllUsers();
+    this.AllUsers(this.parametros);
     console.log();
+  },
+  watch: {
+    $route: function $route() {
+      this.parametros.tipo_ficha = this.$route.params.tipoficha;
+      this.AllUsers(this.parametros);
+      console.log(this.parametros);
+    }
   }
 });
 
@@ -4141,47 +4166,6 @@ var render = function() {
             ])
           ],
           1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-4" },
-          [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  to: {
-                    name: "tipoatendimento",
-                    params: { tipoatendimento: "todos" }
-                  }
-                }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "card", staticStyle: { width: "18rem" } },
-                  [
-                    _c("img", {
-                      staticClass: "card-img-top",
-                      attrs: {
-                        src:
-                          "/../../acolher/public/img/admin/dashboard/atendimento.jpg",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title text-center" }, [
-                        _vm._v("Atendimentos")
-                      ])
-                    ])
-                  ]
-                )
-              ]
-            )
-          ],
-          1
         )
       ])
     ])
@@ -4313,152 +4297,95 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { to: "/users" } }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "fas fa-clipboard-list" }),
-                      _vm._v("Fichas")
-                    ])
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse list-unstyled ",
-                    attrs: { id: "atendimentoDropdown" }
-                  },
-                  [
                     _c(
-                      "li",
+                      "a",
+                      {
+                        staticClass: "dropdown-toggle-menu",
+                        attrs: {
+                          href: "#atendimentoDropdown",
+                          "aria-expanded": "false",
+                          "data-toggle": "collapse"
+                        }
+                      },
                       [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "tipoatendimento",
-                                params: { tipoatendimento: "todos" }
-                              }
-                            }
-                          },
-                          [
+                        _c("i", { staticClass: "far fa-calendar-alt" }),
+                        _vm._v("\n                            Fichas "),
+                        _c("i", {
+                          staticClass: "fa-dropdown fas fa-caret-down"
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled ",
+                      attrs: { id: "atendimentoDropdown" }
+                    },
+                    [
+                      _c(
+                        "li",
+                        [
+                          _c("router-link", { attrs: { to: "/users" } }, [
                             _vm._v(
                               "\n                                    Todos\n                                "
                             )
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "tipoatendimento",
-                                params: {
-                                  tipoatendimento:
-                                    "Prática do Evangelho (5as. feiras)"
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "tipoficha",
+                                  params: { tipoficha: "atendidos" }
                                 }
                               }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    Prática do Evangelho\n                                "
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "tipoatendimento",
-                                params: {
-                                  tipoatendimento: "Apometria (2as. feiras)"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    Atendidos\n                                "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "tipoficha",
+                                  params: { tipoficha: "obreiro" }
                                 }
                               }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    Apometria\n                                "
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "tipoatendimento",
-                                params: {
-                                  tipoatendimento:
-                                    "Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)"
-                                }
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    Obreiros da Luz\n                                "
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "tipoatendimento",
-                                params: {
-                                  tipoatendimento: "Passes (2as. feiras)"
-                                }
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    Passes\n                                "
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    Obreiros\n                                "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
             ]
           )
         ])
@@ -4501,27 +4428,6 @@ var staticRenderFns = [
             ]
           )
         ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "dropdown-toggle-menu",
-        attrs: {
-          href: "#atendimentoDropdown",
-          "aria-expanded": "false",
-          "data-toggle": "collapse"
-        }
-      },
-      [
-        _c("i", { staticClass: "far fa-calendar-alt" }),
-        _vm._v("\n                    Atendimentos  "),
-        _c("i", { staticClass: "fa-dropdown fas fa-caret-down" })
       ]
     )
   }
@@ -26666,9 +26572,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   actions: {
-    AllUsers: function AllUsers(context) {
+    AllUsers: function AllUsers(context, parametros) {
       // console.log('funcionando vuex admin');
-      var url = '/acolher/public/api/users/';
+      var url = '/acolher/public/api/users/?tipo_ficha=' + parametros.tipo_ficha;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
         context.commit('ALL_USERS', response.data.data);
       }).catch(function (error) {
@@ -26782,9 +26688,9 @@ var routes = [{
   name: 'obreiro',
   component: _components_admin_obreiro_Obreiro__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
-  path: '/atendimentos/:tipoatendimento',
-  name: 'tipoatendimento',
-  component: IndexAtendimento
+  path: '/users/:tipoficha',
+  name: 'tipoficha',
+  component: _components_admin_users_Users__WEBPACK_IMPORTED_MODULE_1__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 

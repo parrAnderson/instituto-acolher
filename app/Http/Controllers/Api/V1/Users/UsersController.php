@@ -84,10 +84,10 @@ class UsersController extends Controller
         }
      }
 
-     public function allUsers(){
+     public function allUsers(Request $request){
         //  return("funcionando");
         try{
-            $this->users = $this->users::all();           
+            $this->users = $this->users->getUsers($request);           
 
         return response()->json([
             'data' => $this->users,  

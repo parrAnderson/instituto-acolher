@@ -49,6 +49,11 @@
 import { mapState, mapActions } from 'vuex';
 export default {
     name: "Users",
+    data(){
+        return{
+            parametros:{},
+        }
+    },
     computed: {
         ...mapState({
             users: state => state.Users.data
@@ -70,9 +75,17 @@ export default {
         }
     },
     beforeMount() {
-        this.AllUsers()
+        this.AllUsers(this.parametros)
         console.log()
     },
+    watch: {
+        $route() {
+            this.parametros.tipo_ficha = this.$route.params.tipoficha
+            this.AllUsers(this.parametros)
+            console.log(this.parametros)
+        },
+
+    }
     
 }
 </script>

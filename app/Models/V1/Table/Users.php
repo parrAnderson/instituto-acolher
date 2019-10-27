@@ -66,6 +66,20 @@ class Users extends Model
         'possui_filhos' => 'required',             
     ];
     
-
+    public function getUsers($request){       
+        $this->users = Users::get(); 
+        if($request->tipo_ficha == "underfined"){
+            $this->users = Users::get(); 
+        }
+        if($request->tipo_ficha == "obreiro"){
+            $this->users = Users::where('obreiro','>','')->get(); 
+        }   
+        elseif(($request->tipo_ficha == "atendidos")){
+            $this->users = Users::where('obreiro','=','')
+            ->orWhere('obreiro','=',null)
+            ->get(); 
+        }
+        return($this->users);
+    }
  
 }

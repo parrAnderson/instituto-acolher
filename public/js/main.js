@@ -50110,7 +50110,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    Tipo Atendimentos\n                                "
+                                    "\n                                    Fazer Atendimentos\n                                "
                                   )
                                 ]
                               ),

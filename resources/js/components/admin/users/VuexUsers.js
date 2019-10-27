@@ -18,9 +18,10 @@ export default {
     },
 
     actions: {
-        AllUsers(context){
+        AllUsers(context, parametros){
             // console.log('funcionando vuex admin');
-            let url = '/acolher/public/api/users/';        
+            let url = '/acolher/public/api/users/?tipo_ficha=' + parametros.tipo_ficha;        
+            
         axios
             .get(url)
               .then(response => {

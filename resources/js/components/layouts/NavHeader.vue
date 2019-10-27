@@ -93,7 +93,7 @@
                             
                             <li class="nav-item dropdown" v-if="login.data.id">
                                 <a href="#atendimentoDropdown" class="nav-link dropdown-toggle text-primary" aria-expanded="false" data-toggle="collapse">
-                                    Tipo Atendimentos
+                                    Fazer Atendimentos
                                 </a>
                                 <ul id="atendimentoDropdown" class="collapse list-unstyled ">
                                     <li>

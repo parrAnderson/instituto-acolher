@@ -25,7 +25,7 @@ const routes = [
     // {path:'/atendimento/:id', name:'editatendimento',  component: EditAtendimento},
     // {path:'/fichaatendimento/:id', name:'fichaatendimento',  component: FichaAtendimento},
     {path:'/obreiro/:id', name:'obreiro',  component: Obreiro},
-    {path:'/atendimentos/:tipoatendimento', name:'tipoatendimento',  component: IndexAtendimento},
+    {path:'/users/:tipoficha', name:'tipoficha',  component: Users},
 
     
 ]
