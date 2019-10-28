@@ -1798,6 +1798,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -6473,57 +6476,6 @@ var render = function() {
                                             to: {
                                               name: "fazertipoatendimento",
                                               params: {
-                                                tipoatendimento: "todos"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            Todos\n                                        "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "fazertipoatendimento",
-                                              params: {
-                                                tipoatendimento:
-                                                  "Prática do Evangelho (5as. feiras)"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            Prática do Evangelho\n                                        "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "fazertipoatendimento",
-                                              params: {
                                                 tipoatendimento:
                                                   "Apometria (2as. feiras)"
                                               }
@@ -6585,6 +6537,32 @@ var render = function() {
                                         [
                                           _vm._v(
                                             "\n                                            Passes\n                                        "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "fazertipoatendimento",
+                                              params: {
+                                                tipoatendimento:
+                                                  "Prática do Evangelho (5as. feiras)"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            Prática do Evangelho\n                                        "
                                           )
                                         ]
                                       )

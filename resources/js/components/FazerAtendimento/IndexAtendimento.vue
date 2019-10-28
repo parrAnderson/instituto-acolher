@@ -94,7 +94,7 @@
                                     <td class="no-print">
                                         DROGAS
                                     </td>
-                                    <td class="no-print">
+                                    <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'" class="no-print">
                                         Ficha de atendimento
                                     </td>
                                     <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'">
@@ -150,7 +150,7 @@
                                     <td class="no-print">
                                         {{atendimento.drogas}}
                                     </td>
-                                    <td class="no-print">
+                                    <td v-if="parametros.tipo_atendimento == 'Apometria (2as. feiras)'" class="no-print">
                                         <router-link :to="{name: 'fichaatendimento', params: {id: atendimento.id}}">
                                             <div class="btn btn-sm btn-warning">FICHA</div>
                                         </router-link>

@@ -96,9 +96,24 @@
                                     Fazer Atendimentos
                                 </a>
                                 <ul id="atendimentoDropdown" class="collapse list-unstyled ">
-                                    <li>
+                                    <!-- <li>
                                         <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'todos'}}">
                                             Todos
+                                        </router-link>
+                                    </li> -->
+                                    <li>
+                                        <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Apometria (2as. feiras)'}}">
+                                            Apometria
+                                        </router-link>
+                                    </li>
+                                     <li>
+                                        <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)'}}">
+                                            Obreiros da Luz
+                                        </router-link>
+                                    </li>
+                                     <li>
+                                        <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Passes (2as. feiras)'}}">
+                                            Passes
                                         </router-link>
                                     </li>
                                     <li>
@@ -106,21 +121,9 @@
                                             Prática do Evangelho
                                         </router-link>
                                     </li>
-                                    <li>
-                                        <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Apometria (2as. feiras)'}}">
-                                            Apometria
-                                        </router-link>
-                                    </li>
-                                    <li>
-                                        <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)'}}">
-                                            Obreiros da Luz
-                                        </router-link>
-                                    </li>
-                                    <li>
-                                        <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Passes (2as. feiras)'}}">
-                                            Passes
-                                        </router-link>
-                                    </li>
+                                    
+                                   
+                                   
 
                                 </ul>
                             </li>
