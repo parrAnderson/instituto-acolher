@@ -1828,7 +1828,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout', 'SetLocalStorage', 'SelecionarUserCartao']), {
     linkObreiroFrequentador: function linkObreiroFrequentador() {
-      if (this.login.data.obreiro !== '' && this.login.data.obreiro !== 'null' && this.login.data.obreiro !== null) {
+      if (this.login.data.obreiro !== 'null' && this.login.data.obreiro !== '' && this.login.data.obreiro !== null) {
         this.exibirCardObreiro = true;
         console.log(this.exibirCardObreiro);
       }
@@ -6439,7 +6439,7 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        !_vm.exibirCardObreiro
+                        _vm.exibirCardObreiro
                           ? _c("li", { staticClass: "nav-item dropdown" }, [
                               _c(
                                 "a",

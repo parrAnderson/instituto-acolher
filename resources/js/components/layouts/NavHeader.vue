@@ -91,7 +91,7 @@
                                 </div>
                             </li>
                             
-                            <li class="nav-item dropdown" v-if="!exibirCardObreiro">
+                            <li class="nav-item dropdown" v-if="exibirCardObreiro">
                                 <a href="#atendimentoDropdown" class="nav-link dropdown-toggle text-primary" aria-expanded="false" data-toggle="collapse">
                                     Fazer Atendimentos
                                 </a>
@@ -148,7 +148,7 @@
                                     <a class="nav-link text-primary" href="#">Crachá do Obreiro</a>
                                 </router-link>
                             </li>
-                        </ul>
+                        </ul> 
                     </div>
                 </nav>
             </div>
@@ -197,7 +197,7 @@ export default {
         ]),
         linkObreiroFrequentador() {
 
-            if ((this.login.data.obreiro !== '') && (this.login.data.obreiro !== 'null') && (this.login.data.obreiro !== null)) {
+            if ((this.login.data.obreiro !== 'null') && (this.login.data.obreiro !== '') && (this.login.data.obreiro !== null)) {
                 this.exibirCardObreiro = true;
                 console.log(this.exibirCardObreiro)
             }
