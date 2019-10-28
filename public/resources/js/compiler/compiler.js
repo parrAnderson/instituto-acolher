@@ -1806,7 +1806,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   name: "NavHeader",
   data: function data() {
     return {
-      exibirCardObreiro: false
+      exibirCardObreiro: false,
+      obreiro: ""
     };
   },
   created: function created() {
@@ -1814,23 +1815,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     console.log("ue"); //     console.log("Component mounted.");
     //  console.log(this.login.data.id)
   },
+  beforeMount: function beforeMount() {
+    this.obreiro = window.localStorage.getItem("user_obreiro");
+    this.linkObreiroFrequentador();
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     login: function login(state) {
       return state.Login;
-    } // cartao: state => state.Cartao,
+    } // obreiroNumero: state => state.Login.data.obreiro
+    // cartao: state => state.Cartao,
 
   })),
   watch: {
     login: function login() {
       this.login = this.login;
       this.linkObreiroFrequentador();
+    },
+    obreiro: function obreiro() {
+      this.linkObreiroFrequentador();
     }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['Logout', 'SetLocalStorage', 'SelecionarUserCartao']), {
     linkObreiroFrequentador: function linkObreiroFrequentador() {
-      if (this.login.data.obreiro !== 'null' && this.login.data.obreiro !== '' && this.login.data.obreiro !== null) {
+      if (this.obreiro != 'null' && this.obreiro != '' && this.obreiro != null) {
         this.exibirCardObreiro = true;
-        console.log(this.exibirCardObreiro);
+        console.log(this.obreiro);
+      } else {
+        this.exibirCardObreiro = false;
       }
     },
     sair: function sair() {

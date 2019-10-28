@@ -166,7 +166,8 @@ export default {
     name: "NavHeader",
     data() {
         return {
-            exibirCardObreiro: false
+            exibirCardObreiro: false,
+            obreiro: "",
         }
     },
     created() {
@@ -177,15 +178,23 @@ export default {
         //  console.log(this.login.data.id)
 
     },
+    beforeMount(){
+       this.obreiro = window.localStorage.getItem("user_obreiro")
+       this.linkObreiroFrequentador()
+    },
     computed: {
         ...mapState({
             login: state => state.Login,
+            // obreiroNumero: state => state.Login.data.obreiro
             // cartao: state => state.Cartao,
         }),
     },
     watch: {
         login() {
             this.login = this.login
+            this.linkObreiroFrequentador()
+        },
+        obreiro(){
             this.linkObreiroFrequentador()
         }
     },
@@ -197,10 +206,17 @@ export default {
         ]),
         linkObreiroFrequentador() {
 
-            if ((this.login.data.obreiro !== 'null') && (this.login.data.obreiro !== '') && (this.login.data.obreiro !== null)) {
-                this.exibirCardObreiro = true;
-                console.log(this.exibirCardObreiro)
+            if ((this.obreiro != 'null') && (this.obreiro != '') && (this.obreiro != null)) {
+                
+                    this.exibirCardObreiro = true;
+                console.log(this.obreiro)
             }
+                else{
+                this.exibirCardObreiro = false;
+                }
+            
+                
+          
 
         },
         sair() {
