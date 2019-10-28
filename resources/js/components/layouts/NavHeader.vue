@@ -91,7 +91,7 @@
                                 </div>
                             </li>
                             
-                            <li class="nav-item dropdown" v-if="login.data.id">
+                            <li class="nav-item dropdown" v-if="!exibirCardObreiro">
                                 <a href="#atendimentoDropdown" class="nav-link dropdown-toggle text-primary" aria-expanded="false" data-toggle="collapse">
                                     Fazer Atendimentos
                                 </a>

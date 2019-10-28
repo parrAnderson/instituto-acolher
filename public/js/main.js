@@ -50104,7 +50104,7 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _vm.login.data.id
+                        !_vm.exibirCardObreiro
                           ? _c("li", { staticClass: "nav-item dropdown" }, [
                               _c(
                                 "a",
