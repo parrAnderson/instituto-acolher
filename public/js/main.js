@@ -2907,6 +2907,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     atendimento: function atendimento(state) {
       return state.FazerAtendimento.show;
+    },
+    update: function update(state) {
+      return state.Users.update.data;
     }
   })),
   created: function created() {
@@ -2918,6 +2921,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.verificarIdade();
       this.selectGenero = this.inputs.genero;
       this.selectReligiao = this.inputs.religiao;
+    },
+    update: function update() {
+      if (this.update == "atualizado") {
+        console.log('ROUTER');
+        this.$router.push({
+          name: 'fazertipoatendimento',
+          params: {
+            tipoatendimento: this.atendimento.tipo_atendimento
+          }
+        });
+      }
     },
     id: function id() {
       this.inputs = this.show;
@@ -67543,7 +67557,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     data: {},
-    show: {}
+    show: {},
+    update: {}
   },
   mutations: {
     ALL_USERS: function ALL_USERS(state, data) {

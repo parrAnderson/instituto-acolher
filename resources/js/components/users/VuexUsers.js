@@ -4,6 +4,7 @@ export default {
     state: {
         data: {},    
         show: {}, 
+        update:{},
     },
     mutations: {
         ALL_USERS(state, data){

@@ -848,6 +848,7 @@ export default {
         ...mapState({
             show: state => state.Users.show,
             atendimento: state => state.FazerAtendimento.show,
+            update: state => state.Users.update.data,
         })
     },
     created() {
@@ -860,6 +861,12 @@ export default {
             this.verificarIdade()
             this.selectGenero = this.inputs.genero
             this.selectReligiao = this.inputs.religiao
+        },
+        update(){
+            if(this.update == "atualizado"){
+                console.log('ROUTER')
+                this.$router.push({ name: 'fazertipoatendimento',params: {tipoatendimento: this.atendimento.tipo_atendimento} });
+            }
         },
         id() {
             this.inputs = this.show
