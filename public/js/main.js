@@ -41485,10 +41485,34 @@ var render = function() {
                           }
                         }
                       }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _vm._v("Repousar por ____ dias")
-                      ])
+                      _vm._v("\n                            Repousar por "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.atendimento.recomendacoes_repousar,
+                            expression: "atendimento.recomendacoes_repousar"
+                          }
+                        ],
+                        attrs: { type: "number" },
+                        domProps: {
+                          value: _vm.atendimento.recomendacoes_repousar
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.atendimento,
+                              "recomendacoes_repousar",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" dias\n                        ")
                     ])
                   ]
                 ),
@@ -41619,12 +41643,34 @@ var render = function() {
                           }
                         }
                       }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _vm._v(
-                          "Não carregar peso, não fazer esforço e não subir escadas por ____ dias"
-                        )
-                      ])
+                      _vm._v(
+                        "\n                            Não carregar peso, não fazer esforço e não subir escadas por "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.atendimento.recomendacoes_peso,
+                            expression: "atendimento.recomendacoes_peso"
+                          }
+                        ],
+                        attrs: { type: "number" },
+                        domProps: { value: _vm.atendimento.recomendacoes_peso },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.atendimento,
+                              "recomendacoes_peso",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" dias\n                        ")
                     ])
                   ]
                 ),
@@ -41887,10 +41933,36 @@ var render = function() {
                           }
                         }
                       }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _vm._v("Não ingerir carne vermelha por ____ dias")
-                      ])
+                      _vm._v(
+                        "\n                                Não ingerir carne vermelha por "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.atendimento.recomendacoes_carne,
+                            expression: "atendimento.recomendacoes_carne"
+                          }
+                        ],
+                        attrs: { type: "number" },
+                        domProps: {
+                          value: _vm.atendimento.recomendacoes_carne
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.atendimento,
+                              "recomendacoes_carne",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" dias\n                        ")
                     ])
                   ]
                 ),
@@ -42032,7 +42104,45 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(4)
+                _c(
+                  "div",
+                  { staticClass: "col-xs-12 col-sm-12 col-md-4 col-lg-4" },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox" }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.atendimento.recomendacoes_observacoes,
+                            expression: "atendimento.recomendacoes_observacoes"
+                          }
+                        ],
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: _vm.atendimento.recomendacoes_observacoes
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.atendimento,
+                              "recomendacoes_observacoes",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                )
               ])
             ])
           ]
@@ -42040,7 +42150,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "container container-space" }, [
-        _vm._m(5),
+        _vm._m(4),
         _vm._v(" "),
         _c(
           "div",
@@ -42182,7 +42292,45 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(6)
+                _c(
+                  "div",
+                  { staticClass: "col-xs-12 col-sm-12 col-md-4 col-lg-4" },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox" }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.atendimento.encaminhamento_observacoes,
+                            expression: "atendimento.encaminhamento_observacoes"
+                          }
+                        ],
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: _vm.atendimento.encaminhamento_observacoes
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.atendimento,
+                              "encaminhamento_observacoes",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
@@ -42320,7 +42468,49 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(7)
+                _c(
+                  "div",
+                  { staticClass: "col-xs-12 col-sm-12 col-md-4 col-lg-4" },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox" }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              _vm.atendimento
+                                .encaminhamento_segundo_observacoes,
+                            expression:
+                              "atendimento.encaminhamento_segundo_observacoes"
+                          }
+                        ],
+                        attrs: { type: "text" },
+                        domProps: {
+                          value:
+                            _vm.atendimento.encaminhamento_segundo_observacoes
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.atendimento,
+                              "encaminhamento_segundo_observacoes",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                )
               ])
             ])
           ]
@@ -42328,7 +42518,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "container container-space" }, [
-        _vm._m(8),
+        _vm._m(5),
         _vm._v(" "),
         _c(
           "div",
@@ -42498,61 +42688,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xs-12 col-sm-12 col-md-4 col-lg-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-check-input",
-          attrs: { type: "checkbox" }
-        }),
-        _vm._v(" "),
-        _c("label", { staticClass: "form-check-label" }, [
-          _vm._v(" _________________________________ ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("h4", { staticClass: "text-center" }, [
           _vm._v("Sugestão de encaminhamento para outra atividade acolher")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xs-12 col-sm-12 col-md-4 col-lg-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-check-input",
-          attrs: { type: "checkbox" }
-        }),
-        _vm._v(" "),
-        _c("label", { staticClass: "form-check-label" }, [
-          _vm._v(" _________________________________ ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xs-12 col-sm-12 col-md-4 col-lg-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-check-input",
-          attrs: { type: "checkbox" }
-        }),
-        _vm._v(" "),
-        _c("label", { staticClass: "form-check-label" }, [
-          _vm._v(" _________________________________ ")
         ])
       ])
     ])

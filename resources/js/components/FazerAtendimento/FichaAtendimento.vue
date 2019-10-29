@@ -573,7 +573,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.recomendacao_repousar" class="form-check-input">
-                            <label class="form-check-label">Repousar por ____ dias</label>
+                            Repousar por <input type="number" v-model="atendimento.recomendacoes_repousar"> dias
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -588,7 +588,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.recomendacao_peso" class="form-check-input">
-                            <label class="form-check-label">Não carregar peso, não fazer esforço e não subir escadas por ____ dias</label>
+                            Não carregar peso, não fazer esforço e não subir escadas por <input type="number" v-model="atendimento.recomendacoes_peso"> dias
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -618,7 +618,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.recomendacao_carne" class="form-check-input">
-                            <label class="form-check-label">Não ingerir carne vermelha por ____ dias</label>
+                                Não ingerir carne vermelha por <input type="number" v-model="atendimento.recomendacoes_carne"> dias
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -639,7 +639,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label"> _________________________________ </label>
+                            <input type="text" v-model="atendimento.recomendacoes_observacoes">
                         </div>
                     </div>
                 </div>
@@ -672,7 +672,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label"> _________________________________ </label>
+                           <input type="text" v-model="atendimento.encaminhamento_observacoes">
                         </div>
                     </div>
                 </div>
@@ -694,7 +694,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label"> _________________________________ </label>
+                            <input type="text" v-model="atendimento.encaminhamento_segundo_observacoes">
                         </div>
                     </div>
                 </div>

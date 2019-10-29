@@ -43,6 +43,13 @@ class Atendimentos extends Model
         'encaminhamento_obreiros',
         'encaminhamento_curso',
         'observacao',
+
+        'recomendacoes_repousar',
+            'recomendacoes_peso',
+            'recomendacoes_carne',
+            'recomendacoes_observacoes',
+            'encaminhamento_observacoes',
+            'encaminhamento_segundo_observacoes',
     ];
 
     public function Users(){
