@@ -1,14 +1,66 @@
 <template>
-<div class="container">
-    <div class="row nav-top">
-        <div class="col-md-2">
+<div class="container-fluid container-top">
+    <div class="row no-print justify-content-center nav-top">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-2 text-center">
             <router-link to="/">
-                <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
+                <img class="img-fluid align-center img-logo" src="/../../acolher/public/img/logo.png" alt>
             </router-link>
         </div>
-        <div class="col-md-10 no-print">
-            <div class="row row-login justify-content-end">
-                <div v-if="!login.data.id">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-9"> 
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <router-link to="/">
+                                <a class="nav-link" href="#">
+                                    Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="/institucional">
+                                <a class="nav-link" href="#">Institucional</a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="/sederecursos">
+                                <a class="nav-link" href="#">Sede e Recursos</a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="/direcao">
+                                <a class="nav-link" href="#">Direção</a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                        <li class="nav-item">
+                            <router-link to="/publicacoes">
+                                <a class="nav-link" href="#">Publicações</a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="/contato">
+                                <a class="nav-link" href="#">Contato</a>
+                            </router-link>
+                        </li>
+                        <router-link to="/horariodeatendimento">
+                            <a class="nav-link" href="#">Horários de Atendimento</a>
+                        </router-link>
+                        <li class="nav-item">
+                            <router-link to="/semear">
+                                <a class="nav-link" href="#">Conteúdo dos Cursos</a>
+                            </router-link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            
+                 <div v-if="!login.data.id" class="text-center">
                     <router-link to="/login">
                         <button class="btn btn-success btn-sm">Login</button>
                     </router-link>
@@ -16,67 +68,9 @@
                         <button class="btn btn-primary btn-sm">Cadastrar</button>
                     </router-link>
                 </div>
-                <div v-if="login.data.id">
-                    <button @click="sair()" class=" btn btn-danger btn-sm">Sair</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="row justify-content-center bg-light">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav mx-auto">
-                            <li class="nav-item active">
-                                <router-link to="/">
-                                    <a class="nav-link" href="#">
-                                        Home
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/institucional">
-                                    <a class="nav-link" href="#">Institucional</a>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/sederecursos">
-                                    <a class="nav-link" href="#">Sede e Recursos</a>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/direcao">
-                                    <a class="nav-link" href="#">Direção</a>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                            <li class="nav-item">
-                                <router-link to="/publicacoes">
-                                    <a class="nav-link" href="#">Publicações</a>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/contato">
-                                    <a class="nav-link" href="#">Contato</a>
-                                </router-link>
-                            </li>
-                            <router-link to="/horariodeatendimento">
-                                <a class="nav-link" href="#">Horários de Atendimento</a>
-                            </router-link>
-                            <li class="nav-item">
-                                <router-link to="/semear">
-                                    <a class="nav-link" href="#">Conteúdo dos Cursos</a>
-                                </router-link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="row justify-content-center navbar-light" style="background-color: #e3f2fd;" v-if="login.data.id">
-                <nav class="navbar navbar-expand-lg">
+            
+
+            <nav class="navbar navbar-expand-lg" v-if="login.data.id">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav mx-auto">
                             <li class="nav-item dropdown" v-if="login.data.user">
@@ -90,9 +84,9 @@
 
                                 </div>
                             </li>
-                            
+
                             <li class="nav-item dropdown" v-if="exibirCardObreiro">
-                                <a href="#atendimentoDropdown" class="nav-link dropdown-toggle text-primary" aria-expanded="false" data-toggle="collapse">
+                                <a href="#atendimentoDropdown" v-if="login.data.id" class="nav-link dropdown-toggle text-primary" aria-expanded="false" data-toggle="collapse">
                                     Fluxo Operacional
                                 </a>
                                 <ul id="atendimentoDropdown" class="collapse list-unstyled ">
@@ -106,12 +100,12 @@
                                             Apometria
                                         </router-link>
                                     </li>
-                                     <li>
+                                    <li>
                                         <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)'}}">
                                             Obreiros da Luz
                                         </router-link>
                                     </li>
-                                     <li>
+                                    <li>
                                         <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Passes (2as. feiras)'}}">
                                             Passes
                                         </router-link>
@@ -121,9 +115,6 @@
                                             Prática do Evangelho
                                         </router-link>
                                     </li>
-                                    
-                                   
-                                   
 
                                 </ul>
                             </li>
@@ -148,11 +139,17 @@
                                     <a class="nav-link text-primary" href="#">Crachá do Obreiro</a>
                                 </router-link>
                             </li>
-                        </ul> 
+                            <li>
+                                <button @click="sair()" class=" btn btn-danger btn-sm">Sair</button>
+                            </li>
+                        </ul>
                     </div>
+                    
                 </nav>
-            </div>
+
         </div>
+        
+        
     </div>
 </div>
 </template>
@@ -178,9 +175,9 @@ export default {
         //  console.log(this.login.data.id)
 
     },
-    beforeMount(){
-       this.obreiro = window.localStorage.getItem("user_obreiro")
-       this.linkObreiroFrequentador()
+    beforeMount() {
+        this.obreiro = window.localStorage.getItem("user_obreiro")
+        this.linkObreiroFrequentador()
     },
     computed: {
         ...mapState({
@@ -194,7 +191,7 @@ export default {
             this.login = this.login
             this.linkObreiroFrequentador()
         },
-        obreiro(){
+        obreiro() {
             this.linkObreiroFrequentador()
         }
     },
@@ -207,19 +204,15 @@ export default {
         linkObreiroFrequentador() {
 
             if ((this.obreiro != 'null') && (this.obreiro != '') && (this.obreiro != null)) {
-                
-                    this.exibirCardObreiro = true;
+
+                this.exibirCardObreiro = true;
                 console.log(this.obreiro)
-            }
-                else{
+            } else {
                 this.exibirCardObreiro = false;
-                }
-            
-                
-          
- 
+            }
+
         },
-        sair() { 
+        sair() {
             this.Logout("")
             this.$router.push({
                 name: 'home'
@@ -232,8 +225,26 @@ export default {
 </script>
 
 <style>
-.font-acolher{
+.navbar-toggler {
+    width: 100%;
+    float: none;
+    margin: 0 auto;
+    border-width:0;
+    border-radius:0;
+}
+.container-top{
+    padding-top: 17px;
+    background-color:#ced9eabd;
+    padding-bottom: 17px;
+}
+.font-acolher {
     font-family: 'Bradley Hand ITC Std';
+}
+.img-fluid.align-center.img-logo {
+    max-width: 130px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 575.98px) {
     .btn-login-header {

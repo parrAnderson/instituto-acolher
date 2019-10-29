@@ -19,7 +19,7 @@
 
 
         <div class="appvue" id="appvue">
-        <div class="container-fluid">
+        <div>
             
 
             

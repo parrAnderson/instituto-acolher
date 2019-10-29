@@ -1798,9 +1798,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavHeader",
@@ -1925,7 +1922,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.font-acolher{\n    font-family: 'Bradley Hand ITC Std';\n}\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
+exports.push([module.i, "\n.navbar-toggler {\n    width: 100%;\n    float: none;\n    margin: 0 auto;\n    border-width:0;\n    border-radius:0;\n}\n.container-top{\n    padding-top: 17px;\n    background-color:#ced9eabd;\n    padding-bottom: 17px;\n}\n.font-acolher {\n    font-family: 'Bradley Hand ITC Std';\n}\n.img-fluid.align-center.img-logo {\n    max-width: 130px;\n    display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
 
 // exports
 
@@ -6169,15 +6166,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row nav-top" }, [
+  return _c("div", { staticClass: "container-fluid container-top" }, [
+    _c("div", { staticClass: "row no-print justify-content-center nav-top" }, [
       _c(
         "div",
-        { staticClass: "col-md-2" },
+        { staticClass: "col-12 col-xs-12 col-sm-12 col-md-2 text-center" },
         [
           _c("router-link", { attrs: { to: "/" } }, [
             _c("img", {
-              staticClass: "img-fluid align-center",
+              staticClass: "img-fluid align-center img-logo",
               attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
             })
           ])
@@ -6185,273 +6182,245 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-10 no-print" }, [
-        _c("div", { staticClass: "row row-login justify-content-end" }, [
-          !_vm.login.data.id
-            ? _c(
-                "div",
-                [
-                  _c("router-link", { attrs: { to: "/login" } }, [
-                    _c("button", { staticClass: "btn btn-success btn-sm" }, [
-                      _vm._v("Login")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("router-link", { attrs: { to: "/register" } }, [
-                    _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-                      _vm._v("Cadastrar")
-                    ])
-                  ])
-                ],
-                1
-              )
-            : _vm._e(),
+      _c("div", { staticClass: "col-12 col-xs-12 col-sm-12 col-md-9" }, [
+        _c("nav", { staticClass: "navbar navbar-expand-lg navbar-light" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _vm.login.data.id
-            ? _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass: " btn btn-danger btn-sm",
-                    on: {
-                      click: function($event) {
-                        _vm.sair()
-                      }
-                    }
-                  },
-                  [_vm._v("Sair")]
-                )
-              ])
-            : _vm._e()
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "row justify-content-center bg-light" }, [
-          _c("nav", { staticClass: "navbar navbar-expand-lg navbar-light" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "collapse navbar-collapse",
-                attrs: { id: "navbarSupportedContent" }
-              },
-              [
-                _c(
-                  "ul",
-                  { staticClass: "nav navbar-nav mx-auto" },
-                  [
-                    _c(
-                      "li",
-                      { staticClass: "nav-item active" },
-                      [
-                        _c("router-link", { attrs: { to: "/" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [
-                              _vm._v(
-                                "\n                                        Home\n                                        "
-                              ),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("(current)")
-                              ])
-                            ]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c("router-link", { attrs: { to: "/institucional" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Institucional")]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c("router-link", { attrs: { to: "/sederecursos" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Sede e Recursos")]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c("router-link", { attrs: { to: "/direcao" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Direção")]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c("router-link", { attrs: { to: "/publicacoes" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Publicações")]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c("router-link", { attrs: { to: "/contato" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Contato")]
-                          )
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      { attrs: { to: "/horariodeatendimento" } },
-                      [
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarSupportedContent" }
+            },
+            [
+              _c(
+                "ul",
+                { staticClass: "nav navbar-nav mx-auto" },
+                [
+                  _c(
+                    "li",
+                    { staticClass: "nav-item active" },
+                    [
+                      _c("router-link", { attrs: { to: "/" } }, [
                         _c(
                           "a",
                           { staticClass: "nav-link", attrs: { href: "#" } },
-                          [_vm._v("Horários de Atendimento")]
+                          [
+                            _vm._v(
+                              "\n                                    Home\n                                    "
+                            ),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("(current)")
+                            ])
+                          ]
                         )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item" },
-                      [
-                        _c("router-link", { attrs: { to: "/semear" } }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [_vm._v("Conteúdo dos Cursos")]
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ]
-            )
-          ])
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/institucional" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Institucional")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/sederecursos" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Sede e Recursos")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/direcao" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Direção")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/publicacoes" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Publicações")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/contato" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Contato")]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/horariodeatendimento" } },
+                    [
+                      _c(
+                        "a",
+                        { staticClass: "nav-link", attrs: { href: "#" } },
+                        [_vm._v("Horários de Atendimento")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c("router-link", { attrs: { to: "/semear" } }, [
+                        _c(
+                          "a",
+                          { staticClass: "nav-link", attrs: { href: "#" } },
+                          [_vm._v("Conteúdo dos Cursos")]
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ]
+          )
         ]),
         _vm._v(" "),
-        _vm.login.data.id
+        !_vm.login.data.id
           ? _c(
               "div",
-              {
-                staticClass: "row justify-content-center navbar-light",
-                staticStyle: { "background-color": "#e3f2fd" }
-              },
+              { staticClass: "text-center" },
               [
-                _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "collapse navbar-collapse",
-                      attrs: { id: "navbarSupportedContent" }
-                    },
-                    [
-                      _c("ul", { staticClass: "nav navbar-nav mx-auto" }, [
-                        _vm.login.data.user
-                          ? _c("li", { staticClass: "nav-item dropdown" }, [
+                _c("router-link", { attrs: { to: "/login" } }, [
+                  _c("button", { staticClass: "btn btn-success btn-sm" }, [
+                    _vm._v("Login")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("router-link", { attrs: { to: "/register" } }, [
+                  _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                    _vm._v("Cadastrar")
+                  ])
+                ])
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.login.data.id
+          ? _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarSupportedContent" }
+                },
+                [
+                  _c("ul", { staticClass: "nav navbar-nav mx-auto" }, [
+                    _vm.login.data.user
+                      ? _c("li", { staticClass: "nav-item dropdown" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link dropdown-toggle",
+                              attrs: {
+                                href: "#",
+                                id: "navbarDropdown",
+                                "data-hover": "dropdown",
+                                role: "button",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    Formulários\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "dropdown-menu",
+                              attrs: { "aria-labelledby": "navbarDropdown" }
+                            },
+                            [
                               _c(
-                                "a",
+                                "router-link",
                                 {
-                                  staticClass: "nav-link dropdown-toggle",
                                   attrs: {
-                                    href: "#",
-                                    id: "navbarDropdown",
-                                    "data-hover": "dropdown",
-                                    role: "button",
-                                    "data-toggle": "dropdown",
-                                    "aria-haspopup": "true",
-                                    "aria-expanded": "false"
+                                    to: "/formularios/atendimentoadulto"
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                    Formulários\n                                "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "dropdown-menu",
-                                  attrs: { "aria-labelledby": "navbarDropdown" }
-                                },
-                                [
                                   _c(
-                                    "router-link",
+                                    "a",
                                     {
-                                      attrs: {
-                                        to: "/formularios/atendimentoadulto"
-                                      }
+                                      staticClass: "dropdown-item",
+                                      attrs: { href: "#" }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "Cadastro Prévio para Atendimento a Adulto 1ª Vez"
-                                          )
-                                        ]
+                                      _vm._v(
+                                        "Cadastro Prévio para Atendimento a Adulto 1ª Vez"
                                       )
                                     ]
                                   )
-                                ],
-                                1
+                                ]
                               )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.exibirCardObreiro
-                          ? _c("li", { staticClass: "nav-item dropdown" }, [
-                              _c(
+                            ],
+                            1
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.exibirCardObreiro
+                      ? _c("li", { staticClass: "nav-item dropdown" }, [
+                          _vm.login.data.id
+                            ? _c(
                                 "a",
                                 {
                                   staticClass:
@@ -6467,131 +6436,164 @@ var render = function() {
                                     "\n                                    Fluxo Operacional\n                                "
                                   )
                                 ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass: "collapse list-unstyled ",
+                              attrs: { id: "atendimentoDropdown" }
+                            },
+                            [
+                              _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "fazertipoatendimento",
+                                          params: {
+                                            tipoatendimento:
+                                              "Apometria (2as. feiras)"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            Apometria\n                                        "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
                               ),
                               _vm._v(" "),
                               _c(
-                                "ul",
-                                {
-                                  staticClass: "collapse list-unstyled ",
-                                  attrs: { id: "atendimentoDropdown" }
-                                },
+                                "li",
                                 [
                                   _c(
-                                    "li",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "fazertipoatendimento",
-                                              params: {
-                                                tipoatendimento:
-                                                  "Apometria (2as. feiras)"
-                                              }
-                                            }
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "fazertipoatendimento",
+                                          params: {
+                                            tipoatendimento:
+                                              "Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)"
                                           }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            Apometria\n                                        "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
+                                        }
+                                      }
+                                    },
                                     [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "fazertipoatendimento",
-                                              params: {
-                                                tipoatendimento:
-                                                  "Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            Obreiros da Luz\n                                        "
-                                          )
-                                        ]
+                                      _vm._v(
+                                        "\n                                            Obreiros da Luz\n                                        "
                                       )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "fazertipoatendimento",
-                                              params: {
-                                                tipoatendimento:
-                                                  "Passes (2as. feiras)"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            Passes\n                                        "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "fazertipoatendimento",
-                                              params: {
-                                                tipoatendimento:
-                                                  "Prática do Evangelho (5as. feiras)"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            Prática do Evangelho\n                                        "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
+                                    ]
                                   )
-                                ]
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "fazertipoatendimento",
+                                          params: {
+                                            tipoatendimento:
+                                              "Passes (2as. feiras)"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            Passes\n                                        "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "fazertipoatendimento",
+                                          params: {
+                                            tipoatendimento:
+                                              "Prática do Evangelho (5as. feiras)"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            Prática do Evangelho\n                                        "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
                               )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.login.data.id
-                          ? _c(
-                              "li",
-                              { staticClass: "nav-item" },
+                            ]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.login.data.id
+                      ? _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: "/atendimento" } },
                               [
                                 _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link text-primary",
+                                    attrs: { href: "#" }
+                                  },
+                                  [_vm._v("Solicitação de Atendimento")]
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.exibirCardObreiro
+                      ? _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _vm.login.data.id
+                              ? _c(
                                   "router-link",
-                                  { attrs: { to: "/atendimento" } },
+                                  {
+                                    attrs: {
+                                      to: {
+                                        name: "cartaofrequentador",
+                                        params: { id: _vm.login.data.id }
+                                      }
+                                    }
+                                  },
                                   [
                                     _c(
                                       "a",
@@ -6599,122 +6601,100 @@ var render = function() {
                                         staticClass: "nav-link text-primary",
                                         attrs: { href: "#" }
                                       },
-                                      [_vm._v("Solicitação de Atendimento")]
+                                      [_vm._v("Carteirinha Frequentador")]
                                     )
                                   ]
                                 )
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        !_vm.exibirCardObreiro
-                          ? _c(
-                              "li",
-                              { staticClass: "nav-item" },
-                              [
-                                _vm.login.data.id
-                                  ? _c(
-                                      "router-link",
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.exibirCardObreiro
+                      ? _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _vm.login.data.id
+                              ? _c(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: {
+                                        name: "cartao",
+                                        params: { id: _vm.login.data.id }
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "a",
                                       {
-                                        attrs: {
-                                          to: {
-                                            name: "cartaofrequentador",
-                                            params: { id: _vm.login.data.id }
-                                          }
-                                        }
+                                        staticClass: "nav-link text-primary",
+                                        attrs: { href: "#" }
                                       },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            staticClass:
-                                              "nav-link text-primary",
-                                            attrs: { href: "#" }
-                                          },
-                                          [_vm._v("Carteirinha Frequentador")]
-                                        )
-                                      ]
+                                      [_vm._v("Cartão do Obreiro")]
                                     )
-                                  : _vm._e()
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.exibirCardObreiro
-                          ? _c(
-                              "li",
-                              { staticClass: "nav-item" },
-                              [
-                                _vm.login.data.id
-                                  ? _c(
-                                      "router-link",
+                                  ]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.exibirCardObreiro
+                      ? _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _vm.login.data.id
+                              ? _c(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: {
+                                        name: "cracha",
+                                        params: { id: _vm.login.data.id }
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "a",
                                       {
-                                        attrs: {
-                                          to: {
-                                            name: "cartao",
-                                            params: { id: _vm.login.data.id }
-                                          }
-                                        }
+                                        staticClass: "nav-link text-primary",
+                                        attrs: { href: "#" }
                                       },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            staticClass:
-                                              "nav-link text-primary",
-                                            attrs: { href: "#" }
-                                          },
-                                          [_vm._v("Cartão do Obreiro")]
-                                        )
-                                      ]
+                                      [_vm._v("Crachá do Obreiro")]
                                     )
-                                  : _vm._e()
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.exibirCardObreiro
-                          ? _c(
-                              "li",
-                              { staticClass: "nav-item" },
-                              [
-                                _vm.login.data.id
-                                  ? _c(
-                                      "router-link",
-                                      {
-                                        attrs: {
-                                          to: {
-                                            name: "cracha",
-                                            params: { id: _vm.login.data.id }
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "a",
-                                          {
-                                            staticClass:
-                                              "nav-link text-primary",
-                                            attrs: { href: "#" }
-                                          },
-                                          [_vm._v("Crachá do Obreiro")]
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e()
-                              ],
-                              1
-                            )
-                          : _vm._e()
-                      ])
-                    ]
-                  )
-                ])
-              ]
-            )
+                                  ]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: " btn btn-danger btn-sm",
+                          on: {
+                            click: function($event) {
+                              _vm.sair()
+                            }
+                          }
+                        },
+                        [_vm._v("Sair")]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ])
           : _vm._e()
       ])
     ])
