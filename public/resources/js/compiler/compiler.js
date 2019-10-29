@@ -6464,7 +6464,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    Fazer Atendimentos\n                                "
+                                    "\n                                    Fluxo Operacional\n                                "
                                   )
                                 ]
                               ),

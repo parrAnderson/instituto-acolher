@@ -93,7 +93,7 @@
                             
                             <li class="nav-item dropdown" v-if="exibirCardObreiro">
                                 <a href="#atendimentoDropdown" class="nav-link dropdown-toggle text-primary" aria-expanded="false" data-toggle="collapse">
-                                    Fazer Atendimentos
+                                    Fluxo Operacional
                                 </a>
                                 <ul id="atendimentoDropdown" class="collapse list-unstyled ">
                                     <!-- <li>

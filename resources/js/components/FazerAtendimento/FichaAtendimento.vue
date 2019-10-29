@@ -1,16 +1,7 @@
-Categoria do atendido
-Numero frequentador
-Numero Obreiro
-
-Idade
-
-Já passou por outro atendimento
-Informaões do atendimento
-Qual, data e motivo
 
 <template>
 <div>
-
+    <nav-header></nav-header>
     <div class="container">
         <div class="row row-space">
             <div class="col-12">
@@ -757,11 +748,13 @@ Qual, data e motivo
             </div>
         </div>
     </div>
-
+<Footer></Footer>
 </div>
 </template>
 
 <script>
+import NavHeader from '../layouts/NavHeader'
+import Footer from '../layouts/Footer'
 import {
     mask
 } from "vue-the-mask";
@@ -771,6 +764,10 @@ import {
 } from 'vuex'
 export default {
     name: "FichaAtendimento",
+    components: {
+        NavHeader,
+        Footer,
+    },
     data() {
         return {
             idAtendimento: this.$route.params.id,
