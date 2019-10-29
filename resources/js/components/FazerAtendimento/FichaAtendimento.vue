@@ -59,7 +59,7 @@ Qual, data e motivo
 
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-group">
-                    <label for="">Consome Bebida Alcólica? *</label>
+                    <label for="">Consome Bebida Alcoólica? *</label>
                     <select name="bebida" v-model="atendimento.bebida" class="form-control" id>
                         <option disabled value="">Consome Bebida Alcólica? *</option>
                         <option>Não</option>
@@ -74,7 +74,7 @@ Qual, data e motivo
         <div class="row justify-content-center">
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-group">
-                    <label for="">Possui outro vicio</label>
+                    <label for="">Possui outro vício?</label>
                     <select name="droga" v-model="atendimento.drogas" class="form-control" id>
                         <option disabled value="">Possui dependencia em drogas? *</option>
                         <option>Sim</option>
@@ -94,13 +94,13 @@ Qual, data e motivo
         <div class="row justify-content-center">
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-group">
-                    <label for="">Caso possua outro vicio, indique aqui"</label>
+                    <label for="">Caso possua outro vício, indique aqui"</label>
                     <input type="text" class="form-control" v-model="atendimento.outro_vicio" placeholder="Caso possua outro vicio, indique aqui">
                 </div>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-group">
-                    <label for="">Esta sob tratamento médico</label>
+                    <label for="">Está sob tratamento médico?</label>
                     <input type="text" class="form-control" v-model="atendimento.tratamento" placeholder="Está sob tratamento médico*">
 
                 </div>
@@ -110,7 +110,7 @@ Qual, data e motivo
         <div class="row justify-content-center">
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="form-group">
-                    <label for="">O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *</label>
+                    <label for="">O que o(a) levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *</label>
                     <input type="text" class="form-control" v-model="atendimento.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *">
                 </div>
             </div>
@@ -119,7 +119,7 @@ Qual, data e motivo
         <div class="row justify-content-center">
             <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
                 <div class="form-group">
-                    <label for="">Data de nascimento</label>
+                    <label for="">Data de Nascimento</label>
                     <input type="text" class="form-control" @keyup="verificarIdade()" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
                 </div>
             </div>
@@ -317,9 +317,9 @@ Qual, data e motivo
             </div>
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-group">
-                    <label for="kardecista">Kardecista / Espírita?</label>
+                    <label for="kardecista">Casa Kardecista / Casa Espírita?</label>
                     <select v-model="inputs.kardecista" class="form-control">
-                        <option value>Kardecista / Espírita?</option>
+                        <option value>Casa Kardecista / Casa Espírita?</option>
                         <option>Nunca</option>
                         <option>Apenas uma vez</option>
                         <option>Regularmente</option>
@@ -328,9 +328,9 @@ Qual, data e motivo
             </div>
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-check">
-                    <label for="casa_apometria">Casa de Apômetra?</label>
+                    <label for="casa_apometria">Apômetra?</label>
                     <select v-model="inputs.casa_apometria" class="form-control">
-                        <option value>Casa Apômetra?</option>
+                        <option value>Apômetra?</option>
                         <option>Nunca</option>
                         <option>Apenas uma vez</option>
                         <option>Regularmente</option>
@@ -339,9 +339,9 @@ Qual, data e motivo
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="form-group">
-                    <label for="casa_umbandista">Casa Umbandista?</label>
+                    <label for="casa_umbandista">Terreiro de Umbanda</label>
                     <select v-model="inputs.casa_umbandista" class="form-control">
-                        <option value>Casa Umbandista?</option>
+                        <option value>Umbandista</option>
                         <option>Nunca</option>
                         <option>Apenas uma vez</option>
                         <option>Regularmente</option>
@@ -352,13 +352,13 @@ Qual, data e motivo
         </div>
         <div class="row justify-content-center row-space-form">
             <div class="col-12 text-center ">
-                <div class="col-8 text-center text-primary">Possui conhecimentos sobre:</div>
+                <div class="col-8 text-center text-primary">Possui conhecimentos sobre a Doutrina / Filosofia</div>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-group">
-                    <label for="doutrina_kardecista">Doutrina Kardecista / Espírita?</label>
+                    <label for="doutrina_kardecista">Kardecista / Espírita?</label>
                     <select v-model="inputs.doutrina_kardecista" class="form-control">
-                        <option value>Doutrina Kardecista / Espírita?</option>
+                        <option value>Kardecista / Espírita?</option>
                         <option>Sim, superficial</option>
                         <option>Sim, considerável</option>
                         <option>Sim, profundo</option>
@@ -368,9 +368,9 @@ Qual, data e motivo
             </div>
             <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="form-check">
-                    <label for="principios_umbanda">Principios da Umbanda?</label>
+                    <label for="principios_umbanda">Umbandista</label>
                     <select v-model="inputs.principios_umbanda" class="form-control">
-                        <option value>Principios da Umbanda?</option>
+                        <option value>Umbandista</option>
                         <option>Sim, superficial</option>
                         <option>Sim, considerável</option>
                         <option>Sim, profundo</option>
@@ -380,9 +380,9 @@ Qual, data e motivo
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="form-group">
-                    <label for="apometria_codificada">Apometria codificada pelo Dr. Lacerda?</label>
+                    <label for="apometria_codificada">Apômetra</label>
                     <select v-model="inputs.apometria_codificada" class="form-control">
-                        <option value>Apometria codificada pelo Dr. Lacerda?</option>
+                        <option value>Apômetra</option>
                         <option>Sim, superficial</option>
                         <option>Sim, considerável</option>
                         <option>Sim, profundo</option>
@@ -418,13 +418,13 @@ Qual, data e motivo
                         <div class="col-6">
                             <div class="form-check">
                                 <input type="checkbox" v-model="inputs.livro_evangelho" class="form-check-input" id="livro_evangelho" name="livro_evangelho">
-                                <label class="form-check-label" for="livro_evangelho">Livro o Evangelho Segundo o Espiritismo?</label>
+                                <label class="form-check-label" for="livro_evangelho">O Evangelho Segundo o Espiritismo?</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-check">
                                 <input type="checkbox" v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
-                                <label class="form-check-label" for="livro_medicina">Espirito e Matéria: Um Novo Horizonte para a
+                                <label class="form-check-label" for="livro_medicina">Espírito e Matéria: Um Novo Horizonte para a
                                     Medicina?</label>
                             </div>
                         </div>
@@ -463,9 +463,9 @@ Qual, data e motivo
         <div class="row justify-content-center row-space-form">
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="form-group">
-                    <label for="">Caso tenha recebido uma indicação assinale abaixo:</label>
+                    <label for="">Caso tenha sabido do Acolher por indicação de alguém, assinale abaixo:</label>
                     <select class="form-control" v-model="inputs.indicacao">
-                        <option disabled value="">Caso tenha recebido uma indicação assinale abaixo:</option>
+                        <option disabled value="">Caso tenha sabido do Acolher por indicação de alguém, assinale abaixo:</option>
                         <option value="Tratou-se de indicação de frequentador do Acolher">Tratou-se de indicação de frequentador do Acolher</option>
                         <option value="Tratou-se de indicação de Obreiro do Acolher">Tratou-se de indicação de Obreiro do Acolher</option>
 
@@ -573,7 +573,7 @@ Qual, data e motivo
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.recomendacao_adotar" class="form-check-input">
-                            <label class="form-check-label">Adotar o lema "ORAI E VIGIAI</label>
+                            <label class="form-check-label">Adotar o lema "Orai e Vigiai"</label>
                         </div>
                     </div>
                 </div>
@@ -588,7 +588,7 @@ Qual, data e motivo
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.recomendacao_perdao" class="form-check-input">
-                            <label class="form-check-label">Fazer oração do perdão</label>
+                            <label class="form-check-label">Fazer a Oração do Perdão</label>
                         </div>
                     </div>
                 </div>
@@ -668,13 +668,13 @@ Qual, data e motivo
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.encaminhamento_evangelho" class="form-check-input">
-                            <label class="form-check-label">Evangelho</label>
+                            <label class="form-check-label">Estudo Espírita</label>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.encaminhamento_dialogo" class="form-check-input">
-                            <label class="form-check-label">Dialogo Fraterno</label>
+                            <label class="form-check-label">Curso Apometria</label>
                         </div>
                     </div>
 
@@ -696,7 +696,7 @@ Qual, data e motivo
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.encaminhamento_curso" class="form-check-input">
-                            <label class="form-check-label">Curso de __________________</label>
+                            <label class="form-check-label">Curso de Kardecismo</label>
                         </div>
                     </div>
 

@@ -1925,7 +1925,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
+exports.push([module.i, "\n.font-acolher{\n    font-family: 'Bradley Hand ITC Std';\n}\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
 
 // exports
 
@@ -3126,10 +3126,12 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("h2", { staticClass: "text-center" }, [
-          _vm._v("Atendimentos do Intituto "),
-          _c("span", { staticClass: "font-weight-bold text-primary" }, [
-            _vm._v("Acolher")
-          ])
+          _vm._v("Atendimentos do Instituto "),
+          _c(
+            "span",
+            { staticClass: "font-weight-bold text-primary font-acolher" },
+            [_vm._v("Acolher")]
+          )
         ])
       ])
     ])
@@ -6176,10 +6178,7 @@ var render = function() {
           _c("router-link", { attrs: { to: "/" } }, [
             _c("img", {
               staticClass: "img-fluid align-center",
-              attrs: {
-                src: "/../../acolher/public/img/logo-footer.png",
-                alt: ""
-              }
+              attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
             })
           ])
         ],

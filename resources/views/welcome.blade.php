@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="/../../acolher/public/css/theme_bootstrap.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
-
+        <link href="//db.onlinewebfonts.com/c/ebea2aa546d58c52c20de57835663484?family=Bradley+Hand+ITC+Std" rel="stylesheet" type="text/css"/> 
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
         
         <title>Acolher</title>        

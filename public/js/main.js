@@ -6588,7 +6588,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
+exports.push([module.i, "\n.font-acolher{\n    font-family: 'Bradley Hand ITC Std';\n}\n@media (max-width: 575.98px) {\n.btn-login-header {\n        text-align: center !important;\n        float: center ! important;\n}\n}\n", ""]);
 
 // exports
 
@@ -38926,7 +38926,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "" } }, [
-              _vm._v("Consome Bebida Alcólica? *")
+              _vm._v("Consome Bebida Alcoólica? *")
             ]),
             _vm._v(" "),
             _c(
@@ -38981,7 +38981,9 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Possui outro vicio")]),
+            _c("label", { attrs: { for: "" } }, [
+              _vm._v("Possui outro vício?")
+            ]),
             _vm._v(" "),
             _c(
               "select",
@@ -39062,7 +39064,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "" } }, [
-              _vm._v('Caso possua outro vicio, indique aqui"')
+              _vm._v('Caso possua outro vício, indique aqui"')
             ]),
             _vm._v(" "),
             _c("input", {
@@ -39095,7 +39097,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "" } }, [
-              _vm._v("Esta sob tratamento médico")
+              _vm._v("Está sob tratamento médico?")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -39131,7 +39133,7 @@ var render = function() {
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "" } }, [
               _vm._v(
-                "O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
+                "O que o(a) levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"
               )
             ]),
             _vm._v(" "),
@@ -39167,7 +39169,7 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-xs-4 col-sm-4 col-md-3 col-lg-3" }, [
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Data de nascimento")]),
+            _c("label", { attrs: { for: "" } }, [_vm._v("Data de Nascimento")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -39966,7 +39968,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "kardecista" } }, [
-              _vm._v("Kardecista / Espírita?")
+              _vm._v("Casa Kardecista / Casa Espírita?")
             ]),
             _vm._v(" "),
             _c(
@@ -40001,7 +40003,7 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Kardecista / Espírita?")
+                  _vm._v("Casa Kardecista / Casa Espírita?")
                 ]),
                 _vm._v(" "),
                 _c("option", [_vm._v("Nunca")]),
@@ -40017,7 +40019,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-check" }, [
             _c("label", { attrs: { for: "casa_apometria" } }, [
-              _vm._v("Casa de Apômetra?")
+              _vm._v("Apômetra?")
             ]),
             _vm._v(" "),
             _c(
@@ -40051,9 +40053,7 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Casa Apômetra?")
-                ]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("Apômetra?")]),
                 _vm._v(" "),
                 _c("option", [_vm._v("Nunca")]),
                 _vm._v(" "),
@@ -40068,7 +40068,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-8 col-lg-8" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "casa_umbandista" } }, [
-              _vm._v("Casa Umbandista?")
+              _vm._v("Terreiro de Umbanda")
             ]),
             _vm._v(" "),
             _c(
@@ -40102,9 +40102,7 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Casa Umbandista?")
-                ]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("Umbandista")]),
                 _vm._v(" "),
                 _c("option", [_vm._v("Nunca")]),
                 _vm._v(" "),
@@ -40123,7 +40121,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "doutrina_kardecista" } }, [
-              _vm._v("Doutrina Kardecista / Espírita?")
+              _vm._v("Kardecista / Espírita?")
             ]),
             _vm._v(" "),
             _c(
@@ -40158,7 +40156,7 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Doutrina Kardecista / Espírita?")
+                  _vm._v("Kardecista / Espírita?")
                 ]),
                 _vm._v(" "),
                 _c("option", [_vm._v("Sim, superficial")]),
@@ -40176,7 +40174,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-4 col-lg-4" }, [
           _c("div", { staticClass: "form-check" }, [
             _c("label", { attrs: { for: "principios_umbanda" } }, [
-              _vm._v("Principios da Umbanda?")
+              _vm._v("Umbandista")
             ]),
             _vm._v(" "),
             _c(
@@ -40210,9 +40208,7 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Principios da Umbanda?")
-                ]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("Umbandista")]),
                 _vm._v(" "),
                 _c("option", [_vm._v("Sim, superficial")]),
                 _vm._v(" "),
@@ -40229,7 +40225,7 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-8 col-lg-8" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "apometria_codificada" } }, [
-              _vm._v("Apometria codificada pelo Dr. Lacerda?")
+              _vm._v("Apômetra")
             ]),
             _vm._v(" "),
             _c(
@@ -40263,9 +40259,7 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Apometria codificada pelo Dr. Lacerda?")
-                ]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("Apômetra")]),
                 _vm._v(" "),
                 _c("option", [_vm._v("Sim, superficial")]),
                 _vm._v(" "),
@@ -40476,7 +40470,7 @@ var render = function() {
                       staticClass: "form-check-label",
                       attrs: { for: "livro_evangelho" }
                     },
-                    [_vm._v("Livro o Evangelho Segundo o Espiritismo?")]
+                    [_vm._v("O Evangelho Segundo o Espiritismo?")]
                   )
                 ])
               ]),
@@ -40541,7 +40535,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "Espirito e Matéria: Um Novo Horizonte para a\n                                    Medicina?"
+                        "Espírito e Matéria: Um Novo Horizonte para a\n                                    Medicina?"
                       )
                     ]
                   )
@@ -40659,7 +40653,9 @@ var render = function() {
         _c("div", { staticClass: "col-xs-8 col-sm-8 col-md-8 col-lg-8" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "" } }, [
-              _vm._v("Caso tenha recebido uma indicação assinale abaixo:")
+              _vm._v(
+                "Caso tenha sabido do Acolher por indicação de alguém, assinale abaixo:"
+              )
             ]),
             _vm._v(" "),
             _c(
@@ -40694,7 +40690,9 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { disabled: "", value: "" } }, [
-                  _vm._v("Caso tenha recebido uma indicação assinale abaixo:")
+                  _vm._v(
+                    "Caso tenha sabido do Acolher por indicação de alguém, assinale abaixo:"
+                  )
                 ]),
                 _vm._v(" "),
                 _c(
@@ -41260,7 +41258,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "form-check-label" }, [
-                    _vm._v('Adotar o lema "ORAI E VIGIAI')
+                    _vm._v('Adotar o lema "Orai e Vigiai"')
                   ])
                 ])
               ]
@@ -41387,7 +41385,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "form-check-label" }, [
-                    _vm._v("Fazer oração do perdão")
+                    _vm._v("Fazer a Oração do Perdão")
                   ])
                 ])
               ]
@@ -41905,7 +41903,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "form-check-label" }, [
-                    _vm._v("Evangelho")
+                    _vm._v("Estudo Espírita")
                   ])
                 ])
               ]
@@ -41970,7 +41968,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "form-check-label" }, [
-                    _vm._v("Dialogo Fraterno")
+                    _vm._v("Curso Apometria")
                   ])
                 ])
               ]
@@ -42102,7 +42100,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("label", { staticClass: "form-check-label" }, [
-                    _vm._v("Curso de __________________")
+                    _vm._v("Curso de Kardecismo")
                   ])
                 ])
               ]
@@ -42247,7 +42245,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 text-center " }, [
       _c("div", { staticClass: "col-8 text-center text-primary" }, [
-        _vm._v("Possui conhecimentos sobre:")
+        _vm._v("Possui conhecimentos sobre a Doutrina / Filosofia")
       ])
     ])
   },
@@ -43000,10 +42998,12 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("h2", { staticClass: "text-center" }, [
-          _vm._v("Atendimentos do Intituto "),
-          _c("span", { staticClass: "font-weight-bold text-primary" }, [
-            _vm._v("Acolher")
-          ])
+          _vm._v("Atendimentos do Instituto "),
+          _c(
+            "span",
+            { staticClass: "font-weight-bold text-primary font-acolher" },
+            [_vm._v("Acolher")]
+          )
         ])
       ])
     ])
@@ -49841,10 +49841,7 @@ var render = function() {
           _c("router-link", { attrs: { to: "/" } }, [
             _c("img", {
               staticClass: "img-fluid align-center",
-              attrs: {
-                src: "/../../acolher/public/img/logo-footer.png",
-                alt: ""
-              }
+              attrs: { src: "/../../acolher/public/img/logo.png", alt: "" }
             })
           ])
         ],

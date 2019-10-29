@@ -3,7 +3,7 @@
     <div class="row nav-top">
         <div class="col-md-2">
             <router-link to="/">
-                <img class="img-fluid align-center" src="/../../acolher/public/img/logo-footer.png" alt>
+                <img class="img-fluid align-center" src="/../../acolher/public/img/logo.png" alt>
             </router-link>
         </div>
         <div class="col-md-10 no-print">
@@ -217,9 +217,9 @@ export default {
             
                 
           
-
+ 
         },
-        sair() {
+        sair() { 
             this.Logout("")
             this.$router.push({
                 name: 'home'
@@ -232,6 +232,9 @@ export default {
 </script>
 
 <style>
+.font-acolher{
+    font-family: 'Bradley Hand ITC Std';
+}
 @media (max-width: 575.98px) {
     .btn-login-header {
         text-align: center !important;

@@ -16,7 +16,7 @@
     
             <div class="row row-space">
                 <div class="col-12">
-                    <h2 class="text-center">Atendimentos do Intituto <span class="font-weight-bold text-primary">Acolher</span></h2>
+                    <h2 class="text-center">Atendimentos do Instituto <span class="font-weight-bold text-primary font-acolher">Acolher</span></h2>
                     <!-- <h2 class="text-center">Atividades de Atendimento</h2> -->
                 </div>
             </div>
