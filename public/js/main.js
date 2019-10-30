@@ -2816,6 +2816,65 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2837,7 +2896,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       selectGenero: "",
       textGenero: "",
       selectReligiao: "",
-      textReligiao: ""
+      textReligiao: "",
+      retorno: this.$route.params.retorno
     };
   },
   methods: _objectSpread({
@@ -2878,9 +2938,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
     },
+    AtualizarStatusEncerramento: function AtualizarStatusEncerramento() {
+      // console.log("data" + this.atendimento.data_encerramento.length)
+      if (this.retorno) {
+        this.atendimento.status_encerramento = 'Atendimento Concluido';
+      } else {
+        if (this.atendimento.data_encerramento) {
+          if (this.atendimento.data_encerramento.length == 10 && this.atendimento.status_encerramento != 'Atendimento Concluido') {
+            this.atendimento.status_encerramento = "Aguardando Retorno";
+          }
+        }
+
+        if (this.atendimento.data_encerramento == '' || this.atendimento.data_encerramento == null) {
+          this.atendimento.status_encerramento = "";
+        }
+      }
+    },
     //fim Register
     salvarAtendimento: function salvarAtendimento() {
       // console.log(this.inputs)
+      this.AtualizarStatusEncerramento();
       this.UpdateAllAtendimento(this.atendimento);
       this.UpdateUser(this.inputs);
     },
@@ -2890,7 +2967,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     selectInputs: function selectInputs() {
       this.selected = true;
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(['GetUser', 'GetAtendimento', 'UpdateAllAtendimento', 'UpdateUser'])),
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(['GetUser', 'GetAtendimento', 'UpdateAllAtendimento', 'UpdateUser', 'ChangeUpdateValue'])),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
     show: function show(state) {
       return state.Users.show;
@@ -2914,13 +2991,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     update: function update() {
       if (this.update == "atualizado") {
-        console.log('ROUTER');
-        this.$router.push({
-          name: 'fazertipoatendimento',
-          params: {
-            tipoatendimento: this.atendimento.tipo_atendimento
-          }
-        });
+        this.ChangeUpdateValue();
+
+        if (this.retorno) {
+          this.$router.push({
+            name: 'encerramentos'
+          });
+        } else {
+          this.$router.push({
+            name: 'fazertipoatendimento',
+            params: {
+              tipoatendimento: this.atendimento.tipo_atendimento
+            }
+          });
+        }
       }
     },
     id: function id() {
@@ -2951,6 +3035,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   beforeMount: function beforeMount() {
+    this.ChangeUpdateValue();
     this.GetAtendimento(this.idAtendimento);
     this.required = "vazio";
     this.selectInputs();
@@ -3264,6 +3349,237 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.parametros.tipo_atendimento = this.$route.params.tipoatendimento;
     this.parametros.DataAtendimentoBuscar = '';
+    this.AllAtendimento(this.parametros);
+  },
+  directives: {
+    mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_3__["mask"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _EditAtendimento__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditAtendimento */ "./resources/js/components/FazerAtendimento/EditAtendimento.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../layouts/NavHeader */ "./resources/js/components/layouts/NavHeader.vue");
+/* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../layouts/Footer */ "./resources/js/components/layouts/Footer.vue");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "IndexAtendimento",
+  data: function data() {
+    return {
+      require: {},
+      DataAtendimentoBuscar: "",
+      parametros: {}
+    };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    atendimentos: function atendimentos(state) {
+      return state.FazerAtendimento.data;
+    }
+  })),
+  components: {
+    EditAtendimento: _EditAtendimento__WEBPACK_IMPORTED_MODULE_1__["default"],
+    NavHeader: _layouts_NavHeader__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Footer: _layouts_Footer__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  watch: {
+    $route: function $route() {
+      this.parametros.tipo_atendimento = this.$route.params.tipoatendimento;
+      this.AllAtendimento(this.parametros);
+      console.log(this.parametros);
+    }
+  },
+  filters: {
+    date: function date(value) {
+      moment__WEBPACK_IMPORTED_MODULE_0___default.a.locale("pt-br");
+      if (!value) return "";
+      var data = moment__WEBPACK_IMPORTED_MODULE_0___default()(value).format('L');
+      return data;
+    },
+    idade: function idade(value) {
+      if (!value) return "";
+      var data = moment__WEBPACK_IMPORTED_MODULE_0___default()(value).fromNow('LLL');
+      data = parseInt(data);
+      return data;
+    }
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['AllAtendimento', 'EditAtendimento']), {
+    imprimir: function imprimir() {
+      window.print();
+    },
+    showAtendimento: function showAtendimento(id, email, nome, data_atendimento, hora_atendimento) {
+      this.require.id = id;
+      this.require.data_atendimento = data_atendimento;
+      this.require.hora_atendimento = hora_atendimento;
+      this.require.email = email;
+      this.require.nome = nome;
+      this.EditAtendimento(this.require);
+    },
+    buscarDataAtendimento: function buscarDataAtendimento() {
+      if (this.DataAtendimentoBuscar.length == 10) {
+        this.parametros.DataAtendimentoBuscar = this.DataAtendimentoBuscar;
+        this.AllAtendimento(this.parametros);
+      } else if (this.DataAtendimentoBuscar.length == 0) {
+        this.parametros.DataAtendimentoBuscar = "";
+        this.AllAtendimento(this.parametros);
+      }
+    },
+    tellTime: function tellTime(time) {
+      console.log(this.$moment(time).format(' mm:ss'));
+    }
+  }),
+  beforeMount: function beforeMount() {// parametros.tipo_atendimento = 
+  },
+  mounted: function mounted() {
+    this.parametros.tipo_atendimento = 'Apometria (2as. feiras)';
+    this.parametros.DataAtendimentoBuscar = '';
+    this.parametros.encerramento = true;
     this.AllAtendimento(this.parametros);
   },
   directives: {
@@ -6469,6 +6785,25 @@ exports.push([module.i, "\n.row-space-btn[data-v-56ddc1e7] {\n    margin-top: 10
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FazerAtendimento/IndexAtendimento.vue?vue&type=style&index=0&lang=css& ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n@media print {\n.no-print,\n    .no-print * {\n        display: none !important;\n}\n.nav-top {\n        margin-top: 0px;\n}\n.with-print {\n        display: block !important;\n}\n}\n.with-print {\n    display: none;\n}\n.row-space {\n    margin-top: 15px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37492,6 +37827,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=style&index=0&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Home.vue?vue&type=style&index=0&lang=css& ***!
@@ -42756,7 +43121,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { rows: "10", cols: "30" },
+                          attrs: { rows: "5", cols: "30" },
                           domProps: { value: _vm.atendimento.observacao },
                           on: {
                             input: function($event) {
@@ -42781,6 +43146,186 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
+      _c("div", { staticClass: "container-fluid container-space" }, [
+        _vm._m(7),
+        _vm._v(" "),
+        !_vm.retorno
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-12 col-xs-12 col-sm-12 col-md-8 col-lg-8"
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
+                        },
+                        [
+                          _vm.atendimento.status_encerramento ==
+                          "Atendimento Concluido"
+                            ? _c("div", { staticClass: "form-group" }, [
+                                _c("label", { attrs: { for: "" } }, [
+                                  _vm._v("Data de Retorno e Encerramento")
+                                ]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "text-primary" }, [
+                                  _vm._v(
+                                    _vm._s(_vm.atendimento.data_encerramento)
+                                  )
+                                ])
+                              ])
+                            : _c("div", { staticClass: "form-group" }, [
+                                _c("label", { attrs: { for: "" } }, [
+                                  _vm._v("Data de Retorno e Encerramento")
+                                ]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.atendimento.data_encerramento,
+                                      expression:
+                                        "atendimento.data_encerramento"
+                                    },
+                                    {
+                                      name: "mask",
+                                      rawName: "v-mask",
+                                      value: "##/##/####",
+                                      expression: "'##/##/####'"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "Data de Encerramento"
+                                  },
+                                  domProps: {
+                                    value: _vm.atendimento.data_encerramento
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.atendimento,
+                                        "data_encerramento",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
+                        },
+                        [
+                          _vm.atendimento.status_encerramento ==
+                          "Atendimento Concluido"
+                            ? _c("div", { staticClass: "form-group" }, [
+                                _c("label", { attrs: { for: "" } }, [
+                                  _vm._v("Status Encerramento")
+                                ]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "text-primary" }, [
+                                  _vm._v(
+                                    _vm._s(_vm.atendimento.status_encerramento)
+                                  )
+                                ])
+                              ])
+                            : _c("div", { staticClass: "form-group" }, [
+                                _c("label", { attrs: { for: "" } }, [
+                                  _vm._v("Status Encerramento")
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "text-primary" }, [
+                                  _vm._v(
+                                    _vm._s(_vm.atendimento.status_encerramento)
+                                  )
+                                ])
+                              ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.retorno
+          ? _c(
+              "div",
+              { staticClass: "row justify-content-center row-space-form" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-12 col-xs-12 col-sm-12 col-md-8 col-lg-8"
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
+                        },
+                        [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "" } }, [
+                              _vm._v("Data de Retorno e Encerramento")
+                            ]),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-primary" }, [
+                              _vm._v(_vm._s(_vm.atendimento.data_encerramento))
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
+                        },
+                        [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "" } }, [
+                              _vm._v("Status Encerramento")
+                            ]),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-primary" }, [
+                              _vm._v(
+                                _vm._s(_vm.atendimento.status_encerramento)
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row row-space" }, [
           _c("div", { staticClass: "col-12" }, [
@@ -42788,24 +43333,51 @@ var render = function() {
               "div",
               { staticClass: "row justify-content-center row-space-btn" },
               [
-                _c("div", { staticClass: "col-4 text-left" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "submit" },
-                      on: {
-                        click: function($event) {
-                          _vm.salvarAtendimento()
-                        }
-                      }
-                    },
-                    [
-                      _c("i", { staticClass: "fas fa-print" }),
-                      _vm._v("\n                            SALVAR ")
-                    ]
-                  )
-                ]),
+                !_vm.retorno
+                  ? _c("div", { staticClass: "col-4 text-left" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              _vm.salvarAtendimento()
+                            }
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-print" }),
+                          _vm._v(
+                            "\n                            SALVAR E AGENDAR RETORNO "
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.retorno
+                  ? _c("div", { staticClass: "col-4 text-left" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              _vm.salvarAtendimento()
+                            }
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-save" }),
+                          _vm._v(
+                            "\n                            Finalizar Retorno e Salvar"
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-4 text-right" }, [
                   _c(
@@ -42938,6 +43510,16 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("h4", { staticClass: "text-center" }, [_vm._v("Observações")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row row-space" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("h4", { staticClass: "text-center" }, [_vm._v("ENCERRAMENTO")])
       ])
     ])
   }
@@ -43555,6 +44137,340 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row row-space" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("h4", { staticClass: "text-center" }, [_vm._v("Atendimentos")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("nav-header"),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-12 col-md-12 col-lg-10" }, [
+            _vm.atendimentos
+              ? _c("div", [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row justify-content-center row-space" },
+                    [
+                      _c("div", { staticClass: "col-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-striped table-sm" },
+                            [
+                              _c("thead", [
+                                _c("tr", [
+                                  _c("td", [
+                                    _vm._v(
+                                      "\n                                                ID\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(
+                                      "\n                                                TIPO\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(
+                                      "\n                                                NOME\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", { staticClass: "no-print" }, [
+                                    _vm._v(
+                                      "\n                                                EMAIL\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(
+                                      "\n                                                CELULAR\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    { attrs: { "class-": "text-primary" } },
+                                    [
+                                      _vm._v(
+                                        "\n                                                DATA ENCERRAMENTO\n                                            "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(
+                                      "\n                                                IDADE\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", { staticClass: "no-print" }, [
+                                    _vm._v(
+                                      "\n                                                MOTIVO / RAZÃO\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", { staticClass: "no-print" }, [
+                                    _vm._v(
+                                      "\n                                                DROGAS\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm.parametros.tipo_atendimento ==
+                                  "Apometria (2as. feiras)"
+                                    ? _c("td", { staticClass: "no-print" }, [
+                                        _vm._v(
+                                          "\n                                                FAZER ENCERRAMENTO\n                                            "
+                                        )
+                                      ])
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c("td", { staticClass: "with-print" }, [
+                                    _vm._v(
+                                      "\n                                                ASSINATURA\n                                            "
+                                    )
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.atendimentos, function(atendimento) {
+                                  return _c("tr", { key: atendimento.id }, [
+                                    atendimento.obreiro
+                                      ? _c("td", [
+                                          _vm._v(
+                                            "\n                                                " +
+                                              _vm._s(atendimento.obreiro) +
+                                              "\n                                            "
+                                          )
+                                        ])
+                                      : _c("td", [
+                                          _vm._v(
+                                            "\n                                                " +
+                                              _vm._s(atendimento.user_id) +
+                                              "\n                                            "
+                                          )
+                                        ]),
+                                    _vm._v(" "),
+                                    atendimento.obreiro
+                                      ? _c("td", [
+                                          _vm._v(
+                                            "\n                                                Obreiro\n                                            "
+                                          )
+                                        ])
+                                      : _c("td", [
+                                          _vm._v(
+                                            "\n                                                Frequentador\n                                            "
+                                          )
+                                        ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(atendimento.nome) +
+                                          "\n                                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", { staticClass: "no-print" }, [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(atendimento.email) +
+                                          "\n                                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(atendimento.celular) +
+                                          "\n                                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass: "pointer",
+                                        attrs: {
+                                          "data-toggle": "modal",
+                                          "data-target": "#exampleModal"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.showAtendimento(
+                                              atendimento.id,
+                                              atendimento.email,
+                                              atendimento.nome,
+                                              atendimento.data_atendimento,
+                                              atendimento.hora_atendimento
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        atendimento.data_encerramento
+                                          ? _c(
+                                              "span",
+                                              {
+                                                attrs: {
+                                                  "class-": "text-primary"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    atendimento.data_encerramento
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          : _c("span", [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-primary btn-sm no-print"
+                                                },
+                                                [_vm._v("Agendar")]
+                                              )
+                                            ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(
+                                            _vm._f("idade")(atendimento.idade)
+                                          ) +
+                                          "\n                                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", { staticClass: "no-print" }, [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(atendimento.recorrer) +
+                                          "\n                                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", { staticClass: "no-print" }, [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(atendimento.drogas) +
+                                          "\n                                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm.parametros.tipo_atendimento ==
+                                    "Apometria (2as. feiras)"
+                                      ? _c(
+                                          "td",
+                                          { staticClass: "no-print" },
+                                          [
+                                            _c(
+                                              "router-link",
+                                              {
+                                                attrs: {
+                                                  to: {
+                                                    name:
+                                                      "fichaatendimentoretorno",
+                                                    params: {
+                                                      id: atendimento.id,
+                                                      retorno: "true"
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "btn btn-sm btn-warning"
+                                                  },
+                                                  [_vm._v("ENCERRAMENTO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c("td", { staticClass: "with-print" }, [
+                                      _vm._v(
+                                        "\n                                                ______________________________________________________\n                                            "
+                                      )
+                                    ])
+                                  ])
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row row-space justify-content-center no-print" },
+        [_c("div", { staticClass: "col-12" }, [_c("Footer")], 1)]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row row-space" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("h4", { staticClass: "text-center" }, [
+          _vm._v("Encerramentos Apometria")
+        ])
       ])
     ])
   }
@@ -50794,6 +51710,24 @@ var render = function() {
                               attrs: { id: "atendimentoDropdown" }
                             },
                             [
+                              _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: { to: { name: "encerramentos" } }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            Encerramentos Apometria\n                                        "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
                               _c(
                                 "li",
                                 [
@@ -66399,6 +67333,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _IndexRetornoAtendimento_vue_vue_type_template_id_4a43f75d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d& */ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d&");
+/* harmony import */ var _IndexRetornoAtendimento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexRetornoAtendimento.vue?vue&type=script&lang=js& */ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _IndexRetornoAtendimento_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _IndexRetornoAtendimento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _IndexRetornoAtendimento_vue_vue_type_template_id_4a43f75d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _IndexRetornoAtendimento_vue_vue_type_template_id_4a43f75d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./IndexRetornoAtendimento.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_template_id_4a43f75d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue?vue&type=template&id=4a43f75d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_template_id_4a43f75d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexRetornoAtendimento_vue_vue_type_template_id_4a43f75d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/FazerAtendimento/VuexAtendimento.js":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/FazerAtendimento/VuexAtendimento.js ***!
@@ -66449,7 +67470,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     AllAtendimento: function AllAtendimento(context, parametros) {
-      var url = '/acolher/public/api/atendimento/?tipo_atendimento=' + parametros.tipo_atendimento + '&dataAtendimento=' + parametros.DataAtendimentoBuscar;
+      var url = '';
+
+      if (parametros.encerramento) {
+        url = '/acolher/public/api/atendimento/?tipo_atendimento=' + parametros.tipo_atendimento + '&encerramento=' + parametros.encerramento + '&dataAtendimento=' + parametros.DataAtendimentoBuscar;
+      } else {
+        url = '/acolher/public/api/atendimento/?tipo_atendimento=' + parametros.tipo_atendimento + '&dataAtendimento=' + parametros.DataAtendimentoBuscar;
+      }
+
       console.log(url);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
         context.commit('ALL_ATENDIMENTO', response.data.data);
@@ -67858,9 +68886,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     UPDATE_USER: function UPDATE_USER(state, data) {
       state.update = data;
+    },
+    CHANGE_UPDATE_VALUE: function CHANGE_UPDATE_VALUE(state) {
+      state.update = '';
     }
   },
   actions: {
+    ChangeUpdateValue: function ChangeUpdateValue(context) {
+      context.commit('CHANGE_UPDATE_VALUE');
+    },
     AllUsers: function AllUsers(context) {
       // console.log('funcionando vuex admin');
       var url = '/acolher/public/api/users/';
@@ -67958,8 +68992,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_FazerAtendimento_IndexAtendimento__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/FazerAtendimento/IndexAtendimento */ "./resources/js/components/FazerAtendimento/IndexAtendimento.vue");
 /* harmony import */ var _components_FazerAtendimento_EditAtendimento__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/FazerAtendimento/EditAtendimento */ "./resources/js/components/FazerAtendimento/EditAtendimento.vue");
 /* harmony import */ var _components_FazerAtendimento_FichaAtendimento__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/FazerAtendimento/FichaAtendimento */ "./resources/js/components/FazerAtendimento/FichaAtendimento.vue");
-/* harmony import */ var _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/auth/LoginCpf */ "./resources/js/components/auth/LoginCpf.vue");
-/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.vue");
+/* harmony import */ var _components_FazerAtendimento_IndexRetornoAtendimento__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/FazerAtendimento/IndexRetornoAtendimento */ "./resources/js/components/FazerAtendimento/IndexRetornoAtendimento.vue");
+/* harmony import */ var _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/auth/LoginCpf */ "./resources/js/components/auth/LoginCpf.vue");
+/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.vue");
 var _ref;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -67981,6 +69016,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  // Fazer Atendimento
 
 
+
+ //Encerramento
 
  //login
 
@@ -68023,11 +69060,11 @@ var routes = [{
 }, {
   path: '/login',
   name: 'login',
-  component: _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_16__["default"]
+  component: _components_auth_LoginCpf__WEBPACK_IMPORTED_MODULE_17__["default"]
 }, (_ref = {
   path: '/register',
   name: 'register'
-}, _defineProperty(_ref, "name", 'register'), _defineProperty(_ref, "component", _components_auth_Register__WEBPACK_IMPORTED_MODULE_17__["default"]), _ref), {
+}, _defineProperty(_ref, "name", 'register'), _defineProperty(_ref, "component", _components_auth_Register__WEBPACK_IMPORTED_MODULE_18__["default"]), _ref), {
   path: '/atendimento',
   name: 'atendimento',
   component: _components_formularios_Atendimento__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -68048,6 +69085,15 @@ var routes = [{
   path: '/fazer/atendimentos/:tipoatendimento',
   name: 'fazertipoatendimento',
   component: _components_FazerAtendimento_IndexAtendimento__WEBPACK_IMPORTED_MODULE_13__["default"]
+}, //ENCERRAMENTO
+{
+  path: '/fazer/encerramentos',
+  name: 'encerramentos',
+  component: _components_FazerAtendimento_IndexRetornoAtendimento__WEBPACK_IMPORTED_MODULE_16__["default"]
+}, {
+  path: '/fazer/fichaatendimento/:id/:retorno',
+  name: 'fichaatendimentoretorno',
+  component: _components_FazerAtendimento_FichaAtendimento__WEBPACK_IMPORTED_MODULE_15__["default"]
 }, // {path:'/obreiro', name:'obreiro',  component: Obreiro},
 {
   path: '/quemsomos',

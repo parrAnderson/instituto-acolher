@@ -6452,6 +6452,24 @@ var render = function() {
                                   _c(
                                     "router-link",
                                     {
+                                      attrs: { to: { name: "encerramentos" } }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            Encerramentos Apometria\n                                        "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
                                       attrs: {
                                         to: {
                                           name: "fazertipoatendimento",

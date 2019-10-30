@@ -28,9 +28,10 @@ export default {
             state.editNome = data.nome
             state.editDataAtendimento = data.data_atendimento
             state.editHoraAtendimento = data.hora_atendimento
-        },
+        }
     },
     actions:{
+        
         GetAtendimento(context, id){
             let urlChange = '/acolher/public/api/atendimento/' + id; 
             
@@ -46,9 +47,24 @@ export default {
             
             
         },
-        AllAtendimento(context, parametros){   
+        AllAtendimento(context, parametros){  
+            
+            let url = '';
 
-            let url = '/acolher/public/api/atendimento/?tipo_atendimento=' + parametros.tipo_atendimento + '&dataAtendimento=' + parametros.DataAtendimentoBuscar;        
+            if(parametros.encerramento){
+                url = '/acolher/public/api/atendimento/?tipo_atendimento=' 
+                + parametros.tipo_atendimento                
+                + '&encerramento='
+                + parametros.encerramento
+                + '&dataAtendimento=' 
+                + parametros.DataAtendimentoBuscar;
+            }else{
+                url = '/acolher/public/api/atendimento/?tipo_atendimento=' 
+                + parametros.tipo_atendimento 
+                + '&dataAtendimento=' 
+                + parametros.DataAtendimentoBuscar; 
+            }
+               
         
             console.log(url)
         

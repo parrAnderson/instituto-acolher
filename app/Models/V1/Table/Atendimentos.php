@@ -50,6 +50,9 @@ class Atendimentos extends Model
             'recomendacoes_observacoes',
             'encaminhamento_observacoes',
             'encaminhamento_segundo_observacoes',
+
+            'data_encerramento',
+            'status_encerramento',
     ];
 
     public function Users(){

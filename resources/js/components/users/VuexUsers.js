@@ -15,10 +15,17 @@ export default {
         },
         UPDATE_USER(state, data){
             state.update = data
+        },
+        CHANGE_UPDATE_VALUE(state){
+            state.update = ''
         }
+        
     },
 
     actions: {
+        ChangeUpdateValue(context){
+            context.commit('CHANGE_UPDATE_VALUE');
+        },
         AllUsers(context){
             // console.log('funcionando vuex admin');
             let url = '/acolher/public/api/users/';        

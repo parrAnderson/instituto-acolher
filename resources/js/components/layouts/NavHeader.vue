@@ -90,11 +90,11 @@
                                     Fluxo Operacional
                                 </a>
                                 <ul id="atendimentoDropdown" class="collapse list-unstyled ">
-                                    <!-- <li>
-                                        <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'todos'}}">
-                                            Todos
+                                    <li>
+                                        <router-link :to="{name: 'encerramentos'}">
+                                            Encerramentos Apometria
                                         </router-link>
-                                    </li> -->
+                                    </li>
                                     <li>
                                         <router-link :to="{name: 'fazertipoatendimento', params: {tipoatendimento: 'Apometria (2as. feiras)'}}">
                                             Apometria

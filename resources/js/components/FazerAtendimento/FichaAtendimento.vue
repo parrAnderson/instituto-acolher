@@ -703,15 +703,69 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
-                            <textarea class="form-control" v-model="atendimento.observacao" rows="10" cols="30">
+                            <textarea class="form-control" v-model="atendimento.observacao" rows="5" cols="30">
 
                                 </textarea>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+    </div>
+    <div class="container-fluid container-space">
+        <div class="row row-space">
+            <div class="col-12">
+                <h4 class="text-center">ENCERRAMENTO</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center row-space-form" v-if="!retorno">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">                        
+                        <div class="form-group" v-if="atendimento.status_encerramento == 'Atendimento Concluido'">
+                            <label for="">Data de Retorno e Encerramento</label><br>
+                            <div class="text-primary">{{atendimento.data_encerramento}}</div>
+                        </div>
+                        <div class="form-group" v-else>
+                            <label for="">Data de Retorno e Encerramento</label>
+                            <input type="text" class="form-control" v-model="atendimento.data_encerramento" v-mask="'##/##/####'" placeholder="Data de Encerramento">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
+                        
+                        <div class="form-group" v-if="atendimento.status_encerramento == 'Atendimento Concluido'">
+                            <label for="">Status Encerramento</label><br>
+                            <div class="text-primary">{{atendimento.status_encerramento}}</div>
+                        </div>
+                        <div class="form-group" v-else>
+                            <label for="">Status Encerramento</label>
+                            <div class="text-primary">{{atendimento.status_encerramento}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     <div class="row justify-content-center row-space-form" v-if="retorno">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="">Data de Retorno e Encerramento</label><br>
+                            <div class="text-primary">{{atendimento.data_encerramento}}</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="">Status Encerramento</label><br>
+                            <div class="text-primary">{{atendimento.status_encerramento}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <!-- IMPRIMIR  -->
@@ -719,10 +773,15 @@
         <div class="row row-space">
             <div class="col-12">
                 <div class="row justify-content-center row-space-btn">
-                    <div class="col-4 text-left">
+                    <div class="col-4 text-left" v-if="!retorno">
                         <button @click="salvarAtendimento()" type="submit" class="btn btn-primary">
                             <i class="fas fa-print"></i>
-                            SALVAR </button>
+                            SALVAR E AGENDAR RETORNO </button>
+                    </div>
+                    <div class="col-4 text-left" v-if="retorno">
+                        <button @click="salvarAtendimento()" type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Finalizar Retorno e Salvar</button>
                     </div>
                     <div class="col-4 text-right">
                         <button @click="imprimir()" type="submit" class="btn btn-warning">
@@ -770,9 +829,10 @@ export default {
             textGenero: "",
             selectReligiao: "",
             textReligiao: "",
-
+            retorno: this.$route.params.retorno,
         }
     },
+    
     methods: {
         //Register
         voltarReligiao() {
@@ -814,9 +874,26 @@ export default {
                 }
             }
         },
+        AtualizarStatusEncerramento(){
+            // console.log("data" + this.atendimento.data_encerramento.length)
+            if(this.retorno){
+                this.atendimento.status_encerramento = 'Atendimento Concluido'
+            }else{
+                if(this.atendimento.data_encerramento){
+                    if(this.atendimento.data_encerramento.length == 10 && this.atendimento.status_encerramento != 'Atendimento Concluido'){
+                        this.atendimento.status_encerramento = "Aguardando Retorno"
+                    }                                 
+                }
+                if(this.atendimento.data_encerramento == '' || this.atendimento.data_encerramento == null){
+                        this.atendimento.status_encerramento = ""
+                    }   
+            }                   
+        },
         //fim Register
         salvarAtendimento() {
+            
             // console.log(this.inputs)
+           this.AtualizarStatusEncerramento()
             this.UpdateAllAtendimento(this.atendimento)
             this.UpdateUser(this.inputs)
 
@@ -832,6 +909,7 @@ export default {
             'GetAtendimento',
             'UpdateAllAtendimento',
             'UpdateUser',
+            'ChangeUpdateValue',
         ]),
     },
     computed: {
@@ -842,8 +920,8 @@ export default {
         })
     },
     created() {
-        this.inputs = this.show
-
+        this.inputs = this.show     
+       
     },
     watch: {
         show: function (val) {
@@ -854,13 +932,19 @@ export default {
         },
         update() {
             if (this.update == "atualizado") {
-                console.log('ROUTER')
+                this.ChangeUpdateValue()
+                if(this.retorno){
                 this.$router.push({
+                    name: 'encerramentos',                    
+                });
+                }else{
+                    this.$router.push({
                     name: 'fazertipoatendimento',
                     params: {
                         tipoatendimento: this.atendimento.tipo_atendimento
                     }
                 });
+                }                
             }
         },
         id() {
@@ -891,6 +975,7 @@ export default {
         },
     },
     beforeMount() {
+        this.ChangeUpdateValue()
         this.GetAtendimento(this.idAtendimento)
         this.required = "vazio"
 
@@ -902,6 +987,8 @@ export default {
         this.inputs.como_soube = ''
         this.inputs.indicacao = ''
         this.inputs.estado = ''
+
+         
 
     },
     directives: {

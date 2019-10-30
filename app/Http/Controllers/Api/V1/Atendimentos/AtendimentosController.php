@@ -19,13 +19,9 @@ class AtendimentosController extends Controller
     }
 
     public function index(Request $request)
-    {        
-       
+    {            
         
-        try{       
-
-              
-
+        try{   
             if(($request->tipo_atendimento > '') and ($request->tipo_atendimento !== 'todos')){
                 $this->atendimentos = $this->atendimentos->where('tipo_atendimento', $request->tipo_atendimento)->get();
             }else{
@@ -44,28 +40,23 @@ class AtendimentosController extends Controller
                 
                 foreach($Users as $User){
                     // $Razoes = DB::table('razoes')->where('user_id', $User->id)->get();
-
                     $atendimento->nome = $User->name;                       
                     $atendimento->obreiro = $User->obreiro; 
                     $atendimento->email = $User->email; 
                     $atendimento->celular = $User->celular; 
-
                     $atendimento->data_nascimento = date('Y-m-d', strtotime($User->data_nascimento));
                     $date = new DateTime($atendimento->data_nascimento); 
                     $idade = $date->diff( new DateTime( date('Y-m-d') ) ); 
                     $idade = $idade->format('%Y');                    
-                    $atendimento->idade = $atendimento->data_nascimento;
-
-                    // foreach($Razoes as $Razao){
-                    //     $atendimento->fumante = $Razao->fumante; 
-                    //     $atendimento->bebida = $Razao->bebida; 
-                    //     $atendimento->drogas = $Razao->drogas; 
-                    //     $atendimento->recorrer = $Razao->recorrer; 
-                    // }
-                }
-
-               
-            }              
+                    $atendimento->idade = $atendimento->data_nascimento;                    
+                }               
+            }
+            
+            if($request->encerramento == true){               
+                $this->atendimentos = $this->atendimentos
+                ->where('data_encerramento', '>', '')
+                ->where('status_encerramento', '=', 'Aguardando Retorno');
+            }
                  
         return response()->json([
             'data' => $this->atendimentos,  

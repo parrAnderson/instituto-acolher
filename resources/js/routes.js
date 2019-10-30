@@ -24,6 +24,9 @@ import FazerIndexAtendimento from './components/FazerAtendimento/IndexAtendiment
 import FazerEditAtendimento from './components/FazerAtendimento/EditAtendimento'
 import FazerFichaAtendimento from './components/FazerAtendimento/FichaAtendimento'
 
+//Encerramento
+import indexRetornoAtendimento from './components/FazerAtendimento/IndexRetornoAtendimento'
+
 //login
 import LoginCpf from './components/auth/LoginCpf'
 import Register from './components/auth/Register'
@@ -49,6 +52,11 @@ const routes = [
     {path:'/fazer/atendimento/:id', name:'editatendimento',  component: FazerEditAtendimento},
     {path:'/fazer/fichaatendimento/:id', name:'fichaatendimento',  component: FazerFichaAtendimento},
     {path:'/fazer/atendimentos/:tipoatendimento', name:'fazertipoatendimento',  component: FazerIndexAtendimento},
+
+    //ENCERRAMENTO
+    {path:'/fazer/encerramentos', name:'encerramentos',  component: indexRetornoAtendimento},
+    {path:'/fazer/fichaatendimento/:id/:retorno', name:'fichaatendimentoretorno',  component: FazerFichaAtendimento},
+
 
     // {path:'/obreiro', name:'obreiro',  component: Obreiro},
     {path:'/quemsomos', name:'quemsomos',  component: QuemSomos},
