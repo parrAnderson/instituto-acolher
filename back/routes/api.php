@@ -29,7 +29,7 @@ Route::group([
 
 
 Route::get('/apiteste', function () {
- 
+    return 'Hello World';
 });
 
 Route::group(['middleware' => 'cors'], function () {
