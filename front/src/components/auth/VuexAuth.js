@@ -96,7 +96,8 @@ export default {
                   
             }).catch(function (error) {
                 
-                console.log(error.response.data)
+                console.log(error)
+                console.log(error.response)
                 commit('ERROR', error.response.data)                
             })    
             
