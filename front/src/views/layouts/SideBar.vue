@@ -13,7 +13,7 @@
             <div class="row justify-content-center" v-show="getUserId">
                 <div class="col-12  mt-3 mb-3">
                     <div class="info">
-                        <a href="#" class="d-block text-center">PEGAR NOME -
+                        <a href="#" class="d-block text-center">{{user.name}} -
                             <a href="#" class="text-danger" @click="logout()">Sair</a>
                         </a>
 
@@ -56,53 +56,61 @@
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'confirmacaoapometria'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Confirmação</p>
-                                </a>
+                                    </router-link>
+                                
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'rodadasmacas'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Rodadas e Macas</p>
-                                </a>
+                                    </router-link>
+                                
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'relacaoatendidos'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Relação de atendidos</p>
-                                </a>
+                                    </router-link>
+                                
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'entrevistapreatendimento'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Entrevista pré-atendimento</p>
-                                </a>
+                                    </router-link>
+                                
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'leituradasfichas'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Leituras das fichas</p>
-                                </a>
+                                    </router-link>
+                                
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'cabeceiradamaca'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Cabeceira da maca</p>
-                                </a>
+                                    </router-link>
+                                
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'posatendimento'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Pós atendimento</p>
-                                </a>
+                                    </router-link>
+                                
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link :to="{name:'entrevistadeencerramento'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Entrevista de encerramento</p>
-                                </a>
+                                </router-link>
+                                
                             </li>
                         </ul>
                     </li>
@@ -196,6 +204,7 @@ export default {
     computed: {
         ...mapState({                       
             // userId: state => state.Auth.userId,
+            user: state => state.Auth.user.data
             
         }),
         ...mapGetters([

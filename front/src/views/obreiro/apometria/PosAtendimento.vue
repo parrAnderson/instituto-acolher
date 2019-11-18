@@ -5,17 +5,19 @@
             <TabsApometria></TabsApometria>
 
             <!-- ORIENTACAO -->
-            <div class="modal fade" id="orientacoesAtendimento" tabindex="-1" role="dialog" aria-labelledby="orientacoesAtendimentoLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade bd-example-modal-xl" id="orientacoesAtendimento" tabindex="-1" role="dialog" aria-labelledby="orientacoesAtendimentoLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Orientações da maca</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Recomendações</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <OrientacoesAtendimento/>
+                            <div class="container-fluid">
+                                <OrientacoesAtendimento/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,12 +55,12 @@
                     </div>
                 </div>
             </div>
-            <!-- MODAL MOTIVO  -->
+            <!-- MODALTratamento  -->
             <div class="modal fade" id="modalTratamento" tabindex="-1" role="dialog" aria-labelledby="modalTratamento" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Motivos</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Tratamento</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
