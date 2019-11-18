@@ -56,7 +56,7 @@
 
             <div class="row row-space">
                 <div class="col-12">
-                    <h4 class="text-center">RODADAS E MACAS</h4>
+                    <h4 class="text-center">ENTREVISTA PRÉ ATENDIMENTO</h4>
                 </div>
             </div>
             <div class="row justify-content-center row-space">
@@ -75,35 +75,18 @@
                                             NOME
                                         </th>
                                         <th class="no-print">
-                                            ENDEREÇO
+                                            E-MAIL
                                         </th>
                                         <th>
-                                            IDADE
-                                        </th>
-                                        <th class="no-print">
-                                            VÍCIO
-                                        </th>
-                                        <th class="no-print">
-                                            TRATAMENTO
-                                        </th>
-                                        <th class="no-print">
-                                            MOTIVO
-                                        </th>                                        
-                                        <th class-="text-primary">
-                                            AGENDADO
-                                        </th>
-                                        <th>
-                                            RODADA
-                                        </th>
-                                        <th>
-                                            MACA
-                                        </th>
+                                            CELULAR
+                                        </th>        
                                         <th class="no-print">
                                             FICHA
+                                        </th>                                  
+                                        <th class-="text-primary">                                            
+                                            ENCAMINHAR PARA ATENDIMENTO
                                         </th>
-                                        <th>
-                                            CONCLUSÃO
-                                        </th>
+                                                                              
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -116,40 +99,18 @@
                                             JOSE DA SILVA
                                         </td>
                                         <td>
-                                            RUA DO LOGRADOURO, 27 – BLOCO 4 – AP. 24 – CENTRO – CIDADE / SP
+                                            teste@gmail.com.br
                                         </td>
                                         <td>
-                                            15 anos
-                                            e 7 meses
-                                        </td>
-                                        <td>
-                                            SIM COCAINA
-                                        </td>
-                                        <td data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
-                                            {{textTratamento | textLimitTd}}
-
-                                        </td>
-                                        <td data-toggle="modal" data-target="#modalMotivo" class="btn-pointer">
-                                            {{textMotivo | textLimitTd}}
-
-                                        <td>
-                                            11/10/2018
-                                        </td>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            1
-                                        </td>
+                                            11 949439589
+                                        </td>                                       
+                                        
                                         <td>
                                             <div class="btn btn-warning btn-sm">FICHA</div>
-                                        </td>
+                                        </td>     
                                         <td>
-                                            <div class="btn btn-outline-secondary btn-sm btn-100w">Confirmar</div>
-                                            <div class="btn btn-outline-secondary btn-sm btn-100w">Casa</div>                                           
-                                            <div class="btn btn-outline-secondary btn-sm btn-100w">At. Especial</div>
-                                             <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w">Cancelar</div>
-                                        </td>
+                                            <input type="checkbox" class="form-control">
+                                        </td>                                   
                                     </tr>
                                     
                                 </tbody>
@@ -159,11 +120,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-12 justify-content-end text-right">
                     <div class="btn btn-info btn-sm">GERAR LISTA</div>
                 </div>
-            </div>
+            </div> -->
 
         </template>
     </Header>
@@ -174,7 +135,7 @@
 import Header from '@/views/layouts/HeaderPublic'
 import TabsApometria from '@/views/layouts/TabsApometria'
 export default {
-    name: "RodadasMacas",
+    name: "EntrevistaPreAtendimento",
     data() {
         return {
             textMotivo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus. ",

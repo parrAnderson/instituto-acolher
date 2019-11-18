@@ -56,7 +56,7 @@
 
             <div class="row row-space">
                 <div class="col-12">
-                    <h4 class="text-center">RODADAS E MACAS</h4>
+                    <h4 class="text-center">LEITURA DAS FICHAS</h4>
                 </div>
             </div>
             <div class="row justify-content-center row-space">
@@ -67,47 +67,58 @@
                             <table class="table table table-head-fixed table-striped table-sm table-bordered table table-condensed">
                                 <thead>
                                     <tr>
-
+                                        <th>
+                                            #
+                                        </th>
                                         <th>
                                             ID
                                         </th>
                                         <th>
                                             NOME
                                         </th>
-                                        <th class="no-print">
-                                            ENDEREÇO
-                                        </th>
+                                        <th>
+                                            GÊNERO
+                                        </th>                                        
                                         <th>
                                             IDADE
                                         </th>
-                                        <th class="no-print">
-                                            VÍCIO
-                                        </th>
-                                        <th class="no-print">
-                                            TRATAMENTO
-                                        </th>
-                                        <th class="no-print">
-                                            MOTIVO
-                                        </th>                                        
-                                        <th class-="text-primary">
-                                            AGENDADO
+                                        <th>
+                                            ESTADO CIVIL
                                         </th>
                                         <th>
-                                            RODADA
+                                            RELIGIÃO
                                         </th>
                                         <th>
-                                            MACA
+                                            ENDEREÇO
                                         </th>
-                                        <th class="no-print">
+                                        <th>
+                                            É FUMANTE?
+                                        </th>
+                                        <th>
+                                            CONSOME BEBIDA ALCÓOLICA?
+                                        </th>
+                                        <th>
+                                            TEM ALGUM OUTRO VICIO?
+                                        </th>
+                                        <th>
+                                            ESTÁ SOB TRATAMENTO?
+                                        </th>
+                                        <th>
+                                            MOTIVOS
+                                        </th>
+                                        <th>
+                                            ATEND. ESPECIAL
+                                        </th>
+                                        <th>
                                             FICHA
-                                        </th>
-                                        <th>
-                                            CONCLUSÃO
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>
+                                            1
+                                        </td>
                                         <td>
                                             OBR <br>
                                             154
@@ -116,15 +127,30 @@
                                             JOSE DA SILVA
                                         </td>
                                         <td>
-                                            RUA DO LOGRADOURO, 27 – BLOCO 4 – AP. 24 – CENTRO – CIDADE / SP
-                                        </td>
+                                            MASCULINO
+                                        </td>                                       
                                         <td>
                                             15 anos
                                             e 7 meses
                                         </td>
                                         <td>
-                                            SIM COCAINA
+                                            CASADO
                                         </td>
+                                        <td>
+                                            KARDECISTA
+                                        </td>
+                                        <td>
+                                            RUA DO LOGRADOURO, 27 – BLOCO 4 – AP. 24 – CENTRO – CIDADE / SP
+                                        </td>
+                                        <td>
+                                            NÃO
+                                        </td>
+                                        <td>
+                                            NÃO
+                                        </td>
+                                        <td>
+                                            NÃO
+                                        </td>                                        
                                         <td data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
                                             {{textTratamento | textLimitTd}}
 
@@ -133,23 +159,11 @@
                                             {{textMotivo | textLimitTd}}
 
                                         <td>
-                                            11/10/2018
-                                        </td>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            1
-                                        </td>
+                                            NÃO
+                                        </td>                                        
                                         <td>
                                             <div class="btn btn-warning btn-sm">FICHA</div>
-                                        </td>
-                                        <td>
-                                            <div class="btn btn-outline-secondary btn-sm btn-100w">Confirmar</div>
-                                            <div class="btn btn-outline-secondary btn-sm btn-100w">Casa</div>                                           
-                                            <div class="btn btn-outline-secondary btn-sm btn-100w">At. Especial</div>
-                                             <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w">Cancelar</div>
-                                        </td>
+                                        </td>                                        
                                     </tr>
                                     
                                 </tbody>
@@ -174,7 +188,7 @@
 import Header from '@/views/layouts/HeaderPublic'
 import TabsApometria from '@/views/layouts/TabsApometria'
 export default {
-    name: "RodadasMacas",
+    name: "LeituraDasFichas",
     data() {
         return {
             textMotivo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus. ",

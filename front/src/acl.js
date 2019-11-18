@@ -24,14 +24,14 @@ export default new AclCreate({
   },
   middleware: async acl => {
     let getStore
-    // if(localStorage.getItem('type') > ''){
-    //   getStore = localStorage.getItem('type');
-    //   console.log("TOKEN")
-    // }else{
-    //   getStore = 'public'
-    //   console.log("SEM TOKEN")
-    // }    
-    getStore = 'public'
+    if(localStorage.getItem('type') > ''){
+      getStore = localStorage.getItem('type');
+      // console.log("TOKEN")
+    }else{
+      getStore = 'public'
+      console.log("SEM TOKEN")
+    }    
+    // getStore = 'public'
     acl.change(getStore) 
    
   }

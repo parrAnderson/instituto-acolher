@@ -13,7 +13,7 @@
             <div class="row justify-content-center" v-show="getUserId">
                 <div class="col-12  mt-3 mb-3">
                     <div class="info">
-                        <a href="#" class="d-block text-center">Jorge -
+                        <a href="#" class="d-block text-center">PEGAR NOME -
                             <a href="#" class="text-danger" @click="logout()">Sair</a>
                         </a>
 

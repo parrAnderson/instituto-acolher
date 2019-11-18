@@ -19,6 +19,13 @@ import About from './views/users/About'
 // ROTAS OBREIRO
 import ProgramacaoApometria from './views/obreiro/apometria/ProgramacaoApometria'
 import ConfirmacaoApometria from './views/obreiro/apometria/ConfirmacaoApometria'
+import RodadasMacas from './views/obreiro/apometria/RodadasMacas'
+import RelacaoAtendidos from './views/obreiro/apometria/RelacaoAtendidos'
+import EntrevistaPreAtendimento from './views/obreiro/apometria/EntrevistaPreAtendimento'
+import LeituraDasFichas from './views/obreiro/apometria/LeituraDasFichas'
+import CabeceiraDaMaca from './views/obreiro/apometria/CabeceiraDaMaca'
+import PosAtendimento from './views/obreiro/apometria/PosAtendimento'
+import EntrevistaDeEncerramento from './views/obreiro/apometria/EntrevistaDeEncerramento'
 
 
 // import { AclRule } from 'vue-acl'
@@ -145,6 +152,62 @@ export default new Router({
       path: '/obreiro/apometria/confirmacaoapometria',
       name: 'confirmacaoapometria',
       component: ConfirmacaoApometria,
+      meta: {
+        rule: 'isObreiro'
+      }
+    },
+    {
+      path: '/obreiro/apometria/rodadasmacas',
+      name: 'rodadasmacas',
+      component: RodadasMacas,
+      meta: {
+        rule: 'isObreiro'
+      }
+    },
+    {
+      path: '/obreiro/apometria/relacaoatendidos',
+      name: 'relacaoatendidos',
+      component: RelacaoAtendidos,
+      meta: {
+        rule: 'isObreiro'
+      }
+    },    
+    {
+      path: '/obreiro/apometria/entrevistapreatendimento',
+      name: 'entrevistapreatendimento',
+      component: EntrevistaPreAtendimento,
+      meta: {
+        rule: 'isObreiro'
+      }
+    },
+    {
+      path: '/obreiro/apometria/leituradasfichas',
+      name: 'leituradasfichas',
+      component: LeituraDasFichas,
+      meta: {
+        rule: 'isObreiro'
+      }
+    },
+    {
+      path: '/obreiro/apometria/cabeceiradamaca',
+      name: 'cabeceiradamaca',
+      component: CabeceiraDaMaca,
+      meta: {
+        rule: 'isObreiro'
+      }
+    },
+    {
+      path: '/obreiro/apometria/posatendimento',
+      name: 'posatendimento',
+      component: PosAtendimento,
+      meta: {
+        rule: 'isObreiro'
+      }
+    },
+    {
+      path: '/obreiro/apometria/entrevistadeencerramento',
+      name: 'entrevistadeencerramento',
+      component: EntrevistaDeEncerramento,
       meta: {
         rule: 'isObreiro'
       }

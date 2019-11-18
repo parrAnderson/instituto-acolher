@@ -209,4 +209,5 @@ export default {
 .btn{
     cursor: pointer;
 }
+
 </style>

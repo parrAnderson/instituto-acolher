@@ -14,37 +14,51 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-secondary" href="#">Rodadas e Macas</a>
+                            <router-link :to="{name:'rodadasmacas'}">
+                                <a class="nav-link btn btn-secondary" href="#">Rodadas e Macas</a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link btn btn-secondary">
-                                Relação de atendidos
-                            </a>
+                            <router-link :to="{name:'relacaoatendidos'}">
+                                <a href="#" class="nav-link btn btn-secondary">
+                                    Relação de atendidos
+                                </a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link btn btn-secondary">
-                                Entrevista pré-atendimento
-                            </a>
+                            <router-link :to="{name:'entrevistapreatendimento'}">
+                                <a href="#" class="nav-link btn btn-secondary">
+                                    Entrevista pré-atendimento
+                                </a>
+                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link btn btn-secondary">
-                                Leituras das fichas
-                            </a>
+                            <router-link :to="{name:'leituradasfichas'}">
+                                <a href="#" class="nav-link btn btn-secondary">
+                                    Leituras das fichas
+                                </a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link btn btn-secondary">
-                                Cabeceira da maca
-                            </a>
+                            <router-link :to="{name:'cabeceiradamaca'}">
+                                <a href="#" class="nav-link btn btn-secondary">
+                                    Cabeceira da maca
+                                </a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link btn btn-secondary">
-                                Pós atendimento
-                            </a>
+                            <router-link :to="{name:'posatendimento'}">
+                                <a href="#" class="nav-link btn btn-secondary">
+                                    Pós atendimento
+                                </a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link btn btn-secondary">
-                                Entrevista de encerramento
-                            </a>
+                            <router-link :to="{name:'entrevistadeencerramento'}">
+                                <a href="#" class="nav-link btn btn-secondary">
+                                    Entrevista de encerramento
+                                </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
