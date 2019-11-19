@@ -159,12 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 justify-content-end text-right">
-                    <div class="btn btn-info btn-sm">GERAR LISTA</div>
-                </div>
-            </div>
-
+            
         </template>
     </Header>
 </div>
