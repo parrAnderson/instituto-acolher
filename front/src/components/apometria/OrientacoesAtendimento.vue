@@ -9,10 +9,25 @@
                 </div>
                 <div class="card-body">
 
-                    <div class="col-6">
-                        CURATIVOS
+                    <div class="row">
+                        <div class="col-6">
+                        <div class="form-group row">
+                            <input type="number" v-model="atendimento.recomendacao_curativos" class="col-sm-6 form-control">                       
+                            <label class="form-check-label col-sm-6"> Curativos</label>
+                         </div>
                     </div>
-                    <div class="col-6">RETORNO EM INPUTS DIAS</div>
+                    <div class="col-6">
+                        <div class="form-group row">
+                                                   
+                            <label class="form-check-label col-sm-6">Retorno em </label>
+                            <!-- <input type="text" v-model="atendimento.recomendacao_retorno" class="form-control col-sm-6"> -->
+                            <select v-model="atendimento.recomendacao_retorno" class="form-control col-sm-6">
+                                <option>45</option>
+                                <option>90</option>
+                            </select>  
+                         </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -21,12 +36,27 @@
                 <div class="card-header text-center font-bold">
                     <h5>DIETA</h5>
                 </div>
+                
                 <div class="card-body">
-                   <div class="col-6">
-                       SELECT DIAS
-                   </div>
-                   <div class="col-6">
-                       QUANTIDADE DE DIAS INPUT
+
+                   <div class="row">
+                        <div class="col">
+                        <div class="form-group row">
+                            <select v-model="atendimento.recomendacao_dieta" class="form-control col-sm-6">
+                                <option>Dieta 1</option>
+                                <option>Dieta 2</option>
+                                <option>Dieta 3</option>
+                                <option>Dieta 4</option>
+                            </select>                                               
+                         </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group row">
+                                                   
+                            <label class="form-check-label col-sm-8">Quantidade de dias </label>
+                            <input type="text" v-model="atendimento.recomendacao_dias_dieta" class="form-control col-sm-4">
+                         </div>
+                    </div>
                    </div>
                 </div>
             </div>
@@ -144,5 +174,10 @@ export default {
 </script>
 
 <style>
-
+    .card-header{
+        padding: 0;
+    }
+    .form-group {
+    margin-bottom: 3.5px;
+}
 </style>

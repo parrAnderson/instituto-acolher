@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// ROTAS ADMIN
+import GerenciarObreiros from './views/admin/GerenciarObreiros'
+
 // ROTAS PUBLICAS
 import Home from './views/public/Home.vue'
 import Login from './views/public/Login'
@@ -123,104 +126,115 @@ export default new Router({
         rule: 'isPublic'
       }
     },
+    // ROTAS ADMIN
     {
       path: '/admin/dashboard',
       name: 'admin',
       component: Home,
       meta: {
         rule: 'isAdmin'
-      }
-      
+      }      
     },
+    {
+      path: '/admin/gerenciarobreiros',
+      name: 'gerenciarobreiros',
+      component: GerenciarObreiros,
+      meta: {
+        rule: 'isAdmin'
+      }      
+    },
+    // FIM ROTAS ADMIN
+    
+    // ROTAS OBREIRO
     {
       path: '/obreiro',
       name: 'obreiro',
       component: Home,
       meta: {
         rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/programacao',
-      name: 'programacaoapometria',
-      component: ProgramacaoApometria,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/confirmacaoapometria',
-      name: 'confirmacaoapometria',
-      component: ConfirmacaoApometria,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/rodadasmacas',
-      name: 'rodadasmacas',
-      component: RodadasMacas,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/relacaoatendidos',
-      name: 'relacaoatendidos',
-      component: RelacaoAtendidos,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },    
-    {
-      path: '/obreiro/apometria/entrevistapreatendimento',
-      name: 'entrevistapreatendimento',
-      component: EntrevistaPreAtendimento,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/leituradasfichas',
-      name: 'leituradasfichas',
-      component: LeituraDasFichas,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/cabeceiradamaca',
-      name: 'cabeceiradamaca',
-      component: CabeceiraDaMaca,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/posatendimento',
-      name: 'posatendimento',
-      component: PosAtendimento,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/obreiro/apometria/entrevistadeencerramento',
-      name: 'entrevistadeencerramento',
-      component: EntrevistaDeEncerramento,
-      meta: {
-        rule: 'isObreiro'
-      }
-    },
-    {
-      path: '/frequentador',
-      name: 'frequentador',
-      component: Home,
-      meta: {
-        rule: 'isFrequentador'
-      }
+        }
+        },
+        {
+        path: '/obreiro/apometria/programacao',
+        name: 'programacaoapometria',
+        component: ProgramacaoApometria,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/obreiro/apometria/confirmacaoapometria',
+        name: 'confirmacaoapometria',
+        component: ConfirmacaoApometria,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/obreiro/apometria/rodadasmacas',
+        name: 'rodadasmacas',
+        component: RodadasMacas,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/obreiro/apometria/relacaoatendidos',
+        name: 'relacaoatendidos',
+        component: RelacaoAtendidos,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },    
+        {
+        path: '/obreiro/apometria/entrevistapreatendimento',
+        name: 'entrevistapreatendimento',
+        component: EntrevistaPreAtendimento,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/obreiro/apometria/leituradasfichas',
+        name: 'leituradasfichas',
+        component: LeituraDasFichas,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/obreiro/apometria/cabeceiradamaca',
+        name: 'cabeceiradamaca',
+        component: CabeceiraDaMaca,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/obreiro/apometria/posatendimento',
+        name: 'posatendimento',
+        component: PosAtendimento,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/obreiro/apometria/entrevistadeencerramento',
+        name: 'entrevistadeencerramento',
+        component: EntrevistaDeEncerramento,
+        meta: {
+          rule: 'isObreiro'
+        }
+        },
+        {
+        path: '/frequentador',
+        name: 'frequentador',
+        component: Home,
+        meta: {
+          rule: 'isFrequentador'
+        }
     }
-   
+    //FIM ROTAS OBREIRO
 
   ]
 })

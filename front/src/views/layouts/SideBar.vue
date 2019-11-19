@@ -36,6 +36,14 @@
 
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-header" v-if="$acl.check('isAdmin')">ADMIN</li>
+
+                     <li class="nav-item" v-if="$acl.check('isAdmin')">
+                        <router-link :to="{name:'gerenciarobreiros'}" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Gerenciar Obreiros</p>
+                         </router-link>
+                    </li>   
 
                     <li class="nav-header" v-if="$acl.check('isObreiro')">OBREIRO</li>
 

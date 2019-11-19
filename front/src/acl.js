@@ -18,9 +18,9 @@ export default new AclCreate({
     isLogged: new AclRule('user').and('inside').generate(),
 
 
-    isPublic: new AclRule('public').or('obreiro').or('frequentador').generate(),
-    isFrequentador: new AclRule('frequentador').or('obreiro').generate(),
-    isObreiro: new AclRule('obreiro').generate(),
+    isPublic: new AclRule('public').or('obreiro').or('frequentador').or('admin').generate(),
+    isFrequentador: new AclRule('frequentador').or('obreiro').or('admin').generate(),
+    isObreiro: new AclRule('obreiro').or('admin').generate(),
   },
   middleware: async acl => {
     let getStore
