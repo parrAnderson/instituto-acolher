@@ -80,8 +80,7 @@ export default {
     },
 
     beforeMount() {
-        this.inputs.email = "jorgeserranojunior@gmail.com"
-        this.inputs.password = "carro"
+        
 
     },
     computed: {

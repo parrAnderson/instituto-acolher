@@ -5,11 +5,11 @@
             <TabsApometria></TabsApometria>
 
             <!-- ORIENTACAO -->
-            <div class="modal fade" id="formularioDeEncerramentoDeAtendimento" tabindex="-1" role="dialog" aria-labelledby="formularioDeEncerramentoDeAtendimentoLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade bd-example-modal-xl" id="formularioDeEncerramentoDeAtendimento" tabindex="-1" role="dialog" aria-labelledby="formularioDeEncerramentoDeAtendimentoLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Entrevista de Encerramento</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
