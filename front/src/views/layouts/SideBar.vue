@@ -117,10 +117,10 @@
 
                     <li class="nav-header" v-if="$acl.check('isFrequentador')">FREQUENTADOR</li>
                     <li class="nav-item" v-if="$acl.check('isFrequentador')">
-                        <a href="#" class="nav-link">
+                        <router-link :to="{name:'solicitaratendimento'}" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>Solicitar Atendimento</p>
-                        </a>
+                         </router-link>
                     </li>
                     <li class="nav-header">ACESSOS</li>
                     <li class="nav-item">

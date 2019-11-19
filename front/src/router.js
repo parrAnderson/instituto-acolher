@@ -13,8 +13,8 @@ import Contato from './views/public/Contato'
 import HorariosAtendimento from './views/public/HorariosAtendimento'
 import ConteudoCursos from './views/public/ConteudoCursos'
 
-// ROTAS USUARIOS
-import About from './views/users/About'
+// ROTAS FREQUENTADOR
+import SolicitarAtendimento from './views/frequentador/SolicitarAtendimento'
 
 // ROTAS OBREIRO
 import ProgramacaoApometria from './views/obreiro/apometria/ProgramacaoApometria'
@@ -100,11 +100,11 @@ export default new Router({
       }
     },
     {
-      path: '/about',
-      name: 'user',
-      component: About,
+      path: '/solicitaratendimento',
+      name: 'solicitaratendimento',
+      component: SolicitarAtendimento,
       meta: {
-        rule: 'isUser'
+        rule: 'isFrequentador'
       }
     },
     {
