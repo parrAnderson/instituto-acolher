@@ -148,7 +148,8 @@
                                         <select v-model="inputs.kardecista" class="form-control">
                                             <option value>Kardecista / Espírita?</option>
                                             <option>Nunca</option>
-                                            <option>Apenas uma vez</option>
+                                            <option>Apenas 1</option>
+                                            <option>Algumas Vezes</option>
                                             <option>Regularmente</option>
                                         </select>
                                     </div>
@@ -158,7 +159,8 @@
                                         <select v-model="inputs.casa_apometria" class="form-control">
                                             <option value>Casa Apômetra?</option>
                                             <option>Nunca</option>
-                                            <option>Apenas uma vez</option>
+                                            <option>Apenas 1</option>
+                                            <option>Algumas Vezes</option>
                                             <option>Regularmente</option>
                                         </select>
                                     </div>
@@ -172,7 +174,8 @@
                                         <select v-model="inputs.casa_umbandista" class="form-control">
                                             <option value>Casa Umbandista?</option>
                                             <option>Nunca</option>
-                                            <option>Apenas uma vez</option>
+                                            <option>Apenas 1</option>
+                                            <option>Algumas Vezes</option>
                                             <option>Regularmente</option>
                                         </select>
                                     </div>
@@ -350,10 +353,11 @@
             <div class="row justify-content-center row-space-form">
                 <div class="col-12 col-lg-10">
                     <h5 class="text-center">Declaração</h5>
-                    <p>
-                        Ao preencher e enviar o presente formulário, declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a
-                        não inciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha única responsabilidade meus atos e deliberações
-                        acerca de qualquer tema referente a assuntos particulares e/ou profissionais, de saúde física, mental e espiritual.
+                    <p v-if="!menor">
+                        Declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha inteira responsabilidade meus atos e deliberações acerca de qualquer tema referente a assuntos particulares e/ou profissionais e/ou concernentes às saúdes física, mental e/ou espiritual.
+                    </p>
+                    <p v-if="menor">
+                         Declaro ser de minha livre e espontânea vontade submeter o(a) menor sob minha responsabilidade ao atendimento no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper qualquer tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha inteira responsabilidade atos e deliberações do menor em questão acerca de qualquer tema referente a assuntos particulares e/ou profissionais e/ou concernentes às saúdes física, mental e/ou espiritual.
                     </p>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="check_declaracao">

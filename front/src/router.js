@@ -30,6 +30,8 @@ import CabeceiraDaMaca from './views/obreiro/apometria/CabeceiraDaMaca'
 import PosAtendimento from './views/obreiro/apometria/PosAtendimento'
 import EntrevistaDeEncerramento from './views/obreiro/apometria/EntrevistaDeEncerramento'
 
+// TEMPORARIO
+import DataPicker from './components/DataPicker'
 
 // import { AclRule } from 'vue-acl'
 
@@ -42,6 +44,14 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      meta: {
+        rule: 'isPublic'
+      }
+    },
+    {
+      path: '/datapicker',
+      name: 'datapicker',
+      component: DataPicker,
       meta: {
         rule: 'isPublic'
       }

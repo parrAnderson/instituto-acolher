@@ -59,6 +59,29 @@
                     <h4 class="text-center">LEITURA DAS FICHAS</h4>
                 </div>
             </div>
+            <div class="row">
+                <div class="col text-left">
+                    <span class="text-danger text-bold ">
+                        DATA: 10/06/2019
+                    </span>                    
+                </div>
+                <div class="col text-right">
+                    <select class="">
+                                                <option value="">Maca</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+
+                                            </select>
+                </div>
+            </div>
             <div class="row justify-content-center row-space">
                 <div class="col-12">
                     <div class="card">
@@ -90,6 +113,12 @@
                                         </th>
                                         <th>
                                             ENDEREÇO
+                                        </th>
+                                        <th>
+                                            FILHOS?
+                                        </th>
+                                        <th>
+                                            QUANTOS FILHOS?
                                         </th>
                                         <th>
                                             É FUMANTE?
@@ -141,6 +170,12 @@
                                         </td>
                                         <td>
                                             RUA DO LOGRADOURO, 27 – BLOCO 4 – AP. 24 – CENTRO – CIDADE / SP
+                                        </td>
+                                        <td>
+                                            NÃO
+                                        </td>
+                                        <td>
+                                            0
                                         </td>
                                         <td>
                                             NÃO

@@ -14,6 +14,27 @@ use Illuminate\Http\Request;
 */
 
 Route::group([
+    'middleware' => 'api',
+    'prefix' => 'atendimentos'
+], function () {
+    Route::post('store', 'Atendimentos\AtendimentosController@store');
+    Route::get('index', 'Atendimentos\AtendimentosController@index');
+   
+});
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'atendimentosapometria'
+], function () {
+    // Route::post('store', 'Atendimentos\AtendimentosController@store');
+    Route::get('index', 'Atendimentos\AtendimentosApometriaController@index');
+    Route::get('confirmacao', 'Atendimentos\AtendimentosApometriaController@confirmacao');
+    Route::post('store', 'Atendimentos\AtendimentosApometriaController@store');
+   
+});
+
+
+Route::group([
     'prefix' => 'auth'
 ], function () {
     Route::post('login', 'Auth\AuthController@login');
@@ -26,6 +47,8 @@ Route::group([
         Route::get('user', 'Auth\AuthController@user');
     });
 });
+
+
 
 
 Route::get('/apiteste', function () {

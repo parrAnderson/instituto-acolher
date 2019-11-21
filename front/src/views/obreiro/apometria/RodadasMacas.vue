@@ -136,17 +136,43 @@
                                             11/10/2018
                                         </td>
                                         <td>
-                                            1
+                                            <select>
+                                                <option value="">Rodada</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+
+                                            </select>
                                         </td>
                                         <td>
-                                            1
+                                            <select>
+                                                <option value="">Maca</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                            </select>
                                         </td>
                                         <td>
                                             <div class="btn btn-warning btn-sm">FICHA</div>
                                         </td>
                                         <td>
                                             <div class="btn btn-outline-secondary btn-sm btn-100w">Confirmar</div>
-                                            <div class="btn btn-outline-secondary btn-sm btn-100w">Casa</div>                                           
+                                            <div class="btn btn-outline-secondary btn-sm btn-100w">Casa</div>    
+                                            <div class="btn btn-outline-secondary btn-sm btn-100w">At. Prioritário</div>                                          
                                             <div class="btn btn-outline-secondary btn-sm btn-100w">At. Especial</div>
                                              <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w">Cancelar</div>
                                         </td>

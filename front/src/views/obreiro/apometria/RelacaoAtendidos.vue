@@ -126,8 +126,11 @@
                                         <td>
                                             11 949439589
                                         </td>                                        
-                                        <td>
-                                            <input type="checkbox" class="form-control">
+                                        <td v-if="!horarioDeChegada">
+                                            <div class="btn btn-primary" @click="chegou()">CHEGOU</div>
+                                        </td>
+                                        <td v-else>
+                                            {{horarioDeChegada}}
                                         </td>
                                         <td>
                                             <div class="btn btn-warning btn-sm">FICHA</div>
@@ -167,6 +170,7 @@ export default {
         return {
             textMotivo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus. ",
             textTratamento: "QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. ",
+        horarioDeChegada:""
         }
     },
     components: {
@@ -179,6 +183,20 @@ export default {
             if (!value) return ''
             value = value.toString()
             return value.substring(0, 30) + " ...";
+        }
+    },
+    methods:{
+        chegou(){
+            var data = new Date()
+            var dia     = data.getDate();
+            var mes     = data.getMonth();
+            var ano4    = data.getFullYear();  
+            var hora    = data.getHours();          
+            var min     = data.getMinutes();      
+            var seg     = data.getSeconds(); 
+// dia + '/' + (mes+1) + '/' + ano4 + ' - ' + 
+            this.horarioDeChegada = hora + ':' + min + ':' + seg;
+            console.log(data)
         }
     }
 }

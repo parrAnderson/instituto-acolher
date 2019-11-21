@@ -70,6 +70,13 @@
                                     </router-link>
                                 
                             </li>
+                            <li class="nav-item">
+                                <router-link :to="{name:'relacaoatendidos'}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Relação de atendidos</p>
+                                    </router-link>
+                                
+                            </li>
 
                             <li class="nav-item">
                                 <router-link :to="{name:'rodadasmacas'}" class="nav-link">
@@ -78,13 +85,7 @@
                                     </router-link>
                                 
                             </li>
-                            <li class="nav-item">
-                                <router-link :to="{name:'relacaoatendidos'}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Relação de atendidos</p>
-                                    </router-link>
-                                
-                            </li>
+                            
                             <li class="nav-item">
                                 <router-link :to="{name:'entrevistapreatendimento'}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>

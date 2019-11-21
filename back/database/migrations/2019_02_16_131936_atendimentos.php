@@ -16,8 +16,18 @@ class Atendimentos extends Migration
         Schema::create('atendimentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id')->nullable();
+            $table->string('status')->nullable();
+
             $table->string('tipo_atendimento')->nullable();
-            $table->string('data_atendimento')->nullable();
+            $table->string('data_solicitacao')->nullable();
+
+            $table->string('fumante')->nullable();
+            $table->string('bebida')->nullable();
+            $table->string('drogas')->nullable();
+            $table->string('qual_droga')->nullable();
+            $table->string('outro_vicio')->nullable();
+            $table->string('recorrer')->nullable();            
+            $table->string('tratamento')->nullable();
             $table->timestamps();
         });
     }

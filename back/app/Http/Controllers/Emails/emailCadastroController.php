@@ -21,6 +21,7 @@ class emailCadastroController extends Controller
         'nome' => $request->name,
         'email' => $request->email,
         'id' => $id,
+        // 'genero' => $request->genero,
          ];      
        
         try {

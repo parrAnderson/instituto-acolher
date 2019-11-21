@@ -16,6 +16,8 @@
     "validar-cpf": "^2.1.2",
     "vue": "^2.6.10",
     "vue-acl": "^4.1.5",
+    "vue-functional-calendar": "^2.6.7",
+    "vue-hotel-datepicker": "^2.6.4",
     "vue-router": "^3.0.3",
     "vue-script-component": "^0.1.7",
     "vue-script2": "^2.1.0",

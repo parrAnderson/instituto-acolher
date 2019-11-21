@@ -14,17 +14,18 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link :to="{name:'rodadasmacas'}">
-                                <a class="nav-link btn btn-secondary" href="#">Rodadas e Macas</a>
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
                             <router-link :to="{name:'relacaoatendidos'}">
                                 <a href="#" class="nav-link btn btn-secondary">
                                     Relação de atendidos
                                 </a>
                             </router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link :to="{name:'rodadasmacas'}">
+                                <a class="nav-link btn btn-secondary" href="#">Rodadas e Macas</a>
+                            </router-link>
+                        </li>
+                        
                         <li class="nav-item">
                             <router-link :to="{name:'entrevistapreatendimento'}">
                                 <a href="#" class="nav-link btn btn-secondary">

@@ -12,7 +12,12 @@
                     <div class="row">
                         <div class="col-6">
                         <div class="form-group row">
-                            <input type="number" v-model="atendimento.recomendacao_curativos" class="col-sm-6 form-control">                       
+                            <!-- <input type="number" v-model="atendimento.recomendacao_curativos" class="col-sm-6 form-control">    -->
+                            <select v-model="atendimento.recomendacao_curativos" class="form-control col-sm-6">
+                                <option>4</option>
+                                <option>8</option>
+                                <option>12</option>
+                            </select>                    
                             <label class="form-check-label col-sm-6"> Curativos</label>
                          </div>
                     </div>
@@ -42,7 +47,7 @@
                    <div class="row">
                         <div class="col">
                         <div class="form-group row">
-                            <select v-model="atendimento.recomendacao_dieta" class="form-control col-sm-6">
+                            <select v-model="dieta" class="form-control col-sm-6">                                
                                 <option>Dieta 1</option>
                                 <option>Dieta 2</option>
                                 <option>Dieta 3</option>
@@ -54,7 +59,13 @@
                         <div class="form-group row">
                                                    
                             <label class="form-check-label col-sm-8">Quantidade de dias </label>
-                            <input type="text" v-model="atendimento.recomendacao_dias_dieta" class="form-control col-sm-4">
+                            <!-- <input type="text" v-model="atendimento.recomendacao_dias_dieta" class="form-control col-sm-4"> -->
+                            <select v-model="diasDieta">
+                                                
+                                                <option>30</option>
+                                                <option>45</option>
+
+                                            </select>
                          </div>
                     </div>
                    </div>
@@ -76,11 +87,24 @@
                     </div>
                     <div class="form-group">
                         <input type="checkbox" v-model="atendimento.recomendacao_repousar" class="form-check-input">
-                        Repousar por <input type="number" v-model="atendimento.recomendacoes_repousar"> dias
+                        Repousar por <select class="">
+                                                
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+
+                                            </select> dias
                     </div>
                     <div class="form-group">
                         <input type="checkbox" v-model="atendimento.recomendacao_peso" class="form-check-input">
-                        Não carregar peso, não fazer esforço e não subir escadas por <input type="number" v-model="atendimento.recomendacoes_peso"> dias
+                        Não carregar peso, não fazer esforço e não subir escadas por 
+                        <select class="">
+                                                
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+
+                                            </select> dias
                     </div>
                     <div class="form-group">
                         <input type="checkbox" v-model="atendimento.recomendacao_litros" class="form-check-input">
@@ -99,11 +123,11 @@
 
                 <div class="col-4">
                     <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_adotar" class="form-check-input">
+                        <input type="checkbox" checked="checked" v-model="atendimento.recomendacao_adotar" class="form-check-input">
                         <label class="form-check-label">Adotar o lema "Orai e Vigiai"</label>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_perdao" class="form-check-input">
+                        <input type="checkbox" checked="checked" v-model="atendimento.recomendacao_perdao" class="form-check-input">
                         <label class="form-check-label">Fazer a Oração do Perdão</label>
                     </div>
                     <div class="form-group">
@@ -167,7 +191,28 @@ export default {
     name: "OrientacoesAtendimento",
     data() {
         return {
-            atendimento: {}
+            atendimento: {},
+            dieta:"",
+            diasDieta:"",
+        }
+    },
+    mounted(){
+        // this.atendimento.recomendacao_dieta = 'Dieta 2'
+        this.atendimento.recomendacao_adotar = true
+        this.atendimento.recomendacao_dieta = this.dieta 
+    },
+    watch:{
+        dieta(){
+             this.atendimento.recomendacao_dieta = this.dieta 
+            if(this.atendimento.recomendacao_dieta === 'Dieta 1' || this.atendimento.recomendacao_dieta === 'Dieta 2'){
+                this.atendimento.recomendacoes_carne = this.atendimento.recomendacao_dias_dieta
+            }
+        },
+        diasDieta(){
+            this.atendimento.recomendacao_dias_dieta = this.diasDieta 
+            if(this.atendimento.recomendacao_dieta === 'Dieta 1' || this.atendimento.recomendacao_dieta === 'Dieta 2'){
+                this.atendimento.recomendacoes_carne = this.atendimento.recomendacao_dias_dieta
+            }
         }
     }
 }

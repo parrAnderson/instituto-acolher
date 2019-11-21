@@ -3,6 +3,22 @@
      
                 <div>
                     
+                    <!-- DATA PICKER -->
+                    <div class="modal fade" id="modalDataPicker" tabindex="-1" role="dialog" aria-labelledby="modalDataPickerLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">      
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Data de Atendimento</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>                         
+                                <div class="modal-body">
+                                    <DataPicker></DataPicker>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- MODAL AGENDAMENTO -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -139,8 +155,10 @@
                                                     <td>
                                                         11/10/2018
                                                     </td>
-                                                    <td>
-                                                        <div class="btn btn-success btn-sm">Agendar</div><br>
+                                                    <td data-toggle="modal" data-target="#modalDataPicker" class="btn-pointer">                                                                        
+                                                        <div class="btn btn-outline-success btn-sm btn-100w">
+                                                            dd/mm/yyyy
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="btn btn-warning btn-sm">FICHA</div>
@@ -226,8 +244,11 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+    import DataPicker from '@/components/DataPicker'
     export default {
         name:"ProgramacaoApometria",
+        
         data(){
             return{
                 textMotivo:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus. ",
@@ -240,8 +261,19 @@
                     value = value.toString()
                     return value.substring(0,30) + " ...";
                 }
-            }
-        }
+            },
+        
+        components:{
+            DataPicker,
+        },
+        computed: {
+        ...mapState({
+            dataCkeckIn: state => state.AtendimentoApometria,
+            
+        }),
+       
+    },
+    }
     
 </script>
 
