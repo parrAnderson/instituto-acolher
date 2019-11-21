@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 import { FunctionalCalendar } from 'vue-functional-calendar';
 
 export default {
@@ -42,18 +42,43 @@ export default {
     ,
      methods: {
          ...mapActions([
-             'mudarCheckIN',
+             'dataAgendada',
          ]),
+         MudarDataAgendamento(){
+             let agendamento = {}
+              this.dataSelectionada = this.calendarData.selectedDate              
+              agendamento.dataAgendada = this.dataSelectionada
+              agendamento.atendimento = this.atendimento.id
+              this.dataAgendada(agendamento)
+         }
      },
-     mounted(){
-         this.dataSelectionada = this.calendarData.selectedDate
+     beforeMount(){
+         this.dataSelectionada = this.calendarData.selectedDate        
+        
      },
-      
+     computed: {
+        ...mapState({
+                   
+        }),
+       
+        },
+      props:{
+           atendimento: Object
+      },
       watch:{
-          calendarData(){
+          calendarData:{
+              handler: function (val, oldVal) {
+                  this.MudarDataAgendamento()
               this.dataSelectionada = this.calendarData.selectedDate
-              console.log(this.calendarData.selectedDate)
-          }
+               },              
+              deep: true  
+          },
+          
       }
 }
 </script>
+<style>
+    .vfc-calendar {
+    background-color: white;
+}
+</style>

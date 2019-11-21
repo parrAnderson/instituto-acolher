@@ -18,7 +18,7 @@ class Atendimentos extends Model
         'drogas',
         'qual_droga',
         'outro_vicio',
-        'recorrer',
+        'motivo',
         'tratamento',
         
   
@@ -26,6 +26,9 @@ class Atendimentos extends Model
 
     public function AtendimentosApometria(){
         return $this->belongsTo('App\Models\AtendimentosApometria', 'id');
+    }
+    public function User(){
+        return $this->belongsTo('App\User', 'user_id');
     }
 }
 // 'hora_atendimento',

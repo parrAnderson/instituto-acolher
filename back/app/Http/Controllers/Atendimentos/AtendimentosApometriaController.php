@@ -8,16 +8,19 @@ use App\Models\Atendimentos;
 use App\Models\AtendimentosApometria;
 
 class AtendimentosApometriaController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+{    
     public function index()
     {
         $this->atendimentos = new Atendimentos();
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')->get();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        ->where('status', 'aguardando')
+        ->get();
+
+        foreach($this->atendimentos as $atendimento){           
+            $user = $atendimento->User()->get();
+            $atendimento->user  = $user; 
+        }
+
         return response()->json([
             'data' => $this->atendimentos,              
         ]);
@@ -27,14 +30,16 @@ class AtendimentosApometriaController extends Controller
         $this->atendimentos = new Atendimentos();
         // $this->atendimentosApometria = new AtendimentosApometria();
 
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')->get();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        ->where('status', 'agendado')
+        ->get();
         
         foreach($this->atendimentos as $atendimento){           
-            $atendimentosApometria = $atendimento->AtendimentosApometria()->get();  
-            dd($atendimentosApometria);
-            // foreach($atendimentosApometria as $atendimentoApometria){
+            $atendimentosApometria = $atendimento->AtendimentosApometria()->get();
+            $user = $atendimento->User()->get();
 
-            // }
+            $atendimento->user  = $user; 
+            $atendimento->apometria  = $atendimentosApometria;            
         }
 
         return response()->json([

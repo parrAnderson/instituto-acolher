@@ -26,7 +26,7 @@ class Atendimentos extends Migration
             $table->string('drogas')->nullable();
             $table->string('qual_droga')->nullable();
             $table->string('outro_vicio')->nullable();
-            $table->string('recorrer')->nullable();            
+            $table->string('motivo')->nullable();            
             $table->string('tratamento')->nullable();
             $table->timestamps();
         });
