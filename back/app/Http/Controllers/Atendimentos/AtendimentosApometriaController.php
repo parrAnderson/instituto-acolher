@@ -25,6 +25,35 @@ class AtendimentosApometriaController extends Controller
             'data' => $this->atendimentos,              
         ]);
     }
+
+    public function gerarListaParaAtendimento(Request $request){
+        $this->atendimentosApometria = new AtendimentosApometria();
+        
+
+        try{
+        foreach($request->all() as $atendimento){
+
+            $data = [
+                'atendimento_id' =>$atendimento['id'],
+                'data_agendada' => $atendimento['data_agendada'],                            
+            ];
+
+            $this->atendimentosApometria = $this->atendimentosApometria->create($data);
+            $this->atendimentosApometria->save();   
+            
+            $this->atendimentos = new Atendimentos();
+            $this->atendimentos = $this->atendimentos->updateStatus('confirmacao', $atendimento['id']);
+        }
+        return response()->json([
+                'data' =>  $this->atendimentosApometria ,         
+            ]);
+        
+        }catch(Exception $e ){
+            return response()->json([
+                'data' => $e,  
+            ]);
+        }
+    }
     public function confirmacao()
     {
         $this->atendimentos = new Atendimentos();

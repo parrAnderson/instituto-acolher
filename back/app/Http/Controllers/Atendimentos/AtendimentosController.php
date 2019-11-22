@@ -18,6 +18,12 @@ class AtendimentosController extends Controller
             
     }
 
+    public function atualizarStatus(Request $request){
+        $this->atendimentos = new Atendimentos();      
+        $id = $request->inputs['id']  ;
+        $status = $request->inputs['status']  ;
+        $this->atendimentos = $this->atendimentos->updateStatus($status, $id);
+    }
     
     public function create()
     {
@@ -50,10 +56,12 @@ class AtendimentosController extends Controller
     {
         //
     }
-
+    
     public function update(Request $request, $id)
     {
-        //
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->put($request, $id);
+        return($this->atendimentos);
     }
 
     

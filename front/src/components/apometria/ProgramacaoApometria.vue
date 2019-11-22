@@ -1,70 +1,8 @@
 <template>
-<div>
-    <div v-if="mostrarListaAgendamento">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <div class="card">
-            <div class="card-body">
-                <table class="table">
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Data Agendada
-                </th>
-            </tr>
-            <tr  v-for="listaAgendados in listaAtendimentosAgendados">
-                <td>
-                    {{listaAgendados.id}}
-                </td>
-                <td>
-                    {{listaAgendados.data_agendada}}
-                </td>
-            </tr>
-        </table>
-        
-            </div>
-        </div>
-            </div>
-        </div>
-    </div>
+<div>     
+    <DataPicker :atendimento="dadosAtendimento"></DataPicker>              
+ 
 
-    
-
-    <!-- DATA PICKER -->
-    <div class="modal fade" id="modalDataPicker" tabindex="-1" role="dialog" aria-labelledby="modalDataPickerLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Data de Atendimento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <DataPicker :atendimento="dadosAtendimento"></DataPicker>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL AGENDAMENTO -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Data de Atendimento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- <edit-atendimento></!--> -->
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- MODAL MOTIVO  -->
     <div class="modal fade" id="modalMotivo" tabindex="-1" role="dialog" aria-labelledby="modalMotivo" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -100,12 +38,12 @@
         </div>
     </div>
 
-    <div class="row row-space" v-if="!mostrarListaAgendamento">
+    <div class="row row-space">
         <div class="col-12">
             <h4 class="text-center">PROGRAMAÇÃO DE ATENDIMENTO</h4>
         </div>
     </div>
-    <div class="row justify-content-center row-space" v-if="!mostrarListaAgendamento">
+    <div class="row justify-content-center row-space">
         <div class="col-12">
             <div class="card">
                 <div class="card-body table-responsive p-0">
@@ -190,7 +128,7 @@
                                 <td>
                                     {{atendimento.data_solicitacao}}
                                 </td>
-                                <td @click="dadosAtendimento = atendimento" data-toggle="modal" data-target="#modalDataPicker" class="btn-pointer">
+                                <td @click="modalDataPicker(atendimento)" data-toggle="modal" data-target="#modalDataPicker" class="btn-pointer" >
 
                                     <div v-if="lista[atendimento.id]">
                                         <div v-for="item in lista">
@@ -209,8 +147,8 @@
                                     <div class="btn btn-warning btn-sm">FICHA</div>
                                 </td>
                                 <td>
-                                    <div class="btn btn-outline-secondary btn-sm btn-100w">Reagendar</div>
-                                    <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w">Cancelar</div>
+                                    <div class="btn btn-outline-secondary btn-sm btn-100w" @click="removerItemlista(atendimento.id)">Reagendar</div>
+                                    <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w" @click="statusCancelar(atendimento.id)">Cancelar</div>
                                 </td>
                             </tr>
 
@@ -222,21 +160,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 justify-content-end text-right"  v-if="!mostrarListaAgendamento">
-            <div @click="mostrarListaAgendamento = true" class="btn btn-info btn-sm">GERAR LISTA</div>
+        <div class="col-12 justify-content-end text-right" >
+            <div class="btn btn-info btn-sm" @click="gerarLista()">GERAR LISTA</div>
         </div>
         
     </div>
-    <div class="row justify-content-center">
-        <div class="col-3  "  v-if="mostrarListaAgendamento">
-            <div @click="mostrarListaAgendamento = false" class="btn btn-warning btn-sm">
-                <i class="fas fa-arrow-left"></i> VOLTAR PARA PROGRAMAÇÃO
-                </div>
-        </div>
-  <div class="col-3 text-right"  v-if="mostrarListaAgendamento">
-          <div class="btn btn-info btn-sm"> CONFIRMAR ATENDIMENTOS</div>
-          </div>
-    </div>
+   
 
 </div>
 </template>
@@ -244,10 +173,10 @@
 <script>
 import {
     mapState,
-    mapActions
+    mapActions,
+    mapMutations,
 } from 'vuex'
 import DataPicker from '@/components/DataPicker'
-import ListaDoAgendamento from '@/components/apometria/listaDoAgendamento'
 export default {
     name: "ProgramacaoApometria",
 
@@ -259,8 +188,7 @@ export default {
             modalMotivo: "",
             dadosAtendimento: {},
             lista: {},
-            ValoresListaDoAgendamento: {},
-            mostrarListaAgendamento: false,
+            showModal: false,
         }
     },
     filters: {
@@ -281,7 +209,7 @@ export default {
 
     components: {
         DataPicker,
-        ListaDoAgendamento,
+
     },
     beforeMount() {
         this.allAtendimentoApometria()
@@ -292,6 +220,8 @@ export default {
             programacao: state => state.AtendimentoApometria.programacao,
             dataAgendada: state => state.AtendimentoApometria.dataAgendada,
             listaAtendimentosAgendados: state => state.AtendimentoApometria.listaAtendimentosAgendados,
+            listaGerada: state => state.AtendimentoApometria.listaGerada,
+            cancelado: state => state.AtendimentoApometria.cancelado,
 
         }),
     },
@@ -299,33 +229,73 @@ export default {
         ...mapActions([
             'allAtendimentoApometria',
             'changeListaAtendimentosAgendados',
+            'changeShowModalDataPicker',
+            'gerarListaDeAtendimentos',
+            'cancelarAtendimento',
         ]),
         addItemLista(id, data) {
 
             this.lista[id] = data
             this.changeListaAtendimentosAgendados(this.lista)
             this.allAtendimentoApometria()
-            // console.log(this.lista[1].data_agendada)
+            
         },
+        modalDataPicker(atendimento){
+            this.dadosAtendimento = atendimento
+            this.changeShowModalDataPicker()
+        },
+       gerarLista(){
+           this.gerarListaDeAtendimentos(this.lista)           
+       },
+       removerItemlista(idLista){
+           delete this.lista[idLista]
+            this.allAtendimentoApometria()
+       },
+       statusCancelar(id){
+           let confirmado = confirm("Deseja remover da lista?");
+           if(confirmado){
+               this.cancelarAtendimento(id)
+           this.removerItemlista(id)
+           console.log('atualizou a lista')
+           this.allAtendimentoApometria()
+           console.log('talvez a lista')
+           }
+       }
 
     },
     watch: {
+        cancelado:{
+            handler: function (val, oldVal) {
+                this.allAtendimentoApometria()
+                },
+                
+            
+            deep: true
+        },
+        listaGerada:{
+            handler: function (val, oldVal) {
+                this.allAtendimentoApometria()
+                },
+                
+            
+            deep: true
+        },
         dataAgendada: {
             handler: function (val, oldVal) {
-                this.addItemLista(this.dataAgendada.atendimento, {
+                if(this.dataAgendada.dataAgendada){
+                    this.addItemLista(this.dataAgendada.atendimento, {
                     id: this.dataAgendada.atendimento,
                     data_agendada: this.dataAgendada.dataAgendada
                 })
+                this.changeShowModalDataPicker()
+                }
+                
+                // 
             },
             deep: true
         },
-        lista: {
-            handler: function (val, oldVal) {
-                this.ValoresListaDoAgendamento = this.lista
-            },
-            deep: true
+       
 
-        }
     }
 
 }
@@ -342,5 +312,69 @@ export default {
 
 .btn-pointer {
     cursor: pointer;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 </style>

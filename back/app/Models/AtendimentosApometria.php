@@ -9,7 +9,7 @@ class AtendimentosApometria extends Model
     protected $table = "atendimentos_apometria";
     protected $fillable = [
         'atendimento_id',
-            'data_agendada',
+        'data_agendada',
         
   
     ];

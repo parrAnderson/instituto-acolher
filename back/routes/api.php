@@ -18,6 +18,9 @@ Route::group([
     'prefix' => 'atendimentos'
 ], function () {
     Route::post('store', 'Atendimentos\AtendimentosController@store');
+
+    Route::put('/{id}', 'Atendimentos\AtendimentosController@update');
+    Route::post('atualizarstatus', 'Atendimentos\AtendimentosController@atualizarStatus');
     Route::get('index', 'Atendimentos\AtendimentosController@index');
    
 });
@@ -30,6 +33,7 @@ Route::group([
     Route::get('index', 'Atendimentos\AtendimentosApometriaController@index');
     Route::get('confirmacao', 'Atendimentos\AtendimentosApometriaController@confirmacao');
     Route::post('store', 'Atendimentos\AtendimentosApometriaController@store');
+    Route::post('gerarlistaparaatendimento', 'Atendimentos\AtendimentosApometriaController@gerarListaParaAtendimento');
    
 });
 

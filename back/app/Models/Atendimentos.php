@@ -24,6 +24,21 @@ class Atendimentos extends Model
   
     ];
 
+    public function updateStatus($status, $id){
+        $atendimentos = new Atendimentos;
+        $atendimentos = $atendimentos::find($id);
+        $atendimentos->fill(['status' => $status]);      
+        $atendimentos->save();
+    }
+
+    public function put($request, $id){
+        $atendimentos = new Atendimentos;
+        $atendimentos = $atendimentos::find($id);
+        $atendimentos->fill($request->input());      
+        $atendimentos->save();
+        return($atendimentos);
+    }
+
     public function AtendimentosApometria(){
         return $this->belongsTo('App\Models\AtendimentosApometria', 'id');
     }
