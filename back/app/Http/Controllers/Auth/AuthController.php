@@ -53,8 +53,15 @@ class AuthController extends Controller
                 'data' => '',              
             ]);  
         }else{
-            $request['password'] = Hash::make($request->password);        
-
+            $request['password'] = Hash::make($request->password);
+            // $request['data_nascimento'] =  date($request['data_nascimento']);
+            $now = new \DateTime();
+            
+            $data_formatada =  $now::createFromFormat('d/m/Y', $request['data_nascimento']);
+            $data_formatada = $data_formatada->format("Y-m-d");
+            $request['data_nascimento']  = $data_formatada;
+            
+            
             try{
                 $this->Users = new User($request->all());
                 $this->Users->save();

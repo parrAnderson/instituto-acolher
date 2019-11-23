@@ -30,7 +30,7 @@ Route::group([
     'prefix' => 'atendimentosapometria'
 ], function () {
     // Route::post('store', 'Atendimentos\AtendimentosController@store');
-    Route::get('index', 'Atendimentos\AtendimentosApometriaController@index');
+    Route::get('index/{status}', 'Atendimentos\AtendimentosApometriaController@index');
     Route::get('confirmacao', 'Atendimentos\AtendimentosApometriaController@confirmacao');
     Route::post('store', 'Atendimentos\AtendimentosApometriaController@store');
     Route::post('gerarlistaparaatendimento', 'Atendimentos\AtendimentosApometriaController@gerarListaParaAtendimento');

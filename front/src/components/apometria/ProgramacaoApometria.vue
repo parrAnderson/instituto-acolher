@@ -1,7 +1,37 @@
 <template>
-<div>     
-    <DataPicker :atendimento="dadosAtendimento"></DataPicker>              
- 
+<div>
+    <DataPicker :atendimento="dadosAtendimento"></DataPicker>
+
+    <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cancelar Atendimento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Motivo do cancelamento" v-model="dadosCancelamento.status_motivo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col">
+                            <div class="btn btn-primary" data-dismiss="modal">VOLTAR</div>
+                        </div>
+                        <div class="col text-right">
+                            <div class="btn btn-danger" data-dismiss="modal" @click="cancelar()">FAZER CANCELAMENTO</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- MODAL MOTIVO  -->
     <div class="modal fade" id="modalMotivo" tabindex="-1" role="dialog" aria-labelledby="modalMotivo" aria-hidden="true">
@@ -111,9 +141,8 @@
                                     {{atendimento.user[0].celular}}
                                 </td>
                                 <td>
-                                    {{atendimento.user[0].idade}}
-                                    15 anos
-                                    e 7 meses
+                                    {{atendimento.user[0].data_nascimento | idadeComMeses}}
+
                                 </td>
                                 <td>
                                     {{atendimento.drogas}}
@@ -126,14 +155,14 @@
                                     {{atendimento.motivo | textLimitTd}}
 
                                 <td>
-                                    {{atendimento.data_solicitacao}}
+                                    {{atendimento.data_solicitacao | date}}
                                 </td>
-                                <td @click="modalDataPicker(atendimento)" data-toggle="modal" data-target="#modalDataPicker" class="btn-pointer" >
+                                <td @click="modalDataPicker(atendimento)" data-toggle="modal" data-target="#modalDataPicker" class="btn-pointer">
 
                                     <div v-if="lista[atendimento.id]">
                                         <div v-for="item in lista">
                                             <div v-if="item.id == atendimento.id">
-                                                {{item.data_agendada}}
+                                                {{item.data_agendada | filterDateCalendar}}
                                             </div>
                                         </div>
                                     </div>
@@ -148,7 +177,7 @@
                                 </td>
                                 <td>
                                     <div class="btn btn-outline-secondary btn-sm btn-100w" @click="removerItemlista(atendimento.id)">Reagendar</div>
-                                    <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w" @click="statusCancelar(atendimento.id)">Cancelar</div>
+                                    <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w" data-toggle="modal" data-target="#modalCancelamento" @click="openModalCancelamento(atendimento.id)">Cancelar</div>
                                 </td>
                             </tr>
 
@@ -160,17 +189,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 justify-content-end text-right" >
+        <div class="col-12 justify-content-end text-right">
             <div class="btn btn-info btn-sm" @click="gerarLista()">GERAR LISTA</div>
         </div>
-        
+
     </div>
-   
 
 </div>
 </template>
 
 <script>
+import moment from 'moment'
 import {
     mapState,
     mapActions,
@@ -182,16 +211,57 @@ export default {
 
     data() {
         return {
-            textMotivo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus. ",
-            textTratamento: "QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. ",
             modalTratamento: "",
             modalMotivo: "",
             dadosAtendimento: {},
             lista: {},
             showModal: false,
+            dadosCancelamento: {},
         }
     },
     filters: {
+        idadeComMeses(value) {
+           
+
+            if (value) {
+
+            let data = moment(new Date(value));
+              
+                var b = moment(data)
+                var a = moment(new Date())
+                
+              
+                var years = a.diff(b, 'year');
+                b.add(years, 'years');
+
+                var months = a.diff(b, 'months');
+                b.add(months, 'months');
+
+                var days = a.diff(b, 'days');
+                var calc = years + ' anos e ' + months + ' meses'
+
+                return calc
+
+            }
+
+        },
+        filterDateCalendar(value) {
+            var options = {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            };
+            var today = new Date(value);
+            var today = today.setDate(today.getDate() + 1);
+            var date1 = new Date(today).toLocaleDateString("pt-BR", options)
+            return date1
+        },
+        date: function (value) {
+            moment.locale("pt-br");
+            if (!value) return "";
+            let data = moment(value).format('L');
+            return data
+        },
         textLimitTd(value) {
             if (!value) return ''
             value = value.toString()
@@ -212,7 +282,7 @@ export default {
 
     },
     beforeMount() {
-        this.allAtendimentoApometria()
+        this.getDadosAtendimento()
     },
     computed: {
         ...mapState({
@@ -226,6 +296,9 @@ export default {
         }),
     },
     methods: {
+        getDadosAtendimento(){
+            this.allAtendimentoApometria(1)
+        },
         ...mapActions([
             'allAtendimentoApometria',
             'changeListaAtendimentosAgendados',
@@ -237,64 +310,64 @@ export default {
 
             this.lista[id] = data
             this.changeListaAtendimentosAgendados(this.lista)
-            this.allAtendimentoApometria()
-            
+            this.getDadosAtendimento()
+
         },
-        modalDataPicker(atendimento){
+        modalDataPicker(atendimento) {
             this.dadosAtendimento = atendimento
             this.changeShowModalDataPicker()
         },
-       gerarLista(){
-           this.gerarListaDeAtendimentos(this.lista)           
-       },
-       removerItemlista(idLista){
-           delete this.lista[idLista]
-            this.allAtendimentoApometria()
-       },
-       statusCancelar(id){
-           let confirmado = confirm("Deseja remover da lista?");
-           if(confirmado){
-               this.cancelarAtendimento(id)
-           this.removerItemlista(id)
-           console.log('atualizou a lista')
-           this.allAtendimentoApometria()
-           console.log('talvez a lista')
-           }
-       }
+        gerarLista() {
+            this.gerarListaDeAtendimentos(this.lista)
+        },
+        removerItemlista(idLista) {
+            delete this.lista[idLista]
+            this.getDadosAtendimento()
+        },
+        openModalCancelamento(id) {
+            this.dadosCancelamento = {}
+            this.dadosCancelamento.id = id
+            this.dadosCancelamento.status = 'Cancelado'
+        },
+        cancelar() {
+            this.cancelarAtendimento(this.dadosCancelamento)
+            this.dadosCancelamento = {}
+
+            this.removerItemlista(this.dadosCancelamento.id)
+            this.getDadosAtendimento()
+
+        }
 
     },
     watch: {
-        cancelado:{
+        cancelado: {
             handler: function (val, oldVal) {
-                this.allAtendimentoApometria()
-                },
-                
-            
+                this.getDadosAtendimento()
+            },
+
             deep: true
         },
-        listaGerada:{
+        listaGerada: {
             handler: function (val, oldVal) {
-                this.allAtendimentoApometria()
-                },
-                
-            
+                this.getDadosAtendimento()
+            },
+
             deep: true
         },
         dataAgendada: {
             handler: function (val, oldVal) {
-                if(this.dataAgendada.dataAgendada){
+                if (this.dataAgendada.dataAgendada) {
                     this.addItemLista(this.dataAgendada.atendimento, {
-                    id: this.dataAgendada.atendimento,
-                    data_agendada: this.dataAgendada.dataAgendada
-                })
-                this.changeShowModalDataPicker()
+                        id: this.dataAgendada.atendimento,
+                        data_agendada: this.dataAgendada.dataAgendada
+                    })
+                    this.changeShowModalDataPicker()
                 }
-                
+
                 // 
             },
             deep: true
         },
-       
 
     }
 
@@ -315,44 +388,44 @@ export default {
 }
 
 .modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  display: table;
-  transition: opacity .3s ease;
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
 }
 
 .modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+    width: 300px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
+    margin-top: 0;
+    color: #42b983;
 }
 
 .modal-body {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 .modal-default-button {
-  float: right;
+    float: right;
 }
 
 /*
@@ -365,16 +438,16 @@ export default {
  */
 
 .modal-enter {
-  opacity: 0;
+    opacity: 0;
 }
 
 .modal-leave-active {
-  opacity: 0;
+    opacity: 0;
 }
 
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 </style>

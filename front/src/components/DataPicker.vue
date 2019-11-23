@@ -49,9 +49,9 @@ export default {
             calendarData: {},
             calendarConfigs: {
                 // sundayStart: false,
-                dateFormat: 'dd/mm/yyyy',
+                dateFormat: 'yyyy-mm-dd',
                 isDatePicker: true,
-                // isDateRange: false
+                // isDateRange: false,                
                 disabledDayNames: ['Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
                 disabledDates: ['18/11/2019', '27/12/2019'],
                 monthNames: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],

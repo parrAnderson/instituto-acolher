@@ -33,13 +33,12 @@ export default {
         
     },
     actions: {  
-        cancelarAtendimento({commit}, id){
-            let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'atendimentos/' + id;              
-            let status = {'status': 'cancelado pelo vuex'}
+        cancelarAtendimento({commit}, data){
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'atendimentos/' + data.id;                        
             axios
             .put(
                 urlApi, 
-                status
+                data
                 )
                 
             .then(response => {
@@ -79,12 +78,12 @@ export default {
             commit('DATA_AGENDADA', data)           
                         
         },
-        allAtendimentoApometria({commit}){
+        allAtendimentoApometria({commit}, id){
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({
                 method: 'get',
-                url: urlApi + 'atendimentosapometria/index',               
+                url: urlApi + 'atendimentosapometria/index/' + id,               
             })
             .then(response => {
                 commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     

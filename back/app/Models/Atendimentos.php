@@ -20,6 +20,7 @@ class Atendimentos extends Model
         'outro_vicio',
         'motivo',
         'tratamento',
+        'status_motivo',
         
   
     ];
@@ -45,6 +46,7 @@ class Atendimentos extends Model
     public function User(){
         return $this->belongsTo('App\User', 'user_id');
     }
+  
 }
 // 'hora_atendimento',
 // 'maca',

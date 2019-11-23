@@ -9,15 +9,23 @@ use App\Models\AtendimentosApometria;
 
 class AtendimentosApometriaController extends Controller
 {    
-    public function index()
+    public function index($status)
     {
         $this->atendimentos = new Atendimentos();
         $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
-        ->where('status', 'aguardando')
+        ->where('status', $status)
         ->get();
 
         foreach($this->atendimentos as $atendimento){           
             $user = $atendimento->User()->get();
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)
+            
+            ->orderBy('id', 'desc')
+            ->take(1)
+            ->get();
+
+            $atendimento->apometria = $atendimentosApometria;
             $atendimento->user  = $user; 
         }
 
@@ -32,17 +40,18 @@ class AtendimentosApometriaController extends Controller
 
         try{
         foreach($request->all() as $atendimento){
-
+            $dataFormatada = date("Y-m-d", strtotime($atendimento['data_agendada']));
+            
             $data = [
                 'atendimento_id' =>$atendimento['id'],
-                'data_agendada' => $atendimento['data_agendada'],                            
+                'data_agendada' => $dataFormatada ,                            
             ];
 
             $this->atendimentosApometria = $this->atendimentosApometria->create($data);
             $this->atendimentosApometria->save();   
             
             $this->atendimentos = new Atendimentos();
-            $this->atendimentos = $this->atendimentos->updateStatus('confirmacao', $atendimento['id']);
+            $this->atendimentos = $this->atendimentos->updateStatus('2', $atendimento['id']);
         }
         return response()->json([
                 'data' =>  $this->atendimentosApometria ,         
