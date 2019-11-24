@@ -51,6 +51,8 @@ export default {
         },
         gerarListaDeAtendimentos({commit}, data){
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
+          
+            // fields = JSON.parse(fields)
             
             axios({
                 method: 'post',
@@ -58,8 +60,8 @@ export default {
                 data         
             })
             .then(response => {
-                console.log(response.data.data)
                 commit('GERAR_LISTA_DE_ATENDIMENTOS', response.data.data)     
+                console.log(response.data)
                       
             })                           
             .catch(function (error) {

@@ -10,8 +10,6 @@ class AtendimentosApometria extends Model
     protected $fillable = [
         'atendimento_id',
         'data_agendada',
-        
-  
     ];
 
     public function Atendimentos(){

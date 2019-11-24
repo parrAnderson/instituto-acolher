@@ -15,6 +15,15 @@ use Illuminate\Http\Request;
 
 Route::group([
     'middleware' => 'api',
+    'prefix' => 'obreiros'
+], function () {
+    Route::post('acoes/store', 'Obreiros\AcoesObreirosController@store');
+
+   
+});
+
+Route::group([
+    'middleware' => 'api',
     'prefix' => 'atendimentos'
 ], function () {
     Route::post('store', 'Atendimentos\AtendimentosController@store');

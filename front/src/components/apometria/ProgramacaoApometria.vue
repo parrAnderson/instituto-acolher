@@ -305,6 +305,7 @@ export default {
             'changeShowModalDataPicker',
             'gerarListaDeAtendimentos',
             'cancelarAtendimento',
+            'AcaoObreiro',
         ]),
         addItemLista(id, data) {
 
@@ -317,8 +318,17 @@ export default {
             this.dadosAtendimento = atendimento
             this.changeShowModalDataPicker()
         },
-        gerarLista() {
+        gerarLista() {           
+            
+            var acao = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro' : "Gerou lista de Atendimento",
+                'id_atualizado' : ""
+            }          
             this.gerarListaDeAtendimentos(this.lista)
+            this.AcaoObreiro(acao)
+            this.getDadosAtendimento()
+            
         },
         removerItemlista(idLista) {
             delete this.lista[idLista]

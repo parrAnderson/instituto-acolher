@@ -35,11 +35,16 @@ class AtendimentosApometriaController extends Controller
     }
 
     public function gerarListaParaAtendimento(Request $request){
-        $this->atendimentosApometria = new AtendimentosApometria();
+       
+
+        $this->atendimentosApometria = new AtendimentosApometria(); 
         
 
         try{
         foreach($request->all() as $atendimento){
+
+           
+
             $dataFormatada = date("Y-m-d", strtotime($atendimento['data_agendada']));
             
             $data = [
