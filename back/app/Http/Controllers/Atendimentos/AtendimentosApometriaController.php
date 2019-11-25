@@ -35,18 +35,10 @@ class AtendimentosApometriaController extends Controller
     }
 
     public function gerarListaParaAtendimento(Request $request){
-       
-
         $this->atendimentosApometria = new AtendimentosApometria(); 
-        
-
         try{
         foreach($request->all() as $atendimento){
-
-           
-
-            $dataFormatada = date("Y-m-d", strtotime($atendimento['data_agendada']));
-            
+            $dataFormatada = date("Y-m-d", strtotime($atendimento['data_agendada']));            
             $data = [
                 'atendimento_id' =>$atendimento['id'],
                 'data_agendada' => $dataFormatada ,                            
@@ -153,7 +145,25 @@ class AtendimentosApometriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+        $this->atendimentosApometria = new AtendimentosApometria(); 
+
+            
+            $this->atendimentosApometria = $this->atendimentosApometria->put($request, $id);
+              
+            $this->atendimentos = new Atendimentos();
+            $this->atendimentos = $this->atendimentos->updateStatus($request->status, $this->atendimentosApometria->atendimento_id);
+        
+            
+        return response()->json([
+                'data' =>  $this->atendimentosApometria ,         
+            ]);
+    
+        }catch(Exception $e ){
+            return response()->json([
+                'data' => $e,  
+            ]);
+        }
     }
 
     /**

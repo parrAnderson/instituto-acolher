@@ -25,7 +25,7 @@ export default {
         GERAR_LISTA_DE_ATENDIMENTOS(state, data){
             state.listaGerada = data
         },
-        CANCELAR_ATENDIMENTO(state, data){
+        ATENDIMENTO_ATUALIZADO(state, data){
             state.cancelado = data
         }   
             
@@ -33,8 +33,10 @@ export default {
         
     },
     actions: {  
-        cancelarAtendimento({commit}, data){
-            let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'atendimentos/' + data.id;                        
+        atualizarAtendimentoApometria(context, dados){
+            var acoes = dados.acoes
+            var data = dados.data
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'atendimentosapometria/' + data.id;                        
             axios
             .put(
                 urlApi, 
@@ -42,8 +44,9 @@ export default {
                 )
                 
             .then(response => {
-                commit('CANCELAR_ATENDIMENTO', response.data)     
-                console.log(response.data);
+                context.commit('ATENDIMENTO_ATUALIZADO', response.data)     
+                           
+            context.dispatch("AcaoObreiro",acoes)
             })                           
             .catch(function (error) {
                 console.log(error.response);

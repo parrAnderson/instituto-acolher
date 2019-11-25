@@ -10,9 +10,19 @@ class AtendimentosApometria extends Model
     protected $fillable = [
         'atendimento_id',
         'data_agendada',
+        'status_motivo',
     ];
 
     public function Atendimentos(){
         return $this->belongsTo('App\Models\Atendimentos', 'atendimento_id');
+    }
+
+    public function put($request, $id){
+        
+        $atendimentosApometria = new AtendimentosApometria;
+        $atendimentosApometria = $atendimentosApometria::find($id);
+        $atendimentosApometria->fill($request->all());      
+        $atendimentosApometria->save();
+        return($atendimentosApometria);
     }
 }

@@ -43,7 +43,7 @@ Route::group([
     Route::get('confirmacao', 'Atendimentos\AtendimentosApometriaController@confirmacao');
     Route::post('store', 'Atendimentos\AtendimentosApometriaController@store');
     Route::post('gerarlistaparaatendimento', 'Atendimentos\AtendimentosApometriaController@gerarListaParaAtendimento');
-   
+    Route::put('/{id}', 'Atendimentos\AtendimentosApometriaController@update');
 });
 
 

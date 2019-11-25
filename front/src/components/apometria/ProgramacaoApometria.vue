@@ -337,11 +337,22 @@ export default {
         openModalCancelamento(id) {
             this.dadosCancelamento = {}
             this.dadosCancelamento.id = id
-            this.dadosCancelamento.status = 'Cancelado'
+            this.dadosCancelamento.status = '0'
         },
-        cancelar() {
-            this.cancelarAtendimento(this.dadosCancelamento)
+        cancelar() {          
+
+            var acoes = {'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro' : "Cancelou atendimento",
+                'id_atualizado' : ""
+                }
+
+                var dados = {}
+                dados.acoes = acoes
+                dados.cancelamento = this.dadosCancelamento
+
+            this.cancelarAtendimento(dados)
             this.dadosCancelamento = {}
+
 
             this.removerItemlista(this.dadosCancelamento.id)
             this.getDadosAtendimento()

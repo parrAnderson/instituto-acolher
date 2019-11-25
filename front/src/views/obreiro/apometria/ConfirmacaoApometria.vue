@@ -4,71 +4,71 @@
         <template v-slot:mainpage>
             <TabsApometria></TabsApometria>
 
-                <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Cancelar Atendimento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Motivo do cancelamento" v-model="dadosCancelamento.status_motivo">
+            <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cancelar Atendimento</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Motivo do cancelamento" v-model="dadosCancelamento.status_motivo">
+                                    </div>
+                                </div>
                             </div>
+                            <div class="row row-space">
+                                <div class="col">
+                                    <div class="btn btn-primary" data-dismiss="modal">VOLTAR</div>
+                                </div>
+                                <div class="col text-right">
+                                    <div class="btn btn-danger" data-dismiss="modal" @click="cancelar()">FAZER CANCELAMENTO</div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="row row-space">
-                        <div class="col">
-                            <div class="btn btn-primary" data-dismiss="modal">VOLTAR</div>
+                </div>
+            </div>
+
+            <!-- MODAL MOTIVO  -->
+            <div class="modal fade" id="modalMotivo" tabindex="-1" role="dialog" aria-labelledby="modalMotivo" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Motivos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="col text-right">
-                            <div class="btn btn-danger" data-dismiss="modal" @click="cancelar()">FAZER CANCELAMENTO</div>
+                        <div class="modal-body">
+                            {{modalMotivo}}
+
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    </div>
+            <!-- MODAL Tratamento  -->
+            <div class="modal fade" id="modalTratamento" tabindex="-1" role="dialog" aria-labelledby="modalTratamento" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Tratamento</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            {{modalTratamento}}
 
-    <!-- MODAL MOTIVO  -->
-    <div class="modal fade" id="modalMotivo" tabindex="-1" role="dialog" aria-labelledby="modalMotivo" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Motivos</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{modalMotivo}}
-
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- MODAL Tratamento  -->
-    <div class="modal fade" id="modalTratamento" tabindex="-1" role="dialog" aria-labelledby="modalTratamento" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tratamento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{modalTratamento}}
-
-                </div>
-            </div>
-        </div>
-    </div>
 
             <div class="row row-space">
                 <div class="col-12">
@@ -123,63 +123,62 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                            <tr v-for="atendimento in programacao">
-                                <td v-if="atendimento.user[0].type == 'frequentador'">
-                                    {{atendimento.user[0].type | limitType}} <br>
-                                    {{atendimento.user[0].id}}
+                                    <tr v-for="atendimento in programacao">
+                                        <td v-if="atendimento.user[0].type == 'frequentador'">
+                                            {{atendimento.user[0].type | limitType}} <br>
+                                            {{atendimento.user[0].id}}
 
-                                </td>
-                                <td v-else>
-                                    {{atendimento.user[0].type | limitType}} <br>
-                                    {{atendimento.user[0].id}}
-                                </td>
-                                <td>
-                                    {{atendimento.user[0].name}}
-                                </td>
-                                <td>
-                                    {{atendimento.user[0].email}}
-                                </td>
-                                <td>
-                                    {{atendimento.user[0].celular}}
-                                </td>
-                                <td>
-                                    {{atendimento.user[0].data_nascimento | idadeComMeses}}
+                                        </td>
+                                        <td v-else>
+                                            {{atendimento.user[0].type | limitType}} <br>
+                                            {{atendimento.user[0].id}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].name}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].email}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].celular}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].data_nascimento | idadeComMeses}}
 
-                                </td>
-                                <td>
-                                    {{atendimento.drogas}}
-                                </td>
-                                <td @click="modalTratamento = atendimento.tratamento" data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
-                                    {{atendimento.tratamento | textLimitTd}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.drogas}}
+                                        </td>
+                                        <td @click="modalTratamento = atendimento.tratamento" data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
+                                            {{atendimento.tratamento | textLimitTd}}
 
-                                </td>
-                                <td @click="modalMotivo = atendimento.motivo" data-toggle="modal" data-target="#modalMotivo" class="btn-pointer">
-                                    {{atendimento.motivo | textLimitTd}}
+                                        </td>
+                                        <td @click="modalMotivo = atendimento.motivo" data-toggle="modal" data-target="#modalMotivo" class="btn-pointer">
+                                            {{atendimento.motivo | textLimitTd}}
 
-                                <td>
-                                    {{atendimento.data_solicitacao | date}}
-                                </td>
-                                <td>
-                                {{atendimento.apometria[0].data_agendada | date}}
+                                        <td>
+                                            {{atendimento.data_solicitacao | date}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.apometria[0].data_agendada | date}}
 
-                                </td>
-                                <td>
-                                    <div class="btn btn-warning btn-sm">FICHA</div>
-                                </td>
-                                <td>
-                                    <div class="btn btn-outline-primary btn-sm btn-100w">Confirmar</div>
-                                    <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w" data-toggle="modal" data-target="#modalCancelamento" @click="openModalCancelamento(atendimento.id)">Cancelar</div>
-                                </td>
-                            </tr>
+                                        </td>
+                                        <td>
+                                            <div class="btn btn-warning btn-sm">FICHA</div>
+                                        </td>
+                                        <td>
+                                            <div class="btn btn-outline-primary btn-sm btn-100w" @click="confirmar(atendimento.apometria[0].id, atendimento.user_id)">Confirmar</div>
+                                            <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w" data-toggle="modal" data-target="#modalCancelamento" @click="openModalCancelamento(atendimento.apometria[0].id, atendimento.user_id)">Cancelar</div>
+                                        </td>
+                                    </tr>
 
-                        </tbody>
+                                </tbody>
                             </table>
 
                         </div>
                     </div>
                 </div>
             </div>
-            
 
         </template>
     </Header>
@@ -201,13 +200,13 @@ export default {
     name: "ConfirmacaoApometria",
     data() {
         return {
-          modalTratamento: "",
+            modalTratamento: "",
             modalMotivo: "",
-            dadosAtendimento: {},
-            lista: {},
+
             showModal: false,
             dadosCancelamento: {},
-            }
+            dadosConfirmar: {},
+        }
     },
     components: {
         Header,
@@ -215,16 +214,14 @@ export default {
     },
     filters: {
         idadeComMeses(value) {
-           
 
             if (value) {
 
-            let data = moment(new Date(value));
-              
+                let data = moment(new Date(value));
+
                 var b = moment(data)
                 var a = moment(new Date())
-                
-              
+
                 var years = a.diff(b, 'year');
                 b.add(years, 'years');
 
@@ -279,14 +276,13 @@ export default {
             dataCkeckIn: state => state.AtendimentoApometria,
             programacao: state => state.AtendimentoApometria.programacao,
             dataAgendada: state => state.AtendimentoApometria.dataAgendada,
-            listaAtendimentosAgendados: state => state.AtendimentoApometria.listaAtendimentosAgendados,
-            listaGerada: state => state.AtendimentoApometria.listaGerada,
+
             cancelado: state => state.AtendimentoApometria.cancelado,
 
         }),
     },
     methods: {
-        getDadosAtendimento(){
+        getDadosAtendimento() {
             this.allAtendimentoApometria(2)
         },
         ...mapActions([
@@ -294,36 +290,55 @@ export default {
             'changeListaAtendimentosAgendados',
             'changeShowModalDataPicker',
             'gerarListaDeAtendimentos',
-            'cancelarAtendimento',
+            'atualizarAtendimentoApometria',
         ]),
-        addItemLista(id, data) {
 
-            this.lista[id] = data
-            this.changeListaAtendimentosAgendados(this.lista)
-            this.getDadosAtendimento()
-
-        },
         modalDataPicker(atendimento) {
             this.dadosAtendimento = atendimento
             this.changeShowModalDataPicker()
         },
-        gerarLista() {
-            this.gerarListaDeAtendimentos(this.lista)
-        },
-        removerItemlista(idLista) {
-            delete this.lista[idLista]
+        confirmar(id_atendimento_apometria, user_id) {
+            this.dadosConfirmar = {}
+            this.dadosConfirmar.id = id_atendimento_apometria
+            this.dadosConfirmar.status = 3
+
+            var acoes = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro': "Confirmou o atendimento",
+                'id_atualizado': user_id
+            }
+
+            var dados = {}
+            dados.acoes = acoes
+            dados.data = this.dadosConfirmar
+
+            this.atualizarAtendimentoApometria(dados)
+            this.dadosConfirmar = {}
+
             this.getDadosAtendimento()
         },
-        openModalCancelamento(id) {
+
+        openModalCancelamento(id_atendimento_apometria, user_id) {
             this.dadosCancelamento = {}
-            this.dadosCancelamento.id = id
-            this.dadosCancelamento.status = 'Cancelado'
+            this.dadosCancelamento.id = id_atendimento_apometria
+            this.dadosCancelamento.status = '1'
+            this.dadosCancelamento.id_user_acao = user_id
         },
         cancelar() {
-            this.cancelarAtendimento(this.dadosCancelamento)
+
+            var acoes = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro': "Cancelou atendimento que estava confirmado",
+                'id_atualizado': this.dadosCancelamento.id_user_acao
+            }
+
+            var dados = {}
+            dados.acoes = acoes
+            dados.data = this.dadosCancelamento
+
+            this.atualizarAtendimentoApometria(dados)
             this.dadosCancelamento = {}
 
-            this.removerItemlista(this.dadosCancelamento.id)
             this.getDadosAtendimento()
 
         }
