@@ -100,12 +100,12 @@
                                 <tbody>
                                     <tr v-for="atendimento in programacao">
                                         <td v-if="atendimento.user[0].type == 'frequentador'">
-                                            {{atendimento.user[0].type | limitType}} <br>
+                                            {{atendimento.user[0].type | limitType}} -
                                             {{atendimento.user[0].id}}
 
                                         </td>
                                         <td v-else>
-                                            {{atendimento.user[0].type | limitType}} <br>
+                                            {{atendimento.user[0].type | limitType}} -
                                             {{atendimento.user[0].id}}
                                         </td>
                                         <td>
@@ -117,9 +117,12 @@
                                         <td>
                                             {{atendimento.user[0].celular}}
                                         </td>
-                                        <td>
+                                        <td v-if="!atendimento.apometria[0].horario_de_chegada">
                                             <div class="btn btn-primary btn-sm" @click="chegou(atendimento.apometria[0].id, atendimento.user_id)">Chegou</div>
                                         </td>
+                                        <td v-else>
+                                            {{atendimento.apometria[0].horario_de_chegada}}
+                                        </td>   
                                         <td>
                                             <div class="btn btn-warning btn-sm">FICHA</div>
                                         </td>
@@ -167,7 +170,7 @@ export default {
         horarioDeChegada:"",
         showModal: false,
             dadosCancelamento: {},
-            dadosConfirmar: {},
+            dadosChegou: {},
         }
     },
     components: {
@@ -245,19 +248,18 @@ export default {
         }),
     },
     methods:{
-        chegou(){
-            
-            
-        },
+        
         getDadosAtendimento() {
-            this.allAtendimentoApometria(3)
+            var data = '2019-11-25'
+            this.getListaDeAtendimento(data)
         },
         ...mapActions([
-            'allAtendimentoApometria',
+            // 'allAtendimentoApometria',
             'changeListaAtendimentosAgendados',
             'changeShowModalDataPicker',
             'gerarListaDeAtendimentos',
             'atualizarAtendimentoApometria',
+            'getListaDeAtendimento',
         ]),
 
         modalDataPicker(atendimento) {
@@ -276,9 +278,10 @@ export default {
             this.horarioDeChegada = hora + ':' + min + ':' + seg;
 
 
-            this.dadosConfirmar = {}
-            this.dadosConfirmar.id = id_atendimento_apometria
-            this.dadosConfirmar.status = '4'
+            this.dadosChegou = {}
+            this.dadosChegou.id = id_atendimento_apometria
+            this.dadosChegou.status = '4'
+            this.dadosChegou.horario_de_chegada = this.horarioDeChegada
             //colocar para puxar a relaçâo de atendidos do dia se for => 4
 
             var acoes = {
@@ -289,7 +292,7 @@ export default {
 
             var dados = {}
             dados.acoes = acoes
-            dados.data = this.dadosConfirmar
+            dados.data = this.dadosChegou
 
             this.atualizarAtendimentoApometria(dados)
             this.dadosConfirmar = {}

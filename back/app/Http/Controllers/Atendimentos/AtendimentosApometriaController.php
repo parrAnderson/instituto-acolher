@@ -34,6 +34,31 @@ class AtendimentosApometriaController extends Controller
         ]);
     }
 
+    public function relacaoDeAtendidos($data)
+    {
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        ->where('status', '>=', 3)
+        ->get();
+
+        foreach($this->atendimentos as $atendimento){           
+            $user = $atendimento->User()->get();
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)
+            
+            ->orderBy('id', 'desc')
+            ->take(1)
+            ->get();
+
+            $atendimento->apometria = $atendimentosApometria;
+            $atendimento->user  = $user; 
+        }
+
+        return response()->json([
+            'data' => $this->atendimentos,              
+        ]);
+    }
+
     public function gerarListaParaAtendimento(Request $request){
         $this->atendimentosApometria = new AtendimentosApometria(); 
         try{

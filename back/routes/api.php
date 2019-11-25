@@ -40,6 +40,7 @@ Route::group([
 ], function () {
     // Route::post('store', 'Atendimentos\AtendimentosController@store');
     Route::get('index/{status}', 'Atendimentos\AtendimentosApometriaController@index');
+    Route::get('relacaodeatendidos/{data}', 'Atendimentos\AtendimentosApometriaController@relacaoDeAtendidos');
     Route::get('confirmacao', 'Atendimentos\AtendimentosApometriaController@confirmacao');
     Route::post('store', 'Atendimentos\AtendimentosApometriaController@store');
     Route::post('gerarlistaparaatendimento', 'Atendimentos\AtendimentosApometriaController@gerarListaParaAtendimento');

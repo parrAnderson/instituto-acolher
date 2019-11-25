@@ -33,6 +33,22 @@ export default {
         
     },
     actions: {  
+        getListaDeAtendimento({commit}, data){
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL
+            
+            axios({
+                method: 'get',
+                url: urlApi + 'atendimentosapometria/relacaodeatendidos/' + data,               
+            })
+            .then(response => {
+                commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error.response);
+            }); 
+        },
+
         atualizarAtendimentoApometria(context, dados){
             var acoes = dados.acoes
             var data = dados.data
