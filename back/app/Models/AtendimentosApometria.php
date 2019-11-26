@@ -12,6 +12,11 @@ class AtendimentosApometria extends Model
         'data_agendada',
         'status_motivo',
         'horario_de_chegada',
+        'rodada',
+        'maca',
+        'casa',
+        'atendimento_especial',
+        'atendimento_prioritario'
     ];
 
     public function Atendimentos(){

@@ -2,26 +2,21 @@
 <div>
     <Header>
         <template v-slot:mainpage>
-            <TabsApometria></TabsApometria>
+            <div class="no-print">
+<TabsApometria></TabsApometria>
+            </div>
 
-            <!-- LISTA DE PRESENÇA -->
-            <div class="modal fade" id="listaDePresenca" tabindex="-1" role="dialog" aria-labelledby="listaDePresencaLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data de Atendimento</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <listaDePresenca/>
-                        </div>
+            <div class="print">
+                <div class="row justify-content-center">
+                    <div class="col-10 text-right text-danger">
+                        {{getData | date}}
                     </div>
                 </div>
+                <listaDePresenca :atendidos="programacao"/>
             </div>
             
-            <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
+            <div class="no-print">
+                <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -62,7 +57,7 @@
             <div class="row row-space">
                 <div class="col-12">
                     <span class="text-danger text-bold">
-                        DATA: 10/06/2019
+                        DATA: <input type="date" v-model="getData">
                     </span>
                 </div>
             </div>
@@ -138,12 +133,13 @@
             </div>
             <div class="row">
                 <div class="col-12 text-right">
-                    <div class="btn btn-sm btn-danger" data-toggle="modal" data-target="#listaDePresenca">
+                    <div class="btn btn-sm btn-danger" @click="imprimir()">
                         <span class="text-bold">
                         IMPRIMIR LISTA DE PRESENÇA PARA ASSINATURA
                     </span>
                     </div>
                 </div>
+            </div>
             </div>
 
         </template>
@@ -171,6 +167,7 @@ export default {
         showModal: false,
             dadosCancelamento: {},
             dadosChegou: {},
+            getData: "",
         }
     },
     components: {
@@ -235,7 +232,13 @@ export default {
 
     },
     beforeMount() {
-        this.getDadosAtendimento()
+        var data = new Date()
+            var dia     = data.getDate();
+            var mes     = data.getMonth() + 1 ;
+            var ano    = data.getFullYear()
+
+            this.getData = ano + '-' + mes + '-' + dia;
+        // this.getDadosAtendimento()
     },
      computed: {
         ...mapState({
@@ -248,10 +251,11 @@ export default {
         }),
     },
     methods:{
-        
+        imprimir(){
+            window.print()
+        },
         getDadosAtendimento() {
-            var data = '2019-11-25'
-            this.getListaDeAtendimento(data)
+            this.getListaDeAtendimento(this.getData)
         },
         ...mapActions([
             // 'allAtendimentoApometria',
@@ -354,6 +358,9 @@ export default {
             },
             deep: true
         },
+        getData(){
+            this.getDadosAtendimento()            
+        }
 
     }
 }
@@ -447,4 +454,17 @@ export default {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
+.print{
+    display:none;
+}
+@media print {
+    .print{
+        display:block
+    }
+    .no-print{
+        display:none
+    }
+   
+}
+
 </style>

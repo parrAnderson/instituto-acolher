@@ -7,6 +7,7 @@ export default {
         showModalDataPicker: false,
         listaGerada:{},
         cancelado:{},
+        rodadas_macas_disponiveis:{},
         
     }, 
     mutations: {        
@@ -27,13 +28,58 @@ export default {
         },
         ATENDIMENTO_ATUALIZADO(state, data){
             state.cancelado = data
-        }   
+        },
+        ENDERECOS_REPETIDOS(state, data) {
+            state.enderecos_repetidos = data
+        } ,
+        RODADAS_MACAS_DISPONIVEIS(state, data){
+            state.rodadas_macas_disponiveis = data
+        },
+        REMOVER_RODADAS_MACAS(state, data){
+            state.rodadas_macas_disponiveis = data
+        },
+        ADICIONAR_RODADAS_MACAS(state, data){
+            state.rodadas_macas_disponiveis = data
+        }
             
         
         
     },
-    actions: {  
+    actions: {
+        adicionar_rodadas_macas(context, dados){
+            var rodadasMacas = context.state.rodadas_macas_disponiveis
+            
+            rodadasMacas[dados.rodada][dados.maca] = dados.maca
+
+            context.commit('ADICIONAR_RODADAS_MACAS', rodadasMacas)
+        },
+        remover_rodadas_macas(context, dados){
+            var rodadasMacas = context.state.rodadas_macas_disponiveis
+
+            rodadasMacas[dados.rodada][dados.maca] = ""
+
+            context.commit('REMOVER_RODADAS_MACAS', rodadasMacas)
+        },
+        getMacasDisponiveis({commit}){
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL
+            
+            axios({
+                method: 'get',
+                url: urlApi + 'atendimentosapometria/macasrodadas',               
+            })
+            .then(response => {
+                commit('RODADAS_MACAS_DISPONIVEIS', response.data.data)     
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error.response);
+            }); 
+        },
+        setEnderecosRepetidos({commit}, data){
+            commit('ENDERECOS_REPETIDOS', data)
+        }  ,
         getListaDeAtendimento({commit}, data){
+            console.log(data)
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({

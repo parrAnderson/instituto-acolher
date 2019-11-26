@@ -6,9 +6,57 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Atendimentos;
 use App\Models\AtendimentosApometria;
+use DateTime;
 
 class AtendimentosApometriaController extends Controller
 {    
+    public function macasRodadas(){
+        
+        $rodadas = [];
+        $macas = [];
+
+        for($count = 0; $count < 10; $count++ ) {
+            $macas[$count + 1] = $count  + 1;
+            $rodadas[$count + 1] = $count  + 1;
+        }
+        for($count = 0; $count < 10; $count++ ) {            
+                $rodadas[$count + 1] =  $macas;            
+        }      
+        foreach($rodadas as $key => $rodada){
+            foreach($rodada as $maca){
+                
+                $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        ->where('status', '>=', 4)
+        ->get();
+
+        foreach($this->atendimentos as $atendimento){           
+            $user = $atendimento->User()->get();
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = 
+            $this->atendimentosApometria
+            ->where('atendimento_id', $atendimento->id)
+            ->where('rodada', $key)
+            ->where('maca', $maca)
+            ->count();
+
+            if($atendimentosApometria >= 1){
+                $rodadas[$key][$maca] = "";
+            }
+        }      
+        
+             
+        }
+        
+            }
+    return response()->json([
+        'data' => $rodadas,              
+    ]);
+            
+       
+        
+        
+    }
     public function index($status)
     {
         $this->atendimentos = new Atendimentos();
@@ -26,6 +74,8 @@ class AtendimentosApometriaController extends Controller
             ->get();
 
             $atendimento->apometria = $atendimentosApometria;
+
+            
             $atendimento->user  = $user; 
         }
 
@@ -38,7 +88,7 @@ class AtendimentosApometriaController extends Controller
     {
         $this->atendimentos = new Atendimentos();
         $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
-        ->where('status', '>=', 3)
+        ->where('status', '>=', 3)        
         ->get();
 
         foreach($this->atendimentos as $atendimento){           
@@ -51,8 +101,27 @@ class AtendimentosApometriaController extends Controller
             ->get();
 
             $atendimento->apometria = $atendimentosApometria;
+
+            
             $atendimento->user  = $user; 
+
+            foreach($atendimento->user as $usuario){
+               
+                    $date = new DateTime($usuario->data_nascimento);
+                    $interval = $date->diff( new DateTime( date('Y-m-d') ) );
+                    $interval = $interval->format('%Y');
+                
+                    $atendimento->idade = $interval;
+
+                
+            }
+
+            foreach($atendimentosApometria as $apometria){
+                $atendimento->data_agendada = $apometria->data_agendada;
+            }
         }
+
+        $this->atendimentos = $this->atendimentos->where('data_agendada', $data);
 
         return response()->json([
             'data' => $this->atendimentos,              
