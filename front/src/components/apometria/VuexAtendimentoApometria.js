@@ -50,12 +50,13 @@ export default {
             var data = dados.data  
             var status = dados.status
             var maca = dados.maca
+            var tipostatus = dados.tipostatus
 
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({
                 method: 'get',
-                url: urlApi + 'atendimentosapometria/atendimentocomdatastatusmaca/' + data + '/' + status + '/' + maca,               
+                url: urlApi + 'atendimentosapometria/atendimentocomdatastatusmaca/' + data + '/' + status + '/' + maca + '/' + tipostatus,               
             })
             .then(response => {
                 commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     
@@ -157,7 +158,8 @@ export default {
                 )
                 
             .then(response => {
-                context.commit('ATENDIMENTO_ATUALIZADO', response.data)     
+                context.commit('ATENDIMENTO_ATUALIZADO', response.data) 
+                console.log(response.data)    
                            
             context.dispatch("AcaoObreiro",acoes)
             })                           

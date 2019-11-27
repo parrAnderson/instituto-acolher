@@ -4,7 +4,7 @@
         <template v-slot:mainpage>
             <TabsApometria></TabsApometria>
 
-      <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
+            <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -77,12 +77,12 @@
             </div>
             <div class="row">
                 <div class="row row-space">
-                <div class="col-12">
-                    <span class="text-danger text-bold">
-                        DATA: <input type="date" v-model="getData">
-                    </span>
+                    <div class="col-12">
+                        <span class="text-danger text-bold">
+                            DATA: <input type="date" v-model="getData">
+                        </span>
+                    </div>
                 </div>
-            </div>
                 <div class="col text-right">
                     <select v-model="getMaca">
                         <option value="">Maca</option>
@@ -107,7 +107,7 @@
                             <table class="table table table-head-fixed table-striped table-sm table-bordered table table-condensed">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th>
                                             ID
                                         </th>
@@ -116,7 +116,7 @@
                                         </th>
                                         <th>
                                             GÊNERO
-                                        </th>                                        
+                                        </th>
                                         <th>
                                             IDADE
                                         </th>
@@ -162,62 +162,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            OBR <br>
-                                            154
-                                        </td>
-                                        <td>
-                                            JOSE DA SILVA
-                                        </td>
-                                        <td>
-                                            MASCULINO
-                                        </td>                                       
-                                        <td>
-                                            15 anos
-                                            e 7 meses
-                                        </td>
-                                        <td>
-                                            CASADO
-                                        </td>
-                                        <td>
-                                            KARDECISTA
-                                        </td>
-                                        <td>
-                                            RUA DO LOGRADOURO, 27 – BLOCO 4 – AP. 24 – CENTRO – CIDADE / SP
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>
-                                        <td>
-                                            0
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>                                        
-                                        <td data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
-                                       
-
-                                        </td>
-                                        <td data-toggle="modal" data-target="#modalMotivo" class="btn-pointer">
-                                          
-
-                                        <td>
-                                            NÃO
-                                        </td>                                        
-                                        <td>
-                                            <div class="btn btn-warning btn-sm">FICHA</div>
-                                        </td>                                        
-                                    </tr> -->
+                                   
                                     <tr v-for="atendimento in programacao">
                                         <td v-if="atendimento.user[0].type == 'frequentador'">
                                             {{atendimento.user[0].type | limitType}} <br>
@@ -234,7 +179,7 @@
                                         <td>
                                             {{atendimento.user[0].genero}}
                                         </td>
-                                        
+
                                         <td>
                                             {{atendimento.user[0].data_nascimento | idadeComMeses}}
 
@@ -247,7 +192,7 @@
                                         </td>
                                         <td>
                                             {{atendimento.user[0].logradouro }}, {{atendimento.user[0].numero}} -
-                                                {{atendimento.user[0].municipio}} - {{atendimento.user[0].estado}}
+                                            {{atendimento.user[0].municipio}} - {{atendimento.user[0].estado}}
                                         </td>
                                         <td>
                                             {{atendimento.user[0].possui_filhos}}
@@ -277,14 +222,13 @@
                                         <td>
                                             <p v-if="atendimento.apometria[0].atendimento_especial == true">Especial</p>
                                             <p v-if="atendimento.apometria[0].atendimento_prioritario == true">Prioritário</p>
-                                            
-                                            
+
                                         </td>
-                                        
+
                                         <td>
                                             <div class="btn btn-warning btn-sm">FICHA</div>
                                         </td>
-                                        
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -293,7 +237,6 @@
                     </div>
                 </div>
             </div>
-            
 
         </template>
     </Header>
@@ -312,7 +255,7 @@ import {
 
 export default {
     name: "LeituraDasFichas",
-        data() {
+    data() {
         return {
             modalTratamento: "",
             modalMotivo: "",
@@ -386,12 +329,12 @@ export default {
     },
     beforeMount() {
         var data = new Date()
-            var dia     = data.getDate();
-            var mes     = data.getMonth() + 1 ;
-            var ano    = data.getFullYear()
+        var dia = data.getDate();
+        var mes = data.getMonth() + 1;
+        var ano = data.getFullYear()
 
-            this.getData = ano + '-' + mes + '-' + dia;
-    this.getMaca = 1
+        this.getData = ano + '-' + mes + '-' + dia;
+        this.getMaca = 1
         this.getDadosAtendimento()
     },
     computed: {
@@ -408,9 +351,10 @@ export default {
         getDadosAtendimento() {
             var dados = {}
             dados.status = 6
+            dados.tipostatus = '>='
             dados.maca = this.getMaca
             dados.data = this.getData
-            console.log(dados)
+            
             this.getListaLeituraDasFichas(dados)
         },
         ...mapActions([
@@ -473,11 +417,11 @@ export default {
 
     },
     watch: {
-        getMaca(){
-            this.getDadosAtendimento()           
+        getMaca() {
+            this.getDadosAtendimento()
         },
-        getData(){
-            this.getDadosAtendimento()           
+        getData() {
+            this.getDadosAtendimento()
         },
 
         cancelado: {

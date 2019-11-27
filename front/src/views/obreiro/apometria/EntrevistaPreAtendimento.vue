@@ -206,7 +206,7 @@ export default {
 
             var acoes = {
                 'id_obreiro': this.$store.state.Auth.userId,
-                'acao_obreiro': "Confirmou o atendimento",
+                'acao_obreiro': "Confirmou em Pré Atendimento",
                 'id_atualizado': user_id
             }
 
