@@ -46,6 +46,57 @@ export default {
         
     },
     actions: {
+        getListaLeituraDasFichas({commit}, dados){   
+            var data = dados.data  
+            var status = dados.status
+            var maca = dados.maca
+
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL
+            
+            axios({
+                method: 'get',
+                url: urlApi + 'atendimentosapometria/atendimentocomdatastatusmaca/' + data + '/' + status + '/' + maca,               
+            })
+            .then(response => {
+                commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error.response);
+            }); 
+        },
+
+        getListaDeAtendimentoRodadasMacas({commit}, data){            
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL
+            
+            axios({
+                method: 'get',
+                url: urlApi + 'atendimentosapometria/atendimentocomdatastatus/' + data + '/' + 4,               
+            })
+            .then(response => {
+                commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error.response);
+            }); 
+        },
+        allAtendimentoApometria({commit}, id){
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL
+            
+            axios({
+                method: 'get',
+                url: urlApi + 'atendimentosapometria/index/' + id,               
+            })
+            .then(response => {
+                commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error.response);
+            }); 
+        },
+
         adicionar_rodadas_macas(context, dados){
             var rodadasMacas = context.state.rodadas_macas_disponiveis
             
@@ -60,12 +111,12 @@ export default {
 
             context.commit('REMOVER_RODADAS_MACAS', rodadasMacas)
         },
-        getMacasDisponiveis({commit}){
+        getMacasDisponiveis({commit}, data){
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({
                 method: 'get',
-                url: urlApi + 'atendimentosapometria/macasrodadas',               
+                url: urlApi + 'atendimentosapometria/macasrodadas/' + data,               
             })
             .then(response => {
                 commit('RODADAS_MACAS_DISPONIVEIS', response.data.data)     
@@ -145,20 +196,6 @@ export default {
             commit('DATA_AGENDADA', data)           
                         
         },
-        allAtendimentoApometria({commit}, id){
-            let urlApi = process.env.VUE_APP_LARAVEL_API_URL
-            
-            axios({
-                method: 'get',
-                url: urlApi + 'atendimentosapometria/index/' + id,               
-            })
-            .then(response => {
-                commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     
-                      
-            })                           
-            .catch(function (error) {
-                console.log(error.response);
-            }); 
-        }
+        
     }
 }

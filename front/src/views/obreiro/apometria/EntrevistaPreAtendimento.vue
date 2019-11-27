@@ -4,55 +4,7 @@
         <template v-slot:mainpage>
             <TabsApometria></TabsApometria>
 
-            <!-- MODAL AGENDAMENTO -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data de Atendimento</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- <edit-atendimento></!--> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- MODAL MOTIVO  -->
-            <div class="modal fade" id="modalMotivo" tabindex="-1" role="dialog" aria-labelledby="modalMotivo" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Motivos</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus.
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- MODAL Tratamento  -->
-            <div class="modal fade" id="modalTratamento" tabindex="-1" role="dialog" aria-labelledby="modalTratamento" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tratamento</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO.
-                        </div>
-                    </div>
-                </div>
-            </div>
+   
 
             <div class="row row-space">
                 <div class="col-12">
@@ -90,28 +42,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            OBR <br>
-                                            154
-                                        </td>
-                                        <td>
-                                            JOSE DA SILVA
-                                        </td>
-                                        <td>
-                                            teste@gmail.com.br
-                                        </td>
-                                        <td>
-                                            11 949439589
-                                        </td>                                       
-                                        
-                                        <td>
-                                            <div class="btn btn-warning btn-sm">FICHA</div>
-                                        </td>     
-                                        <td>
-                                            <input type="checkbox" class="form-control">
-                                        </td>                                   
-                                    </tr>
+                                   
 
                                     <tr v-for="atendimento in programacao">
                                         <td v-if="atendimento.user[0].type == 'frequentador'">
@@ -137,7 +68,7 @@
                                             <div class="btn btn-warning btn-sm">FICHA</div>
                                         </td>
                                         <td>
-                                            <div class="btn btn-outline-primary btn-sm btn-100w" @click="confirmar(atendimento.apometria[0].id, atendimento.user_id)">Confirmar</div>
+                                            <div class="btn btn-outline-primary btn-sm " @click="confirmar(atendimento.apometria[0].id, atendimento.user_id)">Confirmar</div>
                                         </td>
                                     </tr>
                                     
@@ -271,7 +202,7 @@ export default {
         confirmar(id_atendimento_apometria, user_id) {
             this.dadosConfirmar = {}
             this.dadosConfirmar.id = id_atendimento_apometria
-            this.dadosConfirmar.status = 6
+            this.dadosConfirmar.status = 7
 
             var acoes = {
                 'id_obreiro': this.$store.state.Auth.userId,

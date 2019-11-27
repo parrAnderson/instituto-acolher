@@ -75,6 +75,13 @@
                     <h4 class="text-center">RODADAS E MACAS</h4>
                 </div>
             </div>
+            <div class="row row-space">
+                <div class="col-12">
+                    <span class="text-danger text-bold">
+                        DATA: <input type="date" v-model="getData">
+                    </span>
+                </div>
+            </div>
             <div class="row justify-content-center row-space">
                 <div class="col-12">
                     <div class="card">
@@ -128,7 +135,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr v-for="atendimento in programacao" v-bind:class="classCor[atendimento.user[0].logradouro + atendimento.user[0].numero]">
+                                    <tr  v-for="atendimento in programacao" v-bind:class="classCor[atendimento.user[0].logradouro + atendimento.user[0].numero]" v-if="atendimento.user">
                                         <td v-if="atendimento.user[0].type == 'frequentador'">
                                             {{atendimento.user[0].type | limitType}} <br>
                                             {{atendimento.user[0].id}}
@@ -283,6 +290,8 @@ export default {
             casaBtn: {},
             atendimentoPrioritario: {},
             atendimentoEspecial: {},
+
+            getData: "",
         }
     },
     components: {
@@ -349,16 +358,21 @@ export default {
 
     beforeMount() {
 
+        var data = new Date()
+            var dia     = data.getDate();
+            var mes     = data.getMonth() + 1 ;
+            var ano    = data.getFullYear()
+
+            this.getData = ano + '-' + mes + '-' + dia;
+
         this.listaDeEnderecos = {}
         this.listaEnderecosRepetidos = {}
         this.classCor = {}
         this.enderecosCor = {}
 
-        this.getMacasDisponiveis()
+        this.getMacasDisponiveis(this.getData)
 
         this.getDadosAtendimento()
-
-        //  this.enderecosRepetidosWatch = this.$store.state.AtendimentosApometria.enderecos_repetidos
 
     },
     computed: {
@@ -441,10 +455,12 @@ export default {
             this.listaEnderecosRepetidos = {}
             this.ListaDeEnderecos = {}
             this.classCor = {}
-            this.allAtendimentoApometria(4)
+
+            
+            this.getListaDeAtendimentoRodadasMacas(this.getData)
         },
         ...mapActions([
-            'allAtendimentoApometria',
+            'getListaDeAtendimentoRodadasMacas',
             'changeListaAtendimentosAgendados',
             'changeShowModalDataPicker',
             'gerarListaDeAtendimentos',
@@ -453,6 +469,7 @@ export default {
             'getMacasDisponiveis',
             'remover_rodadas_macas',
             'adicionar_rodadas_macas',
+            // 'allAtendimentoApometria',
         ]),
 
         modalDataPicker(atendimento) {
@@ -514,13 +531,20 @@ export default {
 
     },
     watch: {
+        getData(){
+            this.getDadosAtendimento() 
+            this.getMacasDisponiveis(this.getData)           
+        },
         programacao: {
             handler: function (val, oldVal) {
-                // var atendimento = {}
-                val.forEach((index) => {
+
+                    this.listaDeEnderecos = {}
+                    val.forEach((index) => {
 
                     this.adicionarEnderecoArray(index.user[0].logradouro, index.user[0].numero, index.id)
                 });
+                
+              
             },
 
             deep: true

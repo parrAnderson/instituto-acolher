@@ -10,7 +10,97 @@ use DateTime;
 
 class AtendimentosApometriaController extends Controller
 {    
-    public function macasRodadas(){
+    public function getAtendimentosApometriaComDataStatusMaca($data, $status, $maca)
+    {
+        
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        ->where('status', '>=', $status)        
+        ->get();
+
+        foreach($this->atendimentos as $atendimento){           
+            $user = $atendimento->User()->get();
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)            
+            ->orderBy('id', 'desc')
+            ->take(1)
+            ->get();
+
+            $atendimento->apometria = $atendimentosApometria;
+            $atendimento->user  = $user; 
+
+            foreach($atendimento->user as $usuario){               
+                    $date = new DateTime($usuario->data_nascimento);
+                    $interval = $date->diff( new DateTime( date('Y-m-d') ) );
+                    $interval = $interval->format('%Y');                
+                    $atendimento->idade = $interval;                
+            }
+
+            foreach($atendimentosApometria as $apometria){
+                $atendimento->data_agendada = $apometria->data_agendada;
+                $atendimento->maca = $apometria->maca;
+            }
+        }
+        
+        $this->atendimentos = $this->atendimentos
+        ->where('data_agendada', $data)
+        ->where('maca', $maca);
+     
+        
+        $this->atendimentos = $this->atendimentos->sortBy('id')->values();
+
+        return response()->json([
+            'data' => $this->atendimentos,              
+        ]);
+    }
+
+    public function getAtendimentosApometriaComDataStatus($data, $status)
+    {
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        ->where('status', '=', $status)        
+        ->get();
+
+        foreach($this->atendimentos as $atendimento){           
+            $user = $atendimento->User()->get();
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)
+            
+            ->orderBy('id', 'desc')
+            ->take(1)
+            ->get();
+
+            $atendimento->apometria = $atendimentosApometria;
+
+            
+            $atendimento->user  = $user; 
+
+            foreach($atendimento->user as $usuario){
+               
+                    $date = new DateTime($usuario->data_nascimento);
+                    $interval = $date->diff( new DateTime( date('Y-m-d') ) );
+                    $interval = $interval->format('%Y');
+                
+                    $atendimento->idade = $interval;
+
+                
+            }
+
+            foreach($atendimentosApometria as $apometria){
+                $atendimento->data_agendada = $apometria->data_agendada;
+            }
+        }
+
+        $this->atendimentos = $this->atendimentos->where('data_agendada', $data);
+        $this->atendimentos = $this->atendimentos->sortBy('id')->values();
+
+        return response()->json([
+            'data' => $this->atendimentos,              
+        ]);
+    }
+
+
+    public function macasRodadas($data){
         
         $rodadas = [];
         $macas = [];
@@ -38,6 +128,7 @@ class AtendimentosApometriaController extends Controller
             ->where('atendimento_id', $atendimento->id)
             ->where('rodada', $key)
             ->where('maca', $maca)
+            ->where('data_agendada', $data)
             ->count();
 
             if($atendimentosApometria >= 1){
@@ -49,9 +140,9 @@ class AtendimentosApometriaController extends Controller
         }
         
             }
-    return response()->json([
-        'data' => $rodadas,              
-    ]);
+        return response()->json([
+            'data' => $rodadas,              
+        ]);
             
        
         

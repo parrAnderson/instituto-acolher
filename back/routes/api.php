@@ -45,7 +45,9 @@ Route::group([
     Route::post('store', 'Atendimentos\AtendimentosApometriaController@store');
     Route::post('gerarlistaparaatendimento', 'Atendimentos\AtendimentosApometriaController@gerarListaParaAtendimento');
     Route::put('/{id}', 'Atendimentos\AtendimentosApometriaController@update');
-    Route::get('macasrodadas', 'Atendimentos\AtendimentosApometriaController@macasRodadas');
+    Route::get('macasrodadas/{data}', 'Atendimentos\AtendimentosApometriaController@macasRodadas');
+    Route::get('atendimentocomdatastatus/{data}/{status}', 'Atendimentos\AtendimentosApometriaController@getAtendimentosApometriaComDataStatus');
+    Route::get('atendimentocomdatastatusmaca/{data}/{status}/{maca}', 'Atendimentos\AtendimentosApometriaController@getAtendimentosApometriaComDataStatusMaca');
 });
 
 
