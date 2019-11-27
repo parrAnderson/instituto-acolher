@@ -16,7 +16,27 @@ class AtendimentosApometria extends Model
         'maca',
         'casa',
         'atendimento_especial',
-        'atendimento_prioritario'
+        'atendimento_prioritario',
+
+        'recomendacao_curativos',
+            'recomendacao_retorno',
+            'recomendacao_dieta',
+            'recomendacao_dias_dieta',
+            'recomendacao_agua',
+            'recomendacao_repousar',
+            'recomendacao_peso',
+            'recomendacao_litros',
+            'recomendacao_carne',
+            'recomendacao_especializado',
+            'recomendacao_adotar',
+            'recomendacao_perdao',
+            'recomendacao_ler',
+            'recomendacao_familia',
+            'recomendacao_caridade',
+            'recomendacao_observacoes',
+
+            'encaminhamento_evangelho',
+            'encaminhamento_obreiros',
     ];
 
     public function Atendimentos(){

@@ -47,7 +47,7 @@ Route::group([
     Route::put('/{id}', 'Atendimentos\AtendimentosApometriaController@update');
     Route::get('macasrodadas/{data}', 'Atendimentos\AtendimentosApometriaController@macasRodadas');
     Route::get('atendimentocomdatastatus/{data}/{status}', 'Atendimentos\AtendimentosApometriaController@getAtendimentosApometriaComDataStatus');
-    Route::get('atendimentocomdatastatusmaca/{data}/{status}/{maca}', 'Atendimentos\AtendimentosApometriaController@getAtendimentosApometriaComDataStatusMaca');
+    Route::get('atendimentocomdatastatusmaca/{data}/{status}/{maca}/{tipostatus}', 'Atendimentos\AtendimentosApometriaController@getAtendimentosApometriaComDataStatusMaca');
 });
 
 

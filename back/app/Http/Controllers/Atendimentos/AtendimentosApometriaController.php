@@ -10,12 +10,12 @@ use DateTime;
 
 class AtendimentosApometriaController extends Controller
 {    
-    public function getAtendimentosApometriaComDataStatusMaca($data, $status, $maca)
+    public function getAtendimentosApometriaComDataStatusMaca($data, $status, $maca, $tipostatus)
     {
         
         $this->atendimentos = new Atendimentos();
         $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
-        ->where('status', '>=', $status)        
+        ->where('status', $tipostatus, $status)        
         ->get();
 
         foreach($this->atendimentos as $atendimento){           
@@ -330,6 +330,7 @@ class AtendimentosApometriaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         try{
         $this->atendimentosApometria = new AtendimentosApometria(); 
 
