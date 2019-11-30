@@ -227,7 +227,7 @@ import {
     mapActions,
     mapMutations,
 } from 'vuex'
-import DataPicker from '@/components/DataPicker'
+import DataPicker from '@/components/CalendarioApometria/DataPicker'
 export default {
     name: "ProgramacaoApometria",
 

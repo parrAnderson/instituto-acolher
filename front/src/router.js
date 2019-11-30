@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 // ROTAS ADMIN
 import GerenciarObreiros from './views/admin/GerenciarObreiros'
+import DatasDesativadasCalendarioApometria from './views/admin/DatasDesativadasCalendarioApometria'
 
 // ROTAS PUBLICAS
 import Home from './views/public/Home.vue'
@@ -34,7 +35,7 @@ import PosAtendimento from './views/obreiro/apometria/PosAtendimento'
 import EntrevistaDeEncerramento from './views/obreiro/apometria/EntrevistaDeEncerramento'
 
 // TEMPORARIO
-import DataPicker from './components/DataPicker'
+import DataPicker from './components/CalendarioApometria/DataPicker'
 
 // import { AclRule } from 'vue-acl'
 
@@ -164,10 +165,19 @@ export default new Router({
         rule: 'isAdmin'
       }      
     },
+    
     {
       path: '/admin/gerenciarobreiros',
       name: 'gerenciarobreiros',
       component: GerenciarObreiros,
+      meta: {
+        rule: 'isAdmin'
+      }      
+    },
+    {
+      path: '/admin/datasdesativadascalendarioapometria',
+      name: 'datasdesativadascalendarioapometria',
+      component: DatasDesativadasCalendarioApometria,
       meta: {
         rule: 'isAdmin'
       }      

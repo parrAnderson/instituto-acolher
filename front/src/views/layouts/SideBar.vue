@@ -43,7 +43,15 @@
                             <i class="nav-icon fas fa-users"></i>
                             <p>Gerenciar Obreiros</p>
                          </router-link>
-                    </li>   
+                    </li>  
+                    <li class="nav-item" v-if="$acl.check('isAdmin')">
+                        <router-link :to="{name:'datasdesativadascalendarioapometria'}" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>Desativar Datas Apometria</p>
+                         </router-link>
+                    </li>  
+
+                    
 
                     <li class="nav-header" v-if="$acl.check('isObreiro')">OBREIRO</li>
 

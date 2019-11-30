@@ -53,19 +53,34 @@ export default {
                 isDatePicker: true,
                 // isDateRange: false,                
                 disabledDayNames: ['Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-                disabledDates: ['18/11/2019', '27/12/2019'],
+                disabledDates: [],
                 monthNames: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
                 shortMonthNames: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
                 dayNames: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
             },
             dataSelectionada: "",
+            // DatasCanceladas: [],
         }
     },
     methods: {
-    
+        adicionarDataArray(val){
+            val = new Date(val)
+            console.log(val)
+            var valAno = val.getFullYear(val)
+            var valMes = val.getMonth() + 1
+            var valDia = val.getDate() + 1
+
+           
+
+
+            var dataCompleta = valAno + '-' + valMes + '-' + valDia
+            this.calendarConfigs.disabledDates.push(dataCompleta);
+            
+        },
         ...mapActions([
             'dataAgendada',
-            'changeShowModalDataPicker'
+            'changeShowModalDataPicker',
+            'getDataCanceladaCalendarioApometria',
         ]),
         MudarDataAgendamento() {
             let agendamento = {}
@@ -77,11 +92,14 @@ export default {
     },
     beforeMount() {
         this.dataSelectionada = this.calendarData.selectedDate
+        this.getDataCanceladaCalendarioApometria()
 
     },
     computed: {        
         ...mapState({
-            showModalDataPicker : state => state.AtendimentoApometria.showModalDataPicker
+            showModalDataPicker : state => state.AtendimentoApometria.showModalDataPicker,
+            datas_canceladas_apometria: state => state.CalendarioApometria.datas_canceladas_apometria
+
         }),
 
     },
@@ -89,6 +107,21 @@ export default {
         atendimento: Object
     },
     watch: {
+        datas_canceladas_apometria:{
+            handler: function (val, oldVal) {                
+                 val.forEach((index) => {
+                    //  console.log(index.cancelada)
+                    this.adicionarDataArray(index.data_cancelada)
+                 })
+
+            // for(let [key, value] of Object.entries(this.datas_canceladas_apometria)){
+            //         if(value == 0){
+            //             console.log(value)
+            //         }    
+            //     }
+                },
+            deep: true 
+        },
         calendarData: {
             handler: function (val, oldVal) {
                 this.MudarDataAgendamento()

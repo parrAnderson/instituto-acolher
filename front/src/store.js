@@ -5,6 +5,7 @@ import AtendimentoApometria from '../src/components/apometria/VuexAtendimentoApo
 import Atendimentos from '../src/components/atendimentos/VuexAtendimentos'
 import Obreiros from '../src/components/obreiros/VuexObreiros'
 import Frequentador from '../src/components/frequentador/VuexFrequentador'
+import CalendarioApometria from '../src/components/CalendarioApometria/VuexCalendarioApometria'
 
 Vue.use(Vuex)
 
@@ -15,5 +16,6 @@ export default new Vuex.Store({
     Atendimentos,
     Obreiros,
     Frequentador,
+    CalendarioApometria,
   }
 })

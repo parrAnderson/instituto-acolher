@@ -12,9 +12,13 @@ class DatasCanceladasCalendarioApometriaController extends Controller
     public function index()
     {
         $datasCanceladas = new DatasCanceladasCalendarioApometria;
-        $dataCanceladas = $datasCanceladas::all();
+        $datasCanceladas = $datasCanceladas::all();
+
+        $datasCanceladas = $datasCanceladas->sortByDesc('id')->values();
+      
+        
         return response()->json([
-            'data' => $dataCanceladas              
+            'data' => $datasCanceladas              
         ]);    
     }
 
