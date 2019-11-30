@@ -5,16 +5,17 @@ namespace App\Http\Controllers\Atendimentos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Atendimentos;
+use App\Models\AtendimentosApometria;
 
 class AtendimentosController extends Controller
 {
     public function index()
     {          
-                $this->atendimentos = new Atendimentos();
-                $this->atendimentos = $this->atendimentos::all();
-                return response()->json([
-                    'data' => $this->atendimentos,              
-                ]);
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos::all();
+        return response()->json([
+            'data' => $this->atendimentos,              
+        ]);
             
     }
 
@@ -54,7 +55,26 @@ class AtendimentosController extends Controller
 
     public function edit($id)
     {
-        //
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->where('user_id', $id)->get();
+
+        foreach($this->atendimentos as $atendimento){          
+            
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)            
+            ->orderBy('id', 'desc')
+            ->take(1)
+            ->get();
+
+            foreach($atendimentosApometria as $apometria){
+                $atendimento->data_agendada = $apometria->data_agendada;                
+            }
+
+        }
+
+        return response()->json([
+            'data' => $this->atendimentos,              
+        ]);
     }
     
     public function update(Request $request, $id)

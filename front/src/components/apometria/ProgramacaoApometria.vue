@@ -2,6 +2,27 @@
 <div>
     <DataPicker :atendimento="dadosAtendimento"></DataPicker>
 
+    <!-- MODAL FICHA ATENDIMENTO -->
+    <div class="modal fade bd-example-modal-xl" id="modalFichaFrequentador" tabindex="-1" role="dialog" aria-labelledby="modalFichaFrequentador" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Cancelar Atendimento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <FichaFrequentador :id_frequentador="idFichaFrequentador" :tipo_ficha="'visualizar'"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -155,7 +176,7 @@
                                     {{atendimento.motivo | textLimitTd}}
 
                                 <td>
-                                    {{atendimento.data_solicitacao | date}}
+                                    {{atendimento.created_at | date}}
                                 </td>
                                 <td @click="modalDataPicker(atendimento)" data-toggle="modal" data-target="#modalDataPicker" class="btn-pointer">
 
@@ -173,7 +194,7 @@
 
                                 </td>
                                 <td>
-                                    <div class="btn btn-warning btn-sm">FICHA</div>
+                                    <div class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalFichaFrequentador" @click="idFichaFrequentador = atendimento.user[0].id">FICHA</div>
                                 </td>
                                 <td>
                                     <div class="btn btn-outline-secondary btn-sm btn-100w" @click="removerItemlista(atendimento.id)">Reagendar</div>
@@ -199,6 +220,7 @@
 </template>
 
 <script>
+import FichaFrequentador from '@/components/frequentador/FichaFrequentador'
 import moment from 'moment'
 import {
     mapState,
@@ -217,6 +239,7 @@ export default {
             lista: {},
             showModal: false,
             dadosCancelamento: {},
+            idFichaFrequentador: null,
         }
     },
     filters: {
@@ -279,7 +302,7 @@ export default {
 
     components: {
         DataPicker,
-
+        FichaFrequentador,
     },
     beforeMount() {
         this.getDadosAtendimento()

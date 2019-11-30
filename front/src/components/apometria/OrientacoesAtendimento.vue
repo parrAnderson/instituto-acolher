@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group row">
-                                <select v-model="dieta" class="form-control col-sm-6">
+                                <select v-model="atendimento.apometria[0].recomendacao_dieta" class="form-control col-sm-6">
                                     <option>Dieta 1</option>
                                     <option>Dieta 2</option>
                                     <option>Dieta 3</option>
@@ -60,7 +60,7 @@
 
                                 <label class="form-check-label col-sm-8">Quantidade de dias </label>
                                 <!-- <input type="text" v-model="atendimento.apometria[0].recomendacao_dias_dieta" class="form-control col-sm-4"> -->
-                                <select v-model="diasDieta">
+                                <select v-model="atendimento.apometria[0].recomendacao_dias_dieta">
 
                                     <option>30</option>
                                     <option>45</option>
@@ -86,15 +86,15 @@
                         <label class="form-check-label">Beber água energizada</label>
                     </div>
                     <div class="form-group">
-                        <div v-if="atendimento.recomendacao_repousar">
-                            <input type="checkbox" checked  class="form-check-input">
-                        </div>
+                        <div v-if="atendimento.apometria[0].recomendacao_repousar">
+                            <input type="checkbox" checked disabled class="form-check-input">
+                        </div>  
                         <div v-else>
-                            <input type="checkbox" class="form-check-input">
-                        </div>
-                        
-                        Repousar por <select v-model="atendimento.apometria[0].recomendacao_repousar">
+                            <input type="checkbox"  disabled class="form-check-input">
+                        </div>  
 
+                        Repousar por <select v-model="atendimento.apometria[0].recomendacao_repousar">
+                            <option></option>
                             <option>3</option>
                             <option>4</option>
                             <option>5</option>
@@ -102,16 +102,16 @@
                         </select> dias
                     </div>
                     <div class="form-group">
-                        <div v-if="atendimento.recomendacao_peso">
-                            <input type="checkbox" checked  class="form-check-input">
+                        <div v-if="atendimento.apometria[0].recomendacao_peso">
+                            <input type="checkbox" checked disabled class="form-check-input">
                         </div>
                         <div v-else>
-                            <input type="checkbox" class="form-check-input">
+                            <input type="checkbox" disabled class="form-check-input">
                         </div>
-                        
-                        Não carregar peso, não fazer esforço e não subir escadas por
-                        <select  v-model="atendimento.apometria[0].recomendacao_peso">
 
+                        Não carregar peso, não fazer esforço e não subir escadas por
+                        <select v-model="atendimento.apometria[0].recomendacao_peso">
+                            <option></option>
                             <option>3</option>
                             <option>4</option>
                             <option>5</option>
@@ -123,15 +123,14 @@
                         <label class="form-check-label">Beber 2 litros d'agua por dia (de mandeira fracionada em pequenos intervalos)</label>
                     </div>
                     <div class="form-group">
-                        
-                        
-                        <div v-if="atendimento.recomendacao_carne">
-                            <input type="checkbox" checked  class="form-check-input">
+
+                        <div v-if="atendimento.apometria[0].recomendacao_carne">
+                            <input type="checkbox" checked disabled class="form-check-input">
                         </div>
                         <div v-else>
-                            <input type="checkbox" class="form-check-input">
+                            <input type="checkbox" disabled class="form-check-input">
                         </div>
-                        
+
                         Não ingerir carne vermelha por <input type="number" v-model="atendimento.apometria[0].recomendacao_carne"> dias
                     </div>
                     <div class="form-group">
@@ -163,11 +162,11 @@
                         <label class="form-check-label">Praticar caridade ao próximo</label>
                     </div>
                     <div class="form-group">
-                        <div v-if="atendimento.recomendacao_observacoes">
-                            <input type="checkbox" checked  class="form-check-input">
+                        <div v-if="atendimento.apometria[0].recomendacao_observacoes">
+                            <input type="checkbox" checked disabled class="form-check-input">
                         </div>
                         <div v-else>
-                            <input type="checkbox" class="form-check-input">
+                            <input type="checkbox" disabled class="form-check-input">
                         </div>
                         <input type="text" v-model="atendimento.apometria[0].recomendacao_observacoes">
                     </div>
@@ -192,6 +191,7 @@
                     <div class="form-group">
                         <input type="checkbox" v-model="atendimento.apometria[0].encaminhamento_obreiros" class="form-check-input">
                         <label class="form-check-label">Obreiros da luz (Entidades de Umbanda - Sábado)</label>
+                        
                     </div>
                 </div>
             </div>
@@ -235,6 +235,11 @@ export default {
             type: Number,
             required: false,
             defaut: 0,
+        },
+        statusAtual:{
+            type: Number,
+            required: false,
+            defaut: 0,
         }
     },
     methods: {
@@ -248,8 +253,10 @@ export default {
             dados.tipostatus = '='
             dados.maca = this.getMaca
             dados.data = this.getData
-            
+
             this.getListaLeituraDasFichas(dados)
+
+            
         },
 
         confirmar(id_atendimento_apometria, user_id) {
@@ -257,12 +264,23 @@ export default {
             this.dadosConfirmar.id = id_atendimento_apometria
 
             this.dadosConfirmar = this.atendimento.apometria[0]
-            this.dadosConfirmar.status = 8
-
-            var acoes = {
+            
+            this.dadosConfirmar.status = this.statusAtual + 1
+                
+            if(this.statusAtual == 7){
+                
+                var acoes = {
                 'id_obreiro': this.$store.state.Auth.userId,
                 'acao_obreiro': "Confirmou em Cabeceira da maca",
                 'id_atualizado': user_id
+            }
+            }else if(this.statusAtual == 8){
+      
+                var acoes = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro': "Confirmou em Pós Atendimento",
+                'id_atualizado': user_id
+            }
             }
 
             var dados = {}
@@ -274,41 +292,46 @@ export default {
 
             this.getDadosAtendimento()
         }
-    },
-    mounted() {
-        // this.atendimento.recomendacao_dieta = 'Dieta 2'
-        this.atendimento.recomendacao_adotar = true
-        this.atendimento.recomendacao_dieta = this.dieta
-    },
+    },   
     computed: {
         ...mapState({
             orientar: state => state.AtendimentoApometria.programacao,
         }),
     },
     watch: {
+        atendimento: {
+            handler: function (val, oldVal) {
+              
+                if (this.atendimento.apometria[0].recomendacao_dieta === 'Dieta 1' || this.atendimento.apometria[0].recomendacao_dieta === 'Dieta 2') {
+                    this.atendimento.apometria[0].recomendacao_carne = this.atendimento.apometria[0].recomendacao_dias_dieta
+                }
+
+                for(let [key, value] of Object.entries(this.atendimento.apometria[0])){
+                    if(value == 0){
+                        this.atendimento.apometria[0][key] = false
+                    }
+                        
+                }
+                
+                
+            },
+
+            deep: true
+        },
         id_atendimento: {
 
             handler: function (val, oldVal) {
                 this.atendimento = this.orientar.find(element => element.apometria[0].id == val);
 
-                console.log(this.atendimento.id)
+                this.atendimento.apometria[0].recomendacao_adotar = true
+                this.atendimento.apometria[0].recomendacao_adotar = true
+                this.atendimento.apometria[0].recomendacao_perdao = true
+
             },
 
             deep: true
 
         },
-        dieta() {
-            this.atendimento.recomendacao_dieta = this.dieta
-            if (this.atendimento.recomendacao_dieta === 'Dieta 1' || this.atendimento.recomendacao_dieta === 'Dieta 2') {
-                this.atendimento.recomendacao_carne = this.atendimento.recomendacao_dias_dieta
-            }
-        },
-        diasDieta() {
-            this.atendimento.recomendacao_dias_dieta = this.diasDieta
-            if (this.atendimento.recomendacao_dieta === 'Dieta 1' || this.atendimento.recomendacao_dieta === 'Dieta 2') {
-                this.atendimento.recomendacao_carne = this.atendimento.recomendacao_dias_dieta
-            }
-        }
     }
 }
 </script>

@@ -92,4 +92,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function put($request, $id){
+        $user = new User;
+        $user = $user::find($id);
+        $user->fill($request->input());      
+        $user->save();
+        return($user);
+    }
 }

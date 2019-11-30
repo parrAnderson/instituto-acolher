@@ -18,6 +18,9 @@ import ConteudoCursos from './views/public/ConteudoCursos'
 
 // ROTAS FREQUENTADOR
 import SolicitarAtendimento from './views/frequentador/SolicitarAtendimento'
+import Frequentador from './views/frequentador/Frequentador'
+import CarteirinhaFrequentador from './views/frequentador/CarteirinhaFrequentador'
+
 
 // ROTAS OBREIRO
 import ProgramacaoApometria from './views/obreiro/apometria/ProgramacaoApometria'
@@ -116,6 +119,22 @@ export default new Router({
       path: '/solicitaratendimento',
       name: 'solicitaratendimento',
       component: SolicitarAtendimento,
+      meta: {
+        rule: 'isFrequentador'
+      }
+    },
+    {
+      path: '/frequentador',
+      name: 'frequentador',
+      component: Frequentador,
+      meta: {
+        rule: 'isFrequentador'
+      }
+    },
+    {
+      path: '/carteirinhafrequentador',
+      name: 'carteirinhafrequentador',
+      component: CarteirinhaFrequentador,
       meta: {
         rule: 'isFrequentador'
       }
@@ -236,14 +255,7 @@ export default new Router({
           rule: 'isObreiro'
         }
         },
-        {
-        path: '/frequentador',
-        name: 'frequentador',
-        component: Home,
-        meta: {
-          rule: 'isFrequentador'
-        }
-    }
+        
     //FIM ROTAS OBREIRO
 
   ]

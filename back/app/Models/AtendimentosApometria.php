@@ -37,6 +37,34 @@ class AtendimentosApometria extends Model
 
             'encaminhamento_evangelho',
             'encaminhamento_obreiros',
+
+
+
+            'encerramento_acolhido',
+            'encerramento_acolhido_observacoes',
+            'encerramento_bem_durante',
+            'encerramento_bem_durante_observacoes',
+            'encerramento_bem_apos',
+            'encerramento_bem_apos_observacoes',
+            'encerramento_repouso',
+            'encerramento_repouso_observacoes',
+            'encerramento_curativos_observacoes',
+            'encerramento_curativos',
+            'encerramento_dieta_observacoes',
+            'encerramento_dieta',
+            'encerramento_religiosa_observacoes',
+            'encerramento_religiosa',
+            'encerramento_oracao',
+            'encerramento_tipo_oracao',
+            'encerramento_recomendacao_adicional_pensamento',
+            'encerramento_recomendacao_adicional_energias',
+            'encerramento_recomendacao_adicional_orai',
+            'encerramento_recomendacao_adicional_edificante',
+            'encerramento_encaminhamento_adicional_evangelho',
+            'encerramento_encaminhamento_adicional_obreiros',
+            'encerramento_encaminhamento_adicional_apometria',
+            'encerramento_encaminhamento_adicional_kardecismo',
+            'encerramento_observacao_geral',
     ];
 
     public function Atendimentos(){

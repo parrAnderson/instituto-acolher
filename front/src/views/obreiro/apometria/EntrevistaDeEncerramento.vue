@@ -5,37 +5,53 @@
             <TabsApometria></TabsApometria>
 
             <!-- ORIENTACAO -->
-            <div class="modal fade bd-example-modal-xl" id="formularioDeEncerramentoDeAtendimento" tabindex="-1" role="dialog" aria-labelledby="formularioDeEncerramentoDeAtendimentoLabel" aria-hidden="true">
+            <div class="modal fade bd-example-modal-xl" id="encerramentoAtendimento" tabindex="-1" role="dialog" aria-labelledby="encerramentoAtendimentoLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Encerramento</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <formularioDeEncerramentoDeAtendimento/>
+                            <!--  -->
+                            <formularioDeEncerramentoDeAtendimento :id_atendimento="idParaEncerramento"/>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- MODAL AGENDAMENTO -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data de Atendimento</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Cancelar Atendimento</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <!-- <edit-atendimento></!--> -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Motivo do cancelamento" v-model="dadosCancelamento.status_motivo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col">
+                                    <div class="btn btn-primary" data-dismiss="modal">VOLTAR</div>
+                                </div>
+                                <div class="col text-right">
+                                    <div class="btn btn-danger" data-dismiss="modal" @click="cancelar()">FAZER CANCELAMENTO</div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- MODAL MOTIVO  -->
             <div class="modal fade" id="modalMotivo" tabindex="-1" role="dialog" aria-labelledby="modalMotivo" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -47,13 +63,13 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus.
+                            {{modalMotivo}}
 
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- MODAL Tratamento  -->
+             <!-- MODAL Tratamento  -->
             <div class="modal fade" id="modalTratamento" tabindex="-1" role="dialog" aria-labelledby="modalTratamento" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -64,7 +80,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO.
+                            {{modalTratamento}}
+
                         </div>
                     </div>
                 </div>
@@ -75,6 +92,7 @@
                     <h4 class="text-center">ENTREVISTA DE ENCERRAMENTO</h4>
                 </div>
             </div>
+            
             <div class="row justify-content-center row-space">
                 <div class="col-12">
                     <div class="card">
@@ -114,6 +132,9 @@
                                             CONSOME BEBIDA ALCÓOLICA?
                                         </th>
                                         <th>
+                                            DROGAS?
+                                        </th>
+                                        <th>
                                             TEM ALGUM OUTRO VICIO?
                                         </th>
                                         <th>
@@ -131,57 +152,73 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td data-toggle="modal" data-target="#formularioDeEncerramentoDeAtendimento" class="btn-pointer">
+                                    
+                                    <tr v-for="atendimento in programacao">
+                                        <td data-toggle="modal" data-target="#encerramentoAtendimento" class="btn-pointer" @click="abrirFormEncerramento(atendimento.apometria[0].id)">
                                             <div class="btn btn-primary btn-sm">
                                                 <i class="far fa-check-square"></i>
-                                            </div>
+                                            </div> 
                                         </td>
-                                        <td>
-                                            OBR <br>
-                                            154
-                                        </td>
-                                        <td>
-                                            JOSE DA SILVA
-                                        </td>
-                                        <td>
-                                            MASCULINO
-                                        </td>                                       
-                                        <td>
-                                            15 anos
-                                            e 7 meses
-                                        </td>
-                                        <td>
-                                            CASADO
-                                        </td>
-                                        <td>
-                                            KARDECISTA
-                                        </td>
-                                        <td>
-                                            RUA DO LOGRADOURO, 27 – BLOCO 4 – AP. 24 – CENTRO – CIDADE / SP
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>                                        
-                                        <td data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
-                                            {{textTratamento | textLimitTd}}
+                                        <td v-if="atendimento.user[0].type == 'frequentador'">
+                                            {{atendimento.user[0].type | limitType}} <br>
+                                            {{atendimento.user[0].id}}
 
                                         </td>
-                                        <td data-toggle="modal" data-target="#modalMotivo" class="btn-pointer">
-                                            {{textMotivo | textLimitTd}}
+                                        <td v-else>
+                                            {{atendimento.user[0].type | limitType}} <br>
+                                            {{atendimento.user[0].id}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].name}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].genero}}
+                                        </td>
 
                                         <td>
-                                            NÃO
-                                        </td>    
-                                         <td>
+                                            {{atendimento.user[0].data_nascimento | idadeComMeses}}
+
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].estado_civil}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].religiao}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.user[0].logradouro }}, {{atendimento.user[0].numero}} -
+                                            {{atendimento.user[0].municipio}} - {{atendimento.user[0].estado}}
+                                        </td>
+                                        
+                                        <td>
+                                            {{atendimento.fumante}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.bebida}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.drogas}}
+                                        </td>
+                                        <td>
+                                            {{atendimento.outro_vicio}}
+                                        </td>
+                                        <td @click="modalTratamento = atendimento.tratamento" data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
+                                            {{atendimento.tratamento | textLimitTd}}
+
+                                        </td>
+                                        <td @click="modalMotivo = atendimento.motivo" data-toggle="modal" data-target="#modalMotivo" class="btn-pointer">
+                                            {{atendimento.motivo | textLimitTd}}
+
+                                        <td>
+                                            <p v-if="atendimento.apometria[0].atendimento_especial == true">Especial</p>
+                                            <p v-if="atendimento.apometria[0].atendimento_prioritario == true">Prioritário</p>
+
+                                        </td>
+
+                                        <td>
                                             <div class="btn btn-warning btn-sm">FICHA</div>
-                                        </td>                                      
+                                        </td>
+
                                     </tr>
                                     
                                 </tbody>
@@ -203,14 +240,29 @@ import Header from '@/views/layouts/HeaderPublic'
 import TabsApometria from '@/views/layouts/TabsApometria'
 import formularioDeEncerramentoDeAtendimento from '@/components/apometria/formularioDeEncerramentoDeAtendimento'
 
+import moment from 'moment'
+import {
+    mapState,
+    mapActions,
+    mapMutations,
+} from 'vuex'
+
 
 export default {
     name: "PosAtendimento",
     data() {
-        return {
-            textMotivo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales luctus tortor vel porta. Fusce vulputate, urna in placerat interdum, nibh risus scelerisque leo, sed accumsan velit est fermentum elit. Donec pharetra efficitur velit. Aenean et dolor ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin molestie laoreet enim quis mollis. Cras feugiat ligula congue cursus iaculis. Cras fermentum vitae ligula a pulvinar. Nam quam massa, convallis dapibus velit in, ornare eleifend orci. Morbi in egestas erat. Nunc lectus urna, dignissim et risus id, sagittis semper odio. Integer tincidunt, eros a finibus fermentum, dolor mi vulputate felis, in lacinia leo nisi ac leo. Fusce eu lorem pellentesque, pharetra mauris gravida, rhoncus diam. Pellentesque sit amet erat lectus. ",
-            textTratamento: "QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. QUALQUER COISA ITE, QUALQUER COISA ELTA E QUALQUER COISA ISMO. ",
+                return {
+            modalTratamento: "",
+            modalMotivo: "",
+
+            showModal: false,
+            dadosCancelamento: {},
+            dadosConfirmar: {},
+            statusAtual: 9,
+
+            idParaEncerramento: 0,
         }
+
     },
     components: {
         Header,
@@ -218,25 +270,180 @@ export default {
         formularioDeEncerramentoDeAtendimento,
     },
     filters: {
+        idadeComMeses(value) {
+
+            if (value) {
+
+                let data = moment(new Date(value));
+
+                var b = moment(data)
+                var a = moment(new Date())
+
+                var years = a.diff(b, 'year');
+                b.add(years, 'years');
+
+                var months = a.diff(b, 'months');
+                b.add(months, 'months');
+
+                var days = a.diff(b, 'days');
+                var calc = years + ' anos e ' + months + ' meses'
+
+                return calc
+
+            }
+
+        },
+        filterDateCalendar(value) {
+            console.log(value)
+            var options = {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            };
+            var today = new Date(value);
+            var today = today.setDate(today.getDate() + 1);
+            var date1 = new Date(today).toLocaleDateString("pt-BR", options)
+            return date1
+        },
+        date: function (value) {
+            moment.locale("pt-br");
+            if (!value) return "";
+            let data = moment(value).format('L');
+            return data
+        },
         textLimitTd(value) {
             if (!value) return ''
             value = value.toString()
             return value.substring(0, 30) + " ...";
+        },
+
+        limitType(value) {
+            if (!value) return ''
+            value = value.toString()
+            value = value.toUpperCase();
+            return value.substring(0, 3);
+        },
+
+    },
+    beforeMount() {
+        
+        this.getDadosAtendimento()
+    },
+    computed: {
+        ...mapState({
+            dataCkeckIn: state => state.AtendimentoApometria,
+            programacao: state => state.AtendimentoApometria.programacao,
+            dataAgendada: state => state.AtendimentoApometria.dataAgendada,
+
+            cancelado: state => state.AtendimentoApometria.cancelado,
+
+        }),
+    },
+    methods: {
+        abrirFormEncerramento(id){
+            this.idParaEncerramento = id
+        },
+        getDadosAtendimento() {
+            var dados = {}
+            dados.status = 8
+            dados.tipostatus = '='
+      
+            
+            this.allAtendimentoApometria(9)
+        },
+        ...mapActions([          
+            'changeListaAtendimentosAgendados',
+            'changeShowModalDataPicker',
+            'gerarListaDeAtendimentos',
+            'atualizarAtendimentoApometria',
+            'allAtendimentoApometria'
+        ]),
+
+        modalDataPicker(atendimento) {
+            this.dadosAtendimento = atendimento
+            this.changeShowModalDataPicker()
+        },
+        confirmar(id_atendimento_apometria, user_id) {
+            this.dadosConfirmar = {}
+            this.dadosConfirmar.id = id_atendimento_apometria
+            this.dadosConfirmar.status = 3
+
+            var acoes = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro': "Confirmou o atendimento",
+                'id_atualizado': user_id
+            }
+
+            var dados = {}
+            dados.acoes = acoes
+            dados.data = this.dadosConfirmar
+
+            this.atualizarAtendimentoApometria(dados)
+            this.dadosConfirmar = {}
+
+            this.getDadosAtendimento()
+        },
+
+        openModalCancelamento(id_atendimento_apometria, user_id) {
+            this.dadosCancelamento = {}
+            this.dadosCancelamento.id = id_atendimento_apometria
+            this.dadosCancelamento.status = '1'
+            this.dadosCancelamento.id_user_acao = user_id
+        },
+        cancelar() {
+
+            var acoes = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro': "Cancelou atendimento que estava confirmado",
+                'id_atualizado': this.dadosCancelamento.id_user_acao
+            }
+
+            var dados = {}
+            dados.acoes = acoes
+            dados.data = this.dadosCancelamento
+
+            this.atualizarAtendimentoApometria(dados)
+            this.dadosCancelamento = {}
+
+            this.getDadosAtendimento()
+
         }
+
+    },
+    watch: {
+        
+
+        cancelado: {
+            handler: function (val, oldVal) {
+                this.getDadosAtendimento()
+            },
+
+            deep: true
+        },
+        listaGerada: {
+            handler: function (val, oldVal) {
+                this.getDadosAtendimento()
+            },
+
+            deep: true
+        },
+        dataAgendada: {
+            handler: function (val, oldVal) {
+                if (this.dataAgendada.dataAgendada) {
+                    this.addItemLista(this.dataAgendada.atendimento, {
+                        id: this.dataAgendada.atendimento,
+                        data_agendada: this.dataAgendada.dataAgendada
+                    })
+                    this.changeShowModalDataPicker()
+                }
+
+                // 
+            },
+            deep: true
+        },
+
     }
 }
 </script>
 
 <style>
-.btn-cancelar {
-    margin-top: 3px;
-}
-
-.btn-100w {
-    width: 100%
-}
-
-.btn-pointer {
-    cursor: pointer;
-}
-</style>

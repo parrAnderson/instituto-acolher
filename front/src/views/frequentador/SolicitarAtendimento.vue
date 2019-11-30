@@ -12,7 +12,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div v-if="!cadastrado">
+                        <div v-if="!atendimento_cadastrado">
                             <div class="row justify-content-center row-space-form">
                                 <div class="col-4">
                                     <select name="fumante" v-model="inputs.fumante" class="form-control" id>
@@ -63,7 +63,7 @@
                             <br>
                             <div class="row justify-content-right row-space-form">
                                 <div class="col-10 text-right">
-                                    <button  type="submit" class="btn btn-primary">AGENDAR</button>
+                                    <button  type="submit" class="btn btn-primary" @click="agendar()">AGENDAR</button>
                                 </div>
                             </div>
 
@@ -76,7 +76,7 @@
 
                         </div>
 
-                        <div v-if="cadastrado" class="row row-space justify-content-center">
+                        <div v-if="atendimento_cadastrado" class="row row-space justify-content-center">
                             <div class="col-8">
                                 <div class="alert alert-success text-center" role="alert">
                                     <p>Mensagem enviada com sucesso! <br>
@@ -108,13 +108,10 @@
                         <div class="col-12 col-md-8 col-lg-8">
                             <select name="atividade" v-model="inputs.tipo_atendimento" class="form-control" id>
                                 <option disable value="">Indique a atividade de qual pretende receber atendimento *</option>
-
-                                <option value="Apometria (2as. feiras)">Apometria (2as. feiras)</option>
-                                <option value="Passes (2as. feiras)">Passes (2as. feiras)</option>
-                                <option value="Prática do evangelho - Reunião Espírita (5as. feiras)">Prática do evangelho - Reunião Espírita (5as. feiras)</option>
-                                <!-- <option value="Atendimento Fraterno (5as. feiras)">Atendimento Fraterno (5as. feiras)</option> -->
-                                <option value="Obreiros da Luz - Entidades de Umbanda(1 Sábado por mês)">Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)</option>
-
+                                <option value="1">Apometria (2as. feiras)</option>
+                                <option value="2">Passes (2as. feiras)</option>
+                                <option value="3">Prática do evangelho - Reunião Espírita (5as. feiras)</option>
+                                <option value="4">Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)</option>
                             </select>
                         </div>
                         
@@ -122,15 +119,13 @@
                     <input type="hidden" v-model="inputs.user_id">
                         <div class="row justify-content-center row-space-form">
                             <div class="col-12 col-md-8 col-lg-8 text-right">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">CADASTRAR</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" @click="limparAtendimentoCadastrado">CADASTRAR</button>
 
                                 <!-- <button @click="pegarAtendimento()" type="submit" class="btn btn-primary">Pegar</button> -->
                             </div>
                         </div>
                 </div>
-            </div>
-
-            
+            </div>           
 
             <div class="card">
                 <div class="card-header">MINHAS SOLICITAÇÔES</div>
@@ -153,7 +148,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="solicitacao in atendimento" :key="solicitacao.id">
+                                <tr v-for="solicitacao in atendimentos" :key="solicitacao.id">
                                     <td>
                                         {{solicitacao.tipo_atendimento}}
                                     </td>
@@ -161,7 +156,7 @@
                                         {{solicitacao.created_at | date}}
                                     </td>
                                     <td>
-                                        {{solicitacao.data_atendimento | date}}
+                                        {{solicitacao.data_agendada | date}}
                                     </td>
                                 </tr>
                             </tbody>
@@ -176,10 +171,9 @@
     </Header>
 </div>
 </template>
-
 <script>
 import Header from '@/views/layouts/HeaderPublic'
-// import moment from 'moment'
+import moment from 'moment'
 import {
     mapState,
     mapActions
@@ -194,28 +188,19 @@ export default {
         return {
             inputs: {},
             required: {},
-            atendimento: {},
-            cadastrado: false
-
         }
     },
     computed: {
-        // ...mapState({
-        //     login: state => state.Login.data,
-        //     atendimento: state => state.Atendimento.solicitacoes,
-        //     cadastrado: state => state.Atendimento.data.data,
-        // })
+        ...mapState({
+            userId:  state => state.Auth.userId,
+            atendimentos: state => state.Atendimentos.solicitacoes_atendimento,
+            atendimento_cadastrado: state => state.Atendimentos.atendimento_cadastrado,
+        })
     },
-    watch: {
-        //     login(){
-        //         this.GetAtendimento(this.login.id);
-        //            this.inputs.user_id = this.login.id;
-        // }
-
-    },
+    
     methods: {
         closeModal() {
-            this.LimparAtendimento()
+            // this.LimparAtendimento()
 
             this.inputs.fumante = ''
             this.inputs.bebida = ''
@@ -226,13 +211,14 @@ export default {
             this.inputs.tratamento = ''
             this.inputs.recorrer = ''
 
-            this.GetAtendimento(this.login.id);
+            this.GetSolicitacoesAtendimentos(this.userId);
 
         },
         ...mapActions([
             'CadastrarAtendimento',
-            'GetAtendimento',
-            'LimparAtendimento',
+            'GetSolicitacoesAtendimentos',
+            'limparAtendimentoCadastrado',
+            // 'LimparAtendimento',
         ]),
         checkRequired() {
             if (this.inputs.fumante &&
@@ -250,19 +236,17 @@ export default {
         },
 
         agendar() {
+            console.log("AGENDANDO")
             this.checkRequired()
 
             if (this.required) {
                 this.CadastrarAtendimento(this.inputs)
-                this.GetAtendimento(this.login.id);
+                this.GetSolicitacoesAtendimentos(this.userId);
             }
 
-            this.GetAtendimento(this.login.id);
+            
 
-        },
-        pegarAtendimento() {
-
-        },
+        },        
     },
     filters: {
         date: function (value) {
@@ -275,19 +259,18 @@ export default {
     mounted() {
         this.inputs.outro_vicio = ''
         this.inputs.qual_droga = ''
-
-        //    this.inputs.user_id = this.login.id;
+        this.inputs.status = 1
+        this.inputs.user_id = this.userId;   
+        
+           
     },
-    beforeMount() {
-        // if (!this.login.id) {
-        //     this.$router.push({ name: 'login' });
-        // }
+    beforeMount() {   
+         
+         
 
         this.inputs.tipo_atendimento = ""
 
-        // if (this.login.id) {
-        //     this.GetAtendimento(this.login.id);
-        // }
+       
 
         this.inputs.fumante = ''
         this.inputs.bebida = ''
@@ -296,6 +279,17 @@ export default {
         this.inputs.outro_vicio = ''
         this.inputs.qual_droga = ''
 
+    },
+    watch:{
+        userId: {
+            handler: function (val, oldVal) {
+               this.GetSolicitacoesAtendimentos(this.userId);
+               this.inputs.user_id = this.userId;  
+                
+            },
+
+            deep: true
+        },
     }
 
 }

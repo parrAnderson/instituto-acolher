@@ -15,7 +15,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <OrientacoesAtendimento :id_atendimento="idPAraOrientacao"/>
+                            <OrientacoesAtendimento :statusAtual="statusAtual" :id_atendimento="idPAraOrientacao"/>
                         </div>
                     </div>
                 </div>
@@ -174,64 +174,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <tr>
-                                         <td data-toggle="modal" data-target="#orientacoesAtendimento" class="btn-pointer">
-                                            <div class="btn btn-primary btn-sm">
-                                                <i class="far fa-check-square"></i>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            OBR <br>
-                                            154
-                                        </td>
-                                        <td>
-                                            JOSE DA SILVA
-                                        </td>
-                                        <td>
-                                            MASCULINO
-                                        </td>                                      
-                                        <td>
-                                            15 anos
-                                            e 7 meses
-                                        </td>
-                                        <td>
-                                            CASADO
-                                        </td>
-                                        <td>
-                                            KARDECISTA
-                                        </td>
-                                        <td>
-                                            RUA DO LOGRADOURO, 27 – BLOCO 4 – AP. 24 – CENTRO – CIDADE / SP
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>
-                                        <td>
-                                            NÃO
-                                        </td>                                        
-                                        <td data-toggle="modal" data-target="#modalTratamento" class="btn-pointer">
-                                            {{textTratamento | textLimitTd}}
-
-                                        </td>
-                                        <td data-toggle="modal" data-target="#modalMotivo" class="btn-pointer">
-                                            {{textMotivo | textLimitTd}}
-
-                                        <td>
-                                            NÃO
-                                        </td>                                        
-                                        <td>
-                                            <div class="btn btn-warning btn-sm">FICHA</div>
-                                        </td>                                        
-                                    </tr> -->
+                                  
 
                                     <tr v-for="atendimento in programacao">
                                         <td data-toggle="modal" data-target="#orientacoesAtendimento" class="btn-pointer" @click="abrirOrientacao(atendimento.apometria[0].id)">
                                             <div class="btn btn-primary btn-sm">
                                                 <i class="far fa-check-square"></i>
-                                            </div> {{atendimento.apometria[0].id}}
+                                            </div> 
                                         </td>
                                         <td v-if="atendimento.user[0].type == 'frequentador'">
                                             {{atendimento.user[0].type | limitType}} <br>
@@ -334,7 +283,7 @@ export default {
             dadosConfirmar: {},
             getData: "",
             getMaca: "",
-
+            statusAtual: 7,
             idPAraOrientacao: 0,
         }
 
@@ -426,7 +375,7 @@ export default {
         },
         getDadosAtendimento() {
             var dados = {}
-            dados.status = 7
+            dados.status = this.statusAtual
             dados.tipostatus = '='
             dados.maca = this.getMaca
             dados.data = this.getData

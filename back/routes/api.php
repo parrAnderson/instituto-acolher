@@ -24,6 +24,24 @@ Route::group([
 
 Route::group([
     'middleware' => 'api',
+    'prefix' => 'calendarioapometria'
+], function () {
+    Route::post('datascanceladas/store', 'Calendario\DatasCanceladasCalendarioApometriaController@store');
+    Route::get('datascanceladas', 'Calendario\DatasCanceladasCalendarioApometriaController@index');
+    Route::delete('datascanceladas/{id}', 'Calendario\DatasCanceladasCalendarioApometriaController@destroy');
+
+});
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'frequentador'
+], function () {
+    Route::get('edit/{id}', 'Frequentador\FrequentadorController@edit');  
+    Route::put('/{id}', 'Frequentador\FrequentadorController@update');
+});
+
+Route::group([
+    'middleware' => 'api',
     'prefix' => 'atendimentos'
 ], function () {
     Route::post('store', 'Atendimentos\AtendimentosController@store');
@@ -31,6 +49,7 @@ Route::group([
     Route::put('/{id}', 'Atendimentos\AtendimentosController@update');
     Route::post('atualizarstatus', 'Atendimentos\AtendimentosController@atualizarStatus');
     Route::get('index', 'Atendimentos\AtendimentosController@index');
+    Route::get('/edit/{id}', 'Atendimentos\AtendimentosController@edit');
    
 });
 

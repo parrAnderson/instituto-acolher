@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="atendimento.apometria">
         <div class="card">
             <div class="card-header">
                 ENTREVISTA DE ENCERRAMENTO
@@ -10,14 +10,14 @@
                         SENTIU-SE ACOLHIDO NO DIA DO ATENDIMENTO?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_acolhido">
-                            <option value="Sim">Sim</option>
-                            <option value="">Um pouco</option>
-                            <option value="">Não</option>
+                        <select class="form-control" v-model="atendimento.apometria[0].encerramento_acolhido">
+                            <option>Sim</option>
+                            <option>Um pouco</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <input type="text" class="form-control" placeholder="OBSERVAÇÕES">
+                         <input type="text" v-model="atendimento.apometria[0].encerramento_acolhido_observacoes" class="form-control" placeholder="OBSERVAÇÕES">
                     </div>
                 </div>
                 <div class="row">
@@ -25,14 +25,14 @@
                         SENTIU-SE BEM DURANTE O ATENDIMENTO?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_bem">
-                            <option value="Sim">Sim</option>
-                            <option value="">Mais ou menos</option>
-                            <option value="">Não</option>
+                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_bem_durante">
+                            <option>Sim</option>
+                            <option>Mais ou menos</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <input type="text" class="form-control" placeholder="OBSERVAÇÕES">
+                         <input type="text" v-model="atendimento.apometria[0].encerramento_bem_durante_observacoes" class="form-control" placeholder="OBSERVAÇÕES">
                     </div>
                 </div>
                 <div class="row">
@@ -40,14 +40,14 @@
                         SENTIU-SE BEM APÓS O ATENDIMENTO?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_bem_apos">
-                            <option value="Sim">Sim</option>
-                            <option value="">Mais ou menos</option>
-                            <option value="">Não</option>
+                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_bem_apos">
+                            <option>Sim</option>
+                            <option>Mais ou menos</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <input type="text" class="form-control" placeholder="OBSERVAÇÕES">
+                         <input type="text" v-model="atendimento.apometria[0].encerramento_bem_apos_observacoes" class="form-control" placeholder="OBSERVAÇÕES">
                     </div>
                 </div>
                 <div class="row">
@@ -55,14 +55,14 @@
                         REPOUSOU COMO RECOMENDADO?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_repouso">
-                            <option value="Sim">Sim</option>
-                            <option value="">Mais ou menos</option>
-                            <option value="">Não</option>
+                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_repouso">
+                            <option>Sim</option>
+                            <option>Mais ou menos</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <input type="text" class="form-control" placeholder="OBSERVAÇÕES">
+                         <input type="text" v-model="atendimento.apometria[0].encerramento_repouso_observacoes" class="form-control" placeholder="OBSERVAÇÕES">
                     </div>
                 </div>
                 <div class="row">
@@ -70,14 +70,14 @@
                         REALIZOU OS CURATIVOS COMO RECOMENDADO?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_curativos">
-                            <option value="Sim">Sim</option>
-                            <option value="">Mais ou menos</option>
-                            <option value="">Não</option>
+                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_curativos">
+                            <option>Sim</option>
+                            <option>Mais ou menos</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <input type="text" class="form-control" placeholder="OBSERVAÇÕES">
+                         <input type="text" v-model="atendimento.apometria[0].encerramento_curativos_observacoes" class="form-control" placeholder="OBSERVAÇÕES">
                     </div>
                 </div>
                 <div class="row">
@@ -85,14 +85,14 @@
                         REALIZOU A DIETA REGULARMENTE?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_dieta">
-                            <option value="Sim">Sim</option>
-                            <option value="">Mais ou menos</option>
-                            <option value="">Não</option>
+                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_dieta">
+                            <option>Sim</option>
+                            <option>Mais ou menos</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <input type="text" class="form-control" placeholder="OBSERVAÇÕES">
+                         <input type="text" v-model="atendimento.apometria[0].encerramento_dieta_observacoes" class="form-control" placeholder="OBSERVAÇÕES">
                     </div>
                 </div>
                 <div class="row">
@@ -100,14 +100,14 @@
                         MANTÉM PRÁTICA RELIGIOSA?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_religiosa">
-                            <option value="Sim">Sim</option>
-                            <option value="">Mais ou menos</option>
-                            <option value="">Não</option>
+                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_religiosa">
+                            <option>Sim</option>
+                            <option>Mais ou menos</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <input type="text" class="form-control" placeholder="OBSERVAÇÕES">
+                         <input type="text" v-model="atendimento.apometria[0].encerramento_religiosa_observacoes" class="form-control" placeholder="OBSERVAÇÕES">
                     </div>
                 </div>
                 <div class="row">
@@ -115,18 +115,18 @@
                         MANTÉM PRÁTICA DE ORAÇÃO REGULAR?
                     </div>
                     <div class="col">
-                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_oracao">
-                            <option value="Sim">Sim</option>
-                            <option value="">Mais ou menos</option>
-                            <option value="">Não</option>
+                        <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_oracao">
+                            <option>Sim</option>
+                            <option>Mais ou menos</option>
+                            <option>Não</option>
                         </select>
                     </div>
                     <div class="col">
-                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="inputs.encerramento_tipo_oracao">
-                            <option value="">Individual</option>
-                            <option value="Sim">Em Família</option>                            
-                            <option value="">Regular (Dia e horário)</option>
-                            <option value="">Irregular</option>
+                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_tipo_oracao">
+                            <option>Individual</option>
+                            <option>Em Família</option>                            
+                            <option>Regular (Dia e horário)</option>
+                            <option>Irregular</option>
                         </select>
                     </div>
                 </div>
@@ -140,25 +140,25 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_recomendacao_adicional_pensamento" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_recomendacao_adicional_pensamento" class="form-check-input">
                             <label class="form-check-label">Refletir sobre formas pensamento</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_recomendacao_adicional_energias" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_recomendacao_adicional_energias" class="form-check-input">
                             <label class="form-check-label">Conceito de atração e repulsa de energias</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_recomendacao_adicional_orai" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_recomendacao_adicional_orai" class="form-check-input">
                             <label class="form-check-label">Reforço "ORAI E VIGIAI"</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_recomendacao_adicional_edificante" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_recomendacao_adicional_edificante" class="form-check-input">
                             <label class="form-check-label">Leituras edificantes</label>
                         </div>
                     </div>
@@ -173,13 +173,13 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_encaminhamento_adicional_evangelho" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_evangelho" class="form-check-input">
                             <label class="form-check-label">Estudo do evangelho (REUINÃO ESPÍRITA - 5° FEIRAS)</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_encaminhamento_adicional_obreiros" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_obreiros" class="form-check-input">
                             <label class="form-check-label">Conceito de atração e repulsa de energias</label>
                         </div>
                     </div>
@@ -187,13 +187,13 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_encaminhamento_adicional_apometria" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_apometria" class="form-check-input">
                             <label class="form-check-label">Curso básico apometria</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <input type="checkbox" v-model="inputs.encerramento_encaminhamento_adicional_kardecismo" class="form-check-input">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_kardecismo" class="form-check-input">
                             <label class="form-check-label">Curso kardecismo, autoconhecimento e reforma íntima</label>
                         </div>
                     </div>
@@ -205,14 +205,14 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" v-model="atendimento.apometria[0].encerramento_observacao_geral">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col text-right">
-                <div class="btn btn-sm btn-primary">
+                <div class="btn btn-sm btn-primary" data-dismiss="modal" @click="confirmar(atendimento.apometria[0].id, atendimento.user_id)">
                     FAZER ENCERRAMENTO
                 </div>
             </div>
@@ -221,11 +221,18 @@
 </template>
 
 <script>
+import moment from 'moment'
+import {
+    mapState,
+    mapActions,
+    mapMutations,
+} from 'vuex'
     export default {
         name: "formularioDeEncerramentoDeAtendimento",
         data(){
             return{
-                inputs:{}
+                inputs:{},
+                atendimento: {},
             }
         },
         mounted(){
@@ -237,7 +244,88 @@
             this.inputs.encerramento_dieta = "Sim"
             this.inputs.encerramento_oracao = "Sim"
             this.inputs.encerramento_religiosa = "Sim"
+        },
+         props: {
+        id_atendimento: {
+            type: Number,
+            required: false,
+            defaut: 0,
+        },
+        statusAtual:{
+            type: Number,
+            required: false,
+            defaut: 0,
         }
+    },
+    methods: {
+        ...mapActions([
+            'atualizarAtendimentoApometria',
+            'getListaLeituraDasFichas',
+           
+        ]),
+
+        getDadosAtendimento() {
+            var dados = {}
+            dados.status = 9
+            dados.tipostatus = '='
+            dados.maca = this.getMaca
+            dados.data = this.getData
+
+            this.getListaLeituraDasFichas(dados)
+
+            
+        },
+
+        confirmar(id_atendimento_apometria, user_id) {
+            this.dadosConfirmar = {}
+            this.dadosConfirmar.id = id_atendimento_apometria
+
+            this.dadosConfirmar = this.atendimento.apometria[0]
+            
+            this.dadosConfirmar.status = 10
+                
+            
+                var acoes = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro': "Atendimento Encerrado",
+                'id_atualizado': user_id
+            }
+            
+
+            var dados = {}
+            dados.acoes = acoes
+            dados.data = this.dadosConfirmar
+
+            this.atualizarAtendimentoApometria(dados)
+            this.dadosConfirmar = {}
+
+            this.getDadosAtendimento()
+        }
+    },   
+    computed: {
+        ...mapState({
+            orientar: state => state.AtendimentoApometria.programacao,
+        }),
+    },
+    watch: {
+        atendimento: {
+            handler: function (val, oldVal) {             
+
+                for(let [key, value] of Object.entries(this.atendimento.apometria[0])){
+                    if(value == 0){
+                        this.atendimento.apometria[0][key] = false
+                    }    
+                }                              
+            },
+            deep: true
+        },
+        id_atendimento: {
+            handler: function (val, oldVal) {
+                this.atendimento = this.orientar.find(element => element.apometria[0].id == val);
+            },
+            deep: true
+        },
+    }
     }
 </script>
 

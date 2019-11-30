@@ -126,9 +126,21 @@
 
                     <li class="nav-header" v-if="$acl.check('isFrequentador')">FREQUENTADOR</li>
                     <li class="nav-item" v-if="$acl.check('isFrequentador')">
+                        <router-link :to="{name:'carteirinhafrequentador'}" class="nav-link">
+                            <i class="nav-icon far fa-id-card"></i>
+                            <p>Carteirinha Frequentador</p>
+                         </router-link>
+                    </li>    
+                    <li class="nav-item" v-if="$acl.check('isFrequentador')">
                         <router-link :to="{name:'solicitaratendimento'}" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>Solicitar Atendimento</p>
+                         </router-link>
+                         </li> 
+                    <li class="nav-item" v-if="$acl.check('isFrequentador')">
+                         <router-link :to="{name:'frequentador'}" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>Meus Dados</p>
                          </router-link>
                     </li>
                     <li class="nav-header">ACESSOS</li>

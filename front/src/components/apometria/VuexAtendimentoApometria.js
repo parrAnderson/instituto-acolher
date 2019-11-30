@@ -46,6 +46,7 @@ export default {
         
     },
     actions: {
+        
         getListaLeituraDasFichas({commit}, dados){   
             var data = dados.data  
             var status = dados.status
@@ -82,12 +83,12 @@ export default {
                 console.log(error.response);
             }); 
         },
-        allAtendimentoApometria({commit}, id){
+        allAtendimentoApometria({commit}, status){
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({
                 method: 'get',
-                url: urlApi + 'atendimentosapometria/index/' + id,               
+                url: urlApi + 'atendimentosapometria/index/' + status,               
             })
             .then(response => {
                 commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     
@@ -131,7 +132,7 @@ export default {
             commit('ENDERECOS_REPETIDOS', data)
         }  ,
         getListaDeAtendimento({commit}, data){
-            console.log(data)
+            
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({
@@ -159,7 +160,7 @@ export default {
                 
             .then(response => {
                 context.commit('ATENDIMENTO_ATUALIZADO', response.data) 
-                console.log(response.data)    
+                
                            
             context.dispatch("AcaoObreiro",acoes)
             })                           
@@ -179,7 +180,7 @@ export default {
             })
             .then(response => {
                 commit('GERAR_LISTA_DE_ATENDIMENTOS', response.data.data)     
-                console.log(response.data)
+               
                       
             })                           
             .catch(function (error) {

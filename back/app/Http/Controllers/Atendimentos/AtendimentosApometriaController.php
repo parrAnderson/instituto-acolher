@@ -14,7 +14,7 @@ class AtendimentosApometriaController extends Controller
     {
         
         $this->atendimentos = new Atendimentos();
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', '1')
         ->where('status', $tipostatus, $status)        
         ->get();
 
@@ -57,7 +57,7 @@ class AtendimentosApometriaController extends Controller
     public function getAtendimentosApometriaComDataStatus($data, $status)
     {
         $this->atendimentos = new Atendimentos();
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', '1')
         ->where('status', '=', $status)        
         ->get();
 
@@ -116,7 +116,7 @@ class AtendimentosApometriaController extends Controller
             foreach($rodada as $maca){
                 
                 $this->atendimentos = new Atendimentos();
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', '1')
         ->where('status', '>=', 4)
         ->get();
 
@@ -151,7 +151,7 @@ class AtendimentosApometriaController extends Controller
     public function index($status)
     {
         $this->atendimentos = new Atendimentos();
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', '1')
         ->where('status', $status)
         ->get();
 
@@ -178,7 +178,7 @@ class AtendimentosApometriaController extends Controller
     public function relacaoDeAtendidos($data)
     {
         $this->atendimentos = new Atendimentos();
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', '1')
         ->where('status', '>=', 3)        
         ->get();
 
@@ -250,7 +250,7 @@ class AtendimentosApometriaController extends Controller
         $this->atendimentos = new Atendimentos();
         // $this->atendimentosApometria = new AtendimentosApometria();
 
-        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', 'apometria')
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', '1')
         ->where('status', 'agendado')
         ->get();
         

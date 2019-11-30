@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class StatusMotivosAtendimentoApometria extends Migration
+class DatasCanceladasCalendarioApometria extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class StatusMotivosAtendimentoApometria extends Migration
      */
     public function up()
     {
-        Schema::table('atendimentos_apometria', function (Blueprint $table) {
-            $table->string('status_motivo')->nullable();
+        Schema::create('datas_canceladas_calendario_apometria', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('data_cancelada')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class StatusMotivosAtendimentoApometria extends Migration
      */
     public function down()
     {
-        Schema::table('atendimentos_apometria', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('datas_canceladas_calendario_apometria');
     }
 }

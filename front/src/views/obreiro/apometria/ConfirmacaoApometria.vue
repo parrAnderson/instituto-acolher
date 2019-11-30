@@ -4,6 +4,7 @@
         <template v-slot:mainpage>
             <TabsApometria></TabsApometria>
 
+            
             <div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -157,7 +158,7 @@
                                             {{atendimento.motivo | textLimitTd}}
 
                                         <td>
-                                            {{atendimento.data_solicitacao | date}}
+                                            {{atendimento.created_at | date}}
                                         </td>
                                         <td>
                                             {{atendimento.apometria[0].data_agendada | date}}
