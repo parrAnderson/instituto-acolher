@@ -8,6 +8,14 @@ use App\User;
 
 class FrequentadorController extends Controller
 {
+    public function index(){
+        $user = new User();
+        $user = $user->where('type', '<', 1)->get();
+
+        return response()->json([
+            'data' => $user              
+        ]);
+    }
     public function edit($id){
         $user = new User();
         $user = $user->where('id', $id)->get();

@@ -4,9 +4,17 @@ export default {
     state: {
         frequentador: {},
         frequentador_atualizado: {},
+        frequentadores: {},
+        editando_frequentador:{},
     }, 
     
        mutations: {  
+        EDITANDO_FREQUENTADOR(state, data){
+            state.editando_frequentador = data      
+        },
+        FREQUENTADORES(state, data){
+            state.frequentadores = data
+        },
            FREQUENTADOR(state, data){
                state.frequentador = data
            },
@@ -15,6 +23,24 @@ export default {
         },
     },
     actions: {
+        editandoFrequentador(context, data){
+            context.commit('EDITANDO_FREQUENTADOR', data)
+        },
+        getAllFrequentador(context){
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL            
+            
+            axios({
+                method: 'get',
+                url: urlApi + 'frequentador/index',                
+            })
+            .then((response) => {     
+                
+                        context.commit('FREQUENTADORES', response.data.data)                              
+            }).catch(function (error) {
+                console.log(error.response);
+              
+        })  
+        },
         atualizarFrequentador(context, data){
         let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'frequentador/' + data.id;                        
         axios
@@ -25,6 +51,9 @@ export default {
             
         .then(response => {
             context.commit('FREQUENTADOR_ATUALIZADO', response.data)     
+            context.dispatch('getAllFrequentador')
+            context.dispatch('getAllObreiros')
+            
             
         })                           
         .catch(function (error) {

@@ -13,25 +13,40 @@ export default new AclCreate({
   router,
   acceptLocalRules: true,
   globalRules: {
-    isAdmin: new AclRule('admin').generate(),   
+    // 0 - FREQUENTADOR
+    // 1 - ADMIN 
+    // 2 - OBREIRO - TODOS ATENDIMENTOS  
+    // 3 - OBREIRO - APOMETRIA
+    // 4 - OBREIRO - LUZ
+    // 5 - OBREIRO - PASSES
+
+      
     isUser: new AclRule('user').generate(), 
     isLogged: new AclRule('user').and('inside').generate(),
 
+    isAdmin: new AclRule('1').generate(),
+    isObreiroAll: new AclRule('2').generate(),
+    isObreiroApometria: new AclRule('3').or('2').generate(),
+    isObreiroLuz: new AclRule('4').or('2').generate(),
+    isObreiroPasses: new AclRule('5').or('2').generate(),
 
-    isPublic: new AclRule('public').or('obreiro').or('frequentador').or('admin').generate(),
-    isFrequentador: new AclRule('frequentador').or('obreiro').or('admin').generate(),
-    isObreiro: new AclRule('obreiro').or('admin').generate(),
+    isPublic: new AclRule('public').or('0')
+    .or('1').or('2').or('3').or('4').or('5').generate(),
+    isFrequentador: new AclRule('0')
+    .or('1').or('2').or('3').or('4').or('5').generate(),    
+    isObreiro: new AclRule('1').or('2').or('3').or('4').or('5').generate(),
+    
   },
   middleware: async acl => {
     let getStore
     if(localStorage.getItem('type') > ''){
       getStore = localStorage.getItem('type');
-      // console.log("TOKEN")
+
     }else{
       getStore = 'public'
       console.log("SEM TOKEN")
     }    
-    // getStore = 'public'
+
     acl.change(getStore) 
    
   }

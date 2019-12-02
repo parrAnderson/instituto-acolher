@@ -210,7 +210,7 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <div class="btn btn-warning btn-sm">FICHA</div>
+                                    <div class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalFichaFrequentador" @click="idFichaFrequentador = atendimento.user[0].id">FICHA</div>
                                         </td>
 
                                         <td>
@@ -258,6 +258,7 @@
 </template>
 
 <script>
+import FichaFrequentador from '@/components/frequentador/FichaFrequentador'
 import Header from '@/views/layouts/HeaderPublic'
 import TabsApometria from '@/views/layouts/TabsApometria'
 
@@ -290,13 +291,14 @@ export default {
             casaBtn: {},
             atendimentoPrioritario: {},
             atendimentoEspecial: {},
-
+ idFichaFrequentador: null,
             getData: "",
         }
     },
     components: {
         Header,
         TabsApometria,
+        FichaFrequentador,
     },
     filters: {
 

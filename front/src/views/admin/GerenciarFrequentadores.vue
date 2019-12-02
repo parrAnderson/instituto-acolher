@@ -4,13 +4,6 @@
         <template v-slot:mainpage>
 
                     <!-- Modal -->
-            <div class="modal fade bd-example-modal-xl" id="modalDatas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                    <DatasDesativadas/>
-                </div>
-            </div>
-
-                    <!-- Modal EDITAR TIPO -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <mudarTipoFrequentador/>
@@ -19,52 +12,40 @@
             </div>
 
             <div class="card">
-                <div class="card-header">GERENCIAR OBREIROS</div>
+                <div class="card-header">GERENCIAR FREQUENTADORES</div>
                 <div class="card-body">
                     <table class="table  table-hover table-striped table-sm">
                         <tr>
                             <th>ID</th>
                             <th>NOME</th>
-                            <th>TIPO</th>
-                            <th>NÚMERO OBREIRO</th>
+                            <th>TIPO</th>                            
                             <th>EDITAR TIPO</th>
-                            <th>EDITAR DATA</th>
-                            <th>STATUS</th>
                         </tr>
-                        <tr v-for="obreiro in obreiros">
-                            <td>{{obreiro.id}}</td>
-                            <td>{{obreiro.name}}</td>
+                        <tr v-for="frequentador in frequentadores">
+                            <td>{{frequentador.id}}</td>
+                            <td>{{frequentador.name}}</td>
                             <td>
-                                <p v-if="obreiro.type == 0">
+                                <p v-if="frequentador.type == 0">
                                     FREQUENTADOR
                                 </p>
-                                <p v-else-if="obreiro.type == 1">
+                                <p v-else-if="frequentador.type == 1">
                                     ADMIN
                                 </p>
-                                <p v-else-if="obreiro.type == 2">
+                                <p v-else-if="frequentador.type == 2">
                                     OBREIRO - TODOS ATENDIMENTOS
                                 </p>
-                                <p v-else-if="obreiro.type == 3">
+                                <p v-else-if="frequentador.type == 3">
                                     OBREIRO - APOMETRIA
                                 </p>
-                                <p v-else-if="obreiro.type == 4">
+                                <p v-else-if="frequentador.type == 4">
                                     OBREIRO - LUZ
                                 </p>
-                                <p v-else-if="obreiro.type == 5">
+                                <p v-else-if="frequentador.type == 5">
                                     OBREIRO - PASSES
                                 </p>
                             </td>
                             <td>
-                                {{obreiro.obreiro}}
-                            </td>
-                            <td>
-                                <div class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal" @click="openModal(obreiro.id, obreiro.type, obreiro.obreiro)">EDITAR</div>
-                            </td>
-                            <td>
-                                <div class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalDatas" @click="openModal(obreiro.id, obreiro.type, obreiro.obreiro)">DATAS DESATIVADAS</div>
-                            </td>
-                             <td>
-                                ATIVO
+                                <div class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @click="openModal(frequentador.id, frequentador.type, frequentador.obreiro)">EDITAR</div>
                             </td>
 
                         </tr>
@@ -77,7 +58,6 @@
 </template>
 
 <script>
-import DatasDesativadas from '@/components/obreiros/DatasDesativadas'
 import {
     mapActions,
     mapState
@@ -85,7 +65,7 @@ import {
 import Header from '@/views/layouts/HeaderPublic.vue'
 import mudarTipoFrequentador from '@/components/frequentador/mudarTipoFrequentador'
 export default {
-    name: "GerenciarObreiros",
+    name: "GerenciarFrequentadores",
     data() {
         return {
             inputs: {},
@@ -94,8 +74,7 @@ export default {
     },
     components: {
         Header,
-        mudarTipoFrequentador,
-        DatasDesativadas,
+        mudarTipoFrequentador
     },
     methods: {
         openModal(id, type, obreiro) {
@@ -109,17 +88,17 @@ export default {
             // this.data = {}
         },
         ...mapActions([
-            'getAllObreiros',
+            'getAllFrequentador',
             'editandoFrequentador',
         ]),
     },
     computed: {
         ...mapState({
-            obreiros: state => state.Obreiros.obreiros,           
+            frequentadores: state => state.Frequentador.frequentadores,           
         })
     },
     beforeMount() {
-        this.getAllObreiros(); 
+        this.getAllFrequentador(); 
     },
    
 }

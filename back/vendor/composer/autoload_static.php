@@ -486,7 +486,7 @@ class ComposerStaticInit7da160f1acf75b1be51ca044df90f391
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
-        'App\\Http\\Controllers\\Calendario\\datasCanceladasCalendarioApometriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Calendario/datasCanceladasCalendarioApometriaController.php',
+        'App\\Http\\Controllers\\Calendario\\DatasCanceladasCalendarioApometriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Calendario/DatasCanceladasCalendarioApometriaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Emails\\emailCadastroController' => __DIR__ . '/../..' . '/app/Http/Controllers/Emails/emailCadastroController.php',
         'App\\Http\\Controllers\\Emails\\emailCadastroObreiroController' => __DIR__ . '/../..' . '/app/Http/Controllers/Emails/emailCadastroObreiroController.php',

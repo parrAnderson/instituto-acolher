@@ -17,7 +17,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
-    'App\\Http\\Controllers\\Calendario\\datasCanceladasCalendarioApometriaController' => $baseDir . '/app/Http/Controllers/Calendario/datasCanceladasCalendarioApometriaController.php',
+    'App\\Http\\Controllers\\Calendario\\DatasCanceladasCalendarioApometriaController' => $baseDir . '/app/Http/Controllers/Calendario/DatasCanceladasCalendarioApometriaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Emails\\emailCadastroController' => $baseDir . '/app/Http/Controllers/Emails/emailCadastroController.php',
     'App\\Http\\Controllers\\Emails\\emailCadastroObreiroController' => $baseDir . '/app/Http/Controllers/Emails/emailCadastroObreiroController.php',

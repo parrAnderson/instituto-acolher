@@ -4,6 +4,47 @@
         <template v-slot:mainpage>
             <div class="no-print">
 <TabsApometria></TabsApometria>
+
+    <!-- MODAL FICHA ATENDIMENTO -->
+    <div class="modal fade bd-example-modal-xl" id="modalFichaFrequentador" tabindex="-1" role="dialog" aria-labelledby="modalFichaFrequentador" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Cancelar Atendimento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <FichaFrequentador :id_frequentador="idFichaFrequentador" :tipo_ficha="'visualizar'"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-xl" id="modalFichaFrequentador" tabindex="-1" role="dialog" aria-labelledby="modalFichaFrequentador" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Cancelar Atendimento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <FichaFrequentador :id_frequentador="idFichaFrequentador" :tipo_ficha="'visualizar'"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
             </div>
 
             <div class="print">
@@ -119,7 +160,7 @@
                                             {{atendimento.apometria[0].horario_de_chegada}}
                                         </td>   
                                         <td>
-                                            <div class="btn btn-warning btn-sm">FICHA</div>
+                                    <div class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalFichaFrequentador" @click="idFichaFrequentador = atendimento.user[0].id">FICHA</div>
                                         </td>
                                         
                                     </tr>
@@ -148,6 +189,8 @@
 </template>
 
 <script>
+import FichaFrequentador from '@/components/frequentador/FichaFrequentador'
+
 import Header from '@/views/layouts/HeaderPublic'
 import TabsApometria from '@/views/layouts/TabsApometria'
 import listaDePresenca from '@/components/apometria/listaDePresenca'
@@ -168,12 +211,14 @@ export default {
             dadosCancelamento: {},
             dadosChegou: {},
             getData: "",
+            idFichaFrequentador: null,
         }
     },
     components: {
         Header,
         TabsApometria,
         listaDePresenca,
+        FichaFrequentador,
     },
     filters: {
         idadeComMeses(value) {

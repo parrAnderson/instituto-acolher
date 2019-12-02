@@ -18,6 +18,11 @@ Route::group([
     'prefix' => 'obreiros'
 ], function () {
     Route::post('acoes/store', 'Obreiros\AcoesObreirosController@store');
+    Route::get('index', 'Obreiros\AcoesObreirosController@index');
+
+    Route::get('datasdesativadas/{id}', 'Obreiros\ObreirosDatasDesativadoController@index');
+    Route::post('datasdesativadas', 'Obreiros\ObreirosDatasDesativadoController@store');
+    Route::delete('datasdesativadas/excluir/{id}', 'Obreiros\ObreirosDatasDesativadoController@destroy');
 
    
 });
@@ -36,6 +41,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'frequentador'
 ], function () {
+    Route::get('index', 'Frequentador\FrequentadorController@index');  
     Route::get('edit/{id}', 'Frequentador\FrequentadorController@edit');  
     Route::put('/{id}', 'Frequentador\FrequentadorController@update');
 });

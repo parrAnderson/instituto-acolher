@@ -4,6 +4,8 @@ import Router from 'vue-router'
 // ROTAS ADMIN
 import GerenciarObreiros from './views/admin/GerenciarObreiros'
 import DatasDesativadasCalendarioApometria from './views/admin/DatasDesativadasCalendarioApometria'
+import GerenciarFrequentadores from './views/admin/GerenciarFrequentadores'
+
 
 // ROTAS PUBLICAS
 import Home from './views/public/Home.vue'
@@ -175,6 +177,14 @@ export default new Router({
       }      
     },
     {
+      path: '/admin/gerenciarfrequentadores',
+      name: 'gerenciarfrequentadores',
+      component: GerenciarFrequentadores,
+      meta: {
+        rule: 'isAdmin'
+      }      
+    },
+    {
       path: '/admin/datasdesativadascalendarioapometria',
       name: 'datasdesativadascalendarioapometria',
       component: DatasDesativadasCalendarioApometria,
@@ -190,7 +200,7 @@ export default new Router({
       name: 'obreiro',
       component: Home,
       meta: {
-        rule: 'isObreiro'
+        rule: 'isObreiroApometria'
         }
         },
         {
@@ -198,7 +208,7 @@ export default new Router({
         name: 'programacaoapometria',
         component: ProgramacaoApometria,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         {
@@ -206,7 +216,7 @@ export default new Router({
         name: 'confirmacaoapometria',
         component: ConfirmacaoApometria,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         {
@@ -214,7 +224,7 @@ export default new Router({
         name: 'rodadasmacas',
         component: RodadasMacas,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         {
@@ -222,7 +232,7 @@ export default new Router({
         name: 'relacaoatendidos',
         component: RelacaoAtendidos,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },    
         {
@@ -230,7 +240,7 @@ export default new Router({
         name: 'entrevistapreatendimento',
         component: EntrevistaPreAtendimento,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         {
@@ -238,7 +248,7 @@ export default new Router({
         name: 'leituradasfichas',
         component: LeituraDasFichas,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         {
@@ -246,7 +256,7 @@ export default new Router({
         name: 'cabeceiradamaca',
         component: CabeceiraDaMaca,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         {
@@ -254,7 +264,7 @@ export default new Router({
         name: 'posatendimento',
         component: PosAtendimento,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         {
@@ -262,7 +272,7 @@ export default new Router({
         name: 'entrevistadeencerramento',
         component: EntrevistaDeEncerramento,
         meta: {
-          rule: 'isObreiro'
+          rule: 'isObreiroApometria'
         }
         },
         
