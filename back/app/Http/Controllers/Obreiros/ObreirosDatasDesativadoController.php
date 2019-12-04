@@ -11,6 +11,15 @@ class ObreirosDatasDesativadoController extends Controller
     public function index($id){
         $datasDesativadas = new obreirosDatasDesativado;
         $datasDesativadas = $datasDesativadas->where('id_user', '=', $id)->get();
+        $dataAtual = date('Y-m-d');
+        foreach($datasDesativadas as $datas){
+            if($dataAtual > $datas->data_desativada_inicio and $dataAtual < $datas->data_desativada_fim){
+                $datas->status = 'Inativo';
+            }else{
+                $datas->status = 'Ativo';
+            }
+        }
+
         return response()->json([
             'data' => $datasDesativadas,              
         ]);

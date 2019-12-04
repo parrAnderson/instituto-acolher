@@ -10,7 +10,7 @@
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <select class="form-control" v-model="editando_frequentador.type">
+                <select class="form-control" @change="change()" v-model="editando_frequentador.type">
                     <option value="0">FREQUENTADOR</option>
                     <option value="1">ADMIN</option>
                     <option value="2">OBREIRO - TODOS ATENDIMENTOS</option>
@@ -20,12 +20,20 @@
                 </select>
 
             </div>
-            <input type="number" v-model="editando_frequentador.obreiro" class="form-control" placeholder="Número Obreiro">
+            <div class="form-group">
+                <input type="number" v-model="editando_frequentador.obreiro" class="form-control" placeholder="Número Obreiro">
+
+            </div>
+
+            <div class="alert alert-warning alert-dismissible" v-if="error">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>                  
+                  Preencha com o número do obreiro.
+                </div>
 
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">FECHAR</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" @click="atualizarFrequentador(editando_frequentador)">SALVAR</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" @click="salvar()">SALVAR</button>
         </div>
     </div>
 
@@ -39,10 +47,25 @@ import {
 } from 'vuex'
 export default {
     name: "MudarTipoFrequentador",
+    data(){
+        return{
+            error: ''
+        }
+    },
     methods: {
-
-        salvar() {
-            // this.data = {}
+        change(){
+            if(this.editando_frequentador.type == "0"){
+                this.editando_frequentador.obreiro = ''
+            }
+        },
+        salvar() {   
+            if(this.editando_frequentador.type > "0" && this.editando_frequentador.obreiro == ''){
+                 this.error = true
+            }else{
+                this.atualizarFrequentador(this.editando_frequentador)
+                this.error = false
+            }         
+            
         },
         ...mapActions([
             'atualizarFrequentador',
@@ -56,7 +79,9 @@ export default {
      watch:{
         editando_frequentador: {
             handler: function (val, oldVal) {
-                // console.log(this.editando_frequentador)
+                if(this.editando_frequentador.type == "0"){
+                    this.editando_frequentador.obreiro = ''
+                }
             },
             deep: true
         },

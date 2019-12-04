@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use DateTime;
 use App\Http\Controllers\Emails\emailCadastroController;
 
 class AuthController extends Controller
@@ -67,7 +68,7 @@ class AuthController extends Controller
                 $this->Users->save();
 
                 $this->email = new emailCadastroController();
-                $this->email->cadastro($request, $this->Users->id);
+                $this->email->cadastro($this->Users);
 
                 return response()->json([
                     'message' => 'Cadastrado',  
@@ -145,6 +146,14 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
+
+        $date = new DateTime($request->user()->data_nascimento);
+                    $interval = $date->diff( new DateTime( date('Y-m-d') ) );
+                    $interval = $interval->format('%Y');
+                
+                    $request->user()->idade = $interval;
+
+
         return response()->json($request->user());
     }
 }

@@ -19,10 +19,16 @@ Route::group([
 ], function () {
     Route::post('acoes/store', 'Obreiros\AcoesObreirosController@store');
     Route::get('index', 'Obreiros\AcoesObreirosController@index');
+    Route::get('/', 'Obreiros\ObreirosController@index'); 
 
     Route::get('datasdesativadas/{id}', 'Obreiros\ObreirosDatasDesativadoController@index');
     Route::post('datasdesativadas', 'Obreiros\ObreirosDatasDesativadoController@store');
     Route::delete('datasdesativadas/excluir/{id}', 'Obreiros\ObreirosDatasDesativadoController@destroy');
+   
+    
+    
+    Route::post('termo', 'Obreiros\TermoObreirosConfirmadosController@store');
+    Route::get('termo/{id}', 'Obreiros\TermoObreirosConfirmadosController@show');
 
    
 });
@@ -111,4 +117,5 @@ Route::group([
     Route::post('/cadastrar', 'Emails\emailCadastroController@cadastro');
     Route::post('/obreiro', 'Emails\emailCadastroObreiroController@obreiroCadastro');
     Route::post('/dataatendimento', 'Emails\emailDataAtendimentoController@AtendimentoCadastrado');
+    Route::post('/solicitacaoatendimentoapometria', 'Emails\emailSolicitacaoAtendimentoController@apometria');
 });

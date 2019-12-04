@@ -143,16 +143,16 @@
                         </thead>
                         <tbody>
                             <tr v-for="atendimento in programacao">
-                                <td v-if="atendimento.user[0].type == 'frequentador'">
-                                    {{atendimento.user[0].type | limitType}} <br>
-                                    {{atendimento.user[0].id}}
+                                <td v-if="atendimento.user[0].type == 0">
+                                            FRE <br>
+                                            {{atendimento.user[0].id}}
 
-                                </td>
-                                <td v-else>
-                                    {{atendimento.user[0].type | limitType}} <br>
-                                    {{atendimento.user[0].id}}
-                                </td>
-                                <td>
+                                            </td>
+                                            <td v-else>
+                                                OBR <br>
+                                                {{atendimento.user[0].obreiro}}
+                                            </td>
+                                                                       <td>
                                     {{atendimento.user[0].name}}
                                 </td>
                                 <td>

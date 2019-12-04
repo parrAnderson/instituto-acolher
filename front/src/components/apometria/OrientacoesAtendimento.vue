@@ -1,6 +1,15 @@
 <template>
 <div v-if="atendimento.apometria">
 
+    <div class="row justify-content-center" v-if="!atendimento.permissao">
+        <div class="col-sm-6">
+            <div class="alert alert-warning alert-dismissible text-center">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    Idade: {{atendimento.idade}} anos
+                </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-6">
             <div class="card">
@@ -14,21 +23,33 @@
                         <div class="col-6">
                             <div class="form-group row">
                                 <!-- <input type="number" v-model="atendimento.apometria[0].recomendacao_curativos" class="col-sm-6 form-control">    -->
-                                <select v-model="atendimento.apometria[0].recomendacao_curativos" class="form-control col-sm-6">
+                                <select v-if="atendimento.permissao" v-model="atendimento.apometria[0].recomendacao_curativos" @change="ChangeDiasRetorno()" class="form-control col-sm-6">                       
                                     <option>4</option>
                                     <option>8</option>
+                                    <option>10</option>
                                     <option>12</option>
+                                </select>
+                                 <select v-else v-model="atendimento.apometria[0].recomendacao_curativos" class="form-control col-sm-6">                       
+                                    <option selected>0</option>                                    
                                 </select>
                                 <label class="form-check-label col-sm-6"> Curativos</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group row">
-
                                 <label class="form-check-label col-sm-6">Retorno em </label>
-                                <select v-model="atendimento.apometria[0].recomendacao_retorno" class="form-control col-sm-6">
-                                    <option>45</option>
-                                    <option>90</option>
+                                <select v-if="atendimento.permissao" v-model="atendimento.apometria[0].recomendacao_retorno"  class="form-control col-sm-6">
+                                    <option value="13">13 dias</option>
+                                    <option value="26">26 dias</option>
+                                    <option value="34">34 dias</option>
+                                    <option value="40">40 dias</option>
+                                </select>
+
+                                <select v-else @change="ChangeDiasRetorno()" v-model="atendimento.apometria[0].recomendacao_retorno"  class="form-control col-sm-6">
+                                    <option value="13">13 dias</option>
+                                    <option value="26">26 dias</option>
+                                    <option value="34">34 dias</option>
+                                    <option value="40">40 dias</option>
                                 </select>
                             </div>
                         </div>
@@ -47,11 +68,14 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group row">
-                                <select v-model="atendimento.apometria[0].recomendacao_dieta" class="form-control col-sm-6">
+                                <select v-if="atendimento.permissao" v-model="atendimento.apometria[0].recomendacao_dieta" class="form-control col-sm-6">
                                     <option>Dieta 1</option>
                                     <option>Dieta 2</option>
                                     <option>Dieta 3</option>
                                     <option>Dieta 4</option>
+                                </select>
+                                <select v-else v-model="atendimento.apometria[0].recomendacao_dieta" class="form-control col-sm-6">
+                                    <option>Nenhuma</option>                                    
                                 </select>
                             </div>
                         </div>
@@ -199,7 +223,17 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-10 text-right">
+        <div class="col">
+            
+            <div class="row">                
+                <div class="col">
+                    Retornar após:
+                    <input type="date" v-model="atendimento.apometria[0].data_retorno"> 
+                </div>
+            </div>
+        </div>
+   
+        <div class="col text-right">
             <div class="btn btn-sm btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#listaDePresenca" @click="confirmar(atendimento.apometria[0].id, atendimento.user_id)">
                 <span class="text-bold">
                     CONCLUIR ATENDIMENTO
@@ -243,6 +277,31 @@ export default {
         }
     },
     methods: {
+        changeRetornoCurativo(){
+            if(this.atendimento.permissao){
+                 if(this.atendimento.apometria[0].recomendacao_curativos == 4){
+                    this.atendimento.apometria[0].recomendacao_retorno = 13
+                }else if(this.atendimento.apometria[0].recomendacao_curativos == 8){
+                    this.atendimento.apometria[0].recomendacao_retorno = 26
+                    }else if(this.atendimento.apometria[0].recomendacao_curativos == 10){
+                    this.atendimento.apometria[0].recomendacao_retorno = 34
+                }else if(this.atendimento.apometria[0].recomendacao_curativos == 12){
+                    this.atendimento.apometria[0].recomendacao_retorno = 40
+                }
+            }
+        },
+        ChangeDiasRetorno(){
+            
+           this.changeRetornoCurativo()
+
+            var DataAtual = moment()
+            DataAtual = moment(DataAtual).add(this.atendimento.apometria[0].recomendacao_retorno, "days") 
+            
+            this.atendimento.apometria[0].data_retorno = moment(DataAtual).format("YYYY-MM-DD");
+            
+
+            console.log(this.atendimento.apometria[0].data_retorno)
+        },
         ...mapActions([
             'atualizarAtendimentoApometria',
             'getListaLeituraDasFichas',
@@ -298,9 +357,20 @@ export default {
             orientar: state => state.AtendimentoApometria.programacao,
         }),
     },
+    
     watch: {
         atendimento: {
             handler: function (val, oldVal) {
+
+                
+
+               this.changeRetornoCurativo()
+
+
+                    if(!this.atendimento.apometria[0].data_retorno){
+                        this.ChangeDiasRetorno()
+                    }
+                
               
                 if (this.atendimento.apometria[0].recomendacao_dieta === 'Dieta 1' || this.atendimento.apometria[0].recomendacao_dieta === 'Dieta 2') {
                     this.atendimento.apometria[0].recomendacao_carne = this.atendimento.apometria[0].recomendacao_dias_dieta

@@ -6,6 +6,7 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\ObreirosDatasDesativado;
 
 class User extends Authenticatable
 {
@@ -100,5 +101,27 @@ class User extends Authenticatable
         $user->fill($request->input());      
         $user->save();
         return($user);
+    }
+
+    public function DatasObreiroDesativado($id){
+        $status = '';
+        $datasDesativadas = new obreirosDatasDesativado;
+        $datasDesativadas = $datasDesativadas->where('id_user', '=', $id)->get();
+        $dataAtual = date('Y-m-d');
+        foreach($datasDesativadas as $datas){
+            if($dataAtual > $datas->data_desativada_inicio and $dataAtual < $datas->data_desativada_fim){
+                $status = 'Inativo';
+            }
+        }
+        if($status == ''){
+            $status = 'Ativo';
+        }
+
+
+        return $status;
+
+        // return response()->json([
+        //     'data' => $status,              
+        // ]);
     }
 }

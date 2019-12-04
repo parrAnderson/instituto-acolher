@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Atendimentos;
 use App\Models\AtendimentosApometria;
 use DateTime;
+use App\User;
+use App\Http\Controllers\Emails\emailConfirmacaoAtendimentoController;
 
 class AtendimentosApometriaController extends Controller
 {    
@@ -33,7 +35,13 @@ class AtendimentosApometriaController extends Controller
                     $date = new DateTime($usuario->data_nascimento);
                     $interval = $date->diff( new DateTime( date('Y-m-d') ) );
                     $interval = $interval->format('%Y');                
-                    $atendimento->idade = $interval;                
+                    $atendimento->idade = $interval;     
+                    
+                    if($atendimento->idade < 8 or $atendimento->idade > 60){
+                        $atendimento->permissao = false;
+                    }else{
+                        $atendimento->permissao = true;
+                    }
             }
 
             foreach($atendimentosApometria as $apometria){
@@ -164,10 +172,26 @@ class AtendimentosApometriaController extends Controller
             ->take(1)
             ->get();
 
+
+            
+
             $atendimento->apometria = $atendimentosApometria;
 
             
             $atendimento->user  = $user; 
+
+            foreach($atendimento->user as $usuario){               
+                $date = new DateTime($usuario->data_nascimento);
+                $interval = $date->diff( new DateTime( date('Y-m-d') ) );
+                $interval = $interval->format('%Y');                
+                $atendimento->idade = $interval;     
+                
+                if($atendimento->idade < 8 or $atendimento->idade > 60){
+                    $atendimento->permissao = false;
+                }else{
+                    $atendimento->permissao = true;
+                }
+        }
         }
 
         return response()->json([
@@ -330,6 +354,8 @@ class AtendimentosApometriaController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+    
         
         try{
         $this->atendimentosApometria = new AtendimentosApometria(); 
@@ -340,6 +366,17 @@ class AtendimentosApometriaController extends Controller
             $this->atendimentos = new Atendimentos();
             $this->atendimentos = $this->atendimentos->updateStatus($request->status, $this->atendimentosApometria->atendimento_id);
         
+
+        if($request->status == 3){
+            $user = new User;
+        $users = $user->where('id', $request->user_id)->take(1)->get();
+        foreach($users as $user){
+            $email = new emailConfirmacaoAtendimentoController;
+            $user->data_agendada = date('d/m/Y', strtotime($request->data_agendada)) ;
+            $email = $email->apometria($user);
+
+        }
+    }
             
         return response()->json([
                 'data' =>  $this->atendimentosApometria ,         

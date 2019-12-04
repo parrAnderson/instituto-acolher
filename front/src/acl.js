@@ -25,10 +25,10 @@ export default new AclCreate({
     isLogged: new AclRule('user').and('inside').generate(),
 
     isAdmin: new AclRule('1').generate(),
-    isObreiroAll: new AclRule('2').generate(),
-    isObreiroApometria: new AclRule('3').or('2').generate(),
-    isObreiroLuz: new AclRule('4').or('2').generate(),
-    isObreiroPasses: new AclRule('5').or('2').generate(),
+    isObreiroAll: new AclRule('2').or('1').generate(),
+    isObreiroApometria: new AclRule('3').or('2').or('1').generate(),
+    isObreiroLuz: new AclRule('4').or('2').or('1').generate(),
+    isObreiroPasses: new AclRule('5').or('2').or('1').generate(),
 
     isPublic: new AclRule('public').or('0')
     .or('1').or('2').or('3').or('4').or('5').generate(),

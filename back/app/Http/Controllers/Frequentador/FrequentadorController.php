@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frequentador;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Controllers\Emails\emailCadastroObreiroController;
 
 class FrequentadorController extends Controller
 {
@@ -25,12 +26,23 @@ class FrequentadorController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-       
+    {   
         
+
+
+          
+           
         try{
             $user = new User();
             $user = $user->put($request, $id);
+
+            if($request->type > 0){              
+            
+                $email = new emailCadastroObreiroController;                       
+                $email = $email->obreiroCadastro($user);
+            }
+
+
             return response()->json([
                 'data' => $user              
             ]);

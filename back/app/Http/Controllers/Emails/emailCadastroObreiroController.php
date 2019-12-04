@@ -11,16 +11,17 @@ class emailCadastroObreiroController extends Controller
         return view('emails.obreiro');
     }
 
-    public function obreiroCadastro(Request $request, $dados){
+    public function obreiroCadastro($request){
 
-          
-        $this->email = $dados['email'];
+       
+        $this->email = $request->email;
 
         $dados = [
-        'nome' => $dados['name'],
-        'email' => $dados['email'],
-        'obreiro' => $dados['obreiro'],
-         ];      
+        'nome' => $request->name,
+        'email' => $request->email,
+        'obreiro' => $request->obreiro,
+        'genero' => $request->genero,
+         ];       
        
         try {
             Mail::send('emails.obreiro', $dados, function($message){

@@ -1,36 +1,41 @@
+@if($genero == "Masculino") Prezado 
+@elseif($genero == "Feminino") Prezada 
+@else($genero == "Masculino") Prezadx @endif {{$nome}},
+<br><br>
+Efetuamos o seu registro como 
+@if($genero == "Masculino") frequentador
+@elseif($genero == "Feminino") frequentadora 
+@else($genero == "Masculino") frequentadorx @endif  do <span class="bold">Instituto</span> <span class="acolher bold">Acolher</span>, de maneira a facilitar sua identificação e acesso nas futuras visitas.
+<br><br>
+O <span class="bold">acesso</span> ao <span class="acolher bold">Acolher</span> é <span class="bold">permitido</span> mediante a apresentação do <span class="bold">Cartão de Identificação de Frequentador</span>, o qual lhe possibilita a <span class="bold">participação</span> em <span class="bold">todas as atividades assistenciais</span> do <span class="bold">Instituto</span>. 
+<br><br>
+O seu <span class="bold">número</span> de <span class="bold">registro de frequentador</span> é: <span class="bold red">{{$id}}</span>
+<br><br>
+Para emissão do <span class="bold">Cartão de Identificação de Frequentador</span> pedimos que nos seja encaminhada <span class="bold">uma foto sua 3x4</span>, digitalizada em extensão JPG, <span class="bold">ao e-mail abaixo:</span>
+    <br><br>
+semear.acolher@hotmail.com
+<br><br>
+Para facilitar a identificação, por favor, nomeie o arquivo da foto com o número do seu registro de frequentador.
+<br><br>
+Que nossos Amigos do Alto continuem nos intuindo e amparando!
 
-Seja bem vindo {{$nome}}, <br><br>
+<br><br>
+Nossos votos de muita Paz!
 
-Você foi cadastrado ao Acolher <br>
-Seu número de cadastro é <b>{{$id}}</b><br><br>
-
-Atenciosamente, <br>
-<a href="acolher.org">acolher.org</a>
-
-
-<!-- Prezada {{$nome}},<br>
-Com alegria e gratidão, recebemos seu cadastro no Instituto Acolher!<br><br>
-Todos os atendimentos do Instituto Acolher são inteiramente gratuitos.<br>
-
-Através do nosso site www.acolher.org você também poderá verificar todas as atividades de atendimento atualmente disponíveis.<br><br>
-
-Efetuamos o seu registro como frequentadora do Instituto Acolher, de maneira a facilitar sua identificação e acesso nas futuras visitas.<br><br>
-
-O acesso ao Acolher é permitido mediante a apresentação do Cartão de Identificação de Frequentador, 
-o qual lhe possibilita a participação em todas as atividades assistenciais do Instituto. <br><br>
-
-O seu número de registro de frequentador é: 248<br><br>
-
-Para emissão do Cartão de Identificação de Frequentador pedimos que nos seja encaminhada uma foto sua 3x4, digitalizada em extensão JPG, ao e-mail abaixo:<br><br>
-
-semear.acolher@hotmail.com<br><br>
-
-Para facilitar a identificação, por favor, nomeie o arquivo da foto com o número do seu registro de frequentador.<br><br>
-
-Que nossos Amigos do Alto continuem nos intuindo e amparando!<br><br>
-
-Nossos votos de muita Paz!<br><br>
-
-
-Acolher<br>
-Instituto Kardecista de Estudos e Amparo -->
+<br><br>
+<h2 class="acolher bold">Acolher</h2>
+<p class="bold">Instituto Kardecista de Estudos e Amparo</p>
+<style>
+    .acolher{
+        color: #1a3564;
+        margin: 0px;
+        
+    }
+    .bold{
+        margin: 0px;
+        font-weight: bold;
+    }
+    .red{
+        color: red;
+    }
+</style>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Atendimentos;
 use App\Models\AtendimentosApometria;
+use App\User;
+use App\Http\Controllers\Emails\emailSolicitacaoAtendimentoController;
 
 class AtendimentosController extends Controller
 {
@@ -34,6 +36,24 @@ class AtendimentosController extends Controller
     
     public function store(Request $request)
     {
+
+        
+        $user = new User;
+        $users = $user->where('id', $request->user_id)->take(1)->get();
+        foreach($users as $user){
+            $email = new emailSolicitacaoAtendimentoController;
+
+            if($request->tipo_atendimento == 1){
+                $email = $email->apometria($user);
+            }else if($request->tipo_atendimento == 4){
+                $email = $email->luz($user);
+            }else if($request->tipo_atendimento == 3){
+                $email = $email->evangelho($user);
+            }
+            
+        }
+        
+        
         $this->atendimentos = new Atendimentos();
         try{
             $this->atendimentos = $this->atendimentos->create($request->all());

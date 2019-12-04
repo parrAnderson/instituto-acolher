@@ -46,7 +46,7 @@
 
                             <div class="row justify-content-center row-space-form">
                                 <div class="col-8">
-                                    <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
+                                    <textarea rows="3" class="form-control" v-model="inputs.motivo" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                                 </div>
                             </div>
 
@@ -61,9 +61,21 @@
                                 </div>
                             </div>
                             <br>
+                            <div class="row justify-content-center">
+                                <!-- maior -->
+                                <div class="col-10" v-if="user.idade > 18">                                    
+                                    Declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper qualquer  tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha inteira responsabilidade meus atos e deliberações acerca de qualquer tema referente a assuntos particulares e/ou profissionais e/ou concernentes às saúdes física, mental e/ou espiritual.
+                                </div>
+                                <div class="col-10" v-else>  
+                                    Declaro ser de minha livre e espontânea vontade submeter o(a) menor sob minha responsabilidade ao atendimento no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper qualquer  tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha inteira responsabilidade atos e deliberações do menor em questão acerca de qualquer tema referente a assuntos particulares e/ou profissionais e/ou concernentes às saúdes física, mental e/ou espiritual.                                   
+                                </div>
+                            </div>
+                            <br>
                             <div class="row justify-content-right row-space-form">
                                 <div class="col-10 text-right">
-                                    <button  type="submit" class="btn btn-primary" @click="agendar()">AGENDAR</button>
+                                    <button  type="submit" class="btn btn-primary btn-sm" v-if="btnAgendar" @click="agendar()">DECLARO QUE LI E ACEITO</button>
+                                                                    <button  type="submit" class="btn btn-primary btn-sm btn-disable" v-else><i class="fas fa-spinner"></i> CARREGANDO </button>
+
                                 </div>
                             </div>
 
@@ -188,6 +200,7 @@ export default {
         return {
             inputs: {},
             required: {},
+            btnAgendar: true,
         }
     },
     computed: {
@@ -195,6 +208,7 @@ export default {
             userId:  state => state.Auth.userId,
             atendimentos: state => state.Atendimentos.solicitacoes_atendimento,
             atendimento_cadastrado: state => state.Atendimentos.atendimento_cadastrado,
+            user: state => state.Auth.user.data,
         })
     },
     
@@ -209,7 +223,7 @@ export default {
             this.inputs.outro_vicio = ''
             this.inputs.qual_droga = ''
             this.inputs.tratamento = ''
-            this.inputs.recorrer = ''
+            this.inputs.motivo = ''
 
             this.GetSolicitacoesAtendimentos(this.userId);
 
@@ -221,21 +235,24 @@ export default {
             // 'LimparAtendimento',
         ]),
         checkRequired() {
+            this.btnAgendar = false
             if (this.inputs.fumante &&
                 this.inputs.bebida &&
                 this.inputs.drogas &&
-                this.inputs.recorrer &&
+                this.inputs.motivo &&
                 this.inputs.tipo_atendimento
             ) {
                 this.required = true
                 console.log("preenchido")
             } else {
                 this.required = false
-                console.log("Vazio")
+                this.btnAgendar = true
             }
+            
         },
 
         agendar() {
+            
             console.log("AGENDANDO")
             this.checkRequired()
 
@@ -244,7 +261,7 @@ export default {
                 this.GetSolicitacoesAtendimentos(this.userId);
             }
 
-            
+            // this.btnAgendar = true
 
         },        
     },
@@ -265,7 +282,7 @@ export default {
            
     },
     beforeMount() {   
-         
+         this.GetSolicitacoesAtendimentos(this.userId);
          
 
         this.inputs.tipo_atendimento = ""
@@ -281,6 +298,16 @@ export default {
 
     },
     watch:{
+        atendimento_cadastrado: {
+            handler: function (val, oldVal) {
+                if(this.atendimento_cadastrado == false){
+                    this.btnAgendar = true
+                }
+               
+                
+            },
+
+        },
         userId: {
             handler: function (val, oldVal) {
                this.GetSolicitacoesAtendimentos(this.userId);

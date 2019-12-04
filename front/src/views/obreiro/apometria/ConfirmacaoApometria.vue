@@ -145,15 +145,15 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="atendimento in programacao">
-                                        <td v-if="atendimento.user[0].type == 'frequentador'">
-                                            {{atendimento.user[0].type | limitType}} <br>
+                                     <td v-if="atendimento.user[0].type == 0">
+                                            FRE <br>
                                             {{atendimento.user[0].id}}
 
-                                        </td>
-                                        <td v-else>
-                                            {{atendimento.user[0].type | limitType}} <br>
-                                            {{atendimento.user[0].id}}
-                                        </td>
+                                            </td>
+                                            <td v-else>
+                                                OBR <br>
+                                                {{atendimento.user[0].obreiro}}
+                                            </td>                                        
                                         <td>
                                             {{atendimento.user[0].name}}
                                         </td>
@@ -189,7 +189,12 @@
 
                                         </td>
                                         <td>
-                                            <div class="btn btn-outline-primary btn-sm btn-100w" @click="confirmar(atendimento.apometria[0].id, atendimento.user_id)">Confirmar</div>
+                                            <div class="btn btn-outline-primary btn-sm btn-100w" v-if="!btnConfimar[atendimento.apometria[0].id]" @click="confirmar(
+                                                atendimento.apometria[0].id, atendimento.user_id, 
+                                                atendimento.apometria[0].data_agendada)">Confirmar</div>
+                                            <div v-else class="btn btn-outline-primary btn-sm btn-100w">
+                                                <i class="fas fa-spinner"></i> Confirmando
+                                                </div>    
                                             <div class="btn btn-outline-danger btn-sm btn-cancelar btn-100w" data-toggle="modal" data-target="#modalCancelamento" @click="openModalCancelamento(atendimento.apometria[0].id, atendimento.user_id)">Cancelar</div>
                                         </td>
                                     </tr>
@@ -230,6 +235,7 @@ export default {
             dadosCancelamento: {},
             dadosConfirmar: {},
             idFichaFrequentador: null,
+            btnConfimar: [],
         }
     },
     components: {
@@ -322,10 +328,14 @@ export default {
             this.dadosAtendimento = atendimento
             this.changeShowModalDataPicker()
         },
-        confirmar(id_atendimento_apometria, user_id) {
+        confirmar(id_atendimento_apometria, user_id, data_agendada) {
+            this.btnConfimar[id_atendimento_apometria] = true
+            console.log(this.btnConfimar.id_atendimento_apometria)
             this.dadosConfirmar = {}
             this.dadosConfirmar.id = id_atendimento_apometria
             this.dadosConfirmar.status = 3
+            this.dadosConfirmar.user_id = user_id
+            this.dadosConfirmar.data_agendada = data_agendada
 
             var acoes = {
                 'id_obreiro': this.$store.state.Auth.userId,

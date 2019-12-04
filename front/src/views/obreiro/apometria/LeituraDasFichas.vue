@@ -185,15 +185,16 @@
                                 <tbody>
                                    
                                     <tr v-for="atendimento in programacao">
-                                        <td v-if="atendimento.user[0].type == 'frequentador'">
-                                            {{atendimento.user[0].type | limitType}} <br>
+                                    <td v-if="atendimento.user[0].type == 0">
+                                            FRE <br>
                                             {{atendimento.user[0].id}}
 
-                                        </td>
-                                        <td v-else>
-                                            {{atendimento.user[0].type | limitType}} <br>
-                                            {{atendimento.user[0].id}}
-                                        </td>
+                                            </td>
+                                            <td v-else>
+                                                OBR <br>
+                                                {{atendimento.user[0].obreiro}}
+                                            </td>
+                                        
                                         <td>
                                             {{atendimento.user[0].name}}
                                         </td>
@@ -352,12 +353,7 @@ export default {
 
     },
     beforeMount() {
-        var data = new Date()
-        var dia = data.getDate();
-        var mes = data.getMonth() + 1;
-        var ano = data.getFullYear()
-
-        this.getData = ano + '-' + mes + '-' + dia;
+        this.getData = new Date().toISOString().slice(0,10);
         this.getMaca = 1
         this.getDadosAtendimento()
     },

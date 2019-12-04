@@ -64,7 +64,7 @@
                                 <div class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalDatas" @click="openModal(obreiro.id, obreiro.type, obreiro.obreiro)">DATAS DESATIVADAS</div>
                             </td>
                              <td>
-                                ATIVO
+                                {{obreiro.status_obreiro}}
                             </td>
 
                         </tr>

@@ -65,6 +65,7 @@ class AtendimentosApometria extends Model
             'encerramento_encaminhamento_adicional_apometria',
             'encerramento_encaminhamento_adicional_kardecismo',
             'encerramento_observacao_geral',
+            'data_retorno',
     ];
 
     public function Atendimentos(){

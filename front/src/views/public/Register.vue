@@ -660,7 +660,7 @@ export default {
         this.inputs.indicacao = ''
         this.inputs.possui_filhos = ''
         this.check_declaracao = ''
-        this.inputs.type = 'frequentador'
+        this.inputs.type = 0
     },
     directives: {
         mask

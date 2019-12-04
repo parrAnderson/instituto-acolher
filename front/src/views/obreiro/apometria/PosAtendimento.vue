@@ -109,7 +109,7 @@
 
             <div class="row row-space">
                 <div class="col-12">
-                    <h4 class="text-center">CABECEIRA DA MACA</h4>
+                    <h4 class="text-center">PÓS ATENDIMENTO</h4>
                 </div>
             </div>
             
@@ -179,15 +179,16 @@
                                                 <i class="far fa-check-square"></i>
                                             </div> 
                                         </td>
-                                        <td v-if="atendimento.user[0].type == 'frequentador'">
-                                            {{atendimento.user[0].type | limitType}} <br>
+                                        <td v-if="atendimento.user[0].type == 0">
+                                            FRE <br>
                                             {{atendimento.user[0].id}}
 
-                                        </td>
-                                        <td v-else>
-                                            {{atendimento.user[0].type | limitType}} <br>
-                                            {{atendimento.user[0].id}}
-                                        </td>
+                                            </td>
+                                            <td v-else>
+                                                OBR <br>
+                                                {{atendimento.user[0].obreiro}}
+                                            </td>
+                                        
                                         <td>
                                             {{atendimento.user[0].name}}
                                         </td>

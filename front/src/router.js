@@ -25,7 +25,7 @@ import Frequentador from './views/frequentador/Frequentador'
 import CarteirinhaFrequentador from './views/frequentador/CarteirinhaFrequentador'
 
 
-// ROTAS OBREIRO
+// ROTAS OBREIRO APOME|TRIA
 import ProgramacaoApometria from './views/obreiro/apometria/ProgramacaoApometria'
 import ConfirmacaoApometria from './views/obreiro/apometria/ConfirmacaoApometria'
 import RodadasMacas from './views/obreiro/apometria/RodadasMacas'
@@ -35,6 +35,9 @@ import LeituraDasFichas from './views/obreiro/apometria/LeituraDasFichas'
 import CabeceiraDaMaca from './views/obreiro/apometria/CabeceiraDaMaca'
 import PosAtendimento from './views/obreiro/apometria/PosAtendimento'
 import EntrevistaDeEncerramento from './views/obreiro/apometria/EntrevistaDeEncerramento'
+
+// ROTAS OBREIRO 
+import CarteirinhaObreiro from './views/obreiro/carteirinha/CarteirinhaObreiro'
 
 // TEMPORARIO
 import DataPicker from './components/CalendarioApometria/DataPicker'
@@ -194,8 +197,21 @@ export default new Router({
     },
     // FIM ROTAS ADMIN
     
-    // ROTAS OBREIRO
+
+    // ROTAS OBREIROS ALL 
+
     {
+      path: '/carteirinhaobreiro',
+      name: 'carteirinhaobreiro',
+      component: CarteirinhaObreiro,
+      meta: {
+        rule: 'isObreiro'
+        }
+        },
+
+    
+    // ROTAS OBREIRO APOMETRIA
+      {
       path: '/obreiro',
       name: 'obreiro',
       component: Home,

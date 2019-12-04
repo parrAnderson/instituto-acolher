@@ -11,7 +11,7 @@ class emailCadastroController extends Controller
         return view('emails.cadastro');
     }
 
-    public function cadastro(Request $request, $id){
+    public function cadastro($request){
 
         // dd($request->nome);
         
@@ -20,12 +20,12 @@ class emailCadastroController extends Controller
         $dados = [
         'nome' => $request->name,
         'email' => $request->email,
-        'id' => $id,
-        // 'genero' => $request->genero,
+        'id' => $request->id,
+        'genero' => $request->genero,
          ];      
        
         try {
-            Mail::send('emails.cadastro', $dados, function($message){
+            Mail::send(['html' => 'emails.cadastro'] , $dados, function($message){
                 $message->from('contato@acolher.org', 'Acolher');
                 $message->to($this->email);
                 $message->subject('E-mail enviado pelo site da Acolher');
