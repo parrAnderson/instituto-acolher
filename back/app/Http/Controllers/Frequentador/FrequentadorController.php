@@ -27,11 +27,7 @@ class FrequentadorController extends Controller
 
     public function update(Request $request, $id)
     {   
-        
-
-
-          
-           
+         
         try{
             $user = new User();
             $user = $user->put($request, $id);

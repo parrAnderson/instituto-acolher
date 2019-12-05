@@ -40,15 +40,45 @@ export default {
         },
     },
     actions: {
+        RegisterImage(context, data){
+            var image = data.image
+
+            let formData = new FormData();
+            formData.append('image', image);  
+            formData.set('id', data.id)
+            formData.set('name', data.id + '_' + data.name)
+            var dataImage = formData
+         let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'imagem'
+
+         axios.post(urlApi, dataImage, {header : {
+        'Accept': 'application/json',
+            'Content-Type': 'multipart/form-data',
+     }})
+         .then(response => {
+                console.log(response.data)     
+                      
+            })                           
+            .catch(function (error) {
+                console.log(error.response);
+            }); 
+       
+        },
         Register(context, data) {     
+          
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL   
-            // let url = '/acolher/public/api/auth/register';        
+           
             axios({
                 method: 'post',
                 url: urlApi + 'auth/signup',
                 data
             })
                 .then(response => {
+                    var dataImage = {}
+                    dataImage.image = data.avatar
+                    dataImage.id = response.data.data.id
+                    dataImage.name = response.data.data.name
+                    console.log(response.data.data.name)
+                    context.dispatch('RegisterImage', dataImage)
                     context.commit('REGISTER', response)                      
                 })
                 .catch(function (error) {

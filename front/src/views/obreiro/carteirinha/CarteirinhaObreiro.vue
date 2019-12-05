@@ -2,19 +2,18 @@
 <div>
     <Header>
         <template v-slot:mainpage>
-            <div class="container">
+            <div class="container" v-if="cartao">
                 <div class="row justify-content-center row-carteirinha">
                     <div class="col-sm-4">
-                        <div class="card card-widget widget-user">
-                            <!-- Add the bg color to the header using any of the bg-* classes -->
-                            <div class="widget-user-header bg-info">
-                                <h3 class="widget-user-username">{{cartao.name}}</h3>
-                                <h5 class="widget-user-desc">Frequentador</h5>
-                            </div>
-                            <div class="widget-user-image">
-                                <img class="img-circle elevation-2" src="@/assets/img/carteirinhafrequentadores/avatar.png" alt="User Avatar">
-                            </div>
-                            <div class="card-footer">
+                       <div class="card card-widget  bg-info" > 
+                         <img class="card-img-top text-center" :src="imgAvatar" alt="User Avatar">   
+                       <div class="card-body">
+                            
+                     <h3 class="widget-user-username text-center">{{cartao.name}}</h3>
+                                <h5 class="widget-user-desc text-center">Frequentador</h5>
+
+                       </div>
+                            <div class="card-footer bg-light">
                                 <div class="row">
                                     <div class="col-sm-6 border-right">
                                         <div class="description-block">
@@ -70,8 +69,11 @@ export default {
     name: "CarteirinhaObreiro",
     data() {
         return {
-
+             imgAvatar: require("@/assets/img/carteirinhafrequentadores/avatar.png")
         }
+    },
+    beforeMount(){
+        this.getFrequentador(this.idFrequentador)
     },
     components: {
         Header,
@@ -93,12 +95,23 @@ export default {
             if (this.idFrequentador > '') {
                 this.getFrequentador(this.idFrequentador)
             }
+        },
+        image:{
+            handler: function (val, oldVal) {                
+                if(this.image){
+                    let urlStorage = process.env.VUE_APP_LARAVEL_STORAGE_URL 
+                    this.imgAvatar = urlStorage + '/' +this.image
+                    console.log(this.imgAvatar)
+                }            
+            },
+            deep: true
         }
     },
     computed: {
         ...mapState({
             cartao: state => state.Frequentador.frequentador,
             idFrequentador: state => state.Auth.userId,
+            image:  state => state.Frequentador.frequentador.image
         })
     }
 }

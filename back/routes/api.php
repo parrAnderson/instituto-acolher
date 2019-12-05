@@ -15,6 +15,16 @@ use Illuminate\Http\Request;
 
 Route::group([
     'middleware' => 'api',
+    'prefix' => 'imagem'
+], function () {
+    Route::post('/', 'imageController@upload');
+
+
+});
+
+
+Route::group([
+    'middleware' => 'api',
     'prefix' => 'obreiros'
 ], function () {
     Route::post('acoes/store', 'Obreiros\AcoesObreirosController@store');

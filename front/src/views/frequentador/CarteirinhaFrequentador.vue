@@ -2,19 +2,19 @@
 <div>
     <Header>
         <template v-slot:mainpage>
-            <div class="container">
+            <div class="container" v-if="cartao">
                 <div class="row justify-content-center row-carteirinha">
                     <div class="col-sm-4">
-                        <div class="card card-widget widget-user">
-                            <!-- Add the bg color to the header using any of the bg-* classes -->
-                            <div class="widget-user-header bg-info">
-                                <h3 class="widget-user-username">{{cartao.name}}</h3>
-                                <h5 class="widget-user-desc">Frequentador</h5>
-                            </div>
-                            <div class="widget-user-image">
-                                <img class="img-circle elevation-2" src="@/assets/img/carteirinhafrequentadores/avatar.png" alt="User Avatar">
-                            </div>
-                            <div class="card-footer">
+
+                        <div class="card card-widget  bg-info" > 
+                         <img class="card-img-top text-center" :src="imgAvatar" alt="User Avatar">   
+                       <div class="card-body">
+                            
+                     <h3 class="widget-user-username text-center">{{cartao.name}}</h3>
+                                <h5 class="widget-user-desc text-center">Frequentador</h5>
+
+                       </div>
+                       <div class="card-footer bg-light">
                                 <div class="row">
                                     <div class="col-sm-6 border-right">
                                         <div class="description-block">
@@ -30,8 +30,10 @@
                                     </div>
                                 </div>
                                 <!-- /.row -->
-                            </div>
-                        </div>
+                            </div> 
+                   </div>
+
+                       
                     </div>
                 </div>
     <div class="row justify-content-center no-print">
@@ -55,11 +57,14 @@ export default {
     name: "CarteirinhaFrequentador",
     data() {
         return {
-
+            imgAvatar: require("@/assets/img/carteirinhafrequentadores/avatar.png")
         }
     },
     components: {
         Header,
+    },
+    beforeMount(){
+        this.getFrequentador(this.idFrequentador)
     },
     methods: {
         ...mapActions([
@@ -69,22 +74,31 @@ export default {
         window.print();
       }   
     },
-
-    watch: {
-        idFrequentador() {
-
-            console.log(this.idFrequentador)
-
-            if (this.idFrequentador > '') {
-                this.getFrequentador(this.idFrequentador)
-            }
-        }
-    },
     computed: {
         ...mapState({
             cartao: state => state.Frequentador.frequentador,
             idFrequentador: state => state.Auth.userId,
+            image:  state => state.Frequentador.frequentador.image
         })
+    },
+
+    watch: {
+        idFrequentador() {
+            console.log(this.idFrequentador)
+            if (this.idFrequentador > '') {
+                this.getFrequentador(this.idFrequentador)
+            }
+        },
+        image:{
+            handler: function (val, oldVal) {                
+                if(this.image){
+                    let urlStorage = process.env.VUE_APP_LARAVEL_STORAGE_URL 
+                    this.imgAvatar = urlStorage + '/' +this.image
+                    console.log(this.imgAvatar)
+                }            
+            },
+            deep: true
+        }
     }
 }
 </script>
@@ -93,6 +107,14 @@ export default {
 .img-cartao {
     width: 150px;
     border-radius: 50%
+}
+.card-img-top{
+    width: 160px;
+    height:160px;
+    border-radius: 50%;
+     margin-left: auto;
+  margin-right: auto;
+  margin-top:10px;
 }
 
 @media print {

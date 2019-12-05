@@ -10,7 +10,25 @@
                     <!-- <button @click="emailCadastro()">ENVIAR EMAIL</button> -->
                 </div>
             </div>
+            
             <div class="row justify-content-center row-space-form">
+
+            <div class="col-12 col-lg-10">
+                   <div class="card" style="width: 18rem;"> 
+                       <img class="card-img-top" :src="avatar" alt="Foto">
+                       <div class="card-body">
+                           <div class="custom-file">
+                                                  <input type="file" class="custom-file-input" v-on:change="showImage" accept="image/*">
+
+                      <label class="custom-file-label" for="customFile">Selecione uma foto</label>
+                    </div>
+
+
+                    
+                       </div>
+                   </div>
+                </div>
+
                 <div class="col-12 col-lg-10">
                     <input type="text" class="form-control" v-model="inputs.name" placeholder="Nome Completo da Pessoa a ser Atendida *">
                 </div>
@@ -441,6 +459,8 @@ export default {
     },
     data() {
         return {
+            
+            avatar: null,
             inputs: {},
             tipo_pagamento: "",
             selected: false,
@@ -462,6 +482,15 @@ export default {
         }
     },
     methods: {
+        showImage(e){
+        let image = e.target.files[0]       
+        let reader = new FileReader()
+        reader.readAsDataURL(image);
+        reader.onload = e => {
+            this.avatar = e.target.result
+        }           
+        this.inputs.avatar = image 
+      },
         ValidarResponsavel() {
             console.log('validando o responsavel')
             if (this.menor) {
@@ -539,6 +568,8 @@ export default {
             }
         },
         checkRequired() {
+            this.btnRegistrando = true
+
             if (this.check_declaracao == '') {
                 this.check_declaracao = false
             }
@@ -554,25 +585,23 @@ export default {
             } else {
                 this.required = false
                 console.log("Vazio")
+                 
             }
         },
         registrar() {
+       
             this.checkRequired()
             if (this.check_declaracao && this.required && this.senhasIguais === true && this.responsavelValidado === true) {
                
-                this.btnRegistrando = true
                 this.Register(this.inputs)
-                 
-                 this.btnRegistrando = false
-
-                // if (this.register.data.erros) {
-                //     this.btnRegistrando = true
-                // }
-                // console.log(this.inputs)               
+           this.btnRegistrando = false
+             
             } else {
                 // this.btnRegistrando = false
                 console.log("não registrado, com erros")
+                this.btnRegistrando = false
             }
+            
         },
         verificarIdade() {
             if (this.inputs.data_nascimento) {
@@ -670,5 +699,13 @@ export default {
 <style>
     .row-space-form {
     margin-top: 7px;
+}
+.card-img-top{
+        width: 160px;
+    height:160px;
+    border-radius: 50%;
+     margin-left: auto;
+  margin-right: auto;
+  margin-top:10px;
 }
 </style>

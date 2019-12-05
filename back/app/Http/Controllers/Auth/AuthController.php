@@ -72,7 +72,7 @@ class AuthController extends Controller
 
                 return response()->json([
                     'message' => 'Cadastrado',  
-                    'data' => $this->Users->id,              
+                    'data' => $this->Users,              
                 ]); 
             }catch(Exception $e){
                 return response()->json([

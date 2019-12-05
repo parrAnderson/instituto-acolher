@@ -53,7 +53,8 @@ class User extends Authenticatable
         'outros_livros',
         'como_soube',
         'indicacao',
-        'nome_indicacao',        
+        'nome_indicacao',   
+        'image',     
     ];
 
     public $rules = [                
@@ -94,6 +95,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function putImage($image, $id){
+        $user = new User;
+        $user = $user::find($id);
+        $user->fill(['image' => $image]);      
+        $user->save();
+        return($user);
+    }
     
     public function put($request, $id){
         $user = new User;

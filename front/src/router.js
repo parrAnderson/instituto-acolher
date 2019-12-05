@@ -41,7 +41,7 @@ import CarteirinhaObreiro from './views/obreiro/carteirinha/CarteirinhaObreiro'
 
 // TEMPORARIO
 import DataPicker from './components/CalendarioApometria/DataPicker'
-
+import Foto from '@/components/login/Foto'
 // import { AclRule } from 'vue-acl'
 
 Vue.use(Router)
@@ -49,6 +49,14 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [     
+    {
+      path: '/foto',
+      name: 'foto',
+      component: Foto,
+      meta: {
+        rule: 'isPublic'
+      }
+    },
     {
       path: '/',
       name: 'home',
