@@ -66,7 +66,7 @@ export default {
     data() {
         return {
             imgAvatar: require("@/assets/img/carteirinhafrequentadores/avatar.png"),
-            linkQrCode: process.env.VUE_APP_LARAVEL_API_URL,
+            linkQrCode: 'http://acolher.alvitre.net/api',
             size: 300,
         }
     },
