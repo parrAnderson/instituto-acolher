@@ -46,7 +46,6 @@ export default new AclCreate({
 
     }else{
       getStore = 'public'
-      console.log("SEM TOKEN")
     }    
 
     acl.change(getStore) 

@@ -14,14 +14,14 @@
                         </div>
                         <div v-if="!atendimento_cadastrado">
                             <div class="row justify-content-center row-space-form">
-                                <div class="col-4">
+                                <div class="col-sm-5">
                                     <select name="fumante" v-model="inputs.fumante" class="form-control" id>
                                         <option disabled value="">É Fumante? *</option>
                                         <option>Sim</option>
                                         <option>Não</option>
                                     </select>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-sm-5">
                                     <select name="bebida" v-model="inputs.bebida" class="form-control" id>
                                         <option disabled value="">Consome Bebida Alcólica? *</option>
                                         <option>Não</option>
@@ -32,56 +32,61 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center row-space-form">
-                                <div class="col-4">
+                                <div class="col-sm-5">
                                     <select name="droga" v-model="inputs.drogas" class="form-control" id>
                                         <option disabled value="">Possui dependencia em drogas? *</option>
                                         <option>Sim</option>
                                         <option>Não</option>
                                     </select>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-sm-5">
                                     <input type="text" v-model="inputs.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
                                 </div>
                             </div>
 
                             <div class="row justify-content-center row-space-form">
-                                <div class="col-8">
+                                <div class="col-sm-10">
                                     <textarea rows="3" class="form-control" v-model="inputs.motivo" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
                                 </div>
                             </div>
 
                             <div class="row justify-content-center row-space-form">
-                                <div class="col-8">
+                                <div class="col-sm-10">
                                     <textarea rows="3" v-model="inputs.outro_vicio" class="form-control" placeholder="Caso possua outro vicio, indique aqui"></textarea>
                                 </div>
                             </div>
                             <div class="row justify-content-center row-space-form">
-                                <div class="col-8">
+                                <div class="col-sm-10">
                                     <textarea rows="3" v-model="inputs.tratamento" class="form-control" placeholder="Se está sob tratamento médico, indique aqui."></textarea>
                                 </div>
                             </div>
                             <br>
                             <div class="row justify-content-center">
                                 <!-- maior -->
-                                <div class="col-10" v-if="user.idade > 18">                                    
+                                <div class="col-sm-10" v-if="user.idade > 18">                                    
                                     Declaro ser de minha livre e espontânea vontade ser atendido(a) no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper qualquer  tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha inteira responsabilidade meus atos e deliberações acerca de qualquer tema referente a assuntos particulares e/ou profissionais e/ou concernentes às saúdes física, mental e/ou espiritual.
                                 </div>
-                                <div class="col-10" v-else>  
+                                <div class="col-sm-10" v-else>  
                                     Declaro ser de minha livre e espontânea vontade submeter o(a) menor sob minha responsabilidade ao atendimento no Acolher - Instituto Kardecista de Estudos e Amparo, nesta oportunidade e sempre que aqui retornar, bem como atesto estar sendo orientado a não iniciar, alterar, suspender ou interromper qualquer  tratamento médico ou medicação, o que deve ocorrer única e exclusivamente sob orientação e prescrição médicas. Declaro ainda ser de minha inteira responsabilidade atos e deliberações do menor em questão acerca de qualquer tema referente a assuntos particulares e/ou profissionais e/ou concernentes às saúdes física, mental e/ou espiritual.                                   
                                 </div>
                             </div>
                             <br>
                             <div class="row justify-content-right row-space-form">
-                                <div class="col-10 text-right">
+                                <div class="col-sm-10 text-right">
                                     <button  type="submit" class="btn btn-primary btn-sm" v-if="btnAgendar" @click="agendar()">DECLARO QUE LI E ACEITO</button>
-                                                                    <button  type="submit" class="btn btn-primary btn-sm btn-disable" v-else><i class="fas fa-spinner"></i> CARREGANDO </button>
+                                    <div v-else class="spinner-border text-info text-center" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
 
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center">
-                                <div class="col-10 text-center">
-                                    <p v-if="required === false">Campos obrigatórios (*)</p>
+                            
+                            <div class="row justify-content-center" v-if="required == false">
+                                <div class="col-sm-10 text-center">
+                                    <div class="callout callout-warning">
+                                        <p>Campos obrigatórios (*)</p>
+                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -131,7 +136,7 @@
                     <input type="hidden" v-model="inputs.user_id">
                         <div class="row justify-content-center row-space-form">
                             <div class="col-12 col-md-8 col-lg-8 text-right">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" @click="limparAtendimentoCadastrado">CADASTRAR</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" @click="cadastrar()">CADASTRAR</button>
 
                                 <!-- <button @click="pegarAtendimento()" type="submit" class="btn btn-primary">Pegar</button> -->
                             </div>
@@ -213,6 +218,10 @@ export default {
     },
     
     methods: {
+        cadastrar(){
+            this.limparAtendimentoCadastrado()
+            this.btnAgendar = true
+        },
         closeModal() {
             // this.LimparAtendimento()
 
@@ -241,9 +250,8 @@ export default {
                 this.inputs.drogas &&
                 this.inputs.motivo &&
                 this.inputs.tipo_atendimento
-            ) {
-                this.required = true
-                console.log("preenchido")
+            ){
+                this.required = true            
             } else {
                 this.required = false
                 this.btnAgendar = true
@@ -251,18 +259,16 @@ export default {
             
         },
 
-        agendar() {
-            
-            console.log("AGENDANDO")
+        agendar() {            
             this.checkRequired()
 
             if (this.required) {
                 this.CadastrarAtendimento(this.inputs)
+                
                 this.GetSolicitacoesAtendimentos(this.userId);
+                
             }
-
-            // this.btnAgendar = true
-
+            
         },        
     },
     filters: {
@@ -283,11 +289,7 @@ export default {
     },
     beforeMount() {   
          this.GetSolicitacoesAtendimentos(this.userId);
-         
-
         this.inputs.tipo_atendimento = ""
-
-       
 
         this.inputs.fumante = ''
         this.inputs.bebida = ''
@@ -302,6 +304,8 @@ export default {
             handler: function (val, oldVal) {
                 if(this.atendimento_cadastrado == false){
                     this.btnAgendar = true
+                }else{
+                    this.btnAgendar = false
                 }
                
                 
@@ -321,3 +325,16 @@ export default {
 
 }
 </script>
+
+<style>
+    .rotate{
+
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+ }
+        @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+        @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+        @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+   
+</style>

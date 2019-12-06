@@ -26,8 +26,9 @@
                                             <button v-show="!userId && btnLogin" class="btn btn-block btn-primary btn-sm" @click="logar()">
                                                 Login
                                             </button>
+                                            
                                             <div v-show="!userId && !btnLogin" class="spinner-border text-info text-center" role="status">
-                                                <span class="sr-only">Loading...</span>
+                                                <span class="sr-only">Carregando ...</span>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +101,7 @@ export default {
         logar() {
             this.btnLogin = false
             this.login(this.inputs)
-            this.btnLogin = true
+            
         },
         loginRedirect() {            
                 this.$router.push({
@@ -115,6 +116,10 @@ export default {
         userId(){
             if (this.userId) {
                 this.loginRedirect()
+            }
+        },error(){
+            if(this.error){
+                this.btnLogin = true
             }
         }
         

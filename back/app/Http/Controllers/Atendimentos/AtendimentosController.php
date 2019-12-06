@@ -92,11 +92,9 @@ class AtendimentosController extends Controller
                 $email = $email->luz($user);
             }else if($request->tipo_atendimento == 3){
                 $email = $email->evangelho($user);
-            }
-            
-        }
-        
-        
+            }            
+        }        
+       
         $this->atendimentos = new Atendimentos();
         try{
             $this->atendimentos = $this->atendimentos->create($request->all());

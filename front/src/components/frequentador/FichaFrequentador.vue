@@ -23,82 +23,13 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="">É Fumante? *</label>
-                    <select name="fumante" v-model="atendimento.fumante" class="form-control" id>
-                        <option disabled value="">É Fumante? *</option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="">Consome Bebida Alcoólica? *</label>
-                    <select name="bebida" v-model="atendimento.bebida" class="form-control" id>
-                        <option disabled value="">Consome Bebida Alcólica? *</option>
-                        <option>Não</option>
-                        <option>Raramente</option>
-                        <option>Socialmente</option>
-                        <option>Mais que socialmente</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="">Possui outro vício?</label>
-                    <select name="droga" v-model="atendimento.drogas" class="form-control" id>
-                        <option disabled value="">Possui dependencia em drogas? *</option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="">Se sim, qual droga?</label>
-                    <input type="text" v-model="atendimento.qual_droga" class="form-control" placeholder="Se sim, qual droga?">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="">Caso possua outro vício, indique aqui"</label>
-                    <input type="text" class="form-control" v-model="atendimento.outro_vicio" placeholder="Caso possua outro vicio, indique aqui">
-                </div>
-            </div>
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="">Está sob tratamento médico?</label>
-                    <input type="text" class="form-control" v-model="atendimento.tratamento" placeholder="Está sob tratamento médico*">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group">
-                    <label for="">O que o(a) levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *</label>
-                    <input type="text" class="form-control" v-model="atendimento.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *">
-                </div>
-            </div>
-        </div>
+        
 
         <div class="row justify-content-center">
             <div class="col-12 col-xs-12 col-sm-12 col-md-5 col-lg-5">
                 <div class="form-group">
                     <label for="">Data de Nascimento</label>
-                    <input type="text" class="form-control" @keyup="verificarIdade()" v-model="inputs.data_nascimento" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
+                    <input type="text" class="form-control" @keyup="verificarIdade()" v-model="dataNascimentoFormatada" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
                 </div>
             </div>
             <div class="col-12 col-xs-12 col-sm-12 col-md-1 col-lg-1">
@@ -455,11 +386,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row justify-content-center row-space-form">
-                <div class="col-8">
-                    <textarea rows="3" class="form-control" v-model="inputs.recorrer" placeholder="O que levou a recorrer ao Acolher? Aponte resumidamente os seus 3 principais problemas: *"></textarea>
-                </div>
-            </div> -->
+     
 
     </div>
 
@@ -514,275 +441,12 @@
         </div>
     </div>
 
-<!-- ANTIGO <div>
-        <div class="container-fluid container-space">
-        <div class="row row-space">
-            <div class="col-12">
-                <h4 class="text-center">Já passou por outro atendimento?</h4>
-            </div>
-        </div>
-        <div class="row justify-content-center row-space-form">
-
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group">
-                    <label for="">Qual tipo de atendimento</label>
-                    <input type="text" v-model="atendimento.outro_atendimento" class="form-control" placeholder="Informe qual o tipo de atendimento">
-                </div>
-            </div>
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group">
-                    <label for="">Motivo</label>
-                    <input type="text" v-model="atendimento.outro_atendimento_motivo" class="form-control" placeholder="Informe o motivo do atendimento">
-                </div>
-            </div>
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group">
-                    <label for="">data</label>
-                    <input type="date" v-model="atendimento.outro_atendimento_data" class="form-control" placeholder="informe a data do atendimento">
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid container-space">
-        <div class="row row-space">
-            <div class="col-12">
-                <h4 class="text-center">Recomendações</h4>
-            </div>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row row-space-form justify-content-center">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_agua" class="form-check-input">
-                        <label class="form-check-label">Beber água energizada</label>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_adotar" class="form-check-input">
-                        <label class="form-check-label">Adotar o lema "Orai e Vigiai"</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_repousar" class="form-check-input">
-                        Repousar por <input type="number" v-model="atendimento.recomendacoes_repousar"> dias
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_perdao" class="form-check-input">
-                        <label class="form-check-label">Fazer a Oração do Perdão</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_peso" class="form-check-input">
-                        Não carregar peso, não fazer esforço e não subir escadas por <input type="number" v-model="atendimento.recomendacoes_peso"> dias
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_ler" class="form-check-input">
-                        <label class="form-check-label">Ler livros e/ou textos edificantes</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_litros" class="form-check-input">
-                        <label class="form-check-label">Beber 2 litros d'agua por dia (de mandeira fracionada em pequenos intervalos)</label>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_familia" class="form-check-input">
-                        <label class="form-check-label">Orações em família</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_carne" class="form-check-input">
-                        Não ingerir carne vermelha por <input type="number" v-model="atendimento.recomendacoes_carne"> dias
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_caridade" class="form-check-input">
-                        <label class="form-check-label">Praticar caridade ao próximo</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.recomendacao_especializado" class="form-check-input">
-                        <label class="form-check-label">Procurar tratamento especializado</label>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" class="form-check-input">
-                        <input type="text" v-model="atendimento.recomendacoes_observacoes">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid container-space">
-        <div class="row row-space">
-            <div class="col-12">
-                <h4 class="text-center">Sugestão de encaminhamento para outra atividade acolher</h4>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8">
-                    <div class="row justify-content-center row-space-form">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.encaminhamento_evangelho" class="form-check-input">
-                        <label class="form-check-label">Estudo Espírita</label>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.encaminhamento_dialogo" class="form-check-input">
-                        <label class="form-check-label">Curso Apometria</label>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" class="form-check-input">
-                        <input type="text" v-model="atendimento.encaminhamento_observacoes">
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.encaminhamento_obreiros" class="form-check-input">
-                        <label class="form-check-label">Obreiros da luz</label>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" v-model="atendimento.encaminhamento_curso" class="form-check-input">
-                        <label class="form-check-label">Curso de Kardecismo</label>
-                    </div>
-                </div>
-                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <input type="checkbox" class="form-check-input">
-                        <input type="text" v-model="atendimento.encaminhamento_segundo_observacoes">
-                    </div>
-                </div>
-            </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid container-space">
-        <div class="row row-space">
-            <div class="col-12">
-                <h4 class="text-center">Observações</h4>
-            </div>
-        </div>
-        <div class="row justify-content-center row-space-form">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="form-group">
-                            <textarea class="form-control" v-model="atendimento.observacao" rows="5" cols="30">
-
-                                </textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid container-space">
-        <div class="row row-space">
-            <div class="col-12">
-                <h4 class="text-center">ENCERRAMENTO</h4>
-            </div>
-        </div>
-        <div class="row justify-content-center row-space-form" v-if="!retorno">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">                        
-                        <div class="form-group" v-if="atendimento.status_encerramento == 'Atendimento Concluido'">
-                            <label for="">Data de Retorno e Encerramento</label><br>
-                            <div class="text-primary">{{atendimento.data_encerramento}}</div>
-                        </div>
-                        <div class="form-group" v-else>
-                            <label for="">Data de Retorno e Encerramento</label>
-                            <input type="text" class="form-control" v-model="atendimento.data_encerramento" v-mask="'##/##/####'" placeholder="Data de Encerramento">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
-                        
-                        <div class="form-group" v-if="atendimento.status_encerramento == 'Atendimento Concluido'">
-                            <label for="">Status Encerramento</label><br>
-                            <div class="text-primary">{{atendimento.status_encerramento}}</div>
-                        </div>
-                        <div class="form-group" v-else>
-                            <label for="">Status Encerramento</label>
-                            <div class="text-primary">{{atendimento.status_encerramento}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-     <div class="row justify-content-center row-space-form" v-if="retorno">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                            <label for="">Data de Retorno e Encerramento</label><br>
-                            <div class="text-primary">{{atendimento.data_encerramento}}</div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                            <label for="">Status Encerramento</label><br>
-                            <div class="text-primary">{{atendimento.status_encerramento}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-   
-   
-</div> -->
     
 </div>
 </template>
 
 <script>
-
+import moment from 'moment'
 import {
     mask
 } from "vue-the-mask";
@@ -813,6 +477,7 @@ export default {
     },
     data() {
         return {
+            dataNascimentoFormatada:"",
             idAtendimento: this.$route.params.id,
             inputs: {},
             selected: false,
@@ -828,6 +493,7 @@ export default {
     },
     
     methods: {
+       
         //Register
         voltarReligiao() {
             if (this.selectReligiao === 'Outro') {
@@ -849,10 +515,12 @@ export default {
         },
         verificarIdade() {
 
-            if (this.frequentador.data_nascimento) {
-
-                if (this.frequentador.data_nascimento.length == 10) {
-                    var nascimento = this.inputs.data_nascimento.split("/");
+            if (this.dataNascimentoFormatada) {
+              
+                if (this.dataNascimentoFormatada.length == 10) {
+                    // var datanascimento = new Date(this.dataNascimentoFormatada)
+                    var nascimento = this.dataNascimentoFormatada.split("/");
+                    // var nascimento = this.dataNascimentoFormatada
                     var dataNascimento = new Date(parseInt(nascimento[2], 10),
                         parseInt(nascimento[1], 10) - 1,
                         parseInt(nascimento[0], 10));
@@ -860,6 +528,7 @@ export default {
                     var calIdade = new Date(diferenca);
                     var idade = Math.abs(calIdade.getUTCFullYear() - 1970);
                     this.idade = idade
+                    console.log(nascimento)
                     if (idade < 18) {
                         this.menor = true
                     } else {
@@ -885,6 +554,8 @@ export default {
         },
         //fim Register
         salvarDadosFrequentador() {
+            this.inputs.data_nascimento = moment(this.dataNascimentoFormatada).format("YYYY-MM-DD");
+
             if(this.id_obreiro){
                     var acao = {
                     'id_obreiro': this.id_obreiro,
@@ -892,7 +563,7 @@ export default {
                     'id_atualizado' : this.id_frequentador
                 }     
                 this.AcaoObreiro(acao) 
-                console.log(acao)
+               
             }
                    
             this.atualizarFrequentador(this.inputs)
@@ -913,7 +584,7 @@ export default {
             // 'ChangeUpdateValue',
         ]),
         ChangeUpdateValue(){
-            console.log('atualizado')
+         
         }
     },
     computed: {
@@ -935,9 +606,13 @@ export default {
             handler: function (val, oldVal) {              
             
             this.inputs = this.frequentador
-            this.verificarIdade()
+            
             this.selectGenero = this.inputs.genero
             this.selectReligiao = this.inputs.religiao
+            this.dataNascimentoFormatada =  moment(this.inputs.data_nascimento).format("DD/MM/YYYY");
+            if(this.dataNascimentoFormatada.length == 10){
+                this.verificarIdade()
+            }
                 
             },
 
@@ -1003,6 +678,7 @@ export default {
         this.inputs.como_soube = ''
         this.inputs.indicacao = ''
         this.inputs.estado = ''
+
 
          
 

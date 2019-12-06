@@ -97,7 +97,7 @@ export default {
 
     watch: {
         idFrequentador() {
-            console.log(this.idFrequentador)
+            
             if (this.idFrequentador > '') {
                 this.getFrequentador(this.idFrequentador)
                 this.linkQrCode = process.env.VUE_APP_LARAVEL_API_URL + 'qrcode/' + this.idFrequentador 
