@@ -10,7 +10,7 @@
                        <div class="card-body">
                             
                      <h3 class="widget-user-username text-center">{{cartao.name}}</h3>
-                                <h5 class="widget-user-desc text-center">Frequentador</h5>
+                                <h5 class="widget-user-desc text-center">Obreiro</h5>
 
                        </div>
                             <div class="card-footer bg-light">

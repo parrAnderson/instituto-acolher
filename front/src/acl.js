@@ -19,6 +19,7 @@ export default new AclCreate({
     // 3 - OBREIRO - APOMETRIA
     // 4 - OBREIRO - LUZ
     // 5 - OBREIRO - PASSES
+    // 6 - OBREIRO - EVANGELHO
 
       
     isUser: new AclRule('user').generate(), 
@@ -29,12 +30,13 @@ export default new AclCreate({
     isObreiroApometria: new AclRule('3').or('2').or('1').generate(),
     isObreiroLuz: new AclRule('4').or('2').or('1').generate(),
     isObreiroPasses: new AclRule('5').or('2').or('1').generate(),
+    isObreiroEvangelho: new AclRule('6').or('2').or('1').generate(),
 
     isPublic: new AclRule('public').or('0')
-    .or('1').or('2').or('3').or('4').or('5').generate(),
+    .or('1').or('2').or('3').or('4').or('5').or('6').generate(),
     isFrequentador: new AclRule('0')
-    .or('1').or('2').or('3').or('4').or('5').generate(),    
-    isObreiro: new AclRule('1').or('2').or('3').or('4').or('5').generate(),
+    .or('1').or('2').or('3').or('4').or('5').or('6').generate(),    
+    isObreiro: new AclRule('1').or('2').or('3').or('4').or('5').or('6').generate(),
     
   },
   middleware: async acl => {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Atendimentos;
 use App\Models\AtendimentosApometria;
+use DateTime;
 use App\User;
 use App\Http\Controllers\Emails\emailSolicitacaoAtendimentoController;
 
@@ -19,6 +20,48 @@ class AtendimentosController extends Controller
             'data' => $this->atendimentos,              
         ]);
             
+    }
+
+    public function getAtendimentosTipo($tipo){
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', $tipo)
+        ->where('status', 1)
+        ->get();
+
+        foreach($this->atendimentos as $atendimento){           
+            $user = $atendimento->User()->get();
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)
+            
+            ->orderBy('id', 'desc')
+            ->take(1)
+            ->get();
+
+
+            
+
+            $atendimento->apometria = $atendimentosApometria;
+
+            
+            $atendimento->user  = $user; 
+
+            foreach($atendimento->user as $usuario){               
+                $date = new DateTime($usuario->data_nascimento);
+                $interval = $date->diff( new DateTime( date('Y-m-d') ) );
+                $interval = $interval->format('%Y');                
+                $atendimento->idade = $interval;     
+                
+                if($atendimento->idade < 8 or $atendimento->idade > 60){
+                    $atendimento->permissao = false;
+                }else{
+                    $atendimento->permissao = true;
+                }
+        }
+        }
+
+        return response()->json([
+            'data' => $this->atendimentos,              
+        ]);
     }
 
     public function atualizarStatus(Request $request){

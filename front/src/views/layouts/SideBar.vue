@@ -99,7 +99,7 @@
 
                     <li class="nav-item has-treeview" v-if="$acl.check('isObreiroApometria')">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
+                            <i class="nav-icon far fa-clipboard"></i>
                             <p>
                                 Fluxo Apometria
                                 <i class="fas fa-angle-left right"></i>
@@ -171,6 +171,63 @@
                                 </router-link>
 
                             </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview" v-if="$acl.check('isObreiroPasses')">
+                        <a href="#" class="nav-link">
+                           <i class="nav-icon far fa-dot-circle"></i>
+                            <p>
+                                Fluxo Passes
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right">0</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <router-link :to="{name:'atendimentospasses'}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Atendimentos</p>
+                                </router-link>
+                            </li>                           
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview" v-if="$acl.check('isObreiroLuz')">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-sun"></i>
+                            <p>
+                                Fluxo Luz
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right">0</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <router-link :to="{name:'atendimentosluz'}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Atendimentos</p>
+                                </router-link>
+                            </li>                           
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview" v-if="$acl.check('isObreiroEvangelho')">
+                        <a href="#" class="nav-link">
+                           <i class="nav-icon fas fa-praying-hands"></i>
+                            <p>
+                                Fluxo Evangelho
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right">0</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <router-link :to="{name:'atendimentosevangelho'}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Atendimentos</p>
+                                </router-link>
+                            </li>                           
                         </ul>
                     </li>
 

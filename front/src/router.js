@@ -23,7 +23,16 @@ import ConteudoCursos from './views/public/ConteudoCursos'
 import SolicitarAtendimento from './views/frequentador/SolicitarAtendimento'
 import Frequentador from './views/frequentador/Frequentador'
 import CarteirinhaFrequentador from './views/frequentador/CarteirinhaFrequentador'
+import Qrcode from './components/frequentador/Qrcode'
 
+// ROTAS OBREIRO PASSES 
+import AtendimentosPasses from './views/obreiro/passes/AtendimentosPasses'
+
+// ROTAS OBREIRO Luz 
+import AtendimentosLuz from './views/obreiro/luz/AtendimentosLuz'
+
+// ROTAS OBREIRO EVANGELHO
+import AtendimentosEvangelho from './views/obreiro/evangelho/AtendimentosEvangelho'
 
 // ROTAS OBREIRO APOME|TRIA
 import ProgramacaoApometria from './views/obreiro/apometria/ProgramacaoApometria'
@@ -153,6 +162,16 @@ export default new Router({
         rule: 'isFrequentador'
       }
     },
+
+    {
+      path: '/qrcode',
+      name: 'qrcode',
+      component: Qrcode,
+      meta: {
+        rule: 'isFrequentador'
+      }
+    },
+
     {
       path: '/login',
       name: 'login',      
@@ -217,6 +236,35 @@ export default new Router({
         }
         },
 
+        // ROTAS OBREIRO PASSES 
+        {
+          path: '/obreiro/passes/programacao',
+          name: 'atendimentospasses',
+          component: AtendimentosPasses,
+          meta: {
+            rule: 'isObreiroPasses'
+          }
+          },
+
+          // ROTAS OBREIRO LUZ 
+        {
+          path: '/obreiro/luz/programacao',
+          name: 'atendimentosluz',
+          component: AtendimentosLuz,
+          meta: {
+            rule: 'isObreiroLuz'
+          }
+          },
+
+          // ROTAS OBREIRO EVANGELHO
+        {
+          path: '/obreiro/evangelho/programacao',
+          name: 'atendimentosevangelho',
+          component: AtendimentosEvangelho,
+          meta: {
+            rule: 'isObreiroEvangelho'
+          }
+          },
     
     // ROTAS OBREIRO APOMETRIA
       {

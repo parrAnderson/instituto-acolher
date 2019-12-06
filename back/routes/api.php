@@ -43,6 +43,15 @@ Route::group([
    
 });
 
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'qrcode'
+], function () {
+    Route::get('/{id}', 'Qrcode\QrcodeController@index');
+
+});
+
 Route::group([
     'middleware' => 'api',
     'prefix' => 'calendarioapometria'
@@ -72,6 +81,7 @@ Route::group([
     Route::post('atualizarstatus', 'Atendimentos\AtendimentosController@atualizarStatus');
     Route::get('index', 'Atendimentos\AtendimentosController@index');
     Route::get('/edit/{id}', 'Atendimentos\AtendimentosController@edit');
+    Route::get('tipo/{tipo}', 'Atendimentos\AtendimentosController@getAtendimentosTipo');
    
 });
 

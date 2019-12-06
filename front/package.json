@@ -14,6 +14,7 @@
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "postscribe": "^2.0.8",
+    "qrcode.vue": "^1.7.0",
     "validar-cpf": "^2.1.2",
     "vue": "^2.6.10",
     "vue-acl": "^4.1.5",

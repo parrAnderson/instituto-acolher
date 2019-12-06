@@ -29,6 +29,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row justify-content-center">
+                                    <div class="col text-center">
+                                        <div class="card-body">
+                                            <qrcode-vue :value="linkQrCode"></qrcode-vue>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- /.row -->
                             </div> 
                    </div>
@@ -48,6 +55,7 @@
 </template>
 
 <script>
+import QrcodeVue from 'qrcode.vue'
 import {
     mapState,
     mapActions
@@ -57,11 +65,14 @@ export default {
     name: "CarteirinhaFrequentador",
     data() {
         return {
-            imgAvatar: require("@/assets/img/carteirinhafrequentadores/avatar.png")
+            imgAvatar: require("@/assets/img/carteirinhafrequentadores/avatar.png"),
+            linkQrCode: null,
+            size: 300,
         }
     },
     components: {
         Header,
+        QrcodeVue,
     },
     beforeMount(){
         this.getFrequentador(this.idFrequentador)
@@ -88,12 +99,13 @@ export default {
             if (this.idFrequentador > '') {
                 this.getFrequentador(this.idFrequentador)
             }
+            this.linkQrCode = process.env.VUE_APP_LARAVEL_API_URL + 'qrcode/' + this.idFrequentador 
         },
         image:{
             handler: function (val, oldVal) {                
                 if(this.image){
                     let urlStorage = process.env.VUE_APP_LARAVEL_STORAGE_URL 
-                    this.imgAvatar = urlStorage + '/' +this.image
+                    this.imgAvatar = urlStorage + '/' + this.image
                     console.log(this.imgAvatar)
                 }            
             },
