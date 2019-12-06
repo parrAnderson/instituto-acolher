@@ -76,6 +76,8 @@ export default {
     },
     beforeMount(){
         this.getFrequentador(this.idFrequentador)
+        this.linkQrCode = process.env.VUE_APP_LARAVEL_API_URL + 'qrcode/' + this.idFrequentador 
+
     },
     methods: {
         ...mapActions([

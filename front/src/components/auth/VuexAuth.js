@@ -124,10 +124,8 @@ export default {
                 dispatch('user')
                   commit('ERROR', {}) 
                   
-            }).catch(function (error) {
+            }).catch(function (error) {               
                 
-                console.log(error)
-                console.log(error.response)
                 commit('ERROR', error.response.data)                
             })    
             
