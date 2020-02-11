@@ -2,7 +2,7 @@
     <div>
         1) INSTITUIÇÃO BENEFICIÁRIA DA VOLUNTARIEDADE: 
 <br><br>
-Acolher – Instituto Kardecista de Estudos e Amparo, inscrito no CNPJ/MF sob o n.º ..................................., sediada neste município de Guarulhos / SP, na Rua Antônio Cristóvam, n.º 134, bairro Bom Clima, neste ato representada por seu Presidente, Sr. Nilton de Almeida Junior.
+Acolher – Instituto Kardecista de Estudos e Amparo, inscrito no CNPJ/MF sob o n.º 32.597.511/0001-29, sediada neste município de Guarulhos / SP, na Rua Antônio Cristóvam, n.º 134, bairro Bom Clima, neste ato representada por seu Presidente, Sr. Nilton de Almeida Junior.
 <br><br>
 2) VOLUNTÁRIO:
 <br><br>

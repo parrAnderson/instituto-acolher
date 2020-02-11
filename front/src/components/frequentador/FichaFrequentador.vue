@@ -26,16 +26,16 @@
         
 
         <div class="row justify-content-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-group">
                     <label for="">Data de Nascimento</label>
                     <input type="text" class="form-control" @keyup="verificarIdade()" v-model="dataNascimentoFormatada" v-mask="'##/##/####'" placeholder="Data de Nascimento*">
                 </div>
             </div>
-            <div class="col-12 col-xs-12 col-sm-12 col-md-1 col-lg-1">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-group">
                     <label for="">Idade</label> <br>
-                    <button type="button" class="btn btn-outline-secondary">{{this.idade}}</button>
+                    <button type="button" class="btn btn-outline-secondary">{{inputs.data_nascimento  | idadeComMeses}}</button>
                 </div>
             </div>
             <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6" v-if="selectGenero !== 'Outros'">
@@ -110,8 +110,9 @@
                         <option value="Solteiro(a)">Solteiro(a)</option>
                         <option value="Casado(a)">Casado(a)</option>
                         <option>União Estável</option>
-                        <option>Separado(a) / Divorciado(a)</option>
-                        <option>Viúvo</option>
+                        <option>Separado(a)</option>
+                        <option>Divorciado(a)</option>
+                        <option>Viúvo(a)</option>
                         <option>Outros</option>
                     </select>
                 </div>
@@ -321,22 +322,56 @@
             </div>
         </div>
 
-        <div class="row row-space-form justify-content-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-check">
-                    <input type="checkbox" v-model="inputs.livro_evangelho" class="form-check-input" id="livro_evangelho" name="livro_evangelho">
-                    <label class="form-check-label" for="livro_evangelho">O Evangelho Segundo o Espiritismo?</label>
-                </div>
-            </div>
-            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="form-check">
-                    <input type="checkbox" v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
-                    <label class="form-check-label" for="livro_medicina">Espírito e Matéria: Um Novo Horizonte para a
-                        Medicina?</label>
-                </div>
-            </div>
+      
 
-        </div>
+
+                                    <div class="row row-space-form justify-content-center">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_evangelho" class="form-check-input" id="livro_evangelho" name="livro_evangelho">
+                                                <label class="form-check-label" for="livro_evangelho">Livro o Evangelho Segundo o Espiritismo?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
+                                                <label class="form-check-label" for="livro_medicina">Espirito e Matéria: Um Novo Horizonte para a
+                                                    Medicina?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                                    <div class="row row-space-form justify-content-center">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_oqueeespiritismo" class="form-check-input" id="livro_oqueeespiritismo" name="livro_oqueeespiritismo">
+                                                <label class="form-check-label" for="livro_oqueeespiritismo">O que é o Espiritismo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_ceueinferno" class="form-check-input" id="livro_ceueinferno" name="livro_ceueinferno">
+                                                <label class="form-check-label" for="livro_ceueinferno">Céu e Inferno</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                             
+                                    <div class="row row-space-form justify-content-center">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_genese" class="form-check-input" id="livro_genese" name="livro_genese">
+                                                <label class="form-check-label" for="livro_genese">A Gênese</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_nossolar" class="form-check-input" id="livro_nossolar" name="livro_nossolar">
+                                                <label class="form-check-label" for="livro_nossolar">Nosso Lar</label>
+                                            </div>
+                                        </div>
+                                   
+                                </div>
+
         <div class="row justify-content-center row-space-form">
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group">
@@ -659,6 +694,31 @@ export default {
             } else {
                 this.inputs.genero = this.selectGenero
             }
+        },
+    },
+    filters: {
+        idadeComMeses(value) {
+
+            if (value) {
+
+                let data = moment(new Date(value));
+
+                var b = moment(data)
+                var a = moment(new Date())
+
+                var years = a.diff(b, 'year');
+                b.add(years, 'years');
+
+                var months = a.diff(b, 'months');
+                b.add(months, 'months');
+
+                var days = a.diff(b, 'days');
+                var calc = years + ' anos e ' + months + ' meses'
+
+                return calc
+
+            }
+
         },
     },
     beforeMount() {

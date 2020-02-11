@@ -125,9 +125,9 @@
                         <div class="col-12 col-md-8 col-lg-8">
                             <select name="atividade" v-model="inputs.tipo_atendimento" class="form-control" id>
                                 <option disable value="">Indique a atividade de qual pretende receber atendimento *</option>
-                                <option value="1">Apometria (2as. feiras)</option>
-                                <option value="2">Passes (2as. feiras)</option>
-                                <option value="3">Prática do evangelho - Reunião Espírita (5as. feiras)</option>
+                                <option value="1">Apometria (4as. feiras)</option>
+                                <option value="2">Passes Magnéticos (2as. feiras)</option>
+                                <option value="3">Prática do Evangelho - Reunião Espírita (5as. feiras)</option>
                                 <option value="4">Obreiros da Luz - Entidades de Umbanda (1 Sábado por mês)</option>
                             </select>
                         </div>

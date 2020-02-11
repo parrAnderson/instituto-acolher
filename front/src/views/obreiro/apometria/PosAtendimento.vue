@@ -26,7 +26,7 @@
     </div>
 
             <!-- ORIENTACAO -->
-            <div class="modal fade bd-example-modal-xl" id="orientacoesAtendimento" tabindex="-1" role="dialog" aria-labelledby="orientacoesAtendimentoLabel" aria-hidden="true">
+            <div class="modal fade bd-example-modal-xl printSection" id="orientacoesAtendimento" tabindex="-1" role="dialog" aria-labelledby="orientacoesAtendimentoLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

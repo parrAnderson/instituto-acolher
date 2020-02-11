@@ -72,8 +72,18 @@ class AtendimentosApometria extends Model
         return $this->belongsTo('App\Models\Atendimentos', 'atendimento_id');
     }
 
+    public function putQrCode($horario_de_chegada, $id){
+      
+     
+        $atendimentosApometria = new AtendimentosApometria;
+        $atendimentosApometria = $atendimentosApometria::find($id);
+        $atendimentosApometria->fill(['horario_de_chegada' => $horario_de_chegada]);      
+        $atendimentosApometria->save();
+        return($atendimentosApometria);
+    }
+
     public function put($request, $id){
-        
+     
         $atendimentosApometria = new AtendimentosApometria;
         $atendimentosApometria = $atendimentosApometria::find($id);
         $atendimentosApometria->fill($request->all());      

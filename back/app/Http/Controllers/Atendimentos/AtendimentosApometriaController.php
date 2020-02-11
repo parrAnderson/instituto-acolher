@@ -62,6 +62,62 @@ class AtendimentosApometriaController extends Controller
         ]);
     }
 
+    public function confirmarAtendimentoComQrCode($horario_de_chegada,$data, $status, $id)
+    {
+    
+       
+        $this->atendimentos = new Atendimentos();
+        $this->atendimentos = $this->atendimentos->where('tipo_atendimento', '1')
+        ->where('status', '=', $status)  
+        ->where('user_id', '=', $id)
+        ->orderBy('id', 'desc')        
+        ->get();
+
+        
+       if($this->atendimentos == null){
+           return("Não tem atendimento para hoje");
+       }
+
+        foreach($this->atendimentos as $atendimento){           
+            $user = $atendimento->User()->get();
+            $this->atendimentosApometria = new AtendimentosApometria();
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)
+            ->orderBy('id', 'desc')
+            ->take(1)
+            ->get();
+
+            $atendimento->apometria = $atendimentosApometria;            
+            $atendimento->user  = $user;           
+
+            foreach($atendimentosApometria as $apometria){
+                $atendimento->data_agendada = $apometria->data_agendada;
+                $atendimento->id_apometria = $apometria->id;
+            }
+        }
+  
+        $this->atendimentos = $this->atendimentos->where('data_agendada', $data);
+        $this->atendimentoCount = $this->atendimentos->where('data_agendada', $data)->count();
+        
+        if($this->atendimentoCount >= 1){
+           
+            $this->atendimentosApometria = new AtendimentosApometria(); 
+            $this->atendimentosApometria = $this->atendimentosApometria->putQrCode($horario_de_chegada, $atendimento->id_apometria);
+            
+            // FUNCIONANDO ATUALIZACAO DO STATUS
+            foreach($this->atendimentos as $atendimento){ 
+                $this->atendimentos = new Atendimentos();
+                $this->atendimentos = $this->atendimentos->updateStatus(4, $atendimento->id);
+                
+            }
+
+            return("Horario de chegada: $horario_de_chegada");
+        }
+        else{
+            return("Não tem atendimento para hoje");
+        }
+
+    }
+
     public function getAtendimentosApometriaComDataStatus($data, $status)
     {
         $this->atendimentos = new Atendimentos();
@@ -353,32 +409,25 @@ class AtendimentosApometriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-
-    
-        
+    { 
         try{
-        $this->atendimentosApometria = new AtendimentosApometria(); 
-
-            
+            $this->atendimentosApometria = new AtendimentosApometria(); 
             $this->atendimentosApometria = $this->atendimentosApometria->put($request, $id);
-              
             $this->atendimentos = new Atendimentos();
             $this->atendimentos = $this->atendimentos->updateStatus($request->status, $this->atendimentosApometria->atendimento_id);
         
+            if($request->status == 3){
+                $user = new User;
+                $users = $user->where('id', $request->user_id)->take(1)->get();
+                foreach($users as $user){
+                    $email = new emailConfirmacaoAtendimentoController;
+                    $user->data_agendada = date('d/m/Y', strtotime($request->data_agendada)) ;
+                    $email = $email->apometria($user);
 
-        if($request->status == 3){
-            $user = new User;
-        $users = $user->where('id', $request->user_id)->take(1)->get();
-        foreach($users as $user){
-            $email = new emailConfirmacaoAtendimentoController;
-            $user->data_agendada = date('d/m/Y', strtotime($request->data_agendada)) ;
-            $email = $email->apometria($user);
-
-        }
-    }
+                }
+            }
             
-        return response()->json([
+            return response()->json([
                 'data' =>  $this->atendimentosApometria ,         
             ]);
     

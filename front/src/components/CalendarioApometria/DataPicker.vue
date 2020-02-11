@@ -52,7 +52,7 @@ export default {
                 dateFormat: 'yyyy-mm-dd',
                 isDatePicker: true,
                 // isDateRange: false,                
-                disabledDayNames: ['Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+                disabledDayNames: ['Seg', 'Ter', 'Qui', 'Sex', 'Sab', 'Dom'],
                 disabledDates: [],
                 monthNames: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
                 shortMonthNames: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],

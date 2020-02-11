@@ -81,7 +81,7 @@
                                 <option>União Estável</option>
                                 <option>Separado(a)</option>
                                 <option>Divorciado(a)</option>
-                                <option>Viúvo</option>
+                                <option>Viúvo(a)</option>
                                 <option>Outros</option>
                             </select>
                         </div>
@@ -282,6 +282,38 @@
                                                 <input type="checkbox" v-model="inputs.livro_medicina" class="form-check-input" id="livro_medicina" name="livro_medicina">
                                                 <label class="form-check-label" for="livro_medicina">Espirito e Matéria: Um Novo Horizonte para a
                                                     Medicina?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="row row-space-form">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_oqueeespiritismo" class="form-check-input" id="livro_oqueeespiritismo" name="livro_oqueeespiritismo">
+                                                <label class="form-check-label" for="livro_oqueeespiritismo">O que é o Espiritismo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_ceueinferno" class="form-check-input" id="livro_ceueinferno" name="livro_ceueinferno">
+                                                <label class="form-check-label" for="livro_ceueinferno">Céu e Inferno</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="row row-space-form">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_genese" class="form-check-input" id="livro_genese" name="livro_genese">
+                                                <label class="form-check-label" for="livro_genese">A Gênese</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" v-model="inputs.livro_nossolar" class="form-check-input" id="livro_nossolar" name="livro_nossolar">
+                                                <label class="form-check-label" for="livro_nossolar">Nosso Lar</label>
                                             </div>
                                         </div>
                                     </div>

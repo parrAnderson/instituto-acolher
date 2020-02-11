@@ -279,6 +279,7 @@ export default {
     },
     beforeMount() {
             this.getData = this.getData = new Date().toISOString().slice(0,10);
+          
         // this.getDadosAtendimento()
     },
      computed: {
@@ -297,6 +298,7 @@ export default {
         },
         getDadosAtendimento() {
             this.getListaDeAtendimento(this.getData)
+              console.log(this.getData)
         },
         ...mapActions([
             // 'allAtendimentoApometria',

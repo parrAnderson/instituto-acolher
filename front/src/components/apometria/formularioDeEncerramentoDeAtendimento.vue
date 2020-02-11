@@ -7,7 +7,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        SENTIU-SE ACOLHIDO NO DIA DO ATENDIMENTO?
+                        Sentiu-se acolhido no dia do atendimento?                
                     </div>
                     <div class="col">
                         <select class="form-control" v-model="atendimento.apometria[0].encerramento_acolhido">
@@ -21,8 +21,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        SENTIU-SE BEM DURANTE O ATENDIMENTO?
+                    <div class="col">                        
+                        Sentiu-se bem durante o atendimento?
                     </div>
                     <div class="col">
                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_bem_durante">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        SENTIU-SE BEM APÓS O ATENDIMENTO?
+                        Sentiu-se bem após o atendimento?                        
                     </div>
                     <div class="col">
                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_bem_apos">
@@ -52,7 +52,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        REPOUSOU COMO RECOMENDADO?
+                        Repousou como recomendado?
                     </div>
                     <div class="col">
                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_repouso">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        REALIZOU OS CURATIVOS COMO RECOMENDADO?
+                        Realizou os curativos como recomendado?
                     </div>
                     <div class="col">
                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_curativos">
@@ -82,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        REALIZOU A DIETA REGULARMENTE?
+                        Realizou a dieta regularmente?
                     </div>
                     <div class="col">
                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_dieta">
@@ -97,7 +97,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        MANTÉM PRÁTICA RELIGIOSA?
+                        Mantém prática religiosa?
                     </div>
                     <div class="col">
                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_religiosa">
@@ -112,7 +112,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        MANTÉM PRÁTICA DE ORAÇÃO REGULAR?
+                        Mantém prática de oração regular?
                     </div>
                     <div class="col">
                         <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_oracao">
@@ -174,29 +174,30 @@
                     <div class="col">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_evangelho" class="form-check-input">
-                            <label class="form-check-label">Estudo do evangelho (REUINÃO ESPÍRITA - 5° FEIRAS)</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_obreiros" class="form-check-input">
-                            <label class="form-check-label">Conceito de atração e repulsa de energias</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_apometria" class="form-check-input">
-                            <label class="form-check-label">Curso básico apometria</label>
+                            <label class="form-check-label">Estudo do Evangelho (Reunião Espírita - 5as. Feiras)</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_kardecismo" class="form-check-input">
-                            <label class="form-check-label">Curso kardecismo, autoconhecimento e reforma íntima</label>
+                            <label class="form-check-label">Curso Kardecismo, Autoconhecimento e Reforma Íntima</label>
                         </div>
                     </div>
+                    <!-- <div class="col">
+                        <div class="form-group">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_obreiros" class="form-check-input">
+                            <label class="form-check-label">Conceito de atração e repulsa de energias</label>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="checkbox" v-model="atendimento.apometria[0].encerramento_encaminhamento_adicional_apometria" class="form-check-input">
+                            <label class="form-check-label">Curso Básico Apometria</label>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

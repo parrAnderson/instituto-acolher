@@ -1,6 +1,6 @@
 <template>
-<div v-if="atendimento.apometria">
-
+<div v-if="atendimento.apometria" id="">
+       
     <div class="row justify-content-center" v-if="!atendimento.permissao">
         <div class="col-sm-6">
             <div class="alert alert-warning alert-dismissible text-center">
@@ -36,22 +36,23 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="form-group row">
-                                <label class="form-check-label col-sm-6">Retorno em </label>
-                                <select v-if="atendimento.permissao" v-model="atendimento.apometria[0].recomendacao_retorno"  class="form-control col-sm-6">
-                                    <option value="13">13 dias</option>
-                                    <option value="26">26 dias</option>
-                                    <option value="34">34 dias</option>
-                                    <option value="40">40 dias</option>
-                                </select>
+                           
+                               Entrevista de Encerramento em  <span class="font-weight-bold text-primary">{{atendimento.apometria[0].data_retorno | date}} </span>
 
-                                <select v-else @change="ChangeDiasRetorno()" v-model="atendimento.apometria[0].recomendacao_retorno"  class="form-control col-sm-6">
+                                <!-- <select v-if="atendimento.permissao" v-model="atendimento.apometria[0].recomendacao_retorno"  class="form-control col-sm-6">
                                     <option value="13">13 dias</option>
                                     <option value="26">26 dias</option>
                                     <option value="34">34 dias</option>
                                     <option value="40">40 dias</option>
-                                </select>
-                            </div>
+                                </select> -->
+
+                                <!-- <select v-else @change="ChangeDiasRetorno()" v-model="atendimento.apometria[0].recomendacao_retorno"  class="form-control col-sm-6">
+                                    <option value="13">13 dias</option>
+                                    <option value="26">26 dias</option>
+                                    <option value="34">34 dias</option>
+                                    <option value="40">40 dias</option>
+                                </select> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -222,18 +223,36 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col">
-            
-            <div class="row">                
+
+    <div class="card no-print">  
+        <div class="card-body">
+
+            <div class="row justify-content-center">
                 <div class="col">
-                    Retornar após:
-                    <input type="date" v-model="atendimento.apometria[0].data_retorno"> 
+                    
+                    <div class="row">                
+                        <div class="col">
+                            Retornar em:
+                            <input type="date" v-model="atendimento.apometria[0].data_retorno"> 
+                            para continuidade do tratamento
+                        </div>
+                    </div>
                 </div>
+        
+            
             </div>
         </div>
-   
-        <div class="col text-right">
+    </div>
+
+    <div class="row no-print">
+         <div class="col text-right">
+            <div class="btn btn-sm btn-primary"  @click="imprimir()" >
+                <span class="text-bold">
+                   <i class="fas fa-print"></i> IMPRIMIR
+                </span>
+            </div>            
+        </div>
+        <div class="col">
             <div class="btn btn-sm btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#listaDePresenca" @click="confirmar(atendimento.apometria[0].id, atendimento.user_id)">
                 <span class="text-bold">
                     CONCLUIR ATENDIMENTO
@@ -250,11 +269,19 @@ import moment from 'moment'
 import {
     mapState,
     mapActions,
-    mapMutations,
+  
 } from 'vuex'
 
 export default {
     name: "OrientacoesAtendimento",
+    filters: {
+        date: function (value) {
+            moment.locale("pt-br");
+            if (!value) return "";
+            let data = moment(value).format('L');
+            return data
+        },
+    },
     data() {
         return {
             atendimento: {},
@@ -277,14 +304,17 @@ export default {
         }
     },
     methods: {
+        imprimir() {
+            window.print();
+        },
         changeRetornoCurativo(){
             if(this.atendimento.permissao){
                  if(this.atendimento.apometria[0].recomendacao_curativos == 4){
-                    this.atendimento.apometria[0].recomendacao_retorno = 13
+                    this.atendimento.apometria[0].recomendacao_retorno = 12
                 }else if(this.atendimento.apometria[0].recomendacao_curativos == 8){
                     this.atendimento.apometria[0].recomendacao_retorno = 26
                     }else if(this.atendimento.apometria[0].recomendacao_curativos == 10){
-                    this.atendimento.apometria[0].recomendacao_retorno = 34
+                    this.atendimento.apometria[0].recomendacao_retorno = 33
                 }else if(this.atendimento.apometria[0].recomendacao_curativos == 12){
                     this.atendimento.apometria[0].recomendacao_retorno = 40
                 }
@@ -293,14 +323,23 @@ export default {
         ChangeDiasRetorno(){
             
            this.changeRetornoCurativo()
-
             var DataAtual = moment()
-            DataAtual = moment(DataAtual).add(this.atendimento.apometria[0].recomendacao_retorno, "days") 
-            
-            this.atendimento.apometria[0].data_retorno = moment(DataAtual).format("YYYY-MM-DD");
-            
+            var DataParaRetorno  = moment()
 
-            console.log(this.atendimento.apometria[0].data_retorno)
+            if(this.atendimento.apometria[0].recomendacao_retorno == null ){
+                DataParaRetorno = moment(DataAtual).add(12, "days") 
+            }else{
+                DataParaRetorno = moment(DataAtual).add(this.atendimento.apometria[0].recomendacao_retorno, "days") 
+                // DataParaRetorno = moment(DataAtual).add(22, "days") 
+            }
+
+        
+
+
+            this.atendimento.apometria[0].data_retorno = moment(DataParaRetorno).format("YYYY-MM-DD");
+            
+            // this.atendimento.apometria[0].data_retorno = "1993-06-02"
+           
         },
         ...mapActions([
             'atualizarAtendimentoApometria',
@@ -325,21 +364,23 @@ export default {
             this.dadosConfirmar = this.atendimento.apometria[0]
             
             this.dadosConfirmar.status = this.statusAtual + 1
+
+            var acoes = ''
                 
             if(this.statusAtual == 7){
-                
-                var acoes = {
+               acoes = {
                 'id_obreiro': this.$store.state.Auth.userId,
                 'acao_obreiro': "Confirmou em Cabeceira da maca",
                 'id_atualizado': user_id
             }
             }else if(this.statusAtual == 8){
       
-                var acoes = {
+                acoes = {
                 'id_obreiro': this.$store.state.Auth.userId,
                 'acao_obreiro': "Confirmou em Pós Atendimento",
                 'id_atualizado': user_id
-            }
+                }
+                
             }
 
             var dados = {}
@@ -360,7 +401,7 @@ export default {
     
     watch: {
         atendimento: {
-            handler: function (val, oldVal) {
+            handler: function () {
 
                 
 
@@ -390,7 +431,7 @@ export default {
         },
         id_atendimento: {
 
-            handler: function (val, oldVal) {
+            handler: function (val) {
                 this.atendimento = this.orientar.find(element => element.apometria[0].id == val);
 
                 this.atendimento.apometria[0].recomendacao_adotar = true
@@ -414,4 +455,61 @@ export default {
 .form-group {
     margin-bottom: 3.5px;
 }
+
+
+
+@media print {
+
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+
+
+    .form-group{
+        color: black;
+    }
+
+ .modal-dialog{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding:0;
+    display: block;
+     overflow-x: hidden;
+    overflow-y: auto;
+     visibility: visible;
+     opacity: 1;
+  }
+
+  .modal {
+    z-index: 9999;
+     visibility: visible;
+     opacity: 1;
+}
+
+    .modal-content{
+        opacity: 1;
+        position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    }
+
+    .modal-backdrop.show {
+    opacity: 0;
+}
+
+ 
+    
+}
+
+
+
 </style>

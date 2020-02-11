@@ -54,7 +54,12 @@ class User extends Authenticatable
         'como_soube',
         'indicacao',
         'nome_indicacao',   
-        'image',     
+        'image',    
+            
+        'livro_oqueeespiritismo',
+        'livro_ceueinferno',
+        'livro_genese',
+        'livro_nossolar',
     ];
 
     public $rules = [                

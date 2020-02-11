@@ -7,7 +7,8 @@
                 <div class="modal-container">
                     <div class="card">
                         <div class="card-header text-center">
-                            <h5>TERMO DO OBREIRO</h5>
+                            <h5 v-if="idade < 18">Termo de Adesão ao Serviço Voluntário - Menor</h5>
+                            <h5 v-else>Termo de Adesão ao Serviço Voluntário - Adulto</h5>
                         </div>
                      <div class="card-body">
                     <div class="modal-body">
@@ -338,6 +339,7 @@ export default {
         ...mapState({
             // userId: state => state.Auth.userId,
             user: state => state.Auth.user.data,
+            idade: state => state.Auth.user.data.idade,
             verificacao_termo_obreiro: state => state.Obreiros.verificacao_termo_obreiro,
         }),
         ...mapGetters([
