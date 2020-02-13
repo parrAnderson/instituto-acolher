@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-4">
                         Mantém prática de oração regular?
                     </div>
                     <div class="col">
@@ -125,10 +125,18 @@
                          <select name="encerramento_acolhido" id="encerramento_acolhido" class="form-control" v-model="atendimento.apometria[0].encerramento_tipo_oracao">
                             <option>Individual</option>
                             <option>Em Família</option>                            
+                            
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select name="" id="" class="form-control" v-model="atendimento.apometria[0].encerramento_tempo_oracao">
                             <option>Regular (Dia e horário)</option>
                             <option>Irregular</option>
                         </select>
                     </div>
+                </div>
+                <div class="row justify-content-end">
+                    
                 </div>
             </div>
         </div>

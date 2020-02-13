@@ -138,4 +138,5 @@ Route::group([
     Route::post('/obreiro', 'Emails\emailCadastroObreiroController@obreiroCadastro');
     Route::post('/dataatendimento', 'Emails\emailDataAtendimentoController@AtendimentoCadastrado');
     Route::post('/solicitacaoatendimentoapometria', 'Emails\emailSolicitacaoAtendimentoController@apometria');
+    Route::post('/encerramento', 'Emails\emailEncerramentoApometriaController@encerramento');
 });

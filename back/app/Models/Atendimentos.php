@@ -30,6 +30,7 @@ class Atendimentos extends Model
         $atendimentos = $atendimentos::find($id);
         $atendimentos->fill(['status' => $status]);      
         $atendimentos->save();
+        return($atendimentos);
     }
 
     public function put($request, $id){

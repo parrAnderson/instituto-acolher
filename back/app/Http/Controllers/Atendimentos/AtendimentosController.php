@@ -9,6 +9,7 @@ use App\Models\AtendimentosApometria;
 use DateTime;
 use App\User;
 use App\Http\Controllers\Emails\emailSolicitacaoAtendimentoController;
+use App\Http\Controllers\Emails\emailEncerramentoApometriaController;
 
 class AtendimentosController extends Controller
 {
@@ -142,6 +143,11 @@ class AtendimentosController extends Controller
     {
         $this->atendimentos = new Atendimentos();
         $this->atendimentos = $this->atendimentos->put($request, $id);
+
+      
+        
+        
+
         return($this->atendimentos);
     }
 

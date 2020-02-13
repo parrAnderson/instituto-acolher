@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 class emailConfirmacaoAtendimentoController extends Controller
 {
+  
     public function apometria($request){
         // return($request->data_agendada);
         $this->email = $request->email;

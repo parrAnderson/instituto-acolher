@@ -9,6 +9,7 @@ use App\Models\AtendimentosApometria;
 use DateTime;
 use App\User;
 use App\Http\Controllers\Emails\emailConfirmacaoAtendimentoController;
+use App\Http\Controllers\Emails\emailEncerramentoApometriaController;
 
 class AtendimentosApometriaController extends Controller
 {    
@@ -410,12 +411,16 @@ class AtendimentosApometriaController extends Controller
      */
     public function update(Request $request, $id)
     { 
+        
+        $this->notificacaoEmail = '';
         try{
             $this->atendimentosApometria = new AtendimentosApometria(); 
             $this->atendimentosApometria = $this->atendimentosApometria->put($request, $id);
             $this->atendimentos = new Atendimentos();
             $this->atendimentos = $this->atendimentos->updateStatus($request->status, $this->atendimentosApometria->atendimento_id);
-        
+            
+            
+
             if($request->status == 3){
                 $user = new User;
                 $users = $user->where('id', $request->user_id)->take(1)->get();
@@ -423,12 +428,23 @@ class AtendimentosApometriaController extends Controller
                     $email = new emailConfirmacaoAtendimentoController;
                     $user->data_agendada = date('d/m/Y', strtotime($request->data_agendada)) ;
                     $email = $email->apometria($user);
-
                 }
+            }
+       
+            if($request->status == 10){
+                $user = new User;
+                $users = $user->where('id', $this->atendimentos->user_id)->take(1)->get();
+                foreach($users as $user){
+                    $email = new emailEncerramentoApometriaController;
+                    $user->data_agendada = date('d/m/Y', strtotime($request->data_agendada)) ;
+                    $email = $email->encerramento($user);      
+                    $this->notificacaoEmail = $email;         
+                }            
             }
             
             return response()->json([
-                'data' =>  $this->atendimentosApometria ,         
+                'data' =>  $this->atendimentosApometria,    
+                
             ]);
     
         }catch(Exception $e ){

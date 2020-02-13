@@ -149,6 +149,7 @@ export default {
         },
 
         atualizarAtendimentoApometria(context, dados){
+            
             var acoes = dados.acoes
             var data = dados.data
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'atendimentosapometria/' + data.id;                        
@@ -159,6 +160,7 @@ export default {
                 )
                 
             .then(response => {
+                
                 context.commit('ATENDIMENTO_ATUALIZADO', response.data) 
                 
                            
