@@ -68,7 +68,7 @@ export default {
             console.log(val)
             var valAno = val.getFullYear(val)
             var valMes = val.getMonth() + 1
-            var valDia = val.getDate()
+            var valDia = val.getDate() + 1
 
            
 
