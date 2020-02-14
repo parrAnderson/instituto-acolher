@@ -10,18 +10,11 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 use DateTime;
 use App\Http\Controllers\Emails\emailCadastroController;
+use App\Models\UsersNiveisDeAcesso;
 
 class AuthController extends Controller
 {
-    /**
-     * Create user
-     *
-     * @param  [string] name
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [string] password_confirmation
-     * @return [string] message
-     */
+  
     public function signup(Request $request)
     {
 
@@ -55,6 +48,11 @@ class AuthController extends Controller
             ]);  
         }else{
             $request['password'] = Hash::make($request->password);
+
+            if($request['type'] == 0){
+                $request['type'] = 1;
+            }
+             
             // $request['data_nascimento'] =  date($request['data_nascimento']);
             $now = new \DateTime();
             
@@ -89,16 +87,7 @@ class AuthController extends Controller
         
     }
   
-    /**
-     * Login user and create token
-     *
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [boolean] remember_me
-     * @return [string] access_token
-     * @return [string] token_type
-     * @return [string] expires_at
-     */
+    
     public function login(Request $request)
     {
         $request->validate([
@@ -126,11 +115,7 @@ class AuthController extends Controller
         ]);
     }
   
-    /**
-     * Logout user (Revoke the token)
-     *
-     * @return [string] message
-     */
+   
     public function logout(Request $request)
     {
         $request->user()->token()->revoke();
@@ -153,6 +138,11 @@ class AuthController extends Controller
                 
                     $request->user()->idade = $interval;
 
+                  
+                        $this->niveisDeAcesso = new UsersNiveisDeAcesso();
+                        $this->niveisDeAcesso = $this->niveisDeAcesso->where('id', $request->user()->type)->take(1)->get();
+                        $request->user()->nivel_de_acesso = $this->niveisDeAcesso;
+                   
 
         return response()->json($request->user());
     }

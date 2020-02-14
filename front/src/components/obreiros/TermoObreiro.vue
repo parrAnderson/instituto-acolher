@@ -15,10 +15,10 @@ E-mail:{{user.email}}<br><br>
 
 3) Por este termo o voluntário acima qualificado, nos termos da Lei n.º 9.608, de 18 de fevereiro de 1998 e alterações, se compromete a prestar serviços voluntários em prol da instituição beneficiária acima qualificada, em suas dependências, conforme características, especialmente nos dias e horários discriminados no quadro abaixo:
 <br><br>
-Dia da semana:
-Hora:
-Local:
-Características do serviço:
+Dia da semana: {{user.nivel_de_acesso[0].data}}<br>
+Hora: {{user.nivel_de_acesso[0].hora_inicio}}h às {{user.nivel_de_acesso[0].hora_fim}}h <br>
+Local:<br>
+Características do serviço: {{user.nivel_de_acesso[0].nome}}<br>
 
 
 <br><br>

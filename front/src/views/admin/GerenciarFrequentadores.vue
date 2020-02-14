@@ -18,32 +18,19 @@
                         <tr>
                             <th>ID</th>
                             <th>NOME</th>
-                            <th>TIPO</th>                            
+                            <th>TIPO</th>  
+                                                
                             <th>EDITAR TIPO</th>
                         </tr>
                         <tr v-for="frequentador in frequentadores">
                             <td>{{frequentador.id}}</td>
                             <td>{{frequentador.name}}</td>
                             <td>
-                                <p v-if="frequentador.type == 0">
-                                    FREQUENTADOR
-                                </p>
-                                <p v-else-if="frequentador.type == 1">
-                                    ADMIN
-                                </p>
-                                <p v-else-if="frequentador.type == 2">
-                                    OBREIRO - TODOS ATENDIMENTOS
-                                </p>
-                                <p v-else-if="frequentador.type == 3">
-                                    OBREIRO - APOMETRIA
-                                </p>
-                                <p v-else-if="frequentador.type == 4">
-                                    OBREIRO - LUZ
-                                </p>
-                                <p v-else-if="frequentador.type == 5">
-                                    OBREIRO - PASSES
-                                </p>
-                            </td>
+                                <p>
+                                    {{frequentador.nivel_de_acesso[0].nome}}
+                                </p>                                
+                            </td>     
+                                                   
                             <td>
                                 <div class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @click="openModal(frequentador.id, frequentador.type, frequentador.obreiro)">EDITAR</div>
                             </td>

@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'niveisdeacesso'
+], function () {
+    Route::get('/', 'Users\NiveisDeAcessoController@index');
+    Route::get('/seed', 'Users\NiveisDeAcessoController@seed');
+
+});
+
 Route::group([
     'middleware' => 'api',
     'prefix' => 'imagem'

@@ -26,6 +26,9 @@
                             <th>ID</th>
                             <th>NOME</th>
                             <th>TIPO</th>
+                            <th>DATA</th> 
+                            <th>HORA INICIO</th>   
+                            <th>HORA FIM</th>  
                             <th>NÚMERO OBREIRO</th>
                             <th>EDITAR TIPO</th>
                             <th>EDITAR DATA</th>
@@ -35,25 +38,25 @@
                             <td>{{obreiro.id}}</td>
                             <td>{{obreiro.name}}</td>
                             <td>
-                                <p v-if="obreiro.type == 0">
-                                    FREQUENTADOR
-                                </p>
-                                <p v-else-if="obreiro.type == 1">
-                                    ADMIN
-                                </p>
-                                <p v-else-if="obreiro.type == 2">
-                                    OBREIRO - TODOS ATENDIMENTOS
-                                </p>
-                                <p v-else-if="obreiro.type == 3">
-                                    OBREIRO - APOMETRIA
-                                </p>
-                                <p v-else-if="obreiro.type == 4">
-                                    OBREIRO - LUZ
-                                </p>
-                                <p v-else-if="obreiro.type == 5">
-                                    OBREIRO - PASSES
-                                </p>
+                                <p>
+                                    {{obreiro.nivel_de_acesso[0].nome}}
+                                </p>  
                             </td>
+                            <td>
+                                <p>
+                                    {{obreiro.nivel_de_acesso[0].data}}
+                                </p>                                
+                            </td>  
+                            <td>
+                                <p>
+                                    {{obreiro.nivel_de_acesso[0].hora_inicio}}
+                                </p>                                
+                            </td>  
+                            <td>
+                                <p>
+                                    {{obreiro.nivel_de_acesso[0].hora_fim}}
+                                </p>                                
+                            </td>  
                             <td>
                                 {{obreiro.obreiro}}
                             </td>

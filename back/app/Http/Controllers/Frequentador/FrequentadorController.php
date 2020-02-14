@@ -6,15 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Http\Controllers\Emails\emailCadastroObreiroController;
+use App\Models\UsersNiveisDeAcesso;
+
 
 class FrequentadorController extends Controller
 {
     public function index(){
-        $user = new User();
-        $user = $user->where('type', '<', 1)->get();
+        $users = new User();
+        $users = $users->where('type', '<', 2)->get();
+
+        
+
+        foreach($users as $user){
+            // dd($user->type);
+            $this->niveisDeAcesso = new UsersNiveisDeAcesso();
+            $this->niveisDeAcesso = $this->niveisDeAcesso->where('id', $user->type)->take(1)->get();
+            $user->nivel_de_acesso = $this->niveisDeAcesso;
+        }
 
         return response()->json([
-            'data' => $user              
+            'data' => $users             
         ]);
     }
     public function edit($id){
