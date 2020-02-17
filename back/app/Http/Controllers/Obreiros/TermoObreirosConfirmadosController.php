@@ -58,19 +58,15 @@ class TermoObreirosConfirmadosController extends Controller
      */
     public function show($id)
     {
+        
         $termos = new TermoObreirosConfirmados;
-        $termos = $termos->where('id_user', $id)->where('termo', 1)->count();
+        $termos = $termos->where('id_user', $id)->where('termo', 1)->orderBy('id', 'desc')->take(1)->get();
         return response()->json([
             'data' => $termos,  
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function edit($id)
     {
         //
@@ -85,7 +81,19 @@ class TermoObreirosConfirmadosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $termos = new TermoObreirosConfirmados;
+            $termos = $termos->put($request, $id);
+            
+            return response()->json([
+                'data' =>  $termos             
+            ]);
+
+    }catch(Exception $e ){
+        return response()->json([
+            'data' => $e,  
+        ]);
+    }
     }
 
     /**

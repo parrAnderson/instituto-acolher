@@ -49,7 +49,7 @@ Route::group([
     
     Route::post('termo', 'Obreiros\TermoObreirosConfirmadosController@store');
     Route::get('termo/{id}', 'Obreiros\TermoObreirosConfirmadosController@show');
-
+    Route::put('termo/{id}', 'Obreiros\TermoObreirosConfirmadosController@update');
    
 });
 

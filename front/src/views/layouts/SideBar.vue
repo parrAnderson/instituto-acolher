@@ -352,9 +352,13 @@ export default {
     methods: {
          confirmarTermo(){
             var data = {}
-              data.id_user = this.user.id
-              data.termo = 1
+              data.id = this.verificacao_termo_obreiro.id
+
+                var dataAtual = new Date();
+                
+              data.data_confirmado = dataAtual
               this.confirmarTermoObreiro(data)
+              this.showModal = false
         },
         ...mapActions([
             'logout',
@@ -365,18 +369,21 @@ export default {
     watch: {
        
         verificacao_termo_obreiro() {
-
-            if (this.verificacao_termo_obreiro < 1) {
-                this.showModal = true
-            }else{
+            if(this.verificacao_termo_obreiro){
+                if ((this.verificacao_termo_obreiro.data_confirmado !== '') && this.verificacao_termo_obreiro.data_confirmado !== null) {
                 this.showModal = false
+            }else{
+                this.showModal = true
             }
+            }
+            
         },
         user: {
 
             handler: function (val, oldVal) {
-                if (this.user.type > 0) {
+                if (this.user.type > 1) {
                     this.verificarTermoObreiro(this.user.id)
+                    return('verificando termo do obreiro'); 
                 }
 
             },

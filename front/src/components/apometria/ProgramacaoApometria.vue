@@ -275,7 +275,7 @@ export default {
                 day: '2-digit'
             };
             var today = new Date(value);
-            var today = today.setDate(today.getDate());
+            var today = today.setDate(today.getDate() + 1);
             var date1 = new Date(today).toLocaleDateString("pt-BR", options)
             return date1
         },

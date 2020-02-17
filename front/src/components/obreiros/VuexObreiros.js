@@ -37,21 +37,23 @@ export default {
     },
     actions: { 
         confirmarTermoObreiro(context, data){
-            let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'obreiros/termo';                        
+            let urlApi = process.env.VUE_APP_LARAVEL_API_URL + 'obreiros/termo/' + data.id;
+                                
             axios
-            .post(
+            .put(
                 urlApi, 
                 data
                 )                            
             .then(response => {                
                 context.commit('OBREIRO_TERMO_CONFIRMADO', response.data.data)   
-                context.dispatch('verificarTermoObreiro', data.id_user)                           
+                context.dispatch('verificarTermoObreiro', data.id)                           
             })                           
             .catch(function (error) {
                 console.log(error.response);
             }); 
         },
         verificarTermoObreiro(context, id){
+            console.log("vuex Verificando")
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL;                        
             axios
             axios({
@@ -60,7 +62,7 @@ export default {
             })             
             .then(response => {
                
-                context.commit('VERIFICAO_TERMO_OBREIRO', response.data.data)                    
+                context.commit('VERIFICAO_TERMO_OBREIRO', response.data.data[0])                    
             })                           
             .catch(function (error) {
                 console.log(error.response);

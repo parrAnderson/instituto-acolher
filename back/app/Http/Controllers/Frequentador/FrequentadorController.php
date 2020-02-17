@@ -8,6 +8,8 @@ use App\User;
 use App\Http\Controllers\Emails\emailCadastroObreiroController;
 use App\Models\UsersNiveisDeAcesso;
 
+use App\Models\TermoObreirosConfirmados;
+
 
 class FrequentadorController extends Controller
 {
@@ -43,10 +45,18 @@ class FrequentadorController extends Controller
             $user = new User();
             $user = $user->put($request, $id);
 
-            if($request->type > 0){              
+            if($request->type > 1){              
             
                 $email = new emailCadastroObreiroController;                       
                 $email = $email->obreiroCadastro($user);
+
+                $termos = new TermoObreirosConfirmados;
+                
+                $termos = $termos->create(['id_user' => $id, 'termo' => 1]);
+                    $termos->save();   
+
+                
+
             }
 
 
