@@ -55,7 +55,7 @@ export default {
 
             var obreiroType = dados.obreiroType
             var obreiroId = dados.obreiroId
-            console.log(obreiroType)
+            
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({

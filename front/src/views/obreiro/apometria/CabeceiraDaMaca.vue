@@ -275,7 +275,7 @@
 
                                             <p v-show="false">{{obreiroSelect[atendimento.apometria[0].id] = atendimento.apometria[0].obreiro_cabeceira}}</p>
 
-                                            <select v-model="obreiroSelect[atendimento.apometria[0].id]" @change="mudarObreiroCabeceira(obreiroSelect[atendimento.apometria[0].id], atendimento.apometria[0].id)">
+                                            <select v-model="obreiroSelect[atendimento.apometria[0].id]" @change="mudarObreiroCabeceira(obreiroSelect[atendimento.apometria[0].id], atendimento.apometria[0].id, atendimento.user_id)">
                                 
                                                 <option  v-for="obreiro in obreiros" :value="obreiro.id" :key="obreiro.id" >{{obreiro.name}}</option>
     
@@ -337,6 +337,7 @@ export default {
             showModal: false,
             dadosCancelamento: {},
             dadosConfirmar: {},
+            dadosConfirmarObreiroCabeceira:{},
             getData: new Date().toISOString().slice(0,10),
             getMaca: 0,
             statusAtual: 7,
@@ -427,8 +428,27 @@ obreiros: state => state.Obreiros.obreiros,
         }),
     },
     methods: {
-        mudarObreiroCabeceira(obreiroCabeceiraId, atendimentoId){
-            console.log(obreiroCabeceiraId + ' - ' + atendimentoId)
+        mudarObreiroCabeceira(obreiroCabeceiraId, id_atendimento_apometria, user_id){
+             this.dadosConfirmarObreiroCabeceira = {}
+            this.dadosConfirmarObreiroCabeceira.id = id_atendimento_apometria
+            this.dadosConfirmarObreiroCabeceira.obreiro_cabeceira = obreiroCabeceiraId
+            this.dadosConfirmarObreiroCabeceira.status = this.statusAtual
+            
+
+            var acoes = {
+                'id_obreiro': this.$store.state.Auth.userId,
+                'acao_obreiro': "Mudou o Obreiro Cabeceira",
+                'id_atualizado': user_id
+            }
+
+            var dadosObreiroCabeceira = {}
+            dadosObreiroCabeceira.acoes = acoes
+            dadosObreiroCabeceira.data = this.dadosConfirmarObreiroCabeceira
+
+            this.atualizarAtendimentoApometria(dadosObreiroCabeceira)
+
+
+
 
         },
         abrirOrientacao(id){
