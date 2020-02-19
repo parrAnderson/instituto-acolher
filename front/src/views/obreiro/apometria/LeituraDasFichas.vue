@@ -104,9 +104,9 @@
                         </span>
                     </div>
                 </div>
-                <div class="col text-right">
+                <div class="col text-right" v-if="user">
                     <select v-model="getMaca">
-                        <option value="">Maca</option>
+                        <option value="0">Macas</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -178,6 +178,9 @@
                                             ATEND. ESPECIAL
                                         </th>
                                         <th>
+                                            MACA
+                                        </th>
+                                        <th>
                                             FICHA
                                         </th>
                                     </tr>
@@ -246,7 +249,9 @@
                                             <p v-if="atendimento.apometria[0].atendimento_prioritario == true">Prioritário</p>
 
                                         </td>
-
+                                        <td>
+                                            {{atendimento.apometria[0].maca}}
+                                        </td>
                                         <td>
                                     <div class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalFichaFrequentador" @click="idFichaFrequentador = atendimento.user[0].id">FICHA</div>
                                         </td>
@@ -286,8 +291,8 @@ export default {
             showModal: false,
             dadosCancelamento: {},
             dadosConfirmar: {},
-            getData: "",
-            getMaca: "",
+            getData: new Date().toISOString().slice(0,10),
+            getMaca: 0,
             idFichaFrequentador: null,
         }
     },
@@ -353,8 +358,8 @@ export default {
 
     },
     beforeMount() {
-        this.getData = new Date().toISOString().slice(0,10);
-        this.getMaca = 1
+        // this.getData = new Date().toISOString().slice(0,10);
+      
         this.getDadosAtendimento()
     },
     computed: {
@@ -362,7 +367,7 @@ export default {
             dataCkeckIn: state => state.AtendimentoApometria,
             programacao: state => state.AtendimentoApometria.programacao,
             dataAgendada: state => state.AtendimentoApometria.dataAgendada,
-
+            user: state => state.Auth.user.data,
             cancelado: state => state.AtendimentoApometria.cancelado,
 
         }),
@@ -375,7 +380,13 @@ export default {
             dados.maca = this.getMaca
             dados.data = this.getData
             
+            if(this.user){
+                dados.obreiroType = this.user.type
+            dados.obreiroId = this.user.id
+         
+            
             this.getListaLeituraDasFichas(dados)
+            }
         },
         ...mapActions([
             'getListaLeituraDasFichas',
@@ -437,23 +448,34 @@ export default {
 
     },
     watch: {
-        getMaca() {
+        user(){
             this.getDadosAtendimento()
         },
+        getMaca() {
+            if(this.user){
+                this.getDadosAtendimento()
+            }
+        },
         getData() {
-            this.getDadosAtendimento()
+            if(this.user){
+                this.getDadosAtendimento()
+            }
         },
 
         cancelado: {
             handler: function (val, oldVal) {
+                if(this.user){
                 this.getDadosAtendimento()
+            }
             },
 
             deep: true
         },
         listaGerada: {
             handler: function (val, oldVal) {
+                if(this.user){
                 this.getDadosAtendimento()
+            }
             },
 
             deep: true

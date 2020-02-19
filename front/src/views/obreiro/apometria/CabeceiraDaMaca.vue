@@ -112,17 +112,24 @@
                     <h4 class="text-center">CABECEIRA DA MACA</h4>
                 </div>
             </div>
+            <div class="row" v-if="$acl.check('isAdmin')">
+                <div class="col text-center">
+                     <p class=" text-primary"> Administradores podem ver as macas de todos os obreiros</p>
+                </div>
+            </div>
             <div class="row">
-                <div class="row row-space">
+                <div class="row ">
                     <div class="col-12">
                         <span class="text-danger text-bold">
                             DATA: <input type="date" v-model="getData">
                         </span>
                     </div>
                 </div>
-                <div class="col text-right">
+                
+                <div class="col text-right" v-if="user">
+                   
                     <select v-model="getMaca">
-                        <option value="">Maca</option>
+                        <option value="0">Macas</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -188,6 +195,12 @@
                                         </th>
                                         <th>
                                             ATEND. ESPECIAL
+                                        </th>
+                                        <th>
+                                            OBR. CABECEIRA
+                                        </th>
+                                        <th>
+                                            MACA
                                         </th>
                                         <th>
                                             FICHA
@@ -258,6 +271,27 @@
                                             <p v-if="atendimento.apometria[0].atendimento_prioritario == true">Prioritário</p>
 
                                         </td>
+                                        <td v-if="$acl.check('isAdmin')">
+
+                                            <p v-show="false">{{obreiroSelect[atendimento.apometria[0].id] = atendimento.apometria[0].obreiro_cabeceira}}</p>
+
+                                            <select v-model="obreiroSelect[atendimento.apometria[0].id]" @change="mudarObreiroCabeceira(obreiroSelect[atendimento.apometria[0].id], atendimento.apometria[0].id)">
+                                
+                                                <option  v-for="obreiro in obreiros" :value="obreiro.id" :key="obreiro.id" >{{obreiro.name}}</option>
+    
+                                            </select>
+                                        </td>
+                                        <td v-else>
+                                            <select>
+                                            
+                                                <option  v-for="obreiro in obreiros" :value="obreiro.id" :key="obreiro.id" v-if="atendimento.apometria[0].obreiro_cabeceira == obreiro.id">{{obreiro.name}}</option>
+                                            
+                                            </select>
+                                            
+                                        </td>
+                                        <td>
+                                            {{atendimento.apometria[0].maca}}
+                                        </td>
 
                                         <td>
                                             <div class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalFichaFrequentador" @click="idFichaFrequentador = atendimento.user[0].id">FICHA</div>
@@ -303,11 +337,12 @@ export default {
             showModal: false,
             dadosCancelamento: {},
             dadosConfirmar: {},
-            getData: "",
-            getMaca: "",
+            getData: new Date().toISOString().slice(0,10),
+            getMaca: 0,
             statusAtual: 7,
             idPAraOrientacao: 0,
             idFichaFrequentador: null,
+            obreiroSelect:{},
         }
 
     },
@@ -374,10 +409,10 @@ export default {
 
     },
     beforeMount() {       
-        this.getData = new Date().toISOString().slice(0,10);
+    //     this.getData = new Date().toISOString().slice(0,10);
         
-    this.getMaca = 1
-    
+    // this.getMaca = 0
+    this.getAllObreiros(); 
         this.getDadosAtendimento()
     },
     computed: {
@@ -385,23 +420,33 @@ export default {
             dataCkeckIn: state => state.AtendimentoApometria,
             programacao: state => state.AtendimentoApometria.programacao,
             dataAgendada: state => state.AtendimentoApometria.dataAgendada,
-
+            user: state => state.Auth.user.data,
             cancelado: state => state.AtendimentoApometria.cancelado,
+obreiros: state => state.Obreiros.obreiros,     
 
         }),
     },
     methods: {
+        mudarObreiroCabeceira(obreiroCabeceiraId, atendimentoId){
+            console.log(obreiroCabeceiraId + ' - ' + atendimentoId)
+
+        },
         abrirOrientacao(id){
             this.idPAraOrientacao = id
         },
         getDadosAtendimento() {
-            var dados = {}
+            if(this.user){
+                var dados = {}
             dados.status = this.statusAtual
             dados.tipostatus = '='
             dados.maca = this.getMaca
             dados.data = this.getData
+
+            dados.obreiroType = this.user.type
+            dados.obreiroId = this.user.id
             
             this.getListaLeituraDasFichas(dados)
+            }
         },
         ...mapActions([
             'getListaLeituraDasFichas',
@@ -409,6 +454,7 @@ export default {
             'changeShowModalDataPicker',
             'gerarListaDeAtendimentos',
             'atualizarAtendimentoApometria',
+            'getAllObreiros',
         ]),
 
         modalDataPicker(atendimento) {
@@ -463,23 +509,34 @@ export default {
 
     },
     watch: {
+        user(){
+            this.getDadosAtendimento()
+        },
         getMaca(){
-            this.getDadosAtendimento()           
+           if(this.user){
+                this.getDadosAtendimento()
+            }      
         },
         getData(){
-            this.getDadosAtendimento()           
+           if(this.user){
+                this.getDadosAtendimento()
+            }        
         },
 
         cancelado: {
             handler: function (val, oldVal) {
+                if(this.user){
                 this.getDadosAtendimento()
+            }
             },
 
             deep: true
         },
         listaGerada: {
             handler: function (val, oldVal) {
+                if(this.user){
                 this.getDadosAtendimento()
+            }
             },
 
             deep: true

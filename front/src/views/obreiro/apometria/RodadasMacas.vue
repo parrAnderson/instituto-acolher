@@ -121,6 +121,9 @@
                                         <th>
                                             MACA
                                         </th>
+                                        <th>
+                                            OBR. CABECEIRA
+                                        </th>
                                         <th class="no-print">
                                             FICHA
                                         </th>
@@ -211,6 +214,14 @@
                                             </select>
                                         </td>
                                         <td>
+                                            <!-- colocar select com o id -->
+                                            <select v-model="obreiroCabeceiraSelect[atendimento.apometria[0].id]">
+                                                <option></option>
+                                                <option v-for="obreiro in obreiros" :value="obreiro.id" :key="obreiro.id">{{obreiro.name}}</option>
+                                            
+                                            </select>
+                                        </td>
+                                        <td>
                                     <div class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalFichaFrequentador" @click="idFichaFrequentador = atendimento.user[0].id">FICHA</div>
                                         </td>
 
@@ -286,6 +297,7 @@ export default {
             ArrayRodadasMacas: {},
             rodadaSelect: {},
             macaSelect: {},
+            obreiroCabeceiraSelect:{},
             macaAnteriorSelecionada: {},
             rodadaSelectAnterior: {},
             classCor: {},
@@ -367,6 +379,8 @@ export default {
         this.classCor = {}
         this.enderecosCor = {}
 
+        this.getAllObreiros(); 
+
         this.getMacasDisponiveis(this.getData)
 
         this.getDadosAtendimento()
@@ -381,6 +395,8 @@ export default {
             cancelado: state => state.AtendimentoApometria.cancelado,
             enderecosRepetidos: state => state.AtendimentoApometria.enderecos_repetidos,
             rodadas_macas_disponiveis: state => state.AtendimentoApometria.rodadas_macas_disponiveis,
+
+            obreiros: state => state.Obreiros.obreiros,     
 
         }),
     },
@@ -466,6 +482,7 @@ export default {
             'getMacasDisponiveis',
             'remover_rodadas_macas',
             'adicionar_rodadas_macas',
+            'getAllObreiros',
             // 'allAtendimentoApometria',
         ]),
 
@@ -480,6 +497,7 @@ export default {
             this.dadosConfirmar.casa = this.casaBtn[id_atendimento_apometria]
             this.dadosConfirmar.atendimento_especial = this.atendimentoEspecial[id_atendimento_apometria]
             this.dadosConfirmar.atendimento_prioritario = this.atendimentoPrioritario[id_atendimento_apometria]
+            this.dadosConfirmar.obreiro_cabeceira = this.obreiroCabeceiraSelect[id_atendimento_apometria]
 
             this.dadosConfirmar.id = id_atendimento_apometria
             this.dadosConfirmar.status = 5
@@ -493,7 +511,7 @@ export default {
             var dados = {}
             dados.acoes = acoes
             dados.data = this.dadosConfirmar
-            if (this.macaSelect[id_atendimento_apometria]) {
+            if (this.macaSelect[id_atendimento_apometria] && this.obreiroCabeceiraSelect[id_atendimento_apometria]) {
                 this.atualizarAtendimentoApometria(dados)
                 this.dadosConfirmar = {}
                 this.getDadosAtendimento()

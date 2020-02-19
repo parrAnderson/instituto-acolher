@@ -69,6 +69,7 @@ class AtendimentosApometria extends Model
             'encerramento_tempo_oracao',
 
             'data_retorno',
+            'obreiro_cabeceira',
     ];
 
     public function Atendimentos(){

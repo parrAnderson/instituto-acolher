@@ -53,11 +53,14 @@ export default {
             var maca = dados.maca
             var tipostatus = dados.tipostatus
 
+            var obreiroType = dados.obreiroType
+            var obreiroId = dados.obreiroId
+            console.log(obreiroType)
             let urlApi = process.env.VUE_APP_LARAVEL_API_URL
             
             axios({
                 method: 'get',
-                url: urlApi + 'atendimentosapometria/atendimentocomdatastatusmaca/' + data + '/' + status + '/' + maca + '/' + tipostatus,               
+                url: urlApi + 'atendimentosapometria/atendimentocomdatastatusmaca/' + data + '/' + status + '/' + maca + '/' + tipostatus + '/' + obreiroType + '/' + obreiroId,               
             })
             .then(response => {
                 commit('ALL_ATENDIMENTO_APOMETRIA', response.data.data)     

@@ -13,7 +13,7 @@ use App\Http\Controllers\Emails\emailEncerramentoApometriaController;
 
 class AtendimentosApometriaController extends Controller
 {    
-    public function getAtendimentosApometriaComDataStatusMaca($data, $status, $maca, $tipostatus)
+    public function getAtendimentosApometriaComDataStatusMaca($data, $status, $maca, $tipostatus, $obreirotype, $obreiroid)
     {
         
         $this->atendimentos = new Atendimentos();
@@ -24,10 +24,19 @@ class AtendimentosApometriaController extends Controller
         foreach($this->atendimentos as $atendimento){           
             $user = $atendimento->User()->get();
             $this->atendimentosApometria = new AtendimentosApometria();
-            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)            
+            $atendimentosApometria = $this->atendimentosApometria->where('atendimento_id', $atendimento->id)
+                      
             ->orderBy('id', 'desc')
+            
             ->take(1)
             ->get();
+
+            if($obreirotype != 2){
+                $atendimentosApometria = $atendimentosApometria->where('obreiro_cabeceira', $obreiroid);
+
+            }
+            
+              
 
             $atendimento->apometria = $atendimentosApometria;
             $atendimento->user  = $user; 
@@ -51,9 +60,23 @@ class AtendimentosApometriaController extends Controller
             }
         }
         
+       if($maca == 0){
         $this->atendimentos = $this->atendimentos
         ->where('data_agendada', $data)
-        ->where('maca', $maca);
+       
+        ;
+       }else{
+        $this->atendimentos = $this->atendimentos
+        ->where('data_agendada', $data)
+        
+        ->where('maca', $maca)
+        
+        ;
+       }
+
+       
+
+       
      
         
         $this->atendimentos = $this->atendimentos->sortBy('id')->values();

@@ -40,9 +40,9 @@ export default new AclCreate({
     isObreiroEvangelho: new AclRule('7').or('3').or('2').generate(),
 
     isObreiroDialogoFraterno: new AclRule('8').or('3').or('2').generate(),
-    isObreiroApometria: new AclRule('9').or('3').or('2').generate(),
-    isObreiroKardecismoBasico: new AclRule('10').or('3').or('2').generate(),
-    isObreiroKardecismoAvancado: new AclRule('11').or('3').or('2').generate(),
+    isSemarApometria: new AclRule('9').or('3').or('2').generate(),
+    isSemearKardecismoBasico: new AclRule('10').or('3').or('2').generate(),
+    isSemearKardecismoAvancado: new AclRule('11').or('3').or('2').generate(),
 
     isPublic: new AclRule('public').or('1')
     .or('2').or('3').or('4').or('5').or('6').or('7').or('8').or('9').or('10').or('11').generate(),
