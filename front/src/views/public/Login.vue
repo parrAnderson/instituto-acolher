@@ -20,7 +20,9 @@
 
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>Esqueceu a senha?</p>
+                                            <a :href="resetLink">
+                                                <p>Esqueceu a senha?</p>
+                                            </a>
                                         </div>
                                         <div class="col-6 text-center">
                                             <button v-show="!userId && btnLogin" class="btn btn-block btn-primary btn-sm" @click="logar()">
@@ -72,6 +74,7 @@ export default {
         return {
             //  urlApi: process.env.LARAVEL_APP_API_URL,
             appTitle: process.env.VUE_APP_TITLE,
+            resetLink: process.env.VUE_APP_LARAVEL_RESET_URL,
             inputs: {},
             status: "",
             btnLogin: true,

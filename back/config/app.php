@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Acolher'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost/acolher/back/public'),
+    
+    'urlfront' => env('APP_URLFRONT', 'http://localhost:8080'),
 
     'asset_url' => env('ASSET_URL', null),
 
