@@ -1,2 +1,7 @@
 /back/.env
 /back/.htaccess
+back/.env
+	front/.env.development
+        front/.env.production
+/front/.env.development
+/front/.env.production
